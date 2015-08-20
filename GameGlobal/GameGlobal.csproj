@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56DC58D6-46BC-4F4A-A7CF-D3D23EC2A831}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>GameGlobal</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\WorldOfTheThreeKingdoms\bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\WorldOfTheThreeKingdoms\bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="GameGlobal\FileEncryptor.cs" />
+    <Compile Include="GameGlobal\ZhandouZhuangtai.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="GameGlobal\GlobalVariables.cs" />
+    <Compile Include="GameGlobal\MapLayerKind.cs" />
+    <Compile Include="GameGlobal\MapViewSelectorKind.cs" />
+    <Compile Include="GameGlobal\MouseArrowKind.cs" />
+    <Compile Include="GameGlobal\ArchitectureWorkKind.cs" />
+    <Compile Include="GameGlobal\TerrainKind.cs" />
+    <Compile Include="GameGlobal\MapVeilKind.cs" />
+    <Compile Include="GameGlobal\InformationLevel.cs" />
+    <Compile Include="GameGlobal\TileFrameKind.cs" />
+    <Compile Include="GameGlobal\RoutewayState.cs" />
+    <Compile Include="GameGlobal\UndoneWorkKind.cs" />
+    <Compile Include="GameGlobal\UndoneWorkSubKind.cs" />
+    <Compile Include="GameGlobal\SelectingUndoneWorkKind.cs" />
+    <Compile Include="GameGlobal\FrameKind.cs" />
+    <Compile Include="GameGlobal\DialogKind.cs" />
+    <Compile Include="GameGlobal\DialogResult.cs" />
+    <Compile Include="GameGlobal\TransportKind.cs" />
+    <Compile Include="GameGlobal\SimpleDirection.cs" />
+    <Compile Include="GameGlobal\ShowPosition.cs" />
+    <Compile Include="GameGlobal\ContextMenuKind.cs" />
+    <Compile Include="GameGlobal\FrameFunction.cs" />
+    <Compile Include="GameGlobal\FrameResult.cs" />
+    <Compile Include="GameGlobal\ContextMenuResult.cs" />
+    <Compile Include="GameGlobal\GameDelegates.cs" />
+    <Compile Include="GameGlobal\GlobalStrings.cs" />
+    <Compile Include="GameGlobal\StaticMethods.cs" />
+    <Compile Include="GameGlobal\Parameters.cs" />
+  </ItemGroup>
+</Project>

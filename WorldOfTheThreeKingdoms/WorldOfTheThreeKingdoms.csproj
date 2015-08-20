@@ -1,0 +1,277 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectGuid>{2E2F316D-58E4-4D37-A6D5-2918AF7CBEBB}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorldOfTheThreeKingdoms</RootNamespace>
+    <AssemblyName>WorldOfTheThreeKingdoms</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <XnaFrameworkVersion>v3.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaCrossPlatformGroupID>b6d7035f-f472-4c6b-9e40-106c62ae43b1</XnaCrossPlatformGroupID>
+    <ApplicationIcon>Qita\game.ico</ApplicationIcon>
+    <Thumbnail>
+    </Thumbnail>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GameFreeText, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\GameFreeText.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GameGlobal, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>yinyong\GameGlobal.DLL</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Interop.WMPLib.DLL</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86">
+      <Private>False</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PluginServices, Version=1.0.1.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>PluginServices\obj\x86\Debug\PluginServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Chuangkou\formAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chuangkou\formAbout.Designer.cs">
+      <DependentUpon>formAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullScreenHelper.cs" />
+    <Compile Include="Qita\MapTile.cs" />
+    <Compile Include="TiShiText.cs" />
+    <Compile Include="TuCengHeTupian\ArchitectureLayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Chuangkou\formMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chuangkou\formOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chuangkou\formSelectSaveFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chuangkou\formSelectScenario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chajian\GamePlugin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuCengHeTupian\GameTextures.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Chuangkou\jiazaitishichuangkou.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chuangkou\jiazaitishichuangkou.Designer.cs">
+      <DependentUpon>jiazaitishichuangkou.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YouxiJincheng\MainGame.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="YouxiPingmu\MGSContextMenu.cs" />
+    <Compile Include="YouxiPingmu\MainGameScreen.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuCengHeTupian\MainMapLayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="YouxiJincheng\MainProcessManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuCengHeTupian\MapVeilLayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="YouxiJincheng\Program.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qita\Resources.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuCengHeTupian\RoutewayLayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="YouxiPingmu\ScreenManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuCengHeTupian\SelectingLayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Qita\Tile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuCengHeTupian\TileAnimationLayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TuCengHeTupian\TroopLayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Qita\ViewMove.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="YouxiPingmu\MGSDate.cs" />
+    <Compile Include="YouxiPingmu\MGSPersonText.cs" />
+    <Compile Include="YouxiPingmu\MGSshubiao.cs" />
+    <Compile Include="YouxiPingmu\MGSStartLoad.cs" />
+    <Compile Include="YouxiPingmu\MGSKeys.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Qita\game.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <NestedContentProject Include="Content\Content.contentproj">
+      <Project>eff991be-a2f6-4b95-8b6d-4db4b0e95d06</Project>
+      <Visible>False</Visible>
+    </NestedContentProject>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 3.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Chuangkou\formAbout.resx">
+      <DependentUpon>formAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuangkou\formMainMenu.resx">
+      <DependentUpon>formMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuangkou\formOptions.resx">
+      <DependentUpon>formOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuangkou\formSelectSaveFile.resx">
+      <DependentUpon>formSelectSaveFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chuangkou\jiazaitishichuangkou.resx">
+      <DependentUpon>jiazaitishichuangkou.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameObjects\GameObjects.csproj">
+      <Project>{BB0FAD70-2894-44D2-A6EB-F7FD876B0FDA}</Project>
+      <Name>GameObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="PluginInterface\PluginInterface.csproj">
+      <Project>{2DA0B513-64BF-4FB8-8775-1C9A5F6C9B21}</Project>
+      <Name>PluginInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BB0FAD70-2894-44D2-A6EB-F7FD876B0FDA}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>GameObjects</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\WorldOfTheThreeKingdoms\bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\WorldOfTheThreeKingdoms\bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="GameObjects\Architecture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1600.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1601.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2000.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2010.cs" />
+    <Compile Include="GameObjects\guanjuelei.cs" />
+    <Compile Include="GameObjects\guanjuezhongleilei.cs" />
+    <Compile Include="GameObjects\guanjuezhongleibiao.cs" />
+    <Compile Include="GameObjects\qizi.cs" />
+    <Compile Include="GameObjects\zainanlei.cs" />
+    <Compile Include="GameObjects\zainanzhongleibiao.cs" />
+    <Compile Include="GameObjects\zainanzhongleilei.cs" />
+    <Compile Include="GameObjects\Global.cs" />
+    <Compile Include="GameObjects\TroopDetail\MilitaryType.cs" />
+    <Compile Include="GameObjects\GameObjectList.cs" />
+    <Compile Include="GameObjects\TroopDetail\MilitaryKindList.cs" />
+    <Compile Include="GameObjects\GameObject.cs" />
+    <Compile Include="GameObjects\TroopDetail\MilitaryKind.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindFactory.cs" />
+    <Compile Include="GameObjects\TroopDetail\CastDefaultKindList.cs" />
+    <Compile Include="GameObjects\TroopDetail\CastDefaultKind.cs" />
+    <Compile Include="GameObjects\GameMessage.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKind.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3000.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3010.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3020.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3030.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3040.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3050.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3060.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3080.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3090.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3091.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3092.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3100.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3110.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3120.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3130.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3140.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3152.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3153.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3154.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3156.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3200.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3210.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3220.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3230.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3240.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3250.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3260.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3270.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3300.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3310.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3400.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionTable.cs" />
+    <Compile Include="GameObjects\Animations\Animation.cs" />
+    <Compile Include="GameObjects\GameArea.cs" />
+    <Compile Include="GameObjects\FactionDetail\DiplomaticRelationTable.cs" />
+    <Compile Include="GameObjects\FactionDetail\DiplomaticRelationDisplay.cs" />
+    <Compile Include="GameObjects\FactionDetail\DiplomaticRelation.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKind.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1000.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1001.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1002.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1003.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1004.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1005.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1006.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1007.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1008.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1009.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1010.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1015.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1020.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1025.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1030.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1035.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1040.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1045.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1050.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1051.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1060.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1065.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1100.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1105.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1110.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1115.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1120.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1125.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1130.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1135.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1140.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1145.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1150.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1155.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1160.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1165.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1170.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1175.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1180.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1185.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1190.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1195.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1200.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1205.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1210.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1215.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1220.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1225.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1230.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1235.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1240.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1241.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1242.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1243.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1244.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1245.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1246.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1247.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1248.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1249.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1250.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1255.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1260.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1265.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1270.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1275.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1280.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1285.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1290.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1291.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1292.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1293.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1294.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1295.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1300.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1310.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1350.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1360.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1400.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1401.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1410.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1411.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1412.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1413.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1414.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1420.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1421.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1422.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1423.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1500.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1510.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1520.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1530.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\RegionList.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\Region.cs" />
+    <Compile Include="GameObjects\PersonDetail\Skill.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindTable.cs" />
+    <Compile Include="GameObjects\TroopDetail\CombatMethodTable.cs" />
+    <Compile Include="GameObjects\TroopDetail\CastTargetKindList.cs" />
+    <Compile Include="GameObjects\TroopDetail\CastTargetKind.cs" />
+    <Compile Include="GameObjects\TreasureList.cs" />
+    <Compile Include="GameObjects\Treasure.cs" />
+    <Compile Include="GameObjects\GameMessageList.cs" />
+    <Compile Include="GameObjects\GameObjectConsts.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind800.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind801.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind802.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind803.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind804.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind805.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind824.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind825.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind832.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind833.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind850.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind851.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind852.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind860.cs" />
+    <Compile Include="GameObjects\FactionDetail\Technique.cs" />
+    <Compile Include="GameObjects\TroopDetail\StratagemTable.cs" />
+    <Compile Include="GameObjects\PersonDetail\Title.cs" />
+    <Compile Include="GameObjects\PersonDetail\BiographyTable.cs" />
+    <Compile Include="GameObjects\PersonDetail\Biography.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind400.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind405.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind410.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind415.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind420.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind425.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind430.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind431.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind440.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind450.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind451.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind452.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind453.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind454.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind455.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind456.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind460.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind461.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind462.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind463.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind464.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind465.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind466.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind471.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind472.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind473.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind474.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind475.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind0.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind10.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind11.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind12.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind13.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind14.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind15.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind20.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind21.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind22.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind23.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind24.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind25.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind30.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind40.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind41.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind42.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind43.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind50.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind60.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind61.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind62.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind63.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind64.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind65.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind80.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind81.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind90.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind91.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceType.cs" />
+    <Compile Include="GameObjects\Influences\AreaInfluenceKind.cs" />
+    <Compile Include="GameObjects\Influences\AreaInfluenceData.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceList.cs" />
+    <Compile Include="GameObjects\Influences\Influence.cs" />
+    <Compile Include="GameObjects\TroopDetail\PathResult.cs" />
+    <Compile Include="GameObjects\TroopDetail\GameSquare.cs" />
+    <Compile Include="GameObjects\TroopDetail\TroopPathFinder.cs" />
+    <Compile Include="GameObjects\TroopDetail\TierPathFinder.cs" />
+    <Compile Include="GameObjects\MilitaryList.cs" />
+    <Compile Include="GameObjects\Military.cs" />
+    <Compile Include="GameObjects\TileData.cs" />
+    <Compile Include="GameObjects\GameScenario.cs" />
+    <Compile Include="GameObjects\InformationList.cs" />
+    <Compile Include="GameObjects\Information.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind0.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind100.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind110.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind120.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind130.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind140.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind150.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind160.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind170.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind180.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind190.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind200.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind210.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind220.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind230.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind240.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind300.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind350.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind360.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind370.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind380.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind390.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind400.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind410.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind550.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind570.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind580.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind590.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind591.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind592.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind593.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind594.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind595.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind600.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind610.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind620.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind625.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind630.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind635.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind640.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind645.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind660.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind670.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind700.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind900.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\ArchitectureKind.cs" />
+    <Compile Include="GameObjects\TroopDetail\MilitaryKindTable.cs" />
+    <Compile Include="GameObjects\TroopDetail\TroopDirection.cs" />
+    <Compile Include="GameObjects\TroopDetail\TroopSounds.cs" />
+    <Compile Include="GameObjects\TroopDetail\TroopTextures.cs" />
+    <Compile Include="GameObjects\TroopDetail\TroopAnimation.cs" />
+    <Compile Include="GameObjects\PersonDetail\StuntTable.cs" />
+    <Compile Include="GameObjects\PersonDetail\TitleTable.cs" />
+    <Compile Include="GameObjects\TroopDetail\PathSearcher.cs" />
+    <Compile Include="GameObjects\GameObjectCondition.cs" />
+    <Compile Include="GameObjects\PropertyComparer.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4000.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4010.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4020.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4030.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4040.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4050.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4051.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind4060.cs" />
+    <Compile Include="GameObjects\FacilityList.cs" />
+    <Compile Include="GameObjects\Facility.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindFactory.cs" />
+    <Compile Include="GameObjects\CaptiveList.cs" />
+    <Compile Include="GameObjects\Captive.cs" />
+    <Compile Include="GameObjects\SectionDetail\SectionAIDetailTable.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind900.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind910.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1000.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1001.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1002.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1003.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1020.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1030.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1040.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1100.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1120.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1200.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1300.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindTable.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\StateList.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\State.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\FacilityKindTable.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\FacilityKind.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKind.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind0.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind1.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind10.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind15.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind20.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind25.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind30.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind50.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind60.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind100.cs" />
+    <Compile Include="GameObjects\PersonDetail\CharacterKind.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind500.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind510.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind520.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind530.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind540.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind550.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind560.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind570.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind571.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind572.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind573.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind580.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind581.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind582.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind583.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind584.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind590.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind591.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind592.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind593.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind594.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindTable.cs" />
+    <Compile Include="GameObjects\Conditions\Condition.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffect.cs" />
+    <Compile Include="GameObjects\PersonDetail\Stunt.cs" />
+    <Compile Include="GameObjects\TroopDetail\AttackTargetKindList.cs" />
+    <Compile Include="GameObjects\TroopDetail\AttackTargetKind.cs" />
+    <Compile Include="GameObjects\TroopDetail\AttackDefaultKindList.cs" />
+    <Compile Include="GameObjects\TroopDetail\AttackDefaultKind.cs" />
+    <Compile Include="GameObjects\SectionDetail\SectionAIDetail.cs" />
+    <Compile Include="GameObjects\MapDetail\TerrainDirection.cs" />
+    <Compile Include="GameObjects\MapDetail\TerrainTextures.cs" />
+    <Compile Include="GameObjects\MapDetail\TerrainDetail.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind100.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind120.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind121.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind122.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind123.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind124.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind160.cs" />
+    <Compile Include="GameObjects\Animations\TileAnimationKind.cs" />
+    <Compile Include="GameObjects\Animations\TileAnimationKindInAlpha.cs" />
+    <Compile Include="GameObjects\Animations\TileAnimation.cs" />
+    <Compile Include="GameObjects\Animations\TileAnimationGenerator.cs" />
+    <Compile Include="GameObjects\Animations\CombatNumberKind.cs" />
+    <Compile Include="GameObjects\Animations\CombatNumberDirection.cs" />
+    <Compile Include="GameObjects\Animations\GetDisplayRectangle.cs" />
+    <Compile Include="GameObjects\Animations\CombatNumberItem.cs" />
+    <Compile Include="GameObjects\Animations\CombatNumberItemList.cs" />
+    <Compile Include="GameObjects\Animations\CombatNumberGenerator.cs" />
+    <Compile Include="GameObjects\RoutePoint.cs" />
+    <Compile Include="GameObjects\RoutewayList.cs" />
+    <Compile Include="GameObjects\Routeway.cs" />
+    <Compile Include="GameObjects\NoFoodPosition.cs" />
+    <Compile Include="GameObjects\NoFoodTable.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\ArchitectureKindTable.cs" />
+    <Compile Include="GameObjects\Animations\AnimationTable.cs" />
+    <Compile Include="GameObjects\UndoneWorkItem.cs" />
+    <Compile Include="GameObjects\Screen.cs" />
+    <Compile Include="GameObjects\InformationTile.cs" />
+    <Compile Include="GameObjects\FactionList.cs" />
+    <Compile Include="GameObjects\FactionListWithQueue.cs" />
+    <Compile Include="GameObjects\Faction.cs" />
+    <Compile Include="GameObjects\SectionList.cs" />
+    <Compile Include="GameObjects\SectionOrientationKind.cs" />
+    <Compile Include="GameObjects\Section.cs" />
+    <Compile Include="GameObjects\LegionList.cs" />
+    <Compile Include="GameObjects\LegionKind.cs" />
+    <Compile Include="GameObjects\Legion.cs" />
+    <Compile Include="GameObjects\SupplyingRoutewayPack.cs" />
+    <Compile Include="GameObjects\FactionDetail\TechniqueTable.cs" />
+    <Compile Include="GameObjects\ArchitectureList.cs" />
+    <Compile Include="GameObjects\FundPack.cs" />
+    <Compile Include="GameObjects\SpyPack.cs" />
+    <Compile Include="GameObjects\PopulationPack.cs" />
+    <Compile Include="GameObjects\LinkKind.cs" />
+    <Compile Include="GameObjects\LinkNode.cs" />
+    <Compile Include="GameObjects\PersonDetail\SkillTable.cs" />
+    <Compile Include="GameObjects\PersonDeadReason.cs" />
+    <Compile Include="GameObjects\PersonBornRegion.cs" />
+    <Compile Include="GameObjects\PersonLoyalty.cs" />
+    <Compile Include="GameObjects\PersonAmbition.cs" />
+    <Compile Include="GameObjects\PersonQualification.cs" />
+    <Compile Include="GameObjects\PersonValuationOnGovernment.cs" />
+    <Compile Include="GameObjects\PersonStrategyTendency.cs" />
+    <Compile Include="GameObjects\PersonForm.cs" />
+    <Compile Include="GameObjects\OutsideTaskKind.cs" />
+    <Compile Include="GameObjects\SearchResult.cs" />
+    <Compile Include="GameObjects\PersonList.cs" />
+    <Compile Include="GameObjects\Person.cs" />
+    <Compile Include="GameObjects\SearchResultPack.cs" />
+    <Compile Include="GameObjects\CommonData.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind600.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind601.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind602.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind603.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind604.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind605.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind606.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind607.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind608.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind609.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind610.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind611.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind612.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind613.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind615.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind620.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind630.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind640.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind650.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind655.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind660.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind665.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind670.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind675.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind680.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind685.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind690.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind695.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2000.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2010.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2020.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2030.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2100.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2200.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2210.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2220.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2230.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2240.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2250.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2300.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2310.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2320.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2321.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2330.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2331.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2340.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2350.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2360.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2361.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2370.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2371.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2400.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2410.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2420.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2430.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5000.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5010.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5020.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5030.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5040.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5050.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5055.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5060.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5070.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5080.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5090.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5100.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind5110.cs" />
+    <Compile Include="GameObjects\FactionDetail\InformationKindList.cs" />
+    <Compile Include="GameObjects\FactionDetail\InformationKind.cs" />
+    <Compile Include="GameObjects\EventCheckAreaKind.cs" />
+    <Compile Include="GameObjects\EffectAreaKind.cs" />
+    <Compile Include="GameObjects\PersonRelationKind.cs" />
+    <Compile Include="GameObjects\PersonRelation.cs" />
+    <Compile Include="GameObjects\PersonDialog.cs" />
+    <Compile Include="GameObjects\TroopEffectPerson.cs" />
+    <Compile Include="GameObjects\TroopEffectArea.cs" />
+    <Compile Include="GameObjects\TroopEventList.cs" />
+    <Compile Include="GameObjects\TroopEvent.cs" />
+    <Compile Include="GameObjects\TroopDetail\Stratagem.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectTable.cs" />
+    <Compile Include="GameObjects\TroopDetail\AreaSquare.cs" />
+    <Compile Include="GameObjects\TroopDetail\AreaSearcher.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind200.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind220.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind250.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind251.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind260.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind261.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind270.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind271.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind272.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind280.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind281.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind290.cs" />
+    <Compile Include="GameObjects\TroopDetail\CombatMethod.cs" />
+    <Compile Include="GameObjects\MapDetail\TerrainDetailTable.cs" />
+    <Compile Include="GameObjects\ToolAlign.cs" />
+    <Compile Include="GameObjects\Tool.cs" />
+    <Compile Include="GameObjects\GameSeason.cs" />
+    <Compile Include="GameObjects\GameDate.cs" />
+    <Compile Include="GameObjects\FrameContent.cs" />
+    <Compile Include="GameObjects\Map.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind700.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind710.cs" />
+    <Compile Include="GameObjects\TroopList.cs" />
+    <Compile Include="GameObjects\TroopListWithQueue.cs" />
+    <Compile Include="GameObjects\TroopControlState.cs" />
+    <Compile Include="GameObjects\TroopAction.cs" />
+    <Compile Include="GameObjects\TroopPreAction.cs" />
+    <Compile Include="GameObjects\TroopWill.cs" />
+    <Compile Include="GameObjects\TroopStatus.cs" />
+    <Compile Include="GameObjects\TroopEffect.cs" />
+    <Compile Include="GameObjects\TroopOperationHabit.cs" />
+    <Compile Include="GameObjects\TroopAttackDefaultKind.cs" />
+    <Compile Include="GameObjects\TroopAttackTargetKind.cs" />
+    <Compile Include="GameObjects\TroopCastDefaultKind.cs" />
+    <Compile Include="GameObjects\TroopCastTargetKind.cs" />
+    <Compile Include="GameObjects\HostileActionKind.cs" />
+    <Compile Include="GameObjects\FriendlyActionKind.cs" />
+    <Compile Include="GameObjects\OutburstKind.cs" />
+    <Compile Include="GameObjects\TroopDamage.cs" />
+    <Compile Include="GameObjects\ArchitectureDamage.cs" />
+    <Compile Include="GameObjects\Troop.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceTable.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindFactory.cs" />
+    <Compile Include="GameObjects\MapDetail\RoutewaySquare.cs" />
+    <Compile Include="GameObjects\MapDetail\RoutewayPathFinder.cs" />
+    <Compile Include="GameObjects\PositionTable.cs" />
+    <Compile Include="GameObjects\PersonDetail\IdealTendencyKindList.cs" />
+    <Compile Include="GameObjects\PersonDetail\IdealTendencyKind.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind300.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind320.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind350.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind351.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind352.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind353.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind354.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind360.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind370.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind380.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind381.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind382.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind383.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind384.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind385.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind386.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind387.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind388.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind390.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind391.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind392.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind393.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind394.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind395.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind396.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind397.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind398.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind399.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2020.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2030.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2040.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2100.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2110.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2120.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2130.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2140.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2150.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2160.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2200.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2210.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2220.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2230.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2240.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2250.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2260.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2300.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1050.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1060.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1070.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6000.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6010.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6020.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6030.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6040.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6050.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6100.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6110.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6120.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6130.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6140.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6300.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6400.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6410.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6420.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6060.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6430.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6070.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1004.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind1005.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6460.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6470.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind35.cs" />
+    <Compile Include="GameObjects\YearTable.cs" />
+    <Compile Include="GameObjects\YearTableEntry.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind40.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6440.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6450.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6600.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6610.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind45.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6620.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffect.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKind.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindFactory.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect0.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect10.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect20.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindTable.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectTable.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind621.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind626.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind631.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind636.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind641.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind646.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind650.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind655.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind810.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind820.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind830.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind840.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind800.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind801.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind802.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind803.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind804.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind805.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind806.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind807.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind910.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind911.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind912.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind913.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind914.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind915.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind916.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind917.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind918.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind919.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind920.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind921.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind922.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind923.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind924.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind925.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind930.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind940.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind950.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind951.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind952.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind953.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind954.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind955.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind956.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind957.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind958.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind959.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind970.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind971.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind980.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind990.cs" />
+    <Compile Include="GameObjects\Event.cs" />
+    <Compile Include="GameObjects\EventList.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6630.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect30.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect40.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect50.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect100.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect110.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect120.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect130.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect140.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect150.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect160.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect170.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect200.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect210.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect211.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect212.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect213.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect214.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect215.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect216.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect220.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect221.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect222.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect223.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect224.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect225.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect226.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect227.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect300.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect305.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect310.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect320.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect325.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect315.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect330.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1000.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1010.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1020.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1030.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1040.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1050.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1060.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1070.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1080.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1090.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1100.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1120.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1110.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1130.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1150.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1140.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1400.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2000.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2010.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2020.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2030.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2040.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2050.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect217.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect400.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect410.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect420.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect430.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect440.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect450.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect460.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect470.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect480.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect500.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect510.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1200.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1210.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1220.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1230.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1240.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1250.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1300.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect1310.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2100.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2110.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2120.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2130.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2131.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect2200.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4000.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4005.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4010.cs" />
+    <Compile Include="GameObjects\PathCacheKey.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1402.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1403.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1404.cs" />
+    <Compile Include="GameObjects\ExtensionInterface.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1602.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1603.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2005.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2015.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2025.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2035.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2045.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2105.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2115.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2125.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2135.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2145.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2155.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2165.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2205.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2215.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2225.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2235.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2245.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2255.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2265.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2270.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2275.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2280.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2285.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2305.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2310.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2315.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2320.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2325.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2330.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2335.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2400.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2405.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2410.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2415.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2500.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2501.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2510.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2515.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2520.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2525.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2530.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2535.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2540.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2545.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2600.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2601.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2610.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2620.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2700.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2705.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2710.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2711.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2712.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2713.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2714.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2715.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2720.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2725.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2730.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2735.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2740.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2745.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2750.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2755.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3000.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3005.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3010.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3015.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3020.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3025.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3030.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3035.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3040.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3045.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3050.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3051.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3060.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3065.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3100.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3105.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind420.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind425.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind430.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind435.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind440.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind500.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind510.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind515.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2340.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2345.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2350.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2355.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2360.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2365.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind998.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind999.cs" />
+    <Compile Include="GameObjects\PersonDetail\PersonStatus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameGlobal\GameGlobal.csproj">
+      <Project>{56DC58D6-46BC-4F4A-A7CF-D3D23EC2A831}</Project>
+      <Name>GameGlobal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4065.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4090.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4095.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4100.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4105.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4110.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4115.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4120.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4015.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4020.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4025.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4030.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4035.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4040.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4045.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4050.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4055.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4060.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4070.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4075.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4080.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4085.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4125.cs" />
+    <Compile Include="GameObjects\Influences\Applier.cs" />
+    <Compile Include="GameObjects\Influences\ApplyingArchitecture.cs" />
+    <Compile Include="GameObjects\Influences\ApplyingFaction.cs" />
+    <Compile Include="GameObjects\Influences\ApplyingPerson.cs" />
+    <Compile Include="GameObjects\Influences\ApplyingTroop.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3110.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3115.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1700.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Challenge.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3145.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3150.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1296.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1424.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1425.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1604.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1605.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1630.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1635.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1640.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1645.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1650.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1655.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1705.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1720.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1725.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1730.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1735.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1740.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1745.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1840.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1845.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2800.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2805.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2810.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2815.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2820.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2825.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2830.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2835.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2840.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2845.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2900.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2905.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3140.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3155.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3160.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3165.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3170.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3175.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3200.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3205.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3210.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3215.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3120.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3125.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3130.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3135.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4130.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4135.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4140.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4145.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4200.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4205.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4210.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4215.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4220.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4225.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5000.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5005.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5010.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5015.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5020.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5025.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5030.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5035.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5040.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5045.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5050.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5055.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5060.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5065.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5070.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind5075.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind870.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind875.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind880.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind885.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind890.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind895.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind901.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1297.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2500.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2510.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2520.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2530.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2540.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2550.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind2560.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6505.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6310.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6320.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6330.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6340.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6360.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6350.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6370.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6500.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6510.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6515.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6530.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6535.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6570.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6575.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6580.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6585.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6700.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6705.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6710.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6715.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6720.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6725.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6730.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6735.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6740.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6745.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6750.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6755.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6760.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6800.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6810.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6595.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6900.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6905.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6910.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6915.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6920.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6925.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6930.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6935.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6945.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3157.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind263.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind262.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind720.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind721.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind585.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind586.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind595.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind596.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind458.cs" />
+    <Compile Include="GameObjects\PersonDetail\BiographyAdjectives.cs" />
+    <Compile Include="GameObjects\PersonDetail\TextMessageKind.cs" />
+    <Compile Include="GameObjects\PersonDetail\TextMessageTable.cs" />
+    <Compile Include="GameObjects\PersonDetail\TitleKindTable.cs" />
+    <Compile Include="GameObjects\PersonDetail\TitleKind.cs" />
+    <Compile Include="GameObjects\SortedBoundedSet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind450.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind680.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind808.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind965.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind975.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind285.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind7000.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind920.cs" />
+    <Compile Include="GameObjects\IScenarioAwarePlugin.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind3041.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind902.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind505.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1540.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind1550.cs" />
+    <Compile Include="GameObjects\FoodPack.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind330.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6160.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6165.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6170.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6175.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6155.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6150.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6780.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6785.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6790.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6795.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6775.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6770.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6835.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6840.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6845.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6850.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6855.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6830.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6560.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6565.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6990.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6995.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6555.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6550.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6545.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6540.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6520.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind457.cs" />
+    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6525.cs" />
+    <Compile Include="GameObjects\OngoingBattle.cs" />
+    <Compile Include="GameObjects\OngoingBattleList.cs" />
+    <Compile Include="GameObjects\PersonDetail\PersonGeneratorSetting.cs" />
+    <Compile Include="GameObjects\PersonDetail\PersonGeneratorType.cs" />
+    <Compile Include="GameObjects\PersonDetail\PersonGeneratorTypeList.cs" />
+    <Compile Include="GameObjects\TroopDetail\EventEffect\EventEffectKindPack\EventEffectKind80.cs" />
+  </ItemGroup>
+</Project>

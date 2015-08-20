@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A58A0F7-3E6B-460D-9880-0C2CD05ECA11}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>JubenBianjiqi</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\WorldOfTheThreeKingdoms\bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\WorldOfTheThreeKingdoms\bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="GameGlobal, Version=1.0.1.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WorldOfTheThreeKingdoms\bin\x86\Debug\GameGlobal.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL" />
+    <Reference Include="PluginInterface, Version=1.0.1.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WorldOfTheThreeKingdoms\bin\x86\Debug\PluginInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="MapEditor\Properties\Resources.cs" />
+    <Compile Include="MapEditor\Forms\MilitaryForms\frmEditMilitary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmArchitectureList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\FactionForms\frmSelectFactionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\MilitaryForms\frmSelectMilitaryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\HintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmPersonList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmMilitaryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmTroopList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\TroopEventForms\frmEditTroopEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\TreasureForms\frmEditTreasure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmFactionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\MapPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\PersonForms\frmSelectPortrait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\formMapEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmReplaceTerrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\ArchitectureForms\frmSelectArchitectureList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Properties\Settings.cs" />
+    <Compile Include="MapEditor\Forms\SectionForms\frmSelectSectionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmRegionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\PersonForms\frmSelectPersonList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\FactionForms\frmEditFaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmTroopEventList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmCutMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\ArchitectureForms\frmEditArchitecture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmScenarioInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\TroopEventForms\frmEditEventDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\PersonForms\frmEditPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\StateForms\frmEditState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\Forms\frmStateList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapEditor\EditKind.cs" />
+    <Compile Include="MapEditor\Program.cs" />
+    <Compile Include="MapEditor\Forms\frmTreasureList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="MapEditor.Forms.frmPersonList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmTreasureList.resources" />
+    <EmbeddedResource Include="MapEditor.Properties.Resources.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.ArchitectureForms.frmSelectArchitectureList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.MilitaryForms.frmEditMilitary.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.TroopEventForms.frmEditTroopEvent.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.PersonForms.frmEditPerson.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.FactionForms.frmSelectFactionList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.ArchitectureForms.frmEditArchitecture.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.PersonForms.frmSelectPersonList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmStateList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.TreasureForms.frmEditTreasure.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.TroopEventForms.frmEditEventDialog.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.StateForms.frmEditState.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.MilitaryForms.frmSelectMilitaryList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmTroopEventList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmReplaceTerrain.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmCutMap.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.PersonForms.frmSelectPortrait.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmArchitectureList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.FactionForms.frmEditFaction.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmScenarioInformation.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmTroopList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmRegionList.resources" />
+    <EmbeddedResource Include="MapEditor.MapPanel.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmMilitaryList.resources" />
+    <EmbeddedResource Include="MapEditor.formMapEditor.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.SectionForms.frmSelectSectionList.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.HintForm.resources" />
+    <EmbeddedResource Include="MapEditor.Forms.frmFactionList.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameObjects\GameObjects.csproj">
+      <Project>{BB0FAD70-2894-44D2-A6EB-F7FD876B0FDA}</Project>
+      <Name>GameObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
