@@ -1316,6 +1316,10 @@
     <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind6525.cs" />
     <Compile Include="GameObjects\OngoingBattle.cs" />
     <Compile Include="GameObjects\OngoingBattleList.cs" />
+    <Compile Include="GameObjects\PersonDetail\Guanzhi.cs" />
+    <Compile Include="GameObjects\PersonDetail\GuanzhiKind.cs" />
+    <Compile Include="GameObjects\PersonDetail\GuanzhiKindTable.cs" />
+    <Compile Include="GameObjects\PersonDetail\GuanzhiTable.cs" />
     <Compile Include="GameObjects\PersonDetail\PersonGeneratorSetting.cs" />
     <Compile Include="GameObjects\PersonDetail\PersonGeneratorType.cs" />
     <Compile Include="GameObjects\PersonDetail\PersonGeneratorTypeList.cs" />

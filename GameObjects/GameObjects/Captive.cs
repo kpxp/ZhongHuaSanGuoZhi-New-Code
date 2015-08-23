@@ -140,11 +140,21 @@
 
         private void DoRelease()
         {
-            
-            if ((this.CaptivePerson.BelongedFaction!=null) && this.CaptivePerson.BelongedFaction.Capital != null)
+            if (this.CaptivePerson.BelongedFaction != null && this.CaptivePerson.BelongedFaction.Capital != null)
             {
-                this.CaptivePerson.MoveToArchitecture(this.CaptivePerson.BelongedFaction.Capital);
+                foreach (Architecture a in this.CaptivePerson.BelongedFaction.Architectures)
+                {
+                    if (a.Mayor != null && this.CaptivePerson.ID == a.MayorID)
+                    {
+                        this.CaptivePerson.MoveToArchitecture(a);
+                    }
+                    else
+                    {
+                        this.CaptivePerson.MoveToArchitecture(this.CaptivePerson.BelongedFaction.Capital);
+                    }
+                }
             }
+            
             else
             {
 

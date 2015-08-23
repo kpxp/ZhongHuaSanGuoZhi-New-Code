@@ -2164,6 +2164,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        public override void AutoAwardGuanzhi(Person p, Person courier, Guanzhi guanzhi)
+        {
+            if (base.Scenario.CurrentPlayer == null || base.Scenario.CurrentPlayer.IsPositionKnown(p.Position) || GlobalVariables.SkyEye)
+            {
+                if (guanzhi.AutoLearnTextByCourier.Length > 0 && guanzhi.Level >= 6 )
+                {
+                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(courier, null, guanzhi.AutoLearnTextByCourier.Replace("%0", p.Name));
+                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                }
+                if (guanzhi.AutoLearnText.Length > 0 && guanzhi.Level >= 6 )
+                {
+                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, null, guanzhi.AutoLearnText.Replace("%0", p.Name));
+                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                }
+            }
+        }
+
         public override void AutoLearnTitle(Person p, Person courier, Title title)
         {
             if (base.Scenario.CurrentPlayer == null || base.Scenario.CurrentPlayer.IsPositionKnown(p.Position) || GlobalVariables.SkyEye)

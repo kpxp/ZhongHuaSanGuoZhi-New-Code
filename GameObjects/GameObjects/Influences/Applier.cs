@@ -5,6 +5,7 @@
         Skill,
         Stunt,
         Title,
+        Guanzhi,
         Treasure,
         Characteristics,
         Facility,

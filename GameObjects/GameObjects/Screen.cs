@@ -767,6 +767,10 @@
         {
         }
 
+        public virtual void AutoAwardGuanzhi(Person p, Person courier, Guanzhi guanzhi)
+        {
+        }
+
         public virtual void ApplyEvent(Event e, Architecture a)
         {
         }

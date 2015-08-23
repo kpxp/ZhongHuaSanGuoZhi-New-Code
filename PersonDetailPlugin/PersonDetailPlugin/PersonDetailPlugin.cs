@@ -160,6 +160,14 @@
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
             this.personDetail.BiographyText.Builder.SetFreeTextBuilder(this.graphicsDevice, font);
             this.personDetail.BiographyText.DefaultColor = color;
+            node = nextSibling.ChildNodes.Item(12);
+            this.personDetail.GuanzhiClient = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.personDetail.GuanzhiText.ClientWidth = this.personDetail.GuanzhiClient.Width;
+            this.personDetail.GuanzhiText.ClientHeight = this.personDetail.GuanzhiClient.Height;
+            this.personDetail.GuanzhiText.RowMargin = int.Parse(node.Attributes.GetNamedItem("RowMargin").Value);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.personDetail.GuanzhiText.Builder.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.personDetail.GuanzhiText.DefaultColor = color;
         }
 
         public void SetGraphicsDevice(GraphicsDevice device)

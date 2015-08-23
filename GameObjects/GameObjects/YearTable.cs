@@ -423,6 +423,12 @@
                 String.Format(yearTableStrings["obtainTitle_p"], title.Name));
         }
 
+        public void addObtainedGuanzhiEntry(GameDate date, Person p, PersonDetail.Guanzhi guanzhi)
+        {
+            this.addPersonInGameBiography(p, date,
+                String.Format(yearTableStrings["obtainGuanzhi_p"], guanzhi.Name));
+        }
+
         public void addChallengeEntry(GameDate date, Person winner, Person loser, String loserState)
         {
             this.addPersonInGameBiography(winner, date, String.Format(yearTableStrings["challengeWin_p"], winner.Name, loser.Name, loserState));

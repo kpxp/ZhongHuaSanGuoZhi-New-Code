@@ -31,6 +31,8 @@
         internal FreeTextList LearnableSkillTexts;
         internal List<Skill> LinkedSkills = new List<Skill>();
         internal Rectangle TitleClient;
+        internal Rectangle GuanzhiClient; //官职
+        internal FreeRichText GuanzhiText = new FreeRichText();
         internal FreeRichText TitleText = new FreeRichText();
         internal FreeTextList PersonSkillTexts;
         internal Rectangle PortraitClient;
@@ -64,6 +66,7 @@
                     text.Text.Draw(spriteBatch, 0.1999f);
                 }
                 this.TitleText.Draw(spriteBatch, 0.1999f);
+                this.GuanzhiText.Draw(spriteBatch, 0.1999f);
                 this.AllSkillTexts.Draw(spriteBatch, (float) 0.1999f);
                 this.PersonSkillTexts.Draw(spriteBatch, (float) 0.1998f);
                 this.LearnableSkillTexts.Draw(spriteBatch, (float) 0.1998f);
@@ -168,6 +171,78 @@
                     }
                 }
             }
+            if (!flag && StaticMethods.PointInRectangle(position, this.GuanzhiDisplayPosition))
+            {
+                int num2 = (position.Y - this.GuanzhiText.DisplayOffset.Y / this.GuanzhiText.RowHeight);
+                if (num2 > 1)
+                {
+                    int num3 = num2 - 2;
+                    if (this.ShowingPerson.Guanzhis.Count > num3)
+                    {
+                        Guanzhi guanzhi = this.ShowingPerson.Guanzhis[num3] as Guanzhi;
+                        if (guanzhi != null)
+                        {
+                            if (this.current != guanzhi)
+                            {
+                                this.BiographyText.Clear();
+                                this.InfluenceText.Clear();
+                                this.InfluenceText.AddText(guanzhi.DetailedName, this.InfluenceText.TitleColor);
+                                this.InfluenceText.AddNewLine();
+                                foreach (Influence influence in guanzhi.Influences.Influences.Values)
+                                {
+                                    this.InfluenceText.AddText(influence.Description);
+                                    this.InfluenceText.AddNewLine();
+                                }
+                                this.InfluenceText.ResortTexts();
+                                this.ConditionText.Clear();
+                                this.ConditionText.AddText("授予条件", this.ConditionText.TitleColor);
+                                this.ConditionText.AddNewLine();
+                                foreach (Condition condition in guanzhi.Conditions.Conditions.Values)
+                                {
+                                    if (condition.CheckCondition(this.ShowingPerson))
+                                    {
+                                        this.ConditionText.AddText(condition.Name, this.ConditionText.PositiveColor);
+                                    }
+                                    else
+                                    {
+                                        this.ConditionText.AddText(condition.Name, this.ConditionText.NegativeColor);
+                                    }
+                                    this.ConditionText.AddNewLine();
+                                }
+                                foreach (Condition condition in guanzhi.LoseConditions.Conditions.Values)
+                                {
+                                    if (condition.CheckCondition(this.ShowingPerson))
+                                    {
+                                        this.ConditionText.AddText(condition.Name, this.ConditionText.PositiveColor);
+                                    }
+                                    else
+                                    {
+                                        this.ConditionText.AddText(condition.Name, this.ConditionText.NegativeColor);
+                                    }
+                                    this.ConditionText.AddNewLine();
+                                }
+                                foreach (Condition condition in guanzhi.FactionConditions.Conditions.Values)
+                                {
+                                    if (this.ShowingPerson.BelongedFaction != null && condition.CheckCondition(this.ShowingPerson.BelongedFaction))
+                                    {
+                                        this.ConditionText.AddText(condition.Name, this.ConditionText.PositiveColor);
+                                    }
+                                    else
+                                    {
+                                        this.ConditionText.AddText(condition.Name, this.ConditionText.NegativeColor);
+                                    }
+                                    this.ConditionText.AddNewLine();
+                                }
+
+                                this.ConditionText.ResortTexts();
+                                this.current = guanzhi;
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+            }
+                   
             if (!flag && StaticMethods.PointInRectangle(position, this.StuntDisplayPosition))
             {
                 int num2 = (position.Y - this.StuntText.DisplayOffset.Y) / this.StuntText.RowHeight;
@@ -355,6 +430,13 @@
                 this.TitleText.AddNewLine();
             }
             this.TitleText.ResortTexts();
+            this.GuanzhiText.Clear();
+            foreach (Guanzhi guanzhi in person.Guanzhis)
+            {
+                this.GuanzhiText.AddText(guanzhi.DetailedName, Color.Lime);
+                this.GuanzhiText.AddNewLine();
+            }
+            this.GuanzhiText.ResortTexts();
             this.PersonSkillTexts.SimpleClear();
             this.LearnableSkillTexts.SimpleClear();
             foreach (Skill skill in this.screen.Scenario.GameCommonData.AllSkills.Skills.Values)
@@ -463,6 +545,7 @@
                 text.Text.DisplayOffset = this.DisplayOffset;
             }
             this.TitleText.DisplayOffset = new Point(this.DisplayOffset.X + this.TitleClient.X, this.DisplayOffset.Y + this.TitleClient.Y);
+            this.GuanzhiText.DisplayOffset = new Point(this.DisplayOffset.X + this.GuanzhiClient.X, this.DisplayOffset.Y + this.GuanzhiClient.Y);
             this.AllSkillTexts.DisplayOffset = this.DisplayOffset;
             this.PersonSkillTexts.DisplayOffset = this.DisplayOffset;
             this.LearnableSkillTexts.DisplayOffset = this.DisplayOffset;
@@ -525,6 +608,14 @@
             get
             {
                 return new Rectangle(this.TitleText.DisplayOffset.X, this.TitleText.DisplayOffset.Y, this.TitleText.ClientWidth, this.TitleText.ClientHeight);
+            }
+        }
+
+        private Rectangle GuanzhiDisplayPosition
+        {
+            get
+            {
+                return new Rectangle(this.GuanzhiText.DisplayOffset.X, this.GuanzhiText.DisplayOffset.Y, this.GuanzhiText.ClientWidth, this.GuanzhiText.ClientHeight);
             }
         }
 

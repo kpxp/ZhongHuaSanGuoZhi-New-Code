@@ -190,6 +190,8 @@
         private Dictionary<Person, int> relations = new Dictionary<Person, int>();
         public List<Title> RealTitles = new List<Title>();
 
+        public List<Guanzhi> RealGuanzhis = new List<Guanzhi>();
+
         public MilitaryKindTable UniqueMilitaryKinds = new MilitaryKindTable();
         public TitleTable UniqueTitles = new TitleTable();
 
@@ -371,6 +373,19 @@
             }
         }
 
+        public List<Guanzhi> Guanzhis
+        {
+            get
+            {
+                List<Guanzhi> result = new List<Guanzhi>();
+                foreach (Guanzhi g in this.RealGuanzhis)
+                {
+                    result.Add(g);
+                }
+                return result;
+            }
+        }
+
         public int TotalTitleLevel
         {
             get
@@ -383,6 +398,19 @@
                 return result;
             }
         }
+
+        public Guanzhi getGuanzhiOfKind(GuanzhiKind kind)
+        {
+            foreach (Guanzhi g in this.Guanzhis)
+            {
+                if (g.Kind == kind)
+                {
+                    return g;
+                }
+            }
+            return null;
+        }
+        
 
         public Title getTitleOfKind(TitleKind kind)
         {
@@ -634,6 +662,43 @@
         public event CreateBrother OnCreateBrother;
 
         public event CreateSister OnCreateSister;
+
+        public List<string > LoadGuanzhiFromString(String s, GuanzhiTable allGuanzhis)
+        {
+            List<string> errorMsg = new List<string>();
+            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
+            string[] strArray = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            Guanzhi guanzhi = null ;
+            try
+            {
+                for (int i = 0; i < strArray.Length; i++)
+                {
+                    if (allGuanzhis.Guanzhis.TryGetValue(int.Parse(strArray[i]), out guanzhi))
+                    {
+                        this.RealGuanzhis.Add(guanzhi);
+                    }
+                    else
+                    {
+                        errorMsg.Add("官职ID" + strArray[i] + "不存在");
+                    }
+                }
+            }
+            catch
+            {
+                errorMsg.Add("官职一栏应为半型空格分隔的官职ID");
+            }
+            return errorMsg;
+        }
+
+        public String SaveGuanzhiToString()
+        {
+            String s = "";
+            foreach (Guanzhi  g in this.RealGuanzhis)
+            {
+                s += g.ID + " ";
+            }
+            return s;
+        }
 
         public List<string> LoadTitleFromString(String s, TitleTable allTitles)
         {
@@ -3194,6 +3259,49 @@
             this.ManualStudy = false;
         }
 
+        public bool HasHigherLevelGuazhi(Guanzhi guanzhi)
+        {
+            List<Guanzhi> oldGuanzhis = new List<Guanzhi> (this.RealGuanzhis);
+            foreach (Guanzhi g in oldGuanzhis )
+            {
+                if (g.Kind == guanzhi .Kind && g.Level >= guanzhi.Level )
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void AwardGuanzhi(Guanzhi guanzhi)
+        {
+            List<Guanzhi> oldGuanzhis = new List<Guanzhi>(this.RealGuanzhis);
+            foreach (Guanzhi g in oldGuanzhis)
+            {
+                if (g.Kind == guanzhi.Kind)
+                {
+                    g.Influences.PurifyInfluence(this, GameObjects.Influences.Applier.Guanzhi, g.ID, false);
+                    this.RealGuanzhis.Remove(g);
+                }
+            }
+            this.RealGuanzhis.Add(guanzhi);
+            base.Scenario.YearTable.addObtainedGuanzhiEntry(base.Scenario.Date, this, guanzhi);
+        }
+
+        public void LoseGuanzhi()
+        {
+            List<Guanzhi> temp = new List<Guanzhi>(this.RealGuanzhis);
+            foreach (Guanzhi g in temp)
+            {
+                if (g.LoseConditions.Count > 0 && g.WillLose(this))
+                {
+                    g.Influences.PurifyInfluence(this, GameObjects.Influences.Applier.Guanzhi, g.ID, false);
+
+                    this.RealGuanzhis.Remove(g);
+                }
+
+            }
+        }
+
         public bool HasHigherLevelTitle(Title title)
         {
             List<Title> oldTitles = new List<Title>(this.RealTitles);
@@ -5666,6 +5774,11 @@
             }
         }
 
+        public bool HasGuanzhi()
+        {
+            return this.Guanzhis.Count > 0;
+        }
+
         public bool HasTitle()
         {
             if (this.Titles.Count > 0)
@@ -5697,6 +5810,19 @@
             }
             return "";
         }
+
+        public String GuanzhiName(int kind)
+        {
+            foreach (Guanzhi g in this.Guanzhis)
+            {
+                if (g.Kind.ID == kind)
+                {
+                    return g.Level + "级「" + g.Name + "」";
+                }
+            }
+            return "";
+        }
+
 
         public String StuntList
         {

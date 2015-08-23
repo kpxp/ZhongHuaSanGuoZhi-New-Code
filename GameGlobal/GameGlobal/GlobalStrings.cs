@@ -260,7 +260,7 @@
         public const string Return = "返回";
         public const string Merge = "合并";
         public const string Information = "情报";
-        public const string Spy = "间谍";
+        //public const string Spy = "间谍";
         public const string Destroy = "破坏";
         public const string Instigate = "煽动";
         public const string Gossip = "流言";
