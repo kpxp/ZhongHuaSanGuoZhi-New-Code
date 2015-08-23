@@ -849,8 +849,8 @@
         {
              List<string> errorMsg = new List<string>();
             connection.Open();
-            //try
-            //{
+            try
+            {
                 OleDbDataReader reader = new OleDbCommand("Select * From Guanzhi", connection).ExecuteReader();
                 while (reader.Read())
                 {
@@ -906,11 +906,11 @@
 
                     this.AllGuanzhis.AddGuanzhi(guanzhi);
                 }
-           // }
-            /*catch (OleDbException)
+           }
+           catch (OleDbException)
             {
                 //ignore
-            }*/
+            }
             connection.Close();
             return errorMsg;
         }
@@ -1724,6 +1724,7 @@
                 dataSet.Clear();
             }
             catch { }
+
 
             selectConnection.Close();
         }
@@ -2636,82 +2637,6 @@
                 adapter.Update(dataSet, "TileAnimation");
                 dataSet.Clear();
 
-                //try
-                //{
-                    new OleDbCommand("Delete from Guanzhi", selectConnection).ExecuteNonQuery();
-                    adapter = new OleDbDataAdapter("Select * from Guanzhi", selectConnection);
-                    builder = new OleDbCommandBuilder(adapter);
-                    builder.QuotePrefix = "[";
-                    builder.QuoteSuffix = "]";
-                    dataSet.Tables["Guanzhi"].Rows.Clear();
-                    storedIds.Clear();
-                    foreach (Guanzhi i in this.AllGuanzhis.Guanzhis.Values)
-                    {
-                        if (storedIds.Contains(i.ID)) continue;
-                        storedIds.Add(i.ID);
-                        row = dataSet.Tables["Guanzhi"].NewRow();
-                        row.BeginEdit();
-                        row["ID"] = i.ID;
-                        row["Kind"] = i.Kind.ID;
-                        row["Level"] = i.Level;
-                        row["Combat"] = i.Combat;
-                        row["Name"] = i.Name;
-                        row["Description"] = i.Description;
-                        row["Prerequisite"] = i.Prerequisite;
-                        row["Influences"] = i.Influences.SaveToString();
-                        row["Conditions"] = i.Conditions.SaveToString();
-                        row["LoseConditions"] = i.LoseConditions.SaveToString(); //失去条件
-                        row["FactionConditions"] = i.FactionConditions.SaveToString();
-                        row["AutoAward"] = i.AutoAward;
-                        row["AutoLearnText"] = i.AutoLearnText;
-                        row["AutoLearnTextByCourier"] = i.AutoLearnTextByCourier;
-                        row["MapLimit"] = i.MapLimit;
-                        row["FactionLimit"] = i.FactionLimit;
-
-                        row.EndEdit();
-                        dataSet.Tables["Guanzhi"].Rows.Add(row);
-                    }
-                    adapter.Update(dataSet, "Guanzhi");
-                    dataSet.Clear();
-               // }
-                /*catch (OleDbException)
-                {
-                    // ignore
-                }*/
-
-                //try
-                //{
-                    new OleDbCommand("Delete from GuanzhiKind", selectConnection).ExecuteNonQuery();
-                    adapter = new OleDbDataAdapter("Select * from GuanzhiKind", selectConnection);
-                    builder = new OleDbCommandBuilder(adapter);
-                    builder.QuotePrefix = "[";
-                    builder.QuoteSuffix = "]";
-                    adapter.Fill(dataSet, "GuanzhiKind");
-                    dataSet.Tables["GuanzhiKind"].Rows.Clear();
-                    storedIds.Clear();
-                    foreach (GuanzhiKind i in this.AllGuanzhiKinds.GuanzhiKinds.Values)
-                    {
-                        if (storedIds.Contains(i.ID)) continue;
-                        storedIds.Add(i.ID);
-                        row = dataSet.Tables["GuanzhiKind"].NewRow();
-                        row.BeginEdit();
-                        row["ID"] = i.ID;
-                        row["KName"] = i.Name;
-                        row["Combat"] = i.Combat;
-                        row["StudyDay"] = i.StudyDay;
-                        row["SuccessRate"] = i.SuccessRate;
-                        row.EndEdit();
-                        dataSet.Tables["GuanzhiKind"].Rows.Add(row);
-                    }
-                    adapter.Update(dataSet, "GuanzhiKind");
-                    dataSet.Clear();
-                //}
-                /*catch (OleDbException)
-                {
-                    // ignore
-                }*/
-                
-
 
                 new OleDbCommand("Delete from Title", selectConnection).ExecuteNonQuery();
                 adapter = new OleDbDataAdapter("Select * from Title", selectConnection);
@@ -2796,6 +2721,83 @@
                 }
                 adapter.Update(dataSet, "TitleKind");
                 dataSet.Clear();
+
+                try
+                {
+                    new OleDbCommand("Delete from Guanzhi", selectConnection).ExecuteNonQuery();
+                    adapter = new OleDbDataAdapter("Select * from Guanzhi", selectConnection);
+                    builder = new OleDbCommandBuilder(adapter);
+                    builder.QuotePrefix = "[";
+                    builder.QuoteSuffix = "]";
+                    dataSet.Tables["Guanzhi"].Rows.Clear();
+                    storedIds.Clear();
+                    foreach (Guanzhi i in this.AllGuanzhis.Guanzhis.Values)
+                    {
+                        if (storedIds.Contains(i.ID)) continue;
+                        storedIds.Add(i.ID);
+                        row = dataSet.Tables["Guanzhi"].NewRow();
+                        row.BeginEdit();
+                        row["ID"] = i.ID;
+                        row["Kind"] = i.Kind.ID;
+                        row["Level"] = i.Level;
+                        row["Combat"] = i.Combat;
+                        row["Name"] = i.Name;
+                        row["Description"] = i.Description;
+                        row["Prerequisite"] = i.Prerequisite;
+                        row["Influences"] = i.Influences.SaveToString();
+                        row["Conditions"] = i.Conditions.SaveToString();
+                        row["LoseConditions"] = i.LoseConditions.SaveToString(); //失去条件
+                        row["FactionConditions"] = i.FactionConditions.SaveToString();
+                        row["AutoAward"] = i.AutoAward;
+                        row["AutoLearnText"] = i.AutoLearnText;
+                        row["AutoLearnTextByCourier"] = i.AutoLearnTextByCourier;
+                        row["MapLimit"] = i.MapLimit;
+                        row["FactionLimit"] = i.FactionLimit;
+
+                        row.EndEdit();
+                        dataSet.Tables["Guanzhi"].Rows.Add(row);
+                    }
+                    adapter.Update(dataSet, "Guanzhi");
+                    dataSet.Clear();
+                }
+                catch (OleDbException)
+                {
+                    // ignore
+                }
+
+
+                try
+                {
+                    new OleDbCommand("Delete from GuanzhiKind", selectConnection).ExecuteNonQuery();
+                    adapter = new OleDbDataAdapter("Select * from GuanzhiKind", selectConnection);
+                    builder = new OleDbCommandBuilder(adapter);
+                    builder.QuotePrefix = "[";
+                    builder.QuoteSuffix = "]";
+                    adapter.Fill(dataSet, "GuanzhiKind");
+                    dataSet.Tables["GuanzhiKind"].Rows.Clear();
+                    storedIds.Clear();
+                    foreach (GuanzhiKind i in this.AllGuanzhiKinds.GuanzhiKinds.Values)
+                    {
+                        if (storedIds.Contains(i.ID)) continue;
+                        storedIds.Add(i.ID);
+                        row = dataSet.Tables["GuanzhiKind"].NewRow();
+                        row.BeginEdit();
+                        row["ID"] = i.ID;
+                        row["KName"] = i.Name;
+                        row["Combat"] = i.Combat;
+                        row["StudyDay"] = i.StudyDay;
+                        row["SuccessRate"] = i.SuccessRate;
+                        row.EndEdit();
+                        dataSet.Tables["GuanzhiKind"].Rows.Add(row);
+                    }
+                    adapter.Update(dataSet, "GuanzhiKind");
+                    dataSet.Clear();
+                }
+                
+                catch (OleDbException)
+                {
+                    // ignore
+                }
 
                 new OleDbCommand("Delete from TroopAnimation", selectConnection).ExecuteNonQuery();
                 adapter = new OleDbDataAdapter("Select * from TroopAnimation", selectConnection);

@@ -3366,6 +3366,8 @@
                 }
                 catch
                 {
+                   
+
                    /* Guanzhi g = this.GameCommonData .AllGuanzhis.GetGuanzhi((short)reader ["GeneralGuanzhi"]);
                     if (g != null)
                     {

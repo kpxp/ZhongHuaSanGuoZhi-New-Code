@@ -7,6 +7,7 @@
     using GameObjects.Influences;
     using GameObjects.MapDetail;
     using GameObjects.PersonDetail;
+    using GameObjects.PersonDetail.GuanzhiKindTable;
    // using GameObjects.PersonDetail.PersonMessages;
     using GameObjects.TroopDetail;
     using GameObjects.Conditions;
@@ -4022,7 +4023,28 @@
             }
             
         }
- 
+        /*
+        public PersonList Kerenmingdeguanyuan
+        {
+            get
+            {
+                PersonList list = new PersonList();
+                List <Guanzhi> allGuanzhis = 
+                foreach (Person p in this.Persons)
+                {
+                    foreach (Guanzhi g in base.Scenario.GameCommonData.AllGuanzhis)
+                    {
+                        if (p != this.BelongedFaction.Leader && p.AwardableGuanzhis.Count > 0 && p.Guanzhis.Count <= base.Scenario.GameCommonData.AllGuanzhiKinds.Count)
+                        {
+                            list.Add(p);
+                        }
+                    }
+
+                }
+                return list;
+            }
+        }*/
+
         public bool SelfBecomeEmperorAvail()
         {
             return this.BelongedFaction.SelfBecomeEmperorAvail();
