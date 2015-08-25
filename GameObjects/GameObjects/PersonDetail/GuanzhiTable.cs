@@ -6,6 +6,7 @@
 
     public class GuanzhiTable
     {
+        /*
         public Dictionary<int, Guanzhi > Guanzhis = new Dictionary<int, Guanzhi>();
 
         public bool AddGuanzhi(Guanzhi guanzhi)
@@ -85,6 +86,6 @@
             {
                 return this.Guanzhis.Count;
             }
-        }
+        }*/
     }
 }

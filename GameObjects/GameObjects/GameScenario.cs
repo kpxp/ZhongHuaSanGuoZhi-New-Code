@@ -1128,7 +1128,7 @@
 
             this.militaryKindEvent();
             this.titleDayEvent();
-            this.guanzhiDayEvent();
+            //this.guanzhiDayEvent();
 
 
             //this.GameProgressCaution.Text = "运行人物";
@@ -1184,7 +1184,7 @@
                 }
             }
         }
-
+        /*
         private void guanzhiDayEvent()
         {
             foreach (Guanzhi g in this.GameCommonData.AllGuanzhis.Guanzhis.Values)
@@ -1221,7 +1221,7 @@
                 }
             }
         }
-
+        */
 
         private static Person courier = null;
         private void titleDayEvent()
@@ -2705,7 +2705,7 @@
             OleDbConnection commonConn = new OleDbConnection(commonConnString);
 
             UsingOwnCommonData = true;
-            try
+            /*try
             {
                 errorMsg.AddRange(this.GameCommonData.LoadGuanzhi(DbConnection, this));
             }
@@ -2722,7 +2722,7 @@
             {
                 errorMsg.AddRange(this.GameCommonData.LoadGuanzhiKind(commonConn, this));
                 UsingOwnCommonData = false;
-            }
+            }*/
             try
             {
                 errorMsg.AddRange(this.GameCommonData.LoadPersonGeneratorSetting(DbConnection, this));
@@ -3359,26 +3359,28 @@
                 }
 
                 person.Skills.LoadFromString(this.GameCommonData.AllSkills, reader["Skills"].ToString());
-
+                /*
                 try
                 {
                     errors.AddRange(person.LoadGuanzhiFromString(reader["Guanzhi"].ToString(), this.GameCommonData.AllGuanzhis));
+                    //Guanzhi g = this.GameCommonData.AllGuanzhis.GetGuanzhi((short)reader["GeneralGuanzhi"]);
+                    //g = this.GameCommonData.AllGuanzhis.GetGuanzhi((short)reader["CombatGuanzhi"]);
                 }
                 catch
                 {
                    
-
-                   /* Guanzhi g = this.GameCommonData .AllGuanzhis.GetGuanzhi((short)reader ["GeneralGuanzhi"]);
+                    
+                   Guanzhi g = this.GameCommonData .AllGuanzhis.GetGuanzhi((short)reader ["Guanzhi"]);
                     if (g != null)
                     {
                         person.RealGuanzhis.Add(g);
                     }
-                    g = this.GameCommonData.AllGuanzhis.GetGuanzhi((short)reader["CombatGuanzhi"]);
+                     = this.GameCommonData.AllGuanzhis.GetGuanzhi((short)reader["CombatGuanzhi"]);
                     if (g != null)
                     {
                         person.RealGuanzhis.Add(g);
-                    }*/
-                }
+                    }
+                }*/
 
                 try
                 {
@@ -5689,7 +5691,7 @@
 
                     row["Skills"] = person.Skills.SaveToString();
                     row["Title"] = person.SaveTitleToString();
-                    row["Guanzhi"] = person.SaveGuanzhiToString(); 
+                    //row["Guanzhi"] = person.SaveGuanzhiToString(); 
                     row["StudyingTitle"] = (person.StudyingTitle != null) ? person.StudyingTitle.ID : -1;
                     row["Stunts"] = person.Stunts.SaveToString();
                     row["StudyingStunt"] = (person.StudyingStunt != null) ? person.StudyingStunt.ID : -1;

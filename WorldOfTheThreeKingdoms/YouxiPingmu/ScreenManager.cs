@@ -602,7 +602,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         }
 
 
-        private void FrameFunction_Military_Transfer() //运输编队
+        private void FrameFunction_Architecture_MilitaryTransfer() //运输编队
         {
             if (this.CurrentArchitecture != null)
             {
@@ -612,7 +612,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     //this.CurrentArchitecture.RemoveMilitary(m);
                     this.CurrentMilitaries = this.CurrentGameObjects.GetList();
-                    this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.TransferMilitary));
+                    this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.MilitaryTransfer));
 
 
 
@@ -993,8 +993,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.FrameFunction_Architecture_PersonTransfer();
                     break;
 
-                case FrameFunction.TransferMilitary://运输编队
-                    this.FrameFunction_Military_Transfer();
+                case FrameFunction.MilitaryTransfer://运输编队
+                    this.FrameFunction_Architecture_MilitaryTransfer();
                     break;
 
                 case FrameFunction.PersonConvene:

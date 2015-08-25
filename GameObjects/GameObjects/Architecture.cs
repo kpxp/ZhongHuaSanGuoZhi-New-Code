@@ -7,7 +7,7 @@
     using GameObjects.Influences;
     using GameObjects.MapDetail;
     using GameObjects.PersonDetail;
-    using GameObjects.PersonDetail.GuanzhiKindTable;
+    //using GameObjects.PersonDetail.GuanzhiKindTable;
    // using GameObjects.PersonDetail.PersonMessages;
     using GameObjects.TroopDetail;
     using GameObjects.Conditions;
@@ -3916,7 +3916,7 @@
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
                 }
                 
-                if(GameObject.Random((int)(10000 * Math.Pow(this.BelongedFaction.PersonCount, Parameters.SearchPersonArchitectureCountPower))) <
+                else if(GameObject.Random((int)(10000 * Math.Pow(this.BelongedFaction.PersonCount, Parameters.SearchPersonArchitectureCountPower))) <
                     GlobalVariables.CreateRandomOfficerChance * 100)
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
@@ -5124,7 +5124,7 @@
         {
             TroopList result = new TroopList();
             if (military.FollowedLeader != null && from.Persons .HasGameObject(military.FollowedLeader) && military.FollowedLeader.LocationTroop == null
-                && isPersonAllowedIntoTroop(military.FollowedLeader, military, offensive) && !this.BelongedFaction.MayorList.GameObjects.Contains(military.FollowedLeader))
+                && isPersonAllowedIntoTroop(military.FollowedLeader, military, offensive))
             {
                 if (isPersonAllowedIntoTroop(military.FollowedLeader, military, offensive))
                 {
@@ -5133,7 +5133,7 @@
             }
             else if (military.Leader != null && military.LeaderExperience >= 10 && (military.Leader.Strength >= 80 || military.Leader.Command >= 80 || military.Leader.HasLeaderValidTitle)
                 && from.MovablePersons.HasGameObject(military.Leader) && military.Leader.LocationTroop == null && isPersonAllowedIntoTroop(military.Leader, military, offensive)
-                && !this.BelongedFaction.MayorList.GameObjects.Contains(military.Leader))
+               )
             {
                 if (isPersonAllowedIntoTroop(military.Leader, military, offensive))
                 {
@@ -5142,7 +5142,7 @@
             }
             else
             {
-                GameObjectList pl = from.MovablePersons .GetList();
+                GameObjectList pl = from.Persons .GetList();
                 pl.PropertyName = "FightingForce";
                 pl.IsNumber = true;
                 pl.SmallToBig = false;
@@ -5153,16 +5153,16 @@
                     {
                         if (person.HasMilitaryKindTitle(military.Kind))
                         {
-                            result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(person, from.MovablePersons , false), military, from.Position));
+                            result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(person, from.Persons , false), military, from.Position));
                         }
                         else if (person.HasMilitaryTypeTitle(military.Kind.Type))
                         {
-                            result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(person, from.MovablePersons , false), military, from.Position));
+                            result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(person, from.Persons , false), military, from.Position));
                         }
                         else if ((this.BelongedFaction.AvailableMilitaryKinds.GetMilitaryKindList().GameObjects.Contains(military.Kind) && military.Kind.RecruitLimit > 10) ||
                             person.FightingForce >= Parameters.AIUniqueTroopFightingForceThreshold || (this.Endurance < 30 && !offensive))
                         {
-                            result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(person, from.MovablePersons , false), military, from.Position));
+                            result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(person, from.Persons , false), military, from.Position));
                         }
                     }
                 }
@@ -6394,6 +6394,7 @@
         {
             if (this.BelongedFaction == null) return false;
             if (this.movableMilitaries.Count <= 0) return false;
+
             foreach (Architecture a in this.BelongedFaction.Architectures)
             {
                 if (a != this)

@@ -399,7 +399,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Military_Transfer://运输编队
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.TransferMilitary, false, true, true, true, this.CurrentArchitecture.movableMilitaries, null, "选择编队", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.MilitaryTransfer, false, true, true, true, this.CurrentArchitecture.movableMilitaries, null, "选择编队", "");
                     break;
 
 

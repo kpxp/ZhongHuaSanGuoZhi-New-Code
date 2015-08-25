@@ -9,7 +9,7 @@
 
     public class Guanzhi : GameObject
     {
-
+        /*
         private bool combat;
 
         public ConditionTable Conditions = new ConditionTable();
@@ -253,6 +253,6 @@
                 guanzhis[g.Kind].Add(g);
             }
             return guanzhis;
-        }
+        }*/
     }
 }

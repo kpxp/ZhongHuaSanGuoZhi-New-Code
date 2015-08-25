@@ -27,7 +27,7 @@
         WujiangDiaodong,
         DengYongWujiang,
         MoveCaptive,
-        TransferMilitary,
+        MilitaryTransfer,
         MoveFeizi
     }
 }

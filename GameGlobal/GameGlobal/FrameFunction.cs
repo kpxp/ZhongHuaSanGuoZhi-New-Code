@@ -89,7 +89,7 @@
         DismissOfficer, //遣散
         AppointOfficer,//任命官员
         RecallOfficer,//罢免官员
-        TransferMilitary, //运输编队
+        MilitaryTransfer, //运输编队
         GetTransferMilitary,//读取运输编队
         GetInformationToStop,
         SelectLandLink,

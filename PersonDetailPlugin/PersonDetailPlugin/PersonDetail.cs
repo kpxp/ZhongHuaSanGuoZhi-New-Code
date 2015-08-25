@@ -31,8 +31,8 @@
         internal FreeTextList LearnableSkillTexts;
         internal List<Skill> LinkedSkills = new List<Skill>();
         internal Rectangle TitleClient;
-        internal Rectangle GuanzhiClient; //官职
-        internal FreeRichText GuanzhiText = new FreeRichText();
+       // internal Rectangle GuanzhiClient; //官职
+        //internal FreeRichText GuanzhiText = new FreeRichText();
         internal FreeRichText TitleText = new FreeRichText();
         internal FreeTextList PersonSkillTexts;
         internal Rectangle PortraitClient;
@@ -66,7 +66,7 @@
                     text.Text.Draw(spriteBatch, 0.1999f);
                 }
                 this.TitleText.Draw(spriteBatch, 0.1999f);
-                this.GuanzhiText.Draw(spriteBatch, 0.1999f);
+                //this.GuanzhiText.Draw(spriteBatch, 0.1999f);
                 this.AllSkillTexts.Draw(spriteBatch, (float) 0.1999f);
                 this.PersonSkillTexts.Draw(spriteBatch, (float) 0.1998f);
                 this.LearnableSkillTexts.Draw(spriteBatch, (float) 0.1998f);
@@ -171,7 +171,7 @@
                     }
                 }
             }
-            if (!flag && StaticMethods.PointInRectangle(position, this.GuanzhiDisplayPosition))
+           /* if (!flag && StaticMethods.PointInRectangle(position, this.GuanzhiDisplayPosition))
             {
                 int num2 = (position.Y - this.GuanzhiText.DisplayOffset.Y / this.GuanzhiText.RowHeight);
                 if (num2 > 1)
@@ -241,7 +241,7 @@
                         }
                     }
                 }
-            }
+            }*/
                    
             if (!flag && StaticMethods.PointInRectangle(position, this.StuntDisplayPosition))
             {
@@ -430,13 +430,14 @@
                 this.TitleText.AddNewLine();
             }
             this.TitleText.ResortTexts();
-            this.GuanzhiText.Clear();
-            foreach (Guanzhi guanzhi in person.Guanzhis)
+           // this.GuanzhiText.Clear();
+           /* foreach (Guanzhi guanzhi in person.Guanzhis)
             {
                 this.GuanzhiText.AddText(guanzhi.DetailedName, Color.Lime);
                 this.GuanzhiText.AddNewLine();
             }
             this.GuanzhiText.ResortTexts();
+            */
             this.PersonSkillTexts.SimpleClear();
             this.LearnableSkillTexts.SimpleClear();
             foreach (Skill skill in this.screen.Scenario.GameCommonData.AllSkills.Skills.Values)
@@ -545,7 +546,7 @@
                 text.Text.DisplayOffset = this.DisplayOffset;
             }
             this.TitleText.DisplayOffset = new Point(this.DisplayOffset.X + this.TitleClient.X, this.DisplayOffset.Y + this.TitleClient.Y);
-            this.GuanzhiText.DisplayOffset = new Point(this.DisplayOffset.X + this.GuanzhiClient.X, this.DisplayOffset.Y + this.GuanzhiClient.Y);
+           // this.GuanzhiText.DisplayOffset = new Point(this.DisplayOffset.X + this.GuanzhiClient.X, this.DisplayOffset.Y + this.GuanzhiClient.Y);
             this.AllSkillTexts.DisplayOffset = this.DisplayOffset;
             this.PersonSkillTexts.DisplayOffset = this.DisplayOffset;
             this.LearnableSkillTexts.DisplayOffset = this.DisplayOffset;
@@ -610,7 +611,7 @@
                 return new Rectangle(this.TitleText.DisplayOffset.X, this.TitleText.DisplayOffset.Y, this.TitleText.ClientWidth, this.TitleText.ClientHeight);
             }
         }
-
+        /*
         private Rectangle GuanzhiDisplayPosition
         {
             get
@@ -618,7 +619,7 @@
                 return new Rectangle(this.GuanzhiText.DisplayOffset.X, this.GuanzhiText.DisplayOffset.Y, this.GuanzhiText.ClientWidth, this.GuanzhiText.ClientHeight);
             }
         }
-
+        */
         private Rectangle StuntDisplayPosition
         {
             get

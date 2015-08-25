@@ -6,6 +6,7 @@
 
     public class GuanzhiKindTable
     {
+        /*
         public Dictionary<int, GuanzhiKind> GuanzhiKinds = new Dictionary<int, GuanzhiKind>();
 
         public bool AddGuanzhiKind(GuanzhiKind guanzhi)
@@ -85,7 +86,7 @@
                 }
                 return -1;
             }
-        }
+        }*/
     }
 }
 

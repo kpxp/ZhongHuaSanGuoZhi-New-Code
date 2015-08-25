@@ -713,10 +713,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     break;
 
-                case SelectingUndoneWorkKind.TransferMilitary: //运输编队
+                case SelectingUndoneWorkKind.MilitaryTransfer: //运输编队
                     if (this.CurrentArchitecture != null)
                     {
-                        this.selectingLayer.AreaFrameKind = SelectingUndoneWorkKind.TransferMilitary;
+                        this.selectingLayer.AreaFrameKind = SelectingUndoneWorkKind.MilitaryTransfer;
                         this.selectingLayer.Area = this.CurrentArchitecture.GetMilitaryTransferArchitectureArea();
                         this.selectingLayer.ShowComment = true;
                         this.selectingLayer.SingleWay = true;
@@ -970,7 +970,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     return;
 
-                case SelectingUndoneWorkKind.TransferMilitary: //运输编队
+                case SelectingUndoneWorkKind.MilitaryTransfer: //运输编队
                     if (!this.selectingLayer.Canceled && (this.CurrentMilitaries != null))
                     {
                         Architecture architectureByPosition = base.Scenario.GetArchitectureByPosition(this.selectingLayer.SelectedPoint);
@@ -2163,7 +2163,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
             }
         }
-
+        /*
         public override void AutoAwardGuanzhi(Person p, Person courier, Guanzhi guanzhi)
         {
             if (base.Scenario.CurrentPlayer == null || base.Scenario.CurrentPlayer.IsPositionKnown(p.Position) || GlobalVariables.SkyEye)
@@ -2179,7 +2179,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.tupianwenziPlugin.IsShowing = true;
                 }
             }
-        }
+        }*/
 
         public override void AutoLearnTitle(Person p, Person courier, Title title)
         {
