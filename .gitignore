@@ -121,3 +121,13 @@ JSGME.ini
 L*.mdb
 
 WorldOfTheThreeKingdoms/bin/x86/Release/GameData/ScenarioErrors.txt
+
++*.jpg
++*.png
++*.bmp
++*.wav
++*.mp3
++*.wma
++*.gif
++*.psd
+ 

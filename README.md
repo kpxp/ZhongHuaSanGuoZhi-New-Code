@@ -1,4 +1,4 @@
-# 中華三國志 #
+﻿# 中華三國志 #
 
 **官方論壇：http://www.zhsan.com**
 
@@ -27,7 +27,7 @@
 
 原作者：Clip_on
 
-程序：45399735 耒戈氏 majorcheng 最爱艾氏兄弟 YPZhou breamask
+程序：45399735 耒戈氏 kpxp majorcheng 最爱艾氏兄弟 YPZhou breamask
 美工：caibao2009 酷热7 zwm213 rhoda627 无限时段
 剧本：caibao2009 酷热7 asmz2002 o哀之咏叹调o 髀里肉生o0 phllylover 楓舞影
 特别呜谢：人骚骚兮夜无眠
