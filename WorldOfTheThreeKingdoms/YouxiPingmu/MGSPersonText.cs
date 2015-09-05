@@ -1392,7 +1392,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void Appointmayor(Person p, Person q)  //太守
         {
-            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && p.LocationArchitecture != null && p.LocationArchitecture.BelongedFaction != null ))
+            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && p.LocationArchitecture != null && p.LocationArchitecture.BelongedFaction != null || GlobalVariables.SkyEye))
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;

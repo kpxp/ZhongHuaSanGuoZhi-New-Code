@@ -8481,7 +8481,12 @@
                 this.defence = (int)(this.defence * 0.8f);
             }
             this.defence = (int)(this.defence * this.TempRateOfDefence);
-            this.defence = (int)(this.defence * (1 + (double)(Math.Log10(this.Leader.Reputation / 100) * IncrementDefenceRate))); //名声加防御改用Log函数
+
+            if (this.Leader.Reputation >= 100)
+            {
+                this.defence = (int)(this.defence * (1 + (Math.Log10(this.Leader.Reputation / 100) * IncrementDefenceRate))); //名声加防御改用Log函数
+            }
+            
             if (this.OutburstDefenceMultiple > 1)
             {
                 this.defence *= this.OutburstDefenceMultiple;
@@ -8564,6 +8569,8 @@
             {
                 this.defence = 1;
             }
+           
+                
         }
 
         internal void RefreshOffence()
@@ -8593,7 +8600,13 @@
                 this.offence = (int)(this.offence * 0.5f);
             }
             this.offence = (int)(this.offence * this.TempRateOfOffence);
-            this.offence = (int)(this.offence * (1 + (double)(Math.Log10(this.Leader.Reputation / 100) * IncrementOffenceRate)));  //名声加攻击改用Log函数
+
+
+            if (this.Leader.Reputation >= 100)
+            {
+                this.offence = (int)(this.offence * (1 + (Math.Log10(this.Leader.Reputation / 100) * IncrementOffenceRate)));  //名声加攻击改用Log函数
+            }
+            
             if (this.OutburstOffenceMultiple > 1)
             {
                 this.offence *= this.OutburstOffenceMultiple;
@@ -8676,6 +8689,8 @@
             {
                 this.offence = 1;
             }
+           
+            
         }
 
         private void RefreshStratagemChanceIncrement()
