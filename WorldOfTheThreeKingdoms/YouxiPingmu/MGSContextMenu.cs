@@ -450,7 +450,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Routeway_DemolishAll:
                     this.CurrentArchitecture.DemolishAllRouteways();
                     break;
-
+                    /*
+                case ContextMenuResult.Transport_Resource:
+                    this.Plugins.TransportDialogPlugin.SetSourceArchiecture(this.CurrentArchitecture);
+                    this.Plugins.TransportDialogPlugin.SetKind(TransportKind.Resource);
+                    this.Plugins.TransportDialogPlugin.SetMapPosition(ShowPosition.Center);
+                    this.Plugins.TransportDialogPlugin.IsShowing = true;
+                    break;
+                    */
+                    
                 case ContextMenuResult.Transport_Fund:
                     this.Plugins.TransportDialogPlugin.SetSourceArchiecture(this.CurrentArchitecture);
                     this.Plugins.TransportDialogPlugin.SetKind(TransportKind.Fund);
@@ -464,6 +472,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.TransportDialogPlugin.SetMapPosition(ShowPosition.Center);
                     this.Plugins.TransportDialogPlugin.IsShowing = true;
                     break;
+                    
 
                 case ContextMenuResult.Person_Transfer:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.PersonTransfer, false, true, true, true, this.CurrentArchitecture.MovablePersons, null, "调动", "");
@@ -618,7 +627,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Monarch_SelectPrince :
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectPrince, false, true, true, false, this.CurrentArchitecture.BelongedFaction.Leader.ChildrenCanBeSelectedAsPrince(), null, "立储", "");
                     break;
-                case ContextMenuResult.Monarch_Diplomatic_QuanXiang: //劝降
+                case ContextMenuResult.Monarch_Diplomatic_QuanXiangDiplomaticRelation: //劝降
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.GetQuanXiangDiplomaticRelation, false, true, true, false, this.CurrentArchitecture.GetQuanXiangDiplomaticRelationList() , null, "劝降", "");
                     break;
                 case ContextMenuResult.Monarch_Diplomatic_EnhanceDiplomaticRelation:
@@ -664,7 +673,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Monarch_ZhaoXianBang_DengYong: //登用
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.DengYong, false, true, true, true, this.CurrentArchitecture.NoFactionOfficers, null, "登用", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.DengYong, false, true, true, false, this.CurrentArchitecture.NoFactionOfficers, null, "登用", "");
                     break;
 
                 case ContextMenuResult.Monarch_ZhaoXianBang_DismissOfficer: //遣散

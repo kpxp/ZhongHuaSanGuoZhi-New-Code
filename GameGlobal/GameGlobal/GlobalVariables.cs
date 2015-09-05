@@ -145,6 +145,8 @@
 
         public static bool FullScreen = false;
 
+        public static bool PermitQuanXiang = true;
+
         public const string cryptKey = "A3g0c3%2";
 
         public static List<String> getFieldsExcludedFromSave()
@@ -826,6 +828,15 @@
             {
                 exception = exception24;
                 throw new Exception("ArmyPopulationCap:\n" + exception.ToString());
+            }
+            try 
+            {
+                PermitQuanXiang = bool.Parse(nextSibling.Attributes.GetNamedItem("PermitQuanXiang").Value);
+            }
+            catch (Exception exception24)
+            {
+                exception = exception24;
+                throw new Exception("PermitQuanXiang:\n" + exception.ToString());
             }
             return true;
         }

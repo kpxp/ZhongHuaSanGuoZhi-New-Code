@@ -555,9 +555,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 foreach (Military military in this.CurrentMilitaries)
                 {
                     //military.ArrivingDays = this.screen.Scenario.GetTransferFundDays(this.CurrentArchitecture, architecture);
-                    this.CurrentArchitecture.RemoveMilitary(military);
-                    architecture.AddMilitary(military);
-
+                   // this.CurrentArchitecture.RemoveMilitary(military);
+                    military.BelongedArchitecture = architecture;
+                    military.StartingArchitecture = this.CurrentArchitecture;
+                    military.TargetArchitecture = architecture;
+                    military.ArrivingDays = (int)Math.Ceiling(gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea,architecture .ArchitectureArea)/ 2.5);
+                   /* if (military.ArrivingDays <= 0)
+                    {
+                        architecture.Militaries.AddMilitary(military);
+                    }
+                    */
                 }
                 this.mainGameScreen.PlayNormalSound("GameSound/Tactics/Outside.wav");
             }
@@ -886,18 +893,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Monarch_ZhaoXianBang_DengYong() //强制登用武将
         {
-            if (this.CurrentArchitecture != null)
+            this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             {
-                this.CurrentGameObjects = this.CurrentArchitecture.NoFactionOfficers.GetSelectedList();
-                this.CurrentPersons = this.CurrentGameObjects.GetList();
-                foreach (Person person in this.CurrentPersons)
+                if (this.CurrentPerson != null)
                 {
-                    person.Status = PersonStatus.Normal;
-                    if (person.Loyalty < 110)
+                    if (this.CurrentArchitecture.Fund > this.CurrentPerson.UntiredMerit)
                     {
-                        person.Loyalty = 110;
+                        this.CurrentArchitecture.DecreaseFund(CurrentPerson.UntiredMerit);
+                        this.CurrentPerson.Status = PersonStatus.Normal;
+                        if (this.CurrentPerson.Loyalty < 110)
+                        {
+                            this.CurrentPerson.Loyalty = 110;
+                        }
+                        this.CurrentArchitecture.DengYong(CurrentPerson);
                     }
-                    this.CurrentArchitecture.DecreaseFund(person.UntiredMerit);
+
+
+                    
                 }
                 
                 this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.DengYongWujiang));

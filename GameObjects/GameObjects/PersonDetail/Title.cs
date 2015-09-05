@@ -10,6 +10,7 @@
     public class Title : GameObject
     {
         private bool combat;
+
         public ConditionTable Conditions = new ConditionTable();
         public ConditionTable LoseConditions = new ConditionTable(); //失去条件
 

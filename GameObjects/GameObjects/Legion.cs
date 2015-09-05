@@ -72,7 +72,7 @@
                         node.A.BelongedSection.AIDetail.AllowInvestigateTactics) && node.A.InformationAvail()) &&
                         (node.A.RecentlyAttacked <= 0))
                     {
-                        foreach (Person person in node.A.Persons)
+                        foreach (Person person in node.A.MovablePersons)
                         {
                             if (person.LocationArchitecture != null)
                             {

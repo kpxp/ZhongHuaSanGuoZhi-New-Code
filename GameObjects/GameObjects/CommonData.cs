@@ -985,6 +985,7 @@
                 {
                     title.GenerationChance[9] = title.GenerationChance[7];
                 }
+               
                 title.RelatedAbility = (int)reader["Ability"];
                 this.AllTitles.AddTitle(title);
             }
@@ -1325,6 +1326,13 @@
                 stratagem.Self = (bool)reader["Self"];
                 stratagem.AnimationKind = (TileAnimationKind)((short)reader["AnimationKind"]);
                 List<string> e = stratagem.Influences.LoadFromString(this.AllInfluences, reader["Influences"].ToString());
+                try
+                {
+                    e.AddRange(stratagem.CastConditions.LoadFromString(this.AllConditions, reader["CastConditions"].ToString()));
+                }
+                catch
+                {
+                }
                 if (e.Count > 0)
                 {
                     errorMsg.Add("计略ID" + stratagem.ID);
@@ -2501,6 +2509,7 @@
                     row["CastTarget"] = i.CastTarget == null ? 1 : i.CastTarget.ID;
                     row["ArchitectureTarget"] = i.ArchitectureTarget;
                     row["RequireInfluneceToUse"] = i.RequireInfluenceToUse;
+                    row["CastConditions"] = i.CastConditions.SaveToString(); ;
                     row.EndEdit();
                     dataSet.Tables["Stratagem"].Rows.Add(row);
                 }

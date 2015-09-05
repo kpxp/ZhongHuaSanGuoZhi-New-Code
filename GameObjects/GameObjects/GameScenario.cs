@@ -1076,6 +1076,7 @@
 
             //clearupRepeatedOfficers();
 
+            
             this.Troops.FinalizeQueue();
             this.Factions.BuildQueue(false);
             this.Architectures.NoFactionDevelop();
@@ -1164,6 +1165,8 @@
 
             this.GameScreen.DisposeMapTileMemory();
         }
+        
+       
 
         private void militaryKindEvent()
         {
@@ -2006,6 +2009,7 @@
         {
             return (int)Math.Ceiling(this.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 2.5);
         }
+
 
         public Troop GetTroopByPosition(Point position)
         {
@@ -3765,6 +3769,28 @@
                 catch
                 {
                 }
+                try
+                {
+                    military.ArrivingDays = (short)reader["ArrivingDays"];
+                }
+                catch
+                {
+                }
+                try
+                {
+                    military.StartingArchitecture = this.Architectures.GetGameObject((short)reader["StartingArchitecture"]) as Architecture;
+                }
+                catch
+                {
+                }
+                try
+                {
+                    military.TargetArchitectureID = (short)reader["TargetArchitectureID"];
+                }
+                catch
+                {
+                }
+
                 if (military.Kind != null)
                 {
                     this.Militaries.AddMilitary(military);
@@ -5547,6 +5573,9 @@
                     row["RecruitmentPersonID"] = military.RecruitmentPerson == null ? -1 : military.RecruitmentPerson.ID;
                     row["ShelledMilitary"] = (military.ShelledMilitary != null) ? military.ShelledMilitary.ID : -1;
                     row["Tiredness"] = military.Tiredness;
+                    row["ArrivingDays"] = military.ArrivingDays;
+                    row["StartingArchitecture"] = (military.StartingArchitecture != null) ? military.StartingArchitecture.ID : -1;
+                    row["TargetArchitectureID"] = military.TargetArchitectureID;
                     row.EndEdit();
                     dataSet.Tables["Military"].Rows.Add(row);
                 }
@@ -6453,7 +6482,7 @@
             {
                 if (person.Available && person.Alive)
                 {
-                    if (person.ID >= 3000 && person.ID < 5000 || person.ID > 10000 && person.Father == null )
+                    if (person.ID >= 25000 && person.yeshengwujiang)
                     {
                         result.Add(person);
                     }
@@ -6480,15 +6509,15 @@
 
                if (this.Factions.Count <= 50)  //剧本野武将上限为800
                {
-                   return (this.Factions.Count * 10 + 300);
+                   return (this.Factions.Count * 10 + 500);
                }
                else if (this.Factions.Count > 50 && this.Factions .Count <= 100)
                {
-                   return ( this.Factions.Count * 5 + 300);
+                   return ( this.Factions.Count * 5 + 500);
                }
                else 
                {
-                   return (this.Factions.Count * 3 + 100 + 20 * GameObject.Random(5));
+                   return (this.Factions.Count * 3 + 100 );
                }
                
            }

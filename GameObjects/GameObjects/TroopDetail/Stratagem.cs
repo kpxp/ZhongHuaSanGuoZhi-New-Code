@@ -3,6 +3,7 @@
     using GameObjects;
     using GameObjects.Animations;
     using GameObjects.Influences;
+    using GameObjects.Conditions;
     using System;
     using System.Collections.Generic;
     using System.Runtime.InteropServices;
@@ -19,6 +20,9 @@
         private string description;
         private bool friendly;
         public InfluenceTable Influences = new InfluenceTable();
+
+        public ConditionTable CastConditions = new ConditionTable();
+
         private bool self;
         private int techniquePoint;
 
@@ -41,6 +45,36 @@
                 num += influence.GetCredit(source, destination);
             }
             return num;
+        }
+
+        public GameObjectList GetCastConditionList()
+        {
+            return this.CastConditions.GetConditionList();
+        }
+
+        public bool IsCastable(Troop troop)
+        {
+            foreach (Condition condition in this.CastConditions.Conditions.Values)
+            {
+                if (!condition.CheckCondition(troop))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public string CastConditionString
+        {
+            get
+            {
+                string str = "";
+                foreach (Condition condition in this.CastConditions.Conditions.Values)
+                {
+                    str = str + "•" + condition.Name;
+                }
+                return str;
+            }
         }
 
         public int GetCreditWithPosition(Troop source, out Point? position)

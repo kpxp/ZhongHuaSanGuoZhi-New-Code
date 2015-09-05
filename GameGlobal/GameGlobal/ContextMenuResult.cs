@@ -59,6 +59,7 @@
         Routeway_ArchitectureShortestNoWater,
         Routeway_CloseAll,
         Routeway_DemolishAll,
+        //Transport_Resource,
         Transport_Fund,
         Transport_Food,
         Person_Transfer,
@@ -97,7 +98,7 @@
         Monarch_Diplomatic_ResetDiplomaticRelation,
         Monarch_Diplomatic_DenounceDiplomaticRelation,
         Monarch_Diplomatic_TruceDiplomaticRelation,
-        Monarch_Diplomatic_QuanXiang,//劝降
+        Monarch_Diplomatic_QuanXiangDiplomaticRelation,//劝降
         Monarch_officePosition_jingongzijin,
         Monarch_officePosition_jingongliangcao,
         Monarch_officePosition_SelfBecomeEmperor,

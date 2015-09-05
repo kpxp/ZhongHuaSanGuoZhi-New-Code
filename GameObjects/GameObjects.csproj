@@ -480,7 +480,6 @@
     <Compile Include="GameObjects\FactionDetail\TechniqueTable.cs" />
     <Compile Include="GameObjects\ArchitectureList.cs" />
     <Compile Include="GameObjects\FundPack.cs" />
-    <Compile Include="GameObjects\SpyPack.cs" />
     <Compile Include="GameObjects\PopulationPack.cs" />
     <Compile Include="GameObjects\LinkKind.cs" />
     <Compile Include="GameObjects\LinkNode.cs" />
@@ -1272,6 +1271,8 @@
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind450.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind680.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind808.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind809.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind818.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind965.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind975.cs" />
     <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind285.cs" />

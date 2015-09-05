@@ -4,6 +4,7 @@
 
     public enum TransportKind
     {
+        //Resource,
         EmperorFund,
         EmperorFood,
         Fund,

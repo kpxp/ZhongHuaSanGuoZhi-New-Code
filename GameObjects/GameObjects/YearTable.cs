@@ -366,6 +366,17 @@
                 String.Format(yearTableStrings["appointMayor_q"], p.Name, p.BelongedArchitecture.Name, leader.Name));
         }
 
+        public void addDengYongEntry(GameDate date, Person p, Person leader)
+        {
+            this.addTableEntry(date, composeFactionList(p.BelongedFaction),
+                String.Format(yearTableStrings["dengYong"], p.Name, p.BelongedArchitecture.Name, leader.Name), false);
+            this.addPersonInGameBiography(p, date,
+                String.Format(yearTableStrings["dengYong_p"], p.Name, p.BelongedArchitecture.Name, leader.Name));
+            this.addPersonInGameBiography(leader, date,
+                String.Format(yearTableStrings["dengYong_q"], p.Name, p.BelongedArchitecture.Name, leader.Name));
+        }
+
+
         public void addOutOfPrincessEntry(GameDate date, Person p, Faction capturer)
         {
             this.addPersonInGameBiography(p, date,

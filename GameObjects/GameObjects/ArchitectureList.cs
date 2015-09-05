@@ -19,7 +19,13 @@
                 architecture.OnPopulationEscape += new Architecture.PopulationEscape(this.architecture_OnPopulationEscape);
                 architecture.OnSelectprince += new Architecture.Selectprince(this.architecture_OnSelectprince);
                 architecture.OnAppointmayor += new Architecture.Appointmayor(this.architecture_OnAppointmayor);
+                architecture.OnDengyong += new Architecture.Dengyong(this.architecture_OnDengyong);
             }
+        }
+
+        public void architecture_OnDengyong(Person person, Person leader)
+        {
+            person.Scenario.GameScreen.Dengyong(person, leader);
         }
 
         public void architecture_OnSelectprince(Person person, Person leader)//立储

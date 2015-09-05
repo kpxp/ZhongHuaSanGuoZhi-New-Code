@@ -779,7 +779,7 @@
         {
         }
 
-        public virtual void DengYong(Person p, Person q) { }
+        public virtual void Dengyong(Person p, Person q) { }
 
         public virtual void Appointmayor(Person p, Person q) { }
 

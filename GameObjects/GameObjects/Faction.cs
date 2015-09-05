@@ -1184,6 +1184,7 @@
             this.AISelectPrince();
             this.AIZhaoXian();
             this.AIDengYong();
+            this.AIAppointMayor();
             this.AIHouGong();
             this.AITransfer();
             this.AIArchitectures();
@@ -1273,7 +1274,7 @@
                     {
                         if ((!b.IsTroopExceedsLimit || b.FrontLine) && b.IsFoodTwiceAbundant && !b.Abandoned & b != a)
                         {
-                            int sent = b.CallTroop(a, toSend);
+                            int sent = b.CallMilitary(a, toSend);
                             toSend -= sent;
                             if (toSend <= 0) break;
                             if (!a.HasPerson()) break;
@@ -1376,7 +1377,7 @@
                         if (b.ArmyScale > goodTroop[b])
                         {
                             int send = Math.Min(deficit, b.ArmyScale - goodTroop[b]);
-                            send = a.CallTroop(b, send);
+                            send = a.CallMilitary(b, send);
                             if (send > 0)
                             {           
                                 deficit -= send;
@@ -1393,7 +1394,7 @@
                         {
                             if (b.Abandoned || b == a) continue;
                             int send = Math.Min(deficit, b.ArmyScale - minTroop[b]);
-                            send = a.CallTroop(b, send);
+                            send = a.CallMilitary(b, send);
                             if (send > 0)
                             {
                                 deficit -= send;
@@ -1554,7 +1555,7 @@
                         if (b.ArmyScale > goodTroop[b])
                         {
                             int send = Math.Min(deficit, b.ArmyScale - goodTroop[b]);
-                            send = a.CallTroop(b, send);
+                            send = a.CallMilitary(b, send);
                             if (send > 0)
                             {
                                 deficit -= send;
@@ -2534,9 +2535,10 @@
             {
                 ChangeLeaderAfterLeaderDeath();
             }
-            this.SpyMessageCloseList.Clear();
+           // this.SpyMessageCloseList.Clear();
             this.TechniquesDayEvent();
             this.InformationDayEvent();
+            this.MilitaryDayEvent();
             if (!base.Scenario.IsPlayer(this))
             {
                // this.AISelectPrince();
@@ -2548,7 +2550,80 @@
             this.visibleTroopsCache = null;
         }
 
+        public MilitaryList TransferingMilitary
+        {
+            get
+            {
+                MilitaryList list = new MilitaryList();
+                foreach (Architecture a in this.Architectures)
+                {
+                    foreach (Military m in a.Militaries)
+                    {
+                        if (m.TargetArchitecture != null && m.StartingArchitecture != null && m.ArrivingDays > 0)
+                        {
+                            list.Add(m);
+                        }
+                    }
+                    
+                }
+                return list;
+            }
+        }
 
+        private void MilitaryDayEvent()
+        {
+            foreach (Military m in this.TransferingMilitary)
+            {
+                m.ArrivingDays--;
+
+
+                if (m.ArrivingDays == 0)
+                {
+                    if (m.TargetArchitecture != null && m.StartingArchitecture!= null && m.TargetArchitecture.BelongedFaction == this)
+                    {
+                        m.StartingArchitecture.RemoveMilitary(m);
+                        m.TargetArchitecture.Militaries.Add(m);
+                        m.BelongedArchitecture = m.TargetArchitecture;
+                       // m.StartingArchitecture = null;
+                        //m.TargetArchitecture = null;
+                    }
+                    m.StartingArchitecture = null;
+                    m.TargetArchitecture = null;
+                    
+                }
+                else 
+                {
+                    if (m.BelongedFaction != null )
+                    {
+                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.BelongedFaction != this)  //运输过程中目的地被其他势力占领，停止运输
+                        {
+                            m.ArrivingDays = 0;
+                            m.StartingArchitecture = null ;
+                            m.TargetArchitecture = null;
+
+                        }
+                    }
+                    else
+                    {
+                        m.ArrivingDays = 0;
+                        m.StartingArchitecture = null;
+                        m.TargetArchitecture = null;
+
+                    }
+                }
+                /*if (m.BelongedFaction != null)
+                {
+                    if (m.TargetArchitecture.BelongedFaction != m.StartingArchitecture.BelongedFaction || m.BelongedFaction != m.StartingArchitecture.BelongedFaction || m.BelongedFaction != m.TargetArchitecture.BelongedFaction  )
+                    {
+                       // m.StartingArchitecture.Militaries.Add(m);
+                        //m.BelongedArchitecture = m.StartingArchitecture;
+                    }
+                }*/
+
+
+            }
+
+        }
 
         private void AISelectPrince()
         {
@@ -2576,22 +2651,46 @@
                     {
                         foreach (Person p in a.NoFactionOfficers)
                         {
-                            if (p.UntiredMerit >= 45000 || p.UntiredMerit < 45000 && p.UntiredMerit > 38000)   //AI强制登用属性比较好的野武将
+                            if (a.Fund > p.UntiredMerit)
                             {
-                                p.Status = PersonStatus.Normal;
-                                if (p.Loyalty < 110)
+                                if (p.UntiredMerit >= 45000 || p.UntiredMerit < 45000 && p.UntiredMerit > 38000)   //AI强制登用属性比较好的野武将
                                 {
-                                    p.Loyalty = 110;
+                                    p.Status = PersonStatus.Normal;
+                                    if (p.Loyalty < 110)
+                                    {
+                                        p.Loyalty = 110;
+                                    }
+                                    a.DengYong(p);
+                                    a.DecreaseFund(p.UntiredMerit);
                                 }
+                               
                             }
                         }
                     }
                 }
             }
         }
-                            
-                                
-                            
+
+
+        private void AIAppointMayor()
+        {
+            if (!base.Scenario.IsPlayer(this))
+            {
+                if (GameObject.Random(10) == 0)
+                {
+                    foreach (Architecture a in this.Architectures)
+                    {
+                        if (a.AppointMayorAvail())
+                        {
+                            Person person = a.MayorCandicate[0] as Person;
+                            a.MayorID = person.ID;
+                            a.AppointMayor(person);
+                        }
+                    }
+                }
+            }
+        }
+     
                             
                             
                     
@@ -5529,7 +5628,7 @@
                 PersonList result = new PersonList();
                 foreach (Person person in this.Persons)
                 {
-                    if (person.ID >= 3000 && person.ID < 5000 || person.ID > 10000)
+                    if (person.ID >= 25000 && person.yeshengwujiang)
                     {
                         result .Add (person);
                     }

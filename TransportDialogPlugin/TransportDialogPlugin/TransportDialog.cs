@@ -89,6 +89,7 @@
             foreach (LabelText text in this.LabelTexts)
             {
                 index++;
+                //if (index == 1 && (this.Kind == TransportKind.Resource)) continue;
                 if (index == 1 && (this.Kind == TransportKind.Food || this.Kind == TransportKind.Fund)) continue;
                 if (index == 2 && (this.Kind == TransportKind.EmperorFood || this.Kind == TransportKind.EmperorFund)) continue;
                 text.Label.Draw(spriteBatch, 0.1999f);
@@ -97,6 +98,9 @@
 
             Texture2D destinationTexture, inputNumberTexture, startTexture;
             Rectangle destinationPosition, inputNumberPosition, startPosition;
+
+           // Texture2D destinationTexture2, inputNumberTexture2, startTexture2;
+            //Rectangle destinationPosition2, inputNumberPosition2, startPosition2;
 
             switch (this.Kind)
             {
@@ -111,6 +115,20 @@
                         startPosition = this.EmperorStartButtonPosition;
                         break;
                     }
+                    /*
+                case TransportKind.Resource:
+                    {
+
+                        destinationTexture = this.FundDestinationButtonTexture;
+                        destinationPosition = this.FundDestinationButtonPosition;
+                        inputNumberTexture = this.FundInputNumberButtonTexture;
+                        inputNumberPosition = this.FundInputNumberButtonPosition;
+                        startTexture = this.StartButtonEnabled ? this.FundStartButtonTexture : this.FundStartButtonDisabledTexture;
+                        startPosition = this.FundStartButtonPosition;
+
+                        break;
+                    }*/
+                    
                 case TransportKind.Food:
                     {
                         destinationTexture = this.DestinationButtonTexture;
@@ -131,10 +149,23 @@
                         startPosition = this.FundStartButtonPosition;
                         break;
                     }
+                     
                 default:
                     throw new Exception("should not happen");
             }
-
+            //new
+            /*
+            destinationPosition2 = new Rectangle(destinationPosition2.X + BackgroundDisplayPosition.X, destinationPosition2.Y + BackgroundDisplayPosition.Y,
+                destinationPosition2.Width, destinationPosition2.Height);
+            inputNumberPosition2 = new Rectangle(inputNumberPosition2.X + BackgroundDisplayPosition.X, inputNumberPosition2.Y + BackgroundDisplayPosition.Y,
+                inputNumberPosition2.Width, inputNumberPosition2.Height);
+            startPosition2 = new Rectangle(startPosition2.X + BackgroundDisplayPosition.X, startPosition2.Y + BackgroundDisplayPosition.Y,
+                startPosition2.Width, startPosition2.Height);
+            spriteBatch.Draw(destinationTexture2, destinationPosition2, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            spriteBatch.Draw(inputNumberTexture2, inputNumberPosition2, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            spriteBatch.Draw(startTexture2, startPosition2, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+             */
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
             destinationPosition = new Rectangle(destinationPosition.X + BackgroundDisplayPosition.X, destinationPosition.Y + BackgroundDisplayPosition.Y,
                 destinationPosition.Width, destinationPosition.Height);
             inputNumberPosition = new Rectangle(inputNumberPosition.X + BackgroundDisplayPosition.X, inputNumberPosition.Y + BackgroundDisplayPosition.Y,
@@ -306,7 +337,11 @@
 
                     }
                     break;
-
+                   /*
+                case TransportKind.Resource:
+                    this.TitleText.Text = "运输钱粮";
+                    break;
+                    */
                 case TransportKind.Fund:
                     this.TitleText.Text = "运输资金";
                     break;
@@ -314,6 +349,7 @@
                 case TransportKind.Food:
                     this.TitleText.Text = "运输粮草";
                     break;
+                     
             }
         }
 
@@ -330,6 +366,7 @@
         {
             switch (this.Kind)
             {
+                //case TransportKind.Resource:
                 case TransportKind.Fund:
                 case TransportKind.Food:
                     this.TabListPlugin.InitialValues(this.SourceArchitecture.BelongedFaction.ArchitecturesExcluding(this.SourceArchitecture), null, 0, this.TitleText.Text);
@@ -357,6 +394,12 @@
         {
             switch (this.Kind)
             {
+                    /*
+                case TransportKind.Resource:
+                    this.NumberInputerPlugin.SetMax(this.SourceArchitecture.Fund);
+                    this.NumberInputerPlugin.SetMax(this.SourceArchitecture.Food);
+                    break;
+                     */
                 case TransportKind.Fund:
                 case TransportKind.EmperorFund:
                     this.NumberInputerPlugin.SetMax(this.SourceArchitecture.Fund);
@@ -412,7 +455,14 @@
                         this.GameRecordPlugin.AddBranch(faction, "shilijingong", faction.Capital.Position);
 
                         break;
-
+                        /*
+                    case TransportKind.Resource:
+                        this.SourceArchitecture.DecreaseFund(this.Number);
+                        this.DestinationArchitecture.AddFundPack((int)(this.Number / this.SourceArchitecture.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
+                        this.SourceArchitecture.DecreaseFood(this.Number);
+                        this.DestinationArchitecture.AddFoodPack((int)(this.Number / this.SourceArchitecture.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
+                        break;
+                        */
                     case TransportKind.Fund:
                         this.SourceArchitecture.DecreaseFund(this.Number);
                         this.DestinationArchitecture.AddFundPack((int)(this.Number / this.SourceArchitecture.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
@@ -422,6 +472,7 @@
                         this.SourceArchitecture.DecreaseFood(this.Number);
                         this.DestinationArchitecture.AddFoodPack((int)(this.Number / this.SourceArchitecture.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
                         break;
+                         
                 }
             }
 
@@ -460,6 +511,7 @@
                             this.DestinationCommentText.Text = "";
                             break;
 
+                        //case TransportKind.Resource:
                         case TransportKind.Fund:
                         case TransportKind.Food:
                             this.Days = this.screen.Scenario.GetTransferFundDays(this.SourceArchitecture, this.DestinationArchitecture);

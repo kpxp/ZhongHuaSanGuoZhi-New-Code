@@ -2207,7 +2207,7 @@
                     if ((((node.A.BelongedFaction == this.BelongedFaction) && (node.A.Fund >= node.A.DestroyArchitectureFund)) && node.A.BelongedSection != null && node.A.BelongedSection.AIDetail.AllowOffensiveTactics) && (node.A.RecentlyAttacked <= 0))
                     {
                         //using (IEnumerator enumerator2 = node.A.Persons.GetEnumerator())
-                        IEnumerator enumerator2 = node.A.Persons.GetEnumerator();
+                        IEnumerator enumerator2 = node.A.MovablePersons.GetEnumerator();
                         {
                             while (enumerator2.MoveNext())
                             {
@@ -2258,7 +2258,7 @@
                             if ((((node.A.BelongedFaction == this.BelongedFaction) && (node.A.Fund >= node.A.InstigateArchitectureFund)) && node.A.BelongedSection.AIDetail.AllowOffensiveTactics) && (node.A.RecentlyAttacked <= 0))
                             {
                                 //using (IEnumerator enumerator2 = node.A.Persons.GetEnumerator())
-                                IEnumerator enumerator2 = node.A.Persons.GetEnumerator();
+                                IEnumerator enumerator2 = node.A.MovablePersons.GetEnumerator();
                                 {
                                     while (enumerator2.MoveNext())
                                     {
@@ -6569,7 +6569,7 @@
                             return false;
                         }
                     }
-                    return (stratagem.Combativity <= (this.Combativity + this.DecrementOfStratagemCombativityConsuming));
+                    return (stratagem.Combativity <= (this.Combativity + this.DecrementOfStratagemCombativityConsuming) && stratagem.IsCastable(this));
                 }
             }
             return false;
@@ -11288,9 +11288,9 @@
         {
             get           //太守防御力加成公式
             {
-                if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture .MayorID)
+                if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture .MayorID && this.StartingArchitecture.ViewArea.HasPoint(this.Position))
                 {
-                    return (int)(this.defence * this.TirednessFactor + (this.Leader.Command * 20 + this.Leader.Calmness * 20));
+                    return (int)(this.defence * this.TirednessFactor + (this.Leader.Command * 30 + this.Leader.Calmness * 50));
                 }
                 else 
                 {
@@ -11935,7 +11935,7 @@
         {
             get
             {      //太守加成公式
-                if(this.StartingArchitecture != null  && this.StartingArchitecture.Mayor != null && this.Leader.ID  == this.StartingArchitecture.MayorID)
+                if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture.MayorID && this.StartingArchitecture.ViewArea.HasPoint(this.Position))
                 {
                     return (int)(this.offence * this.TirednessFactor + (this.Leader.Strength * 6 + this.Leader.Braveness * 10));
                 }

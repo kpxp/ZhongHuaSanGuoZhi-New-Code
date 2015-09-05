@@ -47,8 +47,6 @@
       <AutoGen>false</AutoGen>
       <DesignTimeSharedInput>false</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="TransportDialogPlugin\TransportDialog.cs" />
-    <Compile Include="TransportDialogPlugin\TransportDialogPlugin.cs" />
     <Compile Include="TroopDetailPlugin.cs">
       <AutoGen>false</AutoGen>
       <DesignTimeSharedInput>false</DesignTimeSharedInput>

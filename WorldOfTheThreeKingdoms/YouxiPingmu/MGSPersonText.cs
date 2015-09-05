@@ -1392,7 +1392,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void Appointmayor(Person p, Person q)  //太守
         {
-            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && p.LocationArchitecture != null && p.LocationArchitecture.BelongedFaction != null || GlobalVariables.SkyEye))
+            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && p.LocationArchitecture != null && p.LocationArchitecture.BelongedFaction != null ))
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
@@ -1401,6 +1401,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(p, "AppointMayor", p.Position);
+            }
+        }
+
+        public override void Dengyong(Person p, Person q)
+        {
+            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && p.LocationArchitecture != null))
+            {
+                p.TextResultString = q.Name;
+                q.TextResultString = p.Name;
+                //p.TextDestinationString = q.LocationArchitecture.Name;
+                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, TextMessageKind.DengYong, "DengYong", "DengYong.jpg", "");
+                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
+                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.GameRecordPlugin.AddBranch(p, "DengYong", p.Position);
             }
         }
 
