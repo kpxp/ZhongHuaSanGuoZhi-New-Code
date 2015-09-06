@@ -3959,7 +3959,7 @@
         public bool AutoCreatePersonAvail()
         {
             if (this.BelongedFaction != null  && base.Scenario.OfficerCount < base.Scenario.OfficerLimit
-                && this.Fund > CreatePersonCost && GlobalVariables.CreateRandomOfficerChance > 0 && this.BelongedFaction.PersonCount < 50
+                && this.Fund > CreatePersonCost && GlobalVariables.CreateRandomOfficerChance > 0 
                 /*&& (base.Scenario.Date.Month == 3 || base.Scenario.Date.Month == 6 || base.Scenario.Date.Month == 9*/)
             {
                 return true;
