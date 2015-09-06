@@ -29,8 +29,9 @@
         private int tiredness;
 
         private int arrivingDays;
-        public Architecture StartingArchitecture;
+        private Architecture startingArchitecture;
         private Architecture targetArchitecture;
+        private int startingArchitectureID = -1;
         private int targetArchitectureID = -1;
 
         public int Tiredness
@@ -1778,11 +1779,56 @@
             }
         }
 
+        public Architecture StartingArchitecture
+        {
+            get
+            {
+                if (this.startingArchitectureID == -1) return null;
+
+                if (this.startingArchitecture == null)
+                {
+                    this.startingArchitecture = base.Scenario.Architectures.GetGameObject(this.startingArchitectureID) as Architecture;
+                }
+                return this.startingArchitecture;
+            }
+            set
+            {
+                if (this.startingArchitecture == null && value == null) return;
+                this.startingArchitecture = value;
+
+                if (value != null)
+                {
+                    this.startingArchitectureID = value.ID;
+                }
+                else
+                {
+                    this.startingArchitectureID = -1;
+                }
+            }
+        }
+
+        public int StartingArchitectureID
+        {
+            get
+            {
+                return this.startingArchitectureID;
+            }
+            set
+            {
+                this.startingArchitectureID = value;
+            }
+        }
+
         public string StartingArchitectureString
         {
             get
             {
-                return (this.StartingArchitecture.ID >= 0) ? this.StartingArchitecture.Name  : "----";
+                if (this.startingArchitectureID < 0)
+                {
+                    return "----";
+                }
+                return this. StartingArchitecture.Name;
+            
             }
         }
 

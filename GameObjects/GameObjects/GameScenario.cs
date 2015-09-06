@@ -3802,7 +3802,7 @@
                 }
                 try
                 {
-                    military.StartingArchitecture = this.Architectures.GetGameObject((short)reader["StartingArchitecture"]) as Architecture;
+                    military.StartingArchitectureID = (short)reader["StartingArchitectureID"];
                 }
                 catch
                 {
@@ -5598,7 +5598,7 @@
                     row["ShelledMilitary"] = (military.ShelledMilitary != null) ? military.ShelledMilitary.ID : -1;
                     row["Tiredness"] = military.Tiredness;
                     row["ArrivingDays"] = military.ArrivingDays;
-                    row["StartingArchitecture"] = (military.StartingArchitecture != null) ? military.StartingArchitecture.ID : -1;
+                    row["StartingArchitectureID"] = military.StartingArchitectureID;
                     row["TargetArchitectureID"] = military.TargetArchitectureID;
                     row.EndEdit();
                     dataSet.Tables["Military"].Rows.Add(row);
