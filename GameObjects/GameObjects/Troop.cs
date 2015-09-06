@@ -8484,7 +8484,7 @@
 
             if (this.Leader.Reputation >= 100)
             {
-                this.defence = (int)(this.defence * (1 + (Math.Log10(this.Leader.Reputation / 100) * IncrementDefenceRate))); //名声加防御改用Log函数
+                this.defence = (int)(this.defence * (1 + (Math.Log10(Math.Max(1,this.Leader.Reputation) / 100) * IncrementDefenceRate))); //名声加防御改用Log函数
             }
             
             if (this.OutburstDefenceMultiple > 1)
@@ -8604,7 +8604,7 @@
 
             if (this.Leader.Reputation >= 100)
             {
-                this.offence = (int)(this.offence * (1 + (Math.Log10(this.Leader.Reputation / 100) * IncrementOffenceRate)));  //名声加攻击改用Log函数
+                this.offence = (int)(this.offence * (1 + (Math.Log10(Math.Max (1,this.Leader.Reputation) / 100) * IncrementOffenceRate)));  //名声加攻击改用Log函数
             }
             
             if (this.OutburstOffenceMultiple > 1)
