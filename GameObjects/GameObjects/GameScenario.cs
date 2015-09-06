@@ -6482,7 +6482,7 @@
             {
                 if (person.Available && person.Alive)
                 {
-                    if (person.ID >= 25000 && person.yeshengwujiang)
+                    if (person.ID >= 25000)
                     {
                         result.Add(person);
                     }

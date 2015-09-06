@@ -4065,7 +4065,7 @@
 
                 foreach (Person p in this.NoFactionPersons)
                 {
-                    if (p.ID >= 25000 && p.yeshengwujiang)
+                    if (p.ID >= 25000)
                     {
                         result.Add(p);
                     }

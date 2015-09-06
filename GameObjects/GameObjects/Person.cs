@@ -23,7 +23,6 @@
         public int huaiyuntianshu = -1;
         public bool ManualStudy = false;
 
-        public bool yeshengwujiang = false;
 
         public bool faxianhuaiyun = false;
 
@@ -7656,7 +7655,6 @@
             r.LocationArchitecture = foundLocation;
             r.Status = PersonStatus.NoFaction;
 
-            r.yeshengwujiang = true;
 
             scen.Persons.Add(r);
 
@@ -8265,7 +8263,7 @@
         {
             get
             {
-                if (this.ID >= 25000 && this.yeshengwujiang)
+                if (this.ID >= 25000)
                 {
                     return "○";
                 }

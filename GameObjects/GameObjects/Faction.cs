@@ -5629,7 +5629,7 @@
                 PersonList result = new PersonList();
                 foreach (Person person in this.Persons)
                 {
-                    if (person.ID >= 25000 && person.yeshengwujiang)
+                    if (person.ID >= 25000)
                     {
                         result .Add (person);
                     }
