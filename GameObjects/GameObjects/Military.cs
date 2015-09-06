@@ -1782,7 +1782,7 @@
         {
             get
             {
-                return (this.StartingArchitecture != null) ? this.StartingArchitecture.Name  : "----";
+                return (this.StartingArchitecture.ID >= 0) ? this.StartingArchitecture.Name  : "----";
             }
         }
 
