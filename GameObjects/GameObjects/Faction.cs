@@ -2636,7 +2636,7 @@
                     else if (military.TargetArchitecture != null)
                     {
                         military.ArrivingDays = 0;
-                        military.StartingArchitecture = null;
+                        military.TargetArchitecture = null;
                     }
                 }
             }
