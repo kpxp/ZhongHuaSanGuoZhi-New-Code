@@ -2559,7 +2559,7 @@
                 {
                     foreach (Military m in a.Militaries)
                     {
-                        if (m.TargetArchitecture != null && m.StartingArchitecture != null && m.ArrivingDays > 0)
+                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0)
                         {
                             list.Add(m);
                         }
