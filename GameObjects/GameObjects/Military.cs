@@ -1778,6 +1778,14 @@
             }
         }
 
+        public string StartingArchitectureString
+        {
+            get
+            {
+                return (this.StartingArchitecture != null) ? this.StartingArchitecture.Name  : "----";
+            }
+        }
+
         public int ArrivingDays
         {
             get
