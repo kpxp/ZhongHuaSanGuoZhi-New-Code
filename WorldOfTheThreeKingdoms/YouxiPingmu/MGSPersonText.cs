@@ -1379,7 +1379,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void Selectprince(Person p, Person q)  //立储
         {
-            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) || GlobalVariables.SkyEye))
+            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && base.Scenario.IsCurrentPlayer(q.BelongedFaction)))
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
@@ -1392,7 +1392,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void Appointmayor(Person p, Person q)  //太守
         {
-            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) || GlobalVariables.SkyEye))
+            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction)) && base.Scenario.IsCurrentPlayer(q.BelongedFaction))
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
