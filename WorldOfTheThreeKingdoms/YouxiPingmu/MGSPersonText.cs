@@ -1392,7 +1392,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void Appointmayor(Person p, Person q)  //太守
         {
-            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && p.LocationArchitecture != null && p.LocationArchitecture.BelongedFaction != null || GlobalVariables.SkyEye))
+            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) || GlobalVariables.SkyEye))
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
@@ -1406,7 +1406,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void Dengyong(Person p, Person q)
         {
-            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && p.LocationArchitecture != null))
+            if ((base.Scenario.IsCurrentPlayer(q.BelongedFaction) && p.LocationArchitecture != null))
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
