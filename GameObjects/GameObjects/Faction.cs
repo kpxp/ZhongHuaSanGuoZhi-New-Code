@@ -2612,16 +2612,33 @@
 
                     }
                 }
-                /*if (m.BelongedFaction != null)
+               
+
+
+            }
+            foreach (Military military in this.Militaries)
+            {
+                if (military.ArrivingDays > 0 && military.BelongedTroop != null)
                 {
-                    if (m.TargetArchitecture.BelongedFaction != m.StartingArchitecture.BelongedFaction || m.BelongedFaction != m.StartingArchitecture.BelongedFaction || m.BelongedFaction != m.TargetArchitecture.BelongedFaction  )
+                    if (military.StartingArchitecture != null && military.TargetArchitecture != null)
                     {
-                       // m.StartingArchitecture.Militaries.Add(m);
-                        //m.BelongedArchitecture = m.StartingArchitecture;
+                        military.ArrivingDays = 0;
+                        military.StartingArchitecture = null;
+                        military.TargetArchitecture = null;
+
                     }
-                }*/
 
-
+                    else if (military.StartingArchitecture != null)
+                    {
+                        military.ArrivingDays = 0;
+                        military.StartingArchitecture = null;
+                    }
+                    else if (military.TargetArchitecture != null)
+                    {
+                        military.ArrivingDays = 0;
+                        military.StartingArchitecture = null;
+                    }
+                }
             }
 
         }

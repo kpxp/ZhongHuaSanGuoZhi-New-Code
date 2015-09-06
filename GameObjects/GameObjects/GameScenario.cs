@@ -2312,28 +2312,6 @@
                     military.SetShelledMilitary(this.Militaries.GetGameObject(military.ShelledMilitaryID) as Military);
                 }
 
-                if (military.ArrivingDays > 0 && military.BelongedTroop != null)
-                {
-                    if (military.StartingArchitecture != null && military.TargetArchitecture != null)
-                    {
-                        military.ArrivingDays = 0;
-                        military.StartingArchitecture = null;
-                        military.TargetArchitecture = null;
-
-                    }
-
-                    else if (military.StartingArchitecture != null)
-                    {
-                        military.ArrivingDays = 0;
-                        military.StartingArchitecture = null;
-                    }
-                    else if (military.TargetArchitecture != null)
-                    {
-                        military.ArrivingDays = 0;
-                        military.StartingArchitecture = null;
-                    }
-                }
-                
 
             }
         }
