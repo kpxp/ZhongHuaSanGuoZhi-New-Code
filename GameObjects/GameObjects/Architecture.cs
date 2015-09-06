@@ -2496,7 +2496,7 @@
                   foreach (Military m in list)
                   {
                       //this.RemoveMilitary(m);
-                      m.BelongedArchitecture = destination;
+                     // m.BelongedArchitecture = destination;
                       m.StartingArchitecture = this;
                       m.TargetArchitecture = destination;
                       m.ArrivingDays = (int)Math.Ceiling(this.Scenario.GetDistance(this.ArchitectureArea, destination.ArchitectureArea) / 2.5);

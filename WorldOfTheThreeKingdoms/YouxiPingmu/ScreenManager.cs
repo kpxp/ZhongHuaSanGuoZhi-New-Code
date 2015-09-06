@@ -556,7 +556,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     //military.ArrivingDays = this.screen.Scenario.GetTransferFundDays(this.CurrentArchitecture, architecture);
                    // this.CurrentArchitecture.RemoveMilitary(military);
-                    military.BelongedArchitecture = architecture;
+                   // military.BelongedArchitecture = architecture;
                     military.StartingArchitecture = this.CurrentArchitecture;
                     military.TargetArchitecture = architecture;
                     military.ArrivingDays = (int)Math.Ceiling(gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea,architecture .ArchitectureArea)/ 2.5);

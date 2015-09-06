@@ -2579,8 +2579,8 @@
 
                 if (m.ArrivingDays == 0)
                 {
-                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this 
-                        && !m.StartingArchitecture.HasHostileTroopsInView() && !m.TargetArchitecture.HasHostileTroopsInView())
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this )
+                      
                     {
                         m.StartingArchitecture.RemoveMilitary(m);
                         m.TargetArchitecture.Militaries.Add(m);
