@@ -4108,7 +4108,7 @@
 
         public void DismissOfficer() //遣散野武将
         {
-            this.IncreaseFund(this.TotalOfficerUntiredMerit / 2);
+            this.IncreaseFund(this.TotalOfficerUntiredMerit / 10);
             foreach (Person person in this.NoFactionOfficers)
             {
                 person.Alive = false;
