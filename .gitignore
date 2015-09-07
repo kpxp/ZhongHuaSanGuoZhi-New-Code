@@ -90,8 +90,7 @@ WorldOfTheThreeKingdoms/bin/x86/Debug
 WorldOfTheThreeKingdoms/bin/x86/public
 WorldOfTheThreeKingdoms/bin/x86/*.zip
 WorldOfTheThreeKingdoms/bin/x86/v*
-WorldOfTheThreeKingdoms/bin/x86/Release/GameComponents/**/*
-!WorldOfTheThreeKingdoms/bin/x86/Release/GameData/Common/archive
+WorldOfTheThreeKingdoms/bin/x86/Release/GameData/Common/archive
 WorldOfTheThreeKingdoms/bin/x86/Release/GameData/Save
 WorldOfTheThreeKingdoms/bin/x86/Release/GameData/Scenario/generatedScen.mdb
 WorldOfTheThreeKingdoms/bin/x86/Release/GameData/Scenario/archive
@@ -119,12 +118,12 @@ L*.mdb
 
 WorldOfTheThreeKingdoms/bin/x86/Release/GameData/ScenarioErrors.txt
 
-+*.jpg
-+*.png
-+*.bmp
-+*.wav
-+*.mp3
-+*.wma
-+*.gif
-+*.psd
- 
+*.jpg
+*.png
+*.bmp
+*.wav
+*.mp3
+*.wma
+*.gif
+*.psd
+*.jpeg

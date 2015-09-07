@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <BackgroundTextureFile FileName="ArchitectureSurvey.png" Width="194" Height="273"></BackgroundTextureFile>
+  <FactionTextureFile FileName="Faction.png" X="149" Y="97" Width="18" Height="18" ></FactionTextureFile>
+  <NameText X="65" Y="46" Width="80" Height="25" 
+            FontName="方正隶变_GBK" 
+            FontSize="15" 
+            FontStyle="Regular" 
+            FontColor="4278255615" 
+            Align="Middle">
+  </NameText>
+  <KindText X="65" Y="71" Width="80" Height="25" 
+            FontName="方正隶变_GBK" 
+            FontSize="15" 
+            FontStyle="Regular" 
+            FontColor="4294967295" 
+            Align="Middle">
+  </KindText>
+  <FactionText X="65" Y="95" Width="80" Height="25" 
+               FontName="方正隶变_GBK" 
+               FontSize="15" 
+               FontStyle="Regular" 
+               FontColor="4294967295" 
+               Align="Middle">
+  </FactionText>
+  <PopulationText X="63" Y="123" Width="110" Height="25" 
+                  FontName="方正隶变_GBK" 
+                  FontSize="15" 
+                  FontStyle="Regular" 
+                  FontColor="4294967295" 
+                  Align="Right">
+  </PopulationText>
+  <ArmyText X="63" Y="149" Width="110" Height="25" 
+            FontName="方正隶变_GBK" 
+            FontSize="15" 
+            FontStyle="Regular" 
+            FontColor="4294967295" 
+            Align="Right">
+  </ArmyText>
+  <DominationText X="63" Y="174" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </DominationText>
+  <EnduranceText X="63" Y="199" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </EnduranceText>
+  <ControllingBackgroundTextureFile FileName="ArchitectureSurveyControlling.png" Width="388" Height="273"></ControllingBackgroundTextureFile>
+  <FundText X="255" Y="39" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </FundText>
+  <FoodText X="255" Y="62" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </FoodText>
+  <PersonCountText X="255" Y="84" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </PersonCountText>
+  <NoFactionPersonCountText X="255" Y="107" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </NoFactionPersonCountText>
+  <AgricultureText X="255" Y="131" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </AgricultureText>
+  <CommerceText X="255" Y="154" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </CommerceText>
+  <TechnologyText X="255" Y="177" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </TechnologyText>
+  <MoraleText X="255" Y="200" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </MoraleText>
+  <MilitaryPopulationText X="63" Y="224" Width="110" Height="25"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Right">
+  </MilitaryPopulationText>
+  <FacilityCountText X="255" Y="224" Width="110" Height="25"
+          FontName="方正隶变_GBK"
+          FontSize="14"
+          FontStyle="Regular"
+          FontColor="4294967295"
+          Align="Right">
+  </FacilityCountText>
+</Root>

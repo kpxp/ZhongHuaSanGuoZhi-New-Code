@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <BackgroundFile FileName="Background.png" Width="80" Height="38"></BackgroundFile>
+  <PortraitTexturePosition X="0" Y="0" Width="26" Height="34" ></PortraitTexturePosition>
+  <FactionTextureFile FileName="Faction.png" X="-17" Y="0" Width="17" Height="24"></FactionTextureFile>
+  <NameText X="26" Y="10" Width="52" Height="30"
+            FontName="方正隶变_GBK"
+            FontSize="12"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Left">
+  </NameText>
+  <ActionIcon Done="ActionDone.png" Undone="ActionUndone.png" Auto="ActionAuto.png" AutoDone="ActionAutoDone.png" X="65" Y="0" Width="14" Height="14"></ActionIcon>
+  <FoodIcon Normal="FoodNormal.png" Shortage="FoodShortage.png" X="65" Y="14" Width="14" Height="14"></FoodIcon>
+  <Control NoControl="NoControl.png" X="65" Y="0" Width="14" Height="14"></Control>
+  <Stunt Stunt="Stunt.png" X="-14" Y="24" Width="14" Height="14"></Stunt>
+  <binglitext X="25" Y="-3" Width="43" Height="20"
+        FontName="方正隶变_GBK"
+        FontSize="14"
+        FontStyle="Regular"
+        FontColor="4294967295"
+        Align="Left">
+  </binglitext>
+  <shiqicao FileName="shiqicao.png" X="0" Y="34"  Width="80" Height="7"></shiqicao>
+  <shiqitiao FileName="shiqitiao.png" X="2" Y="36"  Width="76" Height="3"></shiqitiao>
+</Root>
