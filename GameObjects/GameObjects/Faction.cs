@@ -2559,7 +2559,7 @@
                 {
                     foreach (Military m in a.Militaries)
                     {
-                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0)
+                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0 && m.BelongedTroop == null)
                         {
                             list.Add(m);
                         }
@@ -2579,7 +2579,7 @@
 
                 if (m.ArrivingDays == 0)
                 {
-                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this )
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this && m.BelongedTroop == null)
                       
                     {
                         m.StartingArchitecture.RemoveMilitary(m);
