@@ -2489,20 +2489,23 @@
              {
                     
                     pl.Add(military2.Leader);
-             }     
-                
-              if (list.Count > 0)
-              {
-                  foreach (Military m in list)
-                  {
-                      //this.RemoveMilitary(m);
-                     // m.BelongedArchitecture = destination;
-                      m.StartingArchitecture = this;
-                      m.TargetArchitecture = destination;
-                      m.ArrivingDays = (int)Math.Ceiling(this.Scenario.GetDistance(this.ArchitectureArea, destination.ArchitectureArea) / 2.5);
-                     
-                  }
-              }
+             }
+
+             if (!this.IsSurrounded() && !destination.IsSurrounded ())
+             {
+                 if (list.Count > 0)
+                 {
+                     foreach (Military m in list)
+                     {
+                         //this.RemoveMilitary(m);
+                         // m.BelongedArchitecture = destination;
+                         m.StartingArchitecture = this;
+                         m.TargetArchitecture = destination;
+                         m.ArrivingDays = (int)Math.Ceiling(this.Scenario.GetDistance(this.ArchitectureArea, destination.ArchitectureArea) / 2.5);
+
+                     }
+                 }
+             }
 
               if (pl.Count > 0)
               {
@@ -11055,6 +11058,27 @@
                     }
                 }
             }
+        }
+
+        public bool IsSurrounded()
+        {
+            if (((this.BelongedFaction != null) && (this.Endurance > 0)) && this.Kind.HasDomination)
+            {
+                int num = 0;
+                foreach (Point point in this.ContactArea.Area)
+                {
+                    Troop troopByPosition = base.Scenario.GetTroopByPosition(point);
+                    if (!((troopByPosition == null) || this.IsFriendlyWithoutTruce(troopByPosition.BelongedFaction)))
+                    {
+                        num++;
+                    }
+                }
+                if (num > this.AreaCount)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /*
