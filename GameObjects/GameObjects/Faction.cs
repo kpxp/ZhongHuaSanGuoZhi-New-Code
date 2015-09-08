@@ -2579,7 +2579,8 @@
 
                 if (m.ArrivingDays == 0)
                 {
-                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this && m.BelongedTroop == null)
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this && m.BelongedTroop == null 
+                        && !m.StartingArchitecture.IsSurrounded () && !m.TargetArchitecture.IsSurrounded())
                       
                     {
                         m.StartingArchitecture.RemoveMilitary(m);
