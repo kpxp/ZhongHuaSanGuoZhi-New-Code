@@ -1404,17 +1404,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
-        public override void Dengyong(Person p, Person q)
+        public override void Zhaoxian(Person p, Person q)
         {
             if ((base.Scenario.IsCurrentPlayer(q.BelongedFaction) && p.LocationArchitecture != null))
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
                 //p.TextDestinationString = q.LocationArchitecture.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, TextMessageKind.DengYong, "DengYong", "DengYong.jpg", "");
+                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, TextMessageKind.ZhaoXian, "ZhaoXian", "ZhaoXian.jpg", "");
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
-                this.Plugins.GameRecordPlugin.AddBranch(p, "DengYong", p.Position);
+                this.Plugins.GameRecordPlugin.AddBranch(p, "ZhaoXian", p.Position);
             }
         }
 

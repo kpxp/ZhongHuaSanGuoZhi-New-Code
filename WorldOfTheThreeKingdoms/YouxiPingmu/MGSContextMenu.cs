@@ -671,7 +671,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Monarch_ZhaoXianBang_AutoCreatePerson: //招贤榜
                     this.CurrentArchitecture.AutoCreatePerson();
                     break;
-
+                    /*
                 case ContextMenuResult.Monarch_ZhaoXianBang_DengYong: //登用
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.DengYong, false, true, true, false, this.CurrentArchitecture.NoFactionOfficers, null, "登用", "");
                     break;
@@ -679,7 +679,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Monarch_ZhaoXianBang_DismissOfficer: //遣散
                     this.CurrentArchitecture.DismissOfficer();
                     break;
-
+                    */
 
                 case ContextMenuResult.Monarch_hougongTop_nafei:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.xuanzemeinv, true, true, true, false, this.CurrentArchitecture.nvxingwujiang(), null, "纳妃", "");

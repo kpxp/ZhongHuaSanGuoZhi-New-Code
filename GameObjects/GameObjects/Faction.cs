@@ -1183,7 +1183,6 @@
             this.AIMakeMarriage();
             this.AISelectPrince();
             this.AIZhaoXian();
-            this.AIDengYong();
             this.AIAppointMayor();
             this.AIHouGong();
             this.AITransfer();
@@ -2660,36 +2659,7 @@
             }
         }
 
-        private void AIDengYong()
-        {
-            if (!base.Scenario.IsPlayer(this))
-            {
-                foreach (Architecture a in this.Architectures)
-                {
-                    if (!a.HasEnoughPeople && a.NoFactionOfficerCount > 0 && GameObject.Chance (10))
-                    {
-                        foreach (Person p in a.NoFactionOfficers)
-                        {
-                            if (a.Fund > p.UntiredMerit)
-                            {
-                                if (p.UntiredMerit >= 45000 || p.UntiredMerit < 45000 && p.UntiredMerit > 38000)   //AI强制登用属性比较好的野武将
-                                {
-                                    p.Status = PersonStatus.Normal;
-                                    if (p.Loyalty < 110)
-                                    {
-                                        p.Loyalty = 110;
-                                    }
-                                    a.DengYong(p);
-                                    a.DecreaseFund(p.UntiredMerit);
-                                }
-                               
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
+        
 
         private void AIAppointMayor()
         {

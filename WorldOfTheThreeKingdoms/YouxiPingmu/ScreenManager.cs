@@ -890,7 +890,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         }
 
        
-
+        /*
         private void FrameFunction_Monarch_ZhaoXianBang_DengYong() //强制登用武将
         {
             this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
@@ -915,6 +915,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.DengYongWujiang));
             }
         }
+        */
 
         private void FrameFunction_Architecture_WorkingList()
         {
@@ -1266,9 +1267,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.FrameFunction_Monarch_KillRelease_MoveCaptive();
                     break;
 
-                case FrameFunction.DengYong:
-                    this.FrameFunction_Monarch_ZhaoXianBang_DengYong();
-                    break;
+                
 
             }
             this.lastFrameFunction = function;

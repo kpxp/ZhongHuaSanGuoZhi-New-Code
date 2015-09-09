@@ -737,9 +737,9 @@ Color="4294967295"></Leaf>
     <Leaf Property="" Text="发起劝降，但是很不幸失败了！" Color="4294967295"></Leaf>
   </Branch>
     
- <Branch Name="DengYong">
+ <Branch Name="ZhaoXian">
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="食君之禄，担君之忧，愿卿好好辅助孤。"
+    <Leaf Text="食君之禄，担君之忧，臣定当全力辅助主公。"
 Color="4294967295"></Leaf>
    </Branch>
 

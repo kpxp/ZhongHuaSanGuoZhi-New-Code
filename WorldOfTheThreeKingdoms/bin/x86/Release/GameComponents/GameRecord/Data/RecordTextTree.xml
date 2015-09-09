@@ -630,11 +630,11 @@
   <Leaf Text="太守了。" Color="4294967295"></Leaf>
   <Leaf Text="\n" Color="4294967295"></Leaf>
   </Branch>
-  <Branch Name="DengYong">
+  <Branch Name="ZhaoXian">
   <Leaf Property="TextResultString" Color="4278255360"></Leaf>
   <Leaf Text="被" Color="4294967295"></Leaf>
   <Leaf Property="Name" Color="4278255360"></Leaf>
-  <Leaf Text="登用了。" Color="4294967295"></Leaf>
+  <Leaf Text="登庸了。" Color="4294967295"></Leaf>
   <Leaf Text="\n" Color="4294967295"></Leaf>
   </Branch>
 </Root>

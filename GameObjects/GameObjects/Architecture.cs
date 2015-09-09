@@ -3962,7 +3962,7 @@
         public bool AutoCreatePersonAvail()
         {
             if (this.BelongedFaction != null  && base.Scenario.OfficerCount < base.Scenario.OfficerLimit
-                && this.Fund > CreatePersonCost && GlobalVariables.CreateRandomOfficerChance > 0 
+                && GlobalVariables.CreateRandomOfficerChance > 0 
                 /*&& (base.Scenario.Date.Month == 3 || base.Scenario.Date.Month == 6 || base.Scenario.Date.Month == 9*/)
             {
                 return true;
@@ -3978,12 +3978,15 @@
                 if(this.BelongedFaction.PersonCount < 5)
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
+                    this.ZhaoXian(r);
+                    
                 }
                 
                 else if(GameObject.Random((int)(10000 * Math.Pow(this.BelongedFaction.PersonCount, Parameters.SearchPersonArchitectureCountPower))) <
                     GlobalVariables.CreateRandomOfficerChance * 100)
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
+                    this.ZhaoXian(r);
                 }
 
                 else if (!base.Scenario.IsPlayer(this.BelongedFaction) &&
@@ -3991,6 +3994,7 @@
                     GlobalVariables.CreateRandomOfficerChance * 100 * (Parameters.AIExtraPerson - 1))
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
+                    this.ZhaoXian(r);
                 }
                     GameObjectList ideals = base.Scenario.GameCommonData.AllIdealTendencyKinds;
                     IdealTendencyKind minIdeal = null;
@@ -4008,10 +4012,22 @@
 
 
                 
-                this.DecreaseFund(CreatePersonCost);
+                //this.DecreaseFund(CreatePersonCost);
                 
         }
 
+        public event Zhaoxian OnZhaoxian; //招贤
+        public delegate void Zhaoxian(Person p, Person q);
+        public void ZhaoXian(Person person)
+        {
+            base.Scenario.YearTable.addZhaoXianEntry(base.Scenario.Date, person, this.BelongedFaction.Leader);
+            if (this.OnZhaoxian != null)
+            {
+                this.OnZhaoxian(this.BelongedFaction.Leader, person);
+            }
+        }
+
+        /*
         public int CreatePersonCost
         {
             get
@@ -4031,7 +4047,7 @@
             }
         }
 
-
+        /*
         public bool DengYongAvail()
         {
             if (this.BelongedFaction != null && this.NoFactionOfficerCount > 0)
@@ -4048,17 +4064,8 @@
             return false;
         }
 
-        public event Dengyong OnDengyong; //登用
-        public delegate void Dengyong(Person p, Person q);
-        public void DengYong(Person person)
-        {
-            base.Scenario.YearTable.addDengYongEntry(base.Scenario.Date, person, this.BelongedFaction.Leader);
-            if (this.OnDengyong != null)
-            {
-                this.OnDengyong(this.BelongedFaction.Leader, person);
-            }
-        }
-
+        
+        */
        
         public PersonList NoFactionOfficers //在野野武将列表
         {
@@ -4085,7 +4092,7 @@
                 return (this.NoFactionOfficers.Count);
             }
         }
-
+        /*
         public bool DismissOfficerAvail()
         {
             if (this.BelongedFaction != null && this.NoFactionOfficerCount > 0)
@@ -4120,6 +4127,8 @@
             }
             
         }
+         
+          
         /*
         public PersonList Kerenmingdeguanyuan
         {

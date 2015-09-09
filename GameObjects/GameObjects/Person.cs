@@ -7653,8 +7653,9 @@
             r.Alive = true;
             r.Available = true;
             r.LocationArchitecture = foundLocation;
-            r.Status = PersonStatus.NoFaction;
+            r.Status = PersonStatus.Normal;
 
+            r.Loyalty = 100;
 
             scen.Persons.Add(r);
 

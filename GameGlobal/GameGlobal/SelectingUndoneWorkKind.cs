@@ -25,7 +25,7 @@
         RoutewayPointShortestNoWater,
         Trooprucheng,
         WujiangDiaodong,
-        DengYongWujiang,
+        //DengYongWujiang,
         MoveCaptive,
         MilitaryTransfer,
         MoveFeizi
