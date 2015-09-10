@@ -57,6 +57,7 @@
         public bool AutoRefillFoodInLongViewArea;
         private bool autoRewarding;
         private bool autoSearching;
+        private bool autoZhaoXian;
         private bool autoWorking;
         private bool autoRecruiting;
         private GameArea baseFoodSurplyArea;
@@ -2360,6 +2361,20 @@
                 if (person.WorkKind == ArchitectureWorkKind.无 && person.Loyalty >= 100 && person.Tiredness <= 0)
                 {
                     person.GoForSearch();
+                }
+            }
+        }
+
+        private void AIAutoZhaoXian()
+        {
+            if (base.Scenario.IsPlayer(this.BelongedFaction))
+            {
+                if (this.BelongedSection.AIDetail.AutoRun)
+                {
+                    if (this.AutoZhaoXian && GameObject.Chance(10) && !this.HasEnoughPeople && this.AutoCreatePersonAvail())
+                    {
+                        this.AutoCreatePerson();
+                    }
                 }
             }
         }
@@ -9825,6 +9840,11 @@
             }
         }
 
+        public void PlayAIZhaoXian()
+        {
+            this.AIAutoZhaoXian();
+        }
+
         public void PlayerAutoAI()
         {
             if (this.AutoRewarding)
@@ -9846,6 +9866,10 @@
             if (this.AutoSearching)
             {
                 this.PlayerAISearch();
+            }
+            if (this.AutoZhaoXian)
+            {
+                this.PlayAIZhaoXian();
             }
         }
 
@@ -10483,6 +10507,7 @@
             this.AutoRewarding = false;
             this.AutoWorking = false;
             this.AutoSearching = false;
+            this.AutoZhaoXian = false;
         }
 
         private void ResetDayInfluence()
@@ -11613,6 +11638,18 @@
             set
             {
                 this.autoSearching = value;
+            }
+        }
+
+        public bool AutoZhaoXian
+        {
+            get
+            {
+                return this.autoZhaoXian;
+            }
+            set
+            {
+                this.autoZhaoXian = value;
             }
         }
 

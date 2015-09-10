@@ -3934,6 +3934,14 @@
 
                 try
                 {
+                    architecture.AutoZhaoXian = (bool)reader["AutoZhaoXian"];
+                }
+                catch
+                {
+                }
+
+                try
+                {
                     architecture.AutoRecruiting = (bool)reader["AutoRecruiting"];
                 }
                 catch
@@ -5314,6 +5322,7 @@
                     row["AutoWorking"] = architecture.AutoWorking;
                     row["AutoSearching"] = architecture.AutoSearching;
                     row["AutoRecruiting"] = architecture.AutoRecruiting;
+                    row["AutoZhaoXian"] = architecture.AutoZhaoXian;
                     row["HireFinished"] = architecture.HireFinished;
                     row["FacilityEnabled"] = architecture.FacilityEnabled;
                     row["AgricultureWorkingPersons"] = architecture.AgricultureWorkingPersons.SaveToString();

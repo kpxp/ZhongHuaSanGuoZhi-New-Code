@@ -124,8 +124,7 @@
                 <MenuItem ID="9" Name="SelectPrince"  DisplayName="立储" DisplayIfTrue="SelectPrinceAvail" />
                 <MenuItem ID="11" Name="ZhaoXianBang"  DisplayName="招贤榜">
                     <MenuItem ID="1" Name="AutoCreatePerson" DisplayName="招贤" DisplayIfTrue="AutoCreatePersonAvail" />
-                    <MenuItem ID="2" Name="DengYong" DisplayName="登用" DisplayIfTrue="DengYongAvail" />
-                    <MenuItem ID="3" Name="DismissOfficer" DisplayName="遣散" DisplayIfTrue="DismissOfficerAvail" />
+                    <MenuItem ID="2" Name="AutoZhaoXian" DisplayName="委任招贤" OppositeName="手动招贤" OppositeIfTrue="AutoZhaoXian" DisplayIfTrue="AutoZhaoXianAvail" />
                 </MenuItem>
                 <MenuItem ID="3" Name="Diplomatic" DisplayName="外交">
                     <MenuItem ID="1" Name="EnhanceDiplomaticRelation" DisplayName="亲善" DisplayIfTrue="EnhanceDiplomaticRelationAvail" />

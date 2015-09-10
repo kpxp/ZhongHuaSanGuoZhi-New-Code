@@ -1064,24 +1064,6 @@ Color="4294967295" />
         <Leaf Text="每次招贤需要资金两万，生成机率默认为10，玩家可自行设置机率。"
 Color="4294967295" />
     </Branch>
-    <Branch Name="Monarch_ZhaoXianBang_DengYong">
-        <Leaf Text="君主" Color="4294967295" />
-        <Leaf Text="登用" Color="4278232306" />
-        <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="登用当前在野野武将，登用费用为野武将身价。登用后，野武将忠诚为110。可多选登用当前建筑野武将，注意，仅限生成野武将。"
-Color="4294967295" />
-    </Branch>
-<Branch Name="Monarch_ZhaoXianBang_DismissOfficer">
-        <Leaf Text="君主" Color="4294967295" />
-        <Leaf Text="遣散" Color="4278232306" />
-        <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="遣散当前在野野武将，遣散后在野野武将将从游戏消失，玩家可获得遣散野武将身价一半的费用。"
-Color="4294967295" />
-    </Branch>
     <Branch Name="Monarch_hougongTop_nafei">
         <Leaf Text="君主" Color="4294967295" />
         <Leaf Text="纳妃" Color="4278232306" />
