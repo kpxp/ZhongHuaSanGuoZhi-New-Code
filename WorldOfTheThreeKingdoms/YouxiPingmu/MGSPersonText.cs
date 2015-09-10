@@ -1406,7 +1406,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void Zhaoxian(Person p, Person q)
         {
-            if ((base.Scenario.IsCurrentPlayer(q.BelongedFaction) && p.LocationArchitecture != null))
+            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && base.Scenario.IsCurrentPlayer(q.BelongedFaction)))
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;

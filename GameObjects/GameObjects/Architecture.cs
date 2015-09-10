@@ -783,6 +783,7 @@
 
         public void AI()
         {
+            this.PlayAIZhaoXian();
             this.PrepareAI();
             this.AIExecute();
             this.ClearFieldAI();
@@ -797,6 +798,7 @@
             this.AIWork(false);
             this.InsideTacticsAI();
             this.AIExpand();
+            
             ExtensionInterface.call("AIArchitecture", new Object[] { this.Scenario, this });
         }
 
@@ -2369,13 +2371,13 @@
         {
             if (base.Scenario.IsPlayer(this.BelongedFaction))
             {
-                if (this.BelongedSection.AIDetail.AutoRun)
-                {
-                    if (this.AutoZhaoXian && GameObject.Chance(10) && !this.HasEnoughPeople && this.AutoCreatePersonAvail())
+                
+                
+                    if (GameObject.Chance(10)  && !this.HasEnoughPeople && this.AutoCreatePersonAvail())
                     {
                         this.AutoCreatePerson();
                     }
-                }
+                
             }
         }
 
@@ -3425,6 +3427,15 @@
         public bool AutoSearchingAvail()
         {
             return ((this.BelongedSection.AIDetail == null) || !this.BelongedSection.AIDetail.AutoRun);
+        }
+
+        public bool AutoZhaoXianAvail()
+        {
+            if (base.Scenario.IsPlayer(this.BelongedFaction) && !this.BelongedSection.AIDetail.AutoRun)
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool AutoWorkingAvail()
@@ -9842,7 +9853,10 @@
 
         public void PlayAIZhaoXian()
         {
-            this.AIAutoZhaoXian();
+            if (this.AutoZhaoXian)
+            {
+                this.AIAutoZhaoXian();
+            }
         }
 
         public void PlayerAutoAI()
@@ -9867,10 +9881,10 @@
             {
                 this.PlayerAISearch();
             }
-            if (this.AutoZhaoXian)
+           /* if (this.AutoZhaoXian)
             {
                 this.PlayAIZhaoXian();
-            }
+            }*/
         }
 
         public void callReturnedOfficerToWork()
@@ -9894,6 +9908,7 @@
             {
                 this.PlayerAISearch();
             }
+            
         }
 
         private void PopulationEscapeEvent()
@@ -10507,7 +10522,7 @@
             this.AutoRewarding = false;
             this.AutoWorking = false;
             this.AutoSearching = false;
-            this.AutoZhaoXian = false;
+           // this.AutoZhaoXian = false;
         }
 
         private void ResetDayInfluence()

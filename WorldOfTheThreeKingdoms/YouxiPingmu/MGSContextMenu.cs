@@ -768,6 +768,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     break;
 
+                case ContextMenuResult .Monarch_ZhaoXianBang_AutoZhaoXian:
+                    this.CurrentArchitecture.AutoZhaoXian = !this.CurrentArchitecture.AutoZhaoXian;
+                    if (this.CurrentArchitecture.AutoZhaoXian)
+                    {
+                        this.CurrentArchitecture.PlayAIZhaoXian();
+                    }
+                    break;
+
                 case ContextMenuResult.AllEnter:
                     this.CurrentArchitecture.AllEnter();
                     //this.Plugins.AirViewPlugin.ReloadTroopView();
