@@ -1450,6 +1450,28 @@
                             }
                         }
                     }
+
+                    if (deficit > 0 && urgent)
+                    {
+                        foreach (Architecture b in candidates)
+                        {
+                            if (b.Abandoned || b == a) continue;
+                            if (b.PersonCount + b.MovingPersonCount > 0 && !b.HasHostileTroopsInView() && b.RecentlyAttacked == 0)
+                            {
+                                int send = Math.Min(deficit, b.PersonCount + b.MovingPersonCount - minPerson[b]);
+                                send = a.CallPeople(b, send);
+                                if (send > 0)
+                                {
+                                    deficit -= send;
+                                    if (deficit <= 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                 }
 
                 if ((a.Fund < minFund[a] || a.Food < minFood[a]) && resource)
