@@ -1053,7 +1053,7 @@ Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="生成随机武将供君主录用。当游戏内野武将数量低于系统预设上限时，且该城池的资金大于5万，招贤有效。"
+        <Leaf Text="有一定几率登庸生成野武将。当游戏内野武将数量低于系统预设上限时，招贤有效。"
 Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
@@ -1216,14 +1216,14 @@ Color="4294967295" />
     </Branch>
     <Branch Name="Monarch_ZhaoXianBang_AutoZhaoXian">
         <Leaf Text="君主" Color="4294967295" />
-        <Leaf Text="委任招贤" Color="4278232306" />
+        <Leaf Text="招贤" Color="4278232306" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="设置本建筑的招贤方式为手动或委任。" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="若选择委任方式，则将采用与电脑相同的方法进行招贤。电脑只在建筑不够武将的时候才会招贤。" Color="4294967295" />
+        <Leaf Text="若选择委任方式，则将采用与电脑相同的方法进行招贤。电脑只在建筑不够武将的情况下才会招贤。" Color="4294967295" />
     </Branch>
     <Branch Name="Tactics_AutoSearching">
         <Leaf Text="策略" Color="4294967295" />
