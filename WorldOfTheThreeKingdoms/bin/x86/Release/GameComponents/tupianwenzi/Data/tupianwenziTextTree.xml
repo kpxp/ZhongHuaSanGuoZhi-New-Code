@@ -738,9 +738,8 @@ Color="4294967295"></Leaf>
   </Branch>
     
  <Branch Name="ZhaoXian">
+    <Leaf Text="成功登庸了" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="食君之禄，担君之忧，臣定当全力辅助主公。"
-Color="4294967295"></Leaf>
    </Branch>
 
 </Root>
