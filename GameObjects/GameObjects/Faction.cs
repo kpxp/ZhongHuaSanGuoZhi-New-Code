@@ -1456,7 +1456,7 @@
                         foreach (Architecture b in candidates)
                         {
                             if (b.Abandoned || b == a) continue;
-                            if (b.PersonCount + b.MovingPersonCount > 0 && !b.HasHostileTroopsInView() && b.RecentlyAttacked == 0)
+                            if (b.PersonCount + b.MovingPersonCount > 1 && !b.HasHostileTroopsInView() && b.RecentlyAttacked == 0)
                             {
                                 int send = Math.Min(deficit, b.PersonCount + b.MovingPersonCount - minPerson[b]);
                                 send = a.CallPeople(b, send);

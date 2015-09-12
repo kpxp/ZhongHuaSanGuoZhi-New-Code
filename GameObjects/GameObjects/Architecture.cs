@@ -1333,7 +1333,7 @@
 
         internal int CallPeople(Architecture src, int cnt)
         {
-            GameObjectList list = src.Persons.GetList();
+            GameObjectList list = src.MovablePersons.GetList();
             if (list.Count > 1)
             {
                 list.IsNumber = true;
@@ -1348,13 +1348,13 @@
                 while (called < cnt && num2 < list.Count)
                 {
                     Person p = list[num2] as Person;
-                    if (!p.DontMoveMeUnlessIMust  && p.ID != src.MayorID)
+                    if (!p.DontMoveMeUnlessIMust )
                     {
                         p.MoveToArchitecture(this);
                         called++;
                         foreach (Person q in p.AvailableVeryClosePersons)
                         {
-                            if (q.ID != src.MayorID)
+                            if (!this.BelongedFaction.MayorList.GameObjects.Contains(q))
                             {
                                 q.MoveToArchitecture(this);
                                 called++;
