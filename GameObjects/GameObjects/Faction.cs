@@ -2576,17 +2576,18 @@
             get
             {
                 MilitaryList list = new MilitaryList();
-                foreach (Architecture a in this.Architectures)
+                foreach (Military m in this.Militaries)
                 {
-                    foreach (Military m in a.Militaries)
+
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0 && m.BelongedArchitecture == null)
                     {
-                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0 && m.BelongedTroop == null)
-                        {
-                            list.Add(m);
-                        }
-                    }
+                        list.Add(m);
+                    }   
+                    
+            
                     
                 }
+        
                 return list;
             }
         }
@@ -2600,13 +2601,13 @@
 
                 if (m.ArrivingDays == 0)
                 {
-                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this && m.BelongedTroop == null 
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this && m.BelongedArchitecture == null 
                         && !m.StartingArchitecture.IsSurrounded () && !m.TargetArchitecture.IsSurrounded())
                       
                     {
-                        m.StartingArchitecture.RemoveMilitary(m);
-                        m.TargetArchitecture.Militaries.Add(m);
-                        m.BelongedArchitecture = m.TargetArchitecture;
+                       // m.StartingArchitecture.RemoveMilitary(m);
+                        m.TargetArchitecture.AddMilitary(m);
+                       // m.BelongedArchitecture = m.TargetArchitecture;
                        // m.StartingArchitecture = null;
                         //m.TargetArchitecture = null;
                     }
@@ -2618,8 +2619,13 @@
                 {
                     if (m.BelongedFaction != null )
                     {
-                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.BelongedFaction != this)  //运输过程中目的地被其他势力占领，停止运输
+                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction != this)   //运输过程中目的地被其他势力占领，停止运输
                         {
+                            if (m.BelongedArchitecture == null)
+                            {
+                                //m.ArrivingDays = 0;
+                                m.StartingArchitecture.AddMilitary(m);
+                            }
                             m.ArrivingDays = 0;
                             m.StartingArchitecture = null ;
                             m.TargetArchitecture = null;
@@ -2640,7 +2646,7 @@
             }
             foreach (Military military in this.Militaries)
             {
-                if (military.ArrivingDays > 0 && military.BelongedTroop != null)
+                if (military.ArrivingDays > 0 && military.BelongedArchitecture != null)
                 {
                     if (military.StartingArchitecture != null && military.TargetArchitecture != null)
                     {
