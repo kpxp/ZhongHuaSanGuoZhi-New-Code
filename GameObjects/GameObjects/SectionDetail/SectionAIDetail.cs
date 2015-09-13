@@ -5,6 +5,7 @@
 
     public class SectionAIDetail : GameObject
     {
+        private bool allowNewMilitary;
         private bool allowFoodTransfer;
         private bool allowFundTransfer;
         private bool allowInvestigateTactics;
@@ -285,6 +286,18 @@
             set
             {
                 this.allowFacilityRemoval = value;
+            }
+        }
+
+        public bool AllowNewMilitary
+        {
+            get
+            {
+                return this.allowNewMilitary;
+            }
+            set
+            {
+                this.allowNewMilitary = value;
             }
         }
     }

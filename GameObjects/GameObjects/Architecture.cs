@@ -2674,6 +2674,8 @@
          
         private void AIRecruitment(bool water, bool siege)
         {
+            if (base.Scenario.IsPlayer(this.BelongedFaction) && !this.BelongedSection.AIDetail.AllowNewMilitary) return;
+
             if (this.Population > 0)
             {
                 MilitaryKind current;

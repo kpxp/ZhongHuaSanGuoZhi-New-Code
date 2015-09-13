@@ -322,6 +322,13 @@
                 {
                     sectionAIDetail.AllowFacilityRemoval = true;
                 }
+                try
+                {
+                    sectionAIDetail.AllowNewMilitary = (bool)reader["AllowNewMilitary"];
+                }
+                catch
+                {
+                }
                 this.AllSectionAIDetails.AddSectionAIDetail(sectionAIDetail);
             }
             connection.Close();
@@ -2435,6 +2442,7 @@
                     row["AllowFoodTransfer"] = i.AllowFoodTransfer;
                     row["AllowMilitaryTransfer"] = i.AllowMilitaryTransfer;
                     row["AllowFacilityRemoval"] = i.AllowFacilityRemoval;
+                    row["AllowNewMilitary"] = i.AllowNewMilitary;
                     row.EndEdit();
                     dataSet.Tables["SectionAIDetail"].Rows.Add(row);
                 }
