@@ -2556,7 +2556,7 @@
         {
             /*
           劝降
-      a、判定成功条件：劝降势力声望>被劝降势力声望；劝降势力军队规模>=被劝降势力军队规模的十倍；GameObjects.Chance(100-被劝降势力君主义理*25）；与被劝降势力接壤
+      a、判定成功条件：劝降势力声望>被劝降势力声望；劝降势力军队规模> 0且是被劝降势力军队规模的十倍；GameObjects.Chance(100-被劝降势力君主义理*25）；与被劝降势力接壤
              
       b、判定
       如果执行武将为目标势力君主的厌恶武将，则必失败
@@ -2586,19 +2586,19 @@
                             && GameObject.Chance(100 - targetFaction.Leader.PersonalLoyalty * 25) && this.BelongedFaction.adjacentTo(targetFaction))
                 {
 
-                    int c = 2;
+                    int c = 10;
                     if (targetFaction.Leader.IsCloseTo(this))
                     {
-                        c = 4;
+                        c = 50;
                     }
                     if (targetFaction.Leader.Hates(this))
                     {
-                        c = -100;
+                        c = -500;
                     }
-                    int g = (c * 10 + 50000 / 400 + (this.Politics + this.Intelligence) * this.Calmness - ((GetIdealOffset(this, targetFaction.Leader) * 20) + (targetFaction.Leader.Intelligence + targetFaction.Leader.Politics) * 2));
+                    int g = (c * 10 + this.ConvinceAbility + (this.Politics + this.Intelligence) * this.Calmness - ((GetIdealOffset(this, targetFaction.Leader) * 20) + (targetFaction.Leader.Intelligence + targetFaction.Leader.Politics) * 2));
 
 
-                    if (g > 20)
+                    if (g > 0)
                     {
 
 
