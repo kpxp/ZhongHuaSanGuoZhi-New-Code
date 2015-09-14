@@ -328,6 +328,7 @@
                 }
                 catch
                 {
+                    sectionAIDetail.AllowNewMilitary = true;
                 }
                 this.AllSectionAIDetails.AddSectionAIDetail(sectionAIDetail);
             }
