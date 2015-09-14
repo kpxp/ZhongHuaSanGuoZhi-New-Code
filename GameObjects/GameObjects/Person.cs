@@ -2604,9 +2604,11 @@
 
 
                         //势力合并
-                        base.Scenario.YearTable.addChangeFactionEntry(base.Scenario.Date, targetFaction, this.BelongedFaction);
                         base.Scenario.GameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.QuanXiang, "QuanXiangDiplomaticRelation", "QuanXiangDiplomaticRelation.jpg", "QuanXiangDiplomaticRelation.wav", targetFaction.Name, true);
+                     
+                        base.Scenario.YearTable.addChangeFactionEntry(base.Scenario.Date, targetFaction, this.BelongedFaction);
                         targetFaction.ChangeFaction(this.BelongedFaction);
+
                         foreach (Treasure treasure in targetFaction.Leader.Treasures.GetList())
                         {
                             targetFaction.Leader.LoseTreasure(treasure);
