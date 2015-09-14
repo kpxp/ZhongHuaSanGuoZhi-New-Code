@@ -2611,11 +2611,22 @@
                         {
                             targetFaction.Leader.LoseTreasure(treasure);
                             this.BelongedFaction.Leader.ReceiveTreasure(treasure);
-                            
+
                         }
                         this.TargetArchitecture = this.LocationArchitecture;
                         this.AddPoliticsExperience(50);
                         this.IncreaseReputation(500);
+                    }
+                    else
+                    {
+                        base.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID, -100);
+                        this.BelongedArchitecture.Fund += 30000;
+                        this.TargetArchitecture.Fund += 20000;
+                        base.Scenario.GameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.QuanXiangFailed, "QuanXiangDiplomaticRelationFailed", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation.wav", targetFaction.Name, true);
+                        this.TargetArchitecture = this.LocationArchitecture;
+                        this.AddPoliticsExperience(10);
+                        this.IncreaseReputation(50);
+
                     }
                 }
 
