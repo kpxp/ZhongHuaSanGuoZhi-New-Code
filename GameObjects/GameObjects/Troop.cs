@@ -3796,15 +3796,10 @@
         {
             if (this.EnterList.Count > 0 )
             {
-                if (this.StartingArchitecture != null && this.Leader.ID == this.StartingArchitecture.MayorID)
-                {
-                    this.Enter(this.StartingArchitecture);
-                }
-                else
-                {
+              
                     Architecture a = this.EnterList[GameObject.Random(this.EnterList.Count)] as Architecture;
                     this.Enter(a);
-                }
+                
             }
             /*else if (this.WillArchitecture != null && this.WillArchitecture.BelongedFaction == this.BelongedFaction)
             {
