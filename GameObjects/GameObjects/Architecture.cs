@@ -4051,7 +4051,7 @@
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
                     this.ZhaoXian(r);
-                }
+
                     GameObjectList ideals = base.Scenario.GameCommonData.AllIdealTendencyKinds;
                     IdealTendencyKind minIdeal = null;
                     foreach (IdealTendencyKind itk in ideals)
@@ -4066,7 +4066,7 @@
                     r.Ideal = (this.BelongedFaction.Leader.Ideal + GameObject.Random(minIdeal.Offset * 2 + 1) - minIdeal.Offset) % 150;
 
 
-
+                }
                 
                 //this.DecreaseFund(CreatePersonCost);
                 
