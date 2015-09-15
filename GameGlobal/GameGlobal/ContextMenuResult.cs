@@ -22,6 +22,7 @@
         Faction_Troops,
         Faction_Persons,
         Faction_Militaries,
+        Faction_TransferingMilitaries,
         Faction_AvailableMilitaryKinds,
         Faction_Captive,
         Faction_SelfCaptive,

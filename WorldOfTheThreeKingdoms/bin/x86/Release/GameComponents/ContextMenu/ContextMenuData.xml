@@ -35,6 +35,7 @@
                 <MenuItem ID="10" Name="Techniques" DisplayName="势力技巧" />
                 <MenuItem ID="11" Name="Sections" DisplayName="军区列表" />
                 <MenuItem ID="12" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="FactionHasTreasure" />
+                <MenuItem ID="14" Name="TransferingMilitaries" DisplayName="编队运输列表" />
             </MenuItem>
         </MenuKind>
         <MenuKind ID="2" Name="ArchitectureLeftClick" DisplayName="建筑左键菜单" IsLeft="true" Width="100" Height="25">
