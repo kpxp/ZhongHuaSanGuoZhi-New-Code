@@ -2640,13 +2640,13 @@
 
                     }
                 }
-               
 
+                break;
 
             }
             foreach (Military military in this.Militaries)
             {
-                if (military.ArrivingDays > 0 && military.BelongedArchitecture != null)
+                if (military.ArrivingDays > 0 && (military.BelongedArchitecture != null || military.BelongedTroop != null))
                 {
                     if (military.StartingArchitecture != null && military.TargetArchitecture != null)
                     {
