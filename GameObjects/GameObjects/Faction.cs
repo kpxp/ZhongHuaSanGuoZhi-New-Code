@@ -2637,11 +2637,11 @@
                         m.ArrivingDays = 0;
                         m.StartingArchitecture = null;
                         m.TargetArchitecture = null;
-
+                        
                     }
                 }
 
-                break;
+                
 
             }
             foreach (Military military in this.Militaries)
