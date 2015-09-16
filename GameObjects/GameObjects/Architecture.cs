@@ -10723,7 +10723,7 @@
                         }
                         if (faction != null)
                         {
-                            faction.CheckLeaderDeath(faction.Leader);
+                            faction.CheckLeaderDeath(leader);
                         }
                         this.BelongedFaction.Destroy();
 
