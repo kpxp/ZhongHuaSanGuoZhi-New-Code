@@ -4294,13 +4294,6 @@
                 faction.AutoRefuse = (bool)reader["AutoRefuse"];
                 try
                 {
-                    e.AddRange(faction.TransferingMilitary.LoadFromString(this.Militaries, reader["TransferingMilitary"].ToString()));
-                }
-                catch
-                {
-                }
-                try
-                {
                     faction.chaotinggongxiandu = (int)reader["chaotinggongxiandu"];
                 }
                 catch
@@ -5250,7 +5243,6 @@
                     row["TechniquePointForFacility"] = faction.TechniquePointForFacility;
                     row["Sections"] = faction.Sections.SaveToString();
                     row["Architectures"] = faction.Architectures.SaveToString();
-                    row["TransferingMilitary"] = faction.TransferingMilitary.SaveToString();
                     row["Troops"] = faction.Troops.SaveToString();
                     row["Informations"] = faction.Informations.SaveToString();
                     row["Routeways"] = faction.Routeways.SaveToString();
@@ -6539,27 +6531,6 @@
                    return (this.Factions.Count * 3 + 100 );
                }
                
-           }
-       }
-
-       public MilitaryList TransferingMilitary
-       {
-           get
-           {
-               MilitaryList list = new MilitaryList();
-               foreach (Military m in this.Militaries)
-               {
-
-                   if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0 && m.BelongedArchitecture == null)
-                   {
-                       list.Add(m);
-                   }
-
-
-
-               }
-
-               return list;
            }
        }
 
