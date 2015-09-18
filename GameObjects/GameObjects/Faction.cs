@@ -2576,10 +2576,10 @@
             get
             {
                 MilitaryList list = new MilitaryList();
-                foreach (Military m in this.Militaries)
+                foreach (Military m in this.Scenario.Militaries)
                 {
 
-                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0 && m.BelongedArchitecture == null)
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0  && m.StartingArchitecture.BelongedFaction != null && m.StartingArchitecture.BelongedFaction == this && m.BelongedArchitecture == null)
                     {
                         list.Add(m);
                     }   
@@ -2617,10 +2617,9 @@
                 }
                 else 
                 {
-                    if (m.BelongedFaction != null )
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction != null && m.TargetArchitecture.BelongedFaction != this)
                     {
-                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction != this)   //运输过程中目的地被其他势力占领，停止运输
-                        {
+                        
                             if (m.BelongedArchitecture == null)
                             {
                                 //m.ArrivingDays = 0;
@@ -2630,9 +2629,9 @@
                             m.StartingArchitecture = null ;
                             m.TargetArchitecture = null;
 
-                        }
+                        
                     }
-                    else
+                    else if (m.StartingArchitecture != null && m.StartingArchitecture.BelongedFaction == null)
                     {
                         m.ArrivingDays = 0;
                         m.StartingArchitecture = null;
@@ -2644,7 +2643,8 @@
                 
 
             }
-            foreach (Military military in this.Militaries)
+
+            foreach (Military military in this.Scenario.Militaries)
             {
                 if (military.ArrivingDays > 0 && (military.BelongedArchitecture != null || military.BelongedTroop != null))
                 {

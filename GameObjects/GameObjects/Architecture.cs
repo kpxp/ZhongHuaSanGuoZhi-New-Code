@@ -2545,7 +2545,7 @@
                          // m.BelongedArchitecture = destination;
                          m.StartingArchitecture = this;
                          m.TargetArchitecture = destination;
-                         m.ArrivingDays = (int)Math.Ceiling(this.Scenario.GetDistance(this.ArchitectureArea, destination.ArchitectureArea) / 2.5);
+                         m.ArrivingDays = (int)Math.Ceiling((double)this.Scenario.GetDistance(this.ArchitectureArea, destination.ArchitectureArea) / 2.5);
                          this.RemoveMilitary(m);
 
                      }
