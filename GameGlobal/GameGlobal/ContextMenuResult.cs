@@ -109,7 +109,7 @@
         Monarch_ZhaoXianBang_AutoCreatePerson, //招贤榜
         Monarch_ZhaoXianBang_AutoZhaoXian,
       //  Monarch_ZhaoXianBang_DengYong,  //登用
-       // Monarch_ZhaoXianBang_DismissOfficer, //遣散
+        Monarch_ZhaoXianBang_DismissOfficer, //遣散
         Monarch_Techniques,
         Monarch_MakeMarriage,
         Monarch_KillRelease_ReleaseSelfPerson,

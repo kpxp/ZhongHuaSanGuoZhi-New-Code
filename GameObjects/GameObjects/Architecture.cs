@@ -4153,7 +4153,29 @@
 
         
         */
-       
+
+        public bool DismissOfficerAvail()
+        {
+            if (this.BelongedFaction != null && this.NoFactionOfficerCount > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void DismissOfficer() //遣散野武将
+        {
+            
+            foreach (Person person in this.NoFactionOfficers)
+            {
+                person.Alive = false;
+                person.Status = PersonStatus.None;
+                this.Scenario.Persons.Remove(person);
+                //this.NoFactionOfficers.Remove(person);
+            }
+
+        }
+
         public PersonList NoFactionOfficers //在野野武将列表
         {
             get
@@ -4180,14 +4202,7 @@
             }
         }
         /*
-        public bool DismissOfficerAvail()
-        {
-            if (this.BelongedFaction != null && this.NoFactionOfficerCount > 0)
-            {
-                return true;
-            }
-            return false;
-        }
+        
 
         public int TotalOfficerUntiredMerit
         {
@@ -4203,17 +4218,7 @@
         }
 
 
-        public void DismissOfficer() //遣散野武将
-        {
-            this.IncreaseFund(this.TotalOfficerUntiredMerit / 10);
-            foreach (Person person in this.NoFactionOfficers)
-            {
-                person.Alive = false;
-                person.Status = PersonStatus.None;
-                //this.NoFactionOfficers.Remove(person);
-            }
-            
-        }
+        
          
           
         /*
