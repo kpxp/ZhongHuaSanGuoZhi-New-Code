@@ -1365,7 +1365,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void MakeMarriage(Person p, Person q)
         {
-            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && base.Scenario.IsCurrentPlayer(q.BelongedFaction)) || GlobalVariables.SkyEye)
+            if ((base.Scenario.IsCurrentPlayer(p.BelongedFaction) && base.Scenario.IsCurrentPlayer(q.BelongedFaction)))
             {
                 p.TextResultString = q.Name;
                 p.TextDestinationString = p.BelongedFaction.Leader.Name;
