@@ -2720,7 +2720,7 @@
                 {
                     foreach (Architecture a in this.Architectures)
                     {
-                        if (a.AutoCreatePersonAvail() && !a.HasEnoughPeople)
+                        if (GameObject.Random(this.PersonCount) == 0 && a.AutoCreatePersonAvail() && !a.HasEnoughPeople)
                         {
                             a.AutoCreatePerson();
                            
