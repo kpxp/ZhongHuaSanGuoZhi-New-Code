@@ -328,7 +328,7 @@
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="选择本建筑一支或多支编队进行运输，运输后编队将直接到达" Color="4294967295" />
+        <Leaf Text="选择本建筑一支或多支编队进行运输，运输时间到后编队会到达" Color="4294967295" />
         <Leaf Text="选定好的建筑。" Color="4278255360" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
@@ -339,6 +339,9 @@
         <Leaf Text="和" Color="4294967295" />
         <Leaf Text="水军" Color="4278255360" />
         <Leaf Text="不能运输。" Color="4278232306" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="势力灭亡运输的编队将会从势力编队列表消失" Color="4294967295" />
     </Branch>
     <Branch Name="Military_Merge">
         <Leaf Text="军事" Color="4294967295" />
@@ -1062,6 +1065,10 @@ Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="招贤机率默认为10，玩家可自行调整参数。"
+Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="电脑势力人数越多越不容易招贤。"
 Color="4294967295" />
     </Branch>
     <Branch Name="Monarch_hougongTop_nafei">

@@ -2601,8 +2601,9 @@
 
                 if (m.ArrivingDays == 0)
                 {
-                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction == this && m.BelongedArchitecture == null 
-                        && !m.StartingArchitecture.IsSurrounded () && !m.TargetArchitecture.IsSurrounded())
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null  && m.TargetArchitecture.BelongedFaction != null 
+                        && m.TargetArchitecture.BelongedFaction == this && m.BelongedArchitecture == null )
+                        
                       
                     {
                        // m.StartingArchitecture.RemoveMilitary(m);
@@ -2617,10 +2618,10 @@
                 }
                 else 
                 {
-                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction != null && m.TargetArchitecture.BelongedFaction != this)
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction != null && m.TargetArchitecture.BelongedFaction != this) //运兵过程中目标建筑被占领，停止运输
                     {
                         
-                            if (m.BelongedArchitecture == null)
+                            if (m.StartingArchitecture.BelongedFaction != null && m.BelongedArchitecture == null)
                             {
                                 //m.ArrivingDays = 0;
                                 m.StartingArchitecture.AddMilitary(m);
@@ -2631,12 +2632,25 @@
 
                         
                     }
-                    else if (m.StartingArchitecture != null && m.StartingArchitecture.BelongedFaction == null)
+                    else if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.StartingArchitecture.BelongedFaction != null
+                        && m.TargetArchitecture.BelongedFaction != null && m.TargetArchitecture.IsSurrounded())   //运兵过程中目标建筑被围城，停止运兵
+                    {
+                        if (m.BelongedArchitecture == null)
+                        {
+                            m.StartingArchitecture.AddMilitary(m);
+                        }
+                        m.ArrivingDays = 0;
+                        m.StartingArchitecture = null;
+                        m.TargetArchitecture = null;
+                    }
+
+
+                    else if (m.StartingArchitecture != null && m.StartingArchitecture.BelongedFaction == null) //势力灭亡，停止运兵，编队暂时消失
                     {
                         m.ArrivingDays = 0;
                         m.StartingArchitecture = null;
                         m.TargetArchitecture = null;
-                        
+
                     }
                 }
 
