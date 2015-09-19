@@ -4932,7 +4932,7 @@
 
         public void DayEvent()
         {
-            this.CheckMayor();
+            //this.CheckMayor();
             this.FundPacksDayEvent();
             this.FoodPacksDayEvent();
             this.PopulationPacksDayEvent();
@@ -4959,7 +4959,7 @@
             ExpectedFundCache = -1;
             this.SuspendTroopTransfer--;
         }
-
+        /*
         private void CheckMayor()
         {
             if (this.Mayor != null && this.Mayor.BelongedCaptive != null)
@@ -4970,7 +4970,7 @@
                 }
             }
         }
-
+        */
         private void RestEvent()
         {
             foreach (Military m in this.Militaries)
