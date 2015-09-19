@@ -2699,7 +2699,7 @@
                     {
                         if (a.AppointMayorAvail())
                         {
-                            Person person = a.MayorCandicate[0] as Person;
+                            Person person = a.AIMayorCandicate[0] as Person;
                             a.MayorID = person.ID;
                             a.AppointMayor(person);
                         }

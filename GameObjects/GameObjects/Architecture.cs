@@ -3895,9 +3895,17 @@
 
         public bool AppointMayorAvail() //任命太守
         {
-            if (this.BelongedFaction != null && this.BelongedFaction.Leader.BelongedCaptive == null && this.MayorID == -1 && this.MayorCandicate.Count > 0 && this.Kind.ID != 4)
+            if (this.BelongedFaction != null && this.BelongedFaction.Leader.BelongedCaptive == null && this.MayorID == -1  && this.Kind.ID != 4)
             {
-                return true;
+                if (this.Scenario.IsPlayer(this.BelongedFaction) && this.MayorCandicate.Count > 0)
+                {
+                    return true;
+                }
+
+                if (!this.Scenario.IsPlayer(this.BelongedFaction) && this.AIMayorCandicate.Count > 0)
+                {
+                    return true;
+                }
             }
             return false;
         }
@@ -3947,10 +3955,32 @@
                 PersonList result = new PersonList() ;
                 foreach (Person p in this.Persons)
                 {
-                    if (p != this.BelongedFaction.Leader && !this.BelongedFaction.MayorList.GameObjects.Contains(p) && p.Politics >= 60 && p.Intelligence >= 60 && p.Command < 70)
+                    if (p != this.BelongedFaction.Leader && !this.BelongedFaction.MayorList.GameObjects.Contains(p))
                     {
                         result.Add(p);
                     }
+                }
+                
+                return result;
+            }
+        }
+
+        public PersonList AIMayorCandicate
+        {
+            get 
+            {
+                PersonList result = new PersonList();
+                if (!this.Scenario.IsPlayer(this.BelongedFaction))
+                {
+
+                    foreach (Person p in this.Persons)
+                    {
+                        if (p != this.BelongedFaction.Leader && !this.BelongedFaction.MayorList.GameObjects.Contains(p) && p.Politics >= 60 && p.Intelligence >= 60 && p.Command < 70)
+                        {
+                            result.Add(p);
+                        }
+                    }
+
                 }
                 result.PropertyName = "Politics";
                 result.IsNumber = true;
@@ -3959,6 +3989,7 @@
                 return result;
             }
         }
+
 
         public event Appointmayor OnAppointmayor; //太守年表
         public delegate void Appointmayor(Person p, Person q);
