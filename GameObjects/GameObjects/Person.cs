@@ -4459,7 +4459,7 @@
             if (a == null) return;
 
             Faction targetFaction = this.BelongedFaction.GetFactionByName(a.FactionName);
-            if (this.Scenario.IsPlayer(targetFaction)) return;
+            if (!this.Scenario.IsPlayer(this.BelongedFaction) && this.Scenario.IsPlayer(targetFaction)) return;
             //Architecture targetArchitecture = targetFaction.Leader.BelongedArchitecture;
             Architecture targetArchitecture = targetFaction.Capital;
 
