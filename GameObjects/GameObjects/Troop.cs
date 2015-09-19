@@ -11307,7 +11307,7 @@
             {
                 if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture .MayorID && this.StartingArchitecture.ViewArea.HasPoint(this.Position))
                 {
-                    return (int)(this.defence * this.TirednessFactor + (this.Leader.Command * 30 + this.Leader.Calmness * 50));
+                    return (int)(this.defence * this.TirednessFactor + (this.Leader.Command * (this.BelongedFaction != null && this.Scenario.IsPlayer(this.BelongedFaction) ? 20 : 50 ) + this.Leader.Calmness * 50));
                 }
                 else 
                 {
@@ -11954,7 +11954,7 @@
             {      //太守加成公式
                 if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture.MayorID && this.StartingArchitecture.ViewArea.HasPoint(this.Position))
                 {
-                    return (int)(this.offence * this.TirednessFactor + (this.Leader.Strength * 6 + this.Leader.Braveness * 10));
+                    return (int)(this.offence * this.TirednessFactor + (this.Leader.Strength * (this.BelongedFaction != null && this.Scenario.IsPlayer(this.BelongedFaction) ? 3 : 6 ) + this.Leader.Braveness * 10));
                 }
                 else 
                 {
