@@ -2582,7 +2582,7 @@
             {
                
                 //int idealOffset = Person.GetIdealOffset(this, TargetArchitecture.BelongedFaction.Leader);
-                if (this.BelongedFaction.Army != 0 && this.BelongedFaction.Reputation > targetFaction.Reputation && this.BelongedFaction.Army >= targetFaction.Army * 10
+                if (this.BelongedFaction.Army != 0 && this.BelongedFaction.Reputation > targetFaction.Reputation && this.BelongedFaction.Army >= targetFaction.Army * 5
                             && GameObject.Chance(100 - targetFaction.Leader.PersonalLoyalty * 25) && this.BelongedFaction.adjacentTo(targetFaction))
                 {
 
