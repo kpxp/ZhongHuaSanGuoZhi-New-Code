@@ -20,6 +20,8 @@
     public class Faction : GameObject
     {
        // public int PrinceID = -1;
+        public int CreatePersonTimes = 0;
+        public int YearOfficialLimit = 0;
         private Person prince = null;
         private int princeID = -1;
         private bool isAlien = false;
@@ -3591,6 +3593,12 @@
         {
             this.DiplomaticRelationAI();
             powerCache = null;
+            if(base.Scenario.IsPlayer(this))
+            {
+            
+                this.CreatePersonTimes = 0;
+            }
+            
         }
 
         private void PlayerAI()

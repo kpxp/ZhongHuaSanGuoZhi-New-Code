@@ -4301,7 +4301,22 @@
                     faction.chaotinggongxiandu = 0;
 
                 }
-
+                try
+                {
+                    faction.CreatePersonTimes = (int)reader["CreatePersonTimes"];
+                }
+                catch
+                {
+                    faction.CreatePersonTimes = 0;
+                }
+                try
+                {
+                    faction.YearOfficialLimit = (int)reader["YearOfficialLimit"];
+                }
+                catch
+                {
+                    faction.YearOfficialLimit = 0;
+                }
                 try
                 {
                     faction.PrinceID = (short)reader["PrinceID"];
@@ -4843,7 +4858,7 @@
             ExtensionInterface.call("MonthEvent", new Object[] { this });
             foreach (Faction faction in this.Factions.GetRandomList())
             {
-                faction.MonthEvent();
+                faction.MonthEvent();   
             }
             foreach (Person person in this.Persons)
             {
@@ -5258,6 +5273,8 @@
                     row["guanjue"] = faction.guanjue;
                     row["IsAlien"] = faction.IsAlien;
                     row["NotPlayerSelectable"] = faction.NotPlayerSelectable;
+                    row["CreatePersonTimes"] = faction.CreatePersonTimes;
+                    row["YearOfficialLimit"] = faction.YearOfficialLimit;
                     row.EndEdit();
                     dataSet.Tables["Faction"].Rows.Add(row);
                 }
@@ -6310,6 +6327,18 @@
             foreach (Architecture architecture in this.Architectures.GetRandomList())
             {
                 architecture.YearEvent();
+            }
+
+            foreach (Faction faction in this.Factions)
+            {
+                if(this.IsPlayer(faction))
+                {
+
+                    faction.YearOfficialLimit = 0;
+                
+
+                }
+                
             }
         }
 

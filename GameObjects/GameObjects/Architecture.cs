@@ -37,6 +37,7 @@
                 return y.SimulatingFightingForce - x.SimulatingFightingForce;
             }
         }
+        
         private Person mayor = null;
         private int mayorID = -1;
         private int militaryPopulation = 0;
@@ -4048,17 +4049,27 @@
 
         public bool AutoCreatePersonAvail()
         {
-            if (this.BelongedFaction != null  && base.Scenario.OfficerCount < base.Scenario.OfficerLimit
+            if (this.BelongedFaction != null && base.Scenario.OfficerCount < base.Scenario.OfficerLimit
                 && GlobalVariables.CreateRandomOfficerChance > 0 
                 /*&& (base.Scenario.Date.Month == 3 || base.Scenario.Date.Month == 6 || base.Scenario.Date.Month == 9*/)
             {
-                return true;
+                if (base.Scenario.IsPlayer(this.BelongedFaction ) && this.BelongedFaction.CreatePersonTimes < 10 && this.BelongedFaction.YearOfficialLimit < 10)
+                {
+                    return true;
+                }
+
+                if (!base.Scenario.IsPlayer(this.BelongedFaction ))
+                {
+                    return true;
+                }
             }
+
             return false;
         }
 
         public void AutoCreatePerson()
         {
+            this.BelongedFaction.CreatePersonTimes += 1;
             Person r = new Person();
             //if (this.AutoCreatePersonAvail())
             //{
@@ -4066,6 +4077,7 @@
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
                     this.ZhaoXian(r);
+                    this.BelongedFaction.YearOfficialLimit += 1;
                     
                 }
                 
@@ -4074,6 +4086,7 @@
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
                     this.ZhaoXian(r);
+                    this.BelongedFaction.YearOfficialLimit += 1;
                 }
 
                 else if (!base.Scenario.IsPlayer(this.BelongedFaction) &&
@@ -4082,6 +4095,7 @@
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
                     this.ZhaoXian(r);
+                    this.BelongedFaction.YearOfficialLimit += 1;
 
                     GameObjectList ideals = base.Scenario.GameCommonData.AllIdealTendencyKinds;
                     IdealTendencyKind minIdeal = null;
@@ -4098,7 +4112,11 @@
 
 
                 }
+
+            
+            
                 
+            
                 //this.DecreaseFund(CreatePersonCost);
                 
         }
