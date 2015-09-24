@@ -1068,8 +1068,17 @@ Color="4294967295" />
 Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="电脑势力人数越多越不容易招贤。"
+        <Leaf Text="玩家每月有五次机会招贤。每年最多招10个野武将"
 Color="4294967295" />
+    </Branch>
+    <Branch Name="Monarch_ZhaoXianBang_DismissOfficer">
+    <Leaf Text="君主" Color="4294967295" />
+        <Leaf Text="遣散" Color="4278232306" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="遣散当前建筑在野野武将。遣散后，野武将将会从游戏消失，同时存档也会移除该野武将。"
+Color="4294967295" /> 
     </Branch>
     <Branch Name="Monarch_hougongTop_nafei">
         <Leaf Text="君主" Color="4294967295" />
