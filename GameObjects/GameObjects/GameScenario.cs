@@ -29,6 +29,9 @@
 
         private Dictionary<int, Architecture> AllArchitectures = new Dictionary<int, Architecture>();
         private Dictionary<int, Person> AllPersons = new Dictionary<int, Person>();
+
+       // private Dictionary<Person, int> AllChildren = new Dictionary<Person, int>();
+
         public OngoingBattleList AllOngoingBattles = new OngoingBattleList();
         public ArchitectureList Architectures = new ArchitectureList();
         public Faction CurrentFaction;
@@ -3500,6 +3503,13 @@
                 catch
                 {
                 }
+                try
+                {
+                    person.NumberOfChildren = (int)reader["NumberOfChildren"];
+                }
+                catch
+                {
+                }
 
                 if (errors.Count > 0)
                 {
@@ -3509,6 +3519,9 @@
 
                 this.Persons.AddPersonWithEvent(person);  //所有武将，并加载武将事件
                 this.AllPersons.Add(person.ID, person);   //武将字典
+
+               // this.AllChildren.Add(person, person.NumberOfChildren);
+
                 if (person.Available && person.Alive)
                 {
                     this.AvailablePersons.Add(person);  //已出场武将
@@ -5755,6 +5768,7 @@
                     row["huaiyun"] = person.huaiyun;
                     row["faxianhuaiyun"] = person.faxianhuaiyun;
                     row["huaiyuntianshu"] = person.huaiyuntianshu;
+                    row["NumberOfChildren"] = person.NumberOfChildren;
                     row["suoshurenwu"] = person.suoshurenwu;
                     row["WaitForFeizi"] = (person.WaitForFeiZi != null) ? person.WaitForFeiZi.ID : -1;
                     row["WaitForFeiziPeriod"] = person.WaitForFeiZiPeriod;

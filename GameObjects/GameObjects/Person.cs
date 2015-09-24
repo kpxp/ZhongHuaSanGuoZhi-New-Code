@@ -23,6 +23,7 @@
         public int huaiyuntianshu = -1;
         public bool ManualStudy = false;
 
+        private int numberOfChildren ;
 
         public bool faxianhuaiyun = false;
 
@@ -1759,6 +1760,9 @@
 
                             base.Scenario.GameScreen.xiaohaichusheng(haizifuqin, haizi);
 
+                            haizifuqin.NumberOfChildren++;
+                            this.NumberOfChildren++;
+
                             if (!GlobalVariables.PersonNaturalDeath || GlobalVariables.ChildrenAvailableAge <= 0)
                             {
                                 base.Scenario.haizichusheng(haizi, haizifuqin, this, origChildren.Count > 0);
@@ -1819,7 +1823,7 @@
                 return Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Ambition + (int)this.PersonalLoyalty + 1;
             }
         }
-
+        /*
         public int NumberOfChildren
         {
             get
@@ -1833,6 +1837,36 @@
                     }
                 }
                 return cnt;
+            }
+        }
+        */
+
+        public PersonList ChildrenList
+        {
+            get
+            {
+                PersonList list = new PersonList();
+                foreach (Person p in base.Scenario.Persons)
+                {
+                    if ((p.Father == this || p.Mother == this) && (((p.Available || p.YearBorn <= base.Scenario.Date.Year) && p.Alive) || (p.Available && !p.Alive)))
+                    {
+                        list.Add(p);
+                    }
+                }
+                return list;
+            }
+        }
+
+        public int NumberOfChildren
+        {
+            get
+            {
+                
+                return (this.ChildrenList.Count);
+            }
+            set
+            {
+                this.numberOfChildren = value;
             }
         }
 
@@ -5806,12 +5840,13 @@
 
         public bool HasTitle()
         {
-            if (this.Titles.Count > 0)
+           /* if (this.Titles.Count > 0)
             {
                 return true;
             }
             return false;
-
+            */
+            return this.Titles != null;
         }
 
         public bool HasSkill(int id)
@@ -8100,30 +8135,24 @@
 
             if (this.Mother != null)
             {
-                foreach (Person p in base.Scenario.Persons)
+                
+                if (this.Mother.Strain == b.Strain)
                 {
-                    if (p == this.Mother)
-                    {
-                        if (p.Strain == b.Strain)
-                        {
-                            return true;
-                        }
-                    }
+
+                    return true;
                 }
+                        
+                
             }
 
             if (b.Mother != null)
             {
-                foreach (Person p in base.Scenario.Persons)
-                {
-                    if (p == b.Mother)
-                    {
-                        if (p.Strain == this.Strain)
+               
+                        if (b.Mother.Strain == this.Strain)
                         {
                             return true;
                         }
-                    }
-                }
+                
             }
 
             return false;
