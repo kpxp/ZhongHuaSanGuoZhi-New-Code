@@ -4053,7 +4053,7 @@
                 && GlobalVariables.CreateRandomOfficerChance > 0 
                 /*&& (base.Scenario.Date.Month == 3 || base.Scenario.Date.Month == 6 || base.Scenario.Date.Month == 9*/)
             {
-                if (base.Scenario.IsPlayer(this.BelongedFaction ) && this.BelongedFaction.CreatePersonTimes < 10 && this.BelongedFaction.YearOfficialLimit < 10)
+                if (base.Scenario.IsPlayer(this.BelongedFaction ) && this.BelongedFaction.CreatePersonTimes < 5 && this.BelongedFaction.YearOfficialLimit < 10)
                 {
                     return true;
                 }
@@ -4069,7 +4069,7 @@
 
         public void AutoCreatePerson()
         {
-            this.BelongedFaction.CreatePersonTimes += 1;
+            this.BelongedFaction.CreatePersonTimes ++;
             Person r = new Person();
             //if (this.AutoCreatePersonAvail())
             //{
@@ -4077,7 +4077,7 @@
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
                     this.ZhaoXian(r);
-                    this.BelongedFaction.YearOfficialLimit += 1;
+                    this.BelongedFaction.YearOfficialLimit ++;
                     
                 }
                 
@@ -4086,7 +4086,7 @@
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
                     this.ZhaoXian(r);
-                    this.BelongedFaction.YearOfficialLimit += 1;
+                    this.BelongedFaction.YearOfficialLimit ++;
                 }
 
                 else if (!base.Scenario.IsPlayer(this.BelongedFaction) &&
@@ -4095,7 +4095,7 @@
                 {
                     r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
                     this.ZhaoXian(r);
-                    this.BelongedFaction.YearOfficialLimit += 1;
+                    this.BelongedFaction.YearOfficialLimit ++;
 
                     GameObjectList ideals = base.Scenario.GameCommonData.AllIdealTendencyKinds;
                     IdealTendencyKind minIdeal = null;
