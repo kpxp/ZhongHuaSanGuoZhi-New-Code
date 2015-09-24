@@ -2659,7 +2659,7 @@
                 
 
             }
-
+            /*
             foreach (Military military in this.Scenario.Militaries)
             {
                 if (military.ArrivingDays > 0 && (military.BelongedArchitecture != null || military.BelongedTroop != null))
@@ -2684,7 +2684,7 @@
                     }
                 }
             }
-
+            */
         }
 
         private void AISelectPrince()
