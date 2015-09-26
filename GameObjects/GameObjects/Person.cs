@@ -7526,7 +7526,13 @@
             }
             r.CalledName = "";
 
-            int[] weights = new int[10];
+
+            int[] weights = foundLocation.preferredOfficialTypes;
+           /* if (weights == null)
+            {
+                weights = new int[10];
+            }*/
+            //int[] weights = new int[10];
             foreach (PersonGeneratorType type in scen.GameCommonData.AllPersonGeneratorTypes)
             {
                 weights[type.ID] = type.generationChance;

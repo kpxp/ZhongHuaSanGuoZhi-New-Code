@@ -37,6 +37,8 @@
                 return y.SimulatingFightingForce - x.SimulatingFightingForce;
             }
         }
+
+        public int[] preferredOfficialTypes = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         
         private Person mayor = null;
         private int mayorID = -1;
