@@ -20,6 +20,8 @@
     public class Faction : GameObject
     {
        // public int PrinceID = -1;
+        private int militarycount;
+        private int transferingmilitarycount;
         public int CreatePersonTimes = 0;
         public int YearOfficialLimit = 0;
         private Person prince = null;
@@ -90,7 +92,7 @@
         public LegionList Legions = new LegionList();
         public InformationLevel LevelOfView = InformationLevel.中;
         private int[,] mapData;
-        public MilitaryList Militaries = new MilitaryList();
+       // public MilitaryList Militaries = new MilitaryList();
         public int NoCounterChanceIncrementOfBubing;
         public int NoCounterChanceIncrementOfNubing;
         public int NoCounterChanceIncrementOfQibing;
@@ -3254,7 +3256,20 @@
         {
             return (this.CaptiveCount > 0);
         }
-
+        /*
+        public int MilitaryKindCount(int id)
+        {
+            int count = 0;
+            foreach (Military military in this.Militaries)
+            {
+                if (military.RealKindID == id)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        */
         public bool IsMilitaryKindOverLimit(int id)
         {
             int count = 0;
@@ -3265,8 +3280,11 @@
                     count++;
                 }
             }
+            
+
             MilitaryKind mk = base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id);
             return count >= mk.RecruitLimit;
+            
             
         }
 
@@ -3481,7 +3499,7 @@
                     if (architecture != null)
                     {
                         this.AddArchitecture(architecture);
-                        this.AddArchitectureMilitaries(architecture);
+                        //this.AddArchitectureMilitaries(architecture);
                     }
                     else
                     {
@@ -3542,7 +3560,7 @@
                     if (gameObject != null)
                     {
                         this.AddTroop(gameObject);
-                        this.AddTroopMilitary(gameObject);
+                       // this.AddTroopMilitary(gameObject);
                     }
                     else
                     {
@@ -5621,13 +5639,70 @@
             }
         }
 
+        public MilitaryList Militaries
+        {
+            get
+            {
+                MilitaryList Militaries = new MilitaryList();
+                foreach (Military military in base.Scenario.Militaries)
+                {
+                    if (military.BelongedArchitecture != null && military.BelongedArchitecture.BelongedFaction == this)
+                    {
+                        Militaries.Add(military);
+                    }
+
+                }
+
+                foreach (Military military in this.TransferingMilitary)
+                {
+                    Militaries.Add(military);
+                }
+
+                foreach (Troop troop in this.Troops)
+                {
+                    if (troop.Army != null)
+                    {
+                        if (troop.Army.ShelledMilitary == null)
+                        {
+                            Militaries.Add(troop.Army);
+                        }
+                        else
+                        {
+                            Militaries.Add(troop.Army.ShelledMilitary);
+                        }
+                    }
+                }
+
+                return Militaries;
+
+            }
+        }
+
+
         public int MilitaryCount
         {
             get
             {
-                return this.Militaries.Count;
+                return this.Militaries.Count ;
+            }
+            set
+            {
+                this.militarycount = value;
             }
         }
+
+        public int TransferingMilitaryCount
+        {
+            get
+            {
+                return this.TransferingMilitary.Count;
+            }
+            set
+            {
+                this.transferingmilitarycount = value;
+            }
+        }
+
 
         public bool Passed
         {

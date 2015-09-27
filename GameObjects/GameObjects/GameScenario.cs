@@ -4316,6 +4316,20 @@
                 }
                 try
                 {
+                    faction.MilitaryCount = (int)reader["MilitaryCount"];
+                }
+                catch
+                {
+                }
+                try
+                {
+                    faction.TransferingMilitaryCount = (int)reader["TransferingMilitaryCount"];
+                }
+                catch
+                {
+                }
+                try
+                {
                     faction.CreatePersonTimes = (int)reader["CreatePersonTimes"];
                 }
                 catch
@@ -5288,6 +5302,8 @@
                     row["NotPlayerSelectable"] = faction.NotPlayerSelectable;
                     row["CreatePersonTimes"] = faction.CreatePersonTimes;
                     row["YearOfficialLimit"] = faction.YearOfficialLimit;
+                    row["MilitaryCount"] = faction.MilitaryCount;
+                    row["TransferingMilitaryCount"] = faction.TransferingMilitaryCount;
                     row.EndEdit();
                     dataSet.Tables["Faction"].Rows.Add(row);
                 }
