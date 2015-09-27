@@ -1150,7 +1150,25 @@
             }
             return true;
         }
-
+        /*
+        public int EachMilitaryKindCount(Faction f)
+        {
+            int count = 0;
+           // MilitaryKind mk = base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id);
+            if (f != null)
+            {
+                foreach (Military military in f.Militaries)
+                {
+                    if (military.RealKindID == this.ID )
+                    {
+                        count++;
+                    }
+                }
+            }
+            
+            return count;
+        }
+        */
     }
 }
 

@@ -3256,8 +3256,9 @@
         {
             return (this.CaptiveCount > 0);
         }
+
         /*
-        public int MilitaryKindCount(int id)
+        public int EachMilitaryKindCount(int id)
         {
             int count = 0;
             foreach (Military military in this.Militaries)
@@ -3267,9 +3268,11 @@
                     count++;
                 }
             }
+            MilitaryKind mk = base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id);
             return count;
         }
         */
+         
         public bool IsMilitaryKindOverLimit(int id)
         {
             int count = 0;
