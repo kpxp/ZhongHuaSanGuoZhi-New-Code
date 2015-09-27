@@ -38,7 +38,7 @@
             }
         }
 
-        public int[] preferredOfficialTypes = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        public int[] preferredOfficialTypes = {100, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         
         private Person mayor = null;
         private int mayorID = -1;

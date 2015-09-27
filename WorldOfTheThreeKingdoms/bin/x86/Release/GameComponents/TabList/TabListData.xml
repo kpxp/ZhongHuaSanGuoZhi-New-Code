@@ -3630,6 +3630,7 @@
                 FontColor="4294967295"
                 Align="Middle">
         </Column>
+   </Columns>
       <Tabs Margin="5">
         <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 13 21 3 4 5 10 11 12 14" ListKind="Influence" ListMethod="GetInfluenceList">
         </Tab>
