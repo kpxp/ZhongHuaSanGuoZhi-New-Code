@@ -144,7 +144,7 @@
             {
                 foreach (Architecture a in this.CaptivePerson.BelongedFaction.Architectures)
                 {
-                    if (a.Mayor != null && this.CaptivePerson.ID == a.MayorID)
+                    if (this.CaptivePerson.ID == a.MayorID)
                     {
                         this.CaptivePerson.MoveToArchitecture(a);
                     }
@@ -363,7 +363,7 @@
         {
             get
             {
-                if (this.CaptivePerson != null )
+                if (this.CaptivePerson != null && this.CaptivePerson.LocationTroop == null)
                 {
                     if (this.CaptivePerson.ArrivingDays > 0)
                     {
@@ -372,6 +372,21 @@
                     
                 }
                 
+                return "----";
+            }
+        }
+
+        public string RansomArriveDaysString
+        {
+            get
+            {
+                if (this.CaptivePerson != null)
+                {
+                    if (this.RansomArriveDays > 0)
+                    {
+                        return (this.RansomArriveDays + "天");
+                    }
+                }
                 return "----";
             }
         }
