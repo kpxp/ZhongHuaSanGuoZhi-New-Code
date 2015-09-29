@@ -38,7 +38,7 @@
             }
         }
 
-        public int[] preferredOfficialTypes = {100, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        public int[] preferredOfficialTypes = {100, 100, 100, 100, 60, 100, 1, 250, 250, 39 };
         
         private Person mayor = null;
         private int mayorID = -1;
@@ -4073,6 +4073,7 @@
         {
             this.BelongedFaction.CreatePersonTimes ++;
             Person r = new Person();
+            
             //if (this.AutoCreatePersonAvail())
             //{
                 if(this.BelongedFaction.PersonCount < 5)

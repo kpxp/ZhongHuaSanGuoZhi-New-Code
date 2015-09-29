@@ -7469,8 +7469,51 @@
 
         //private enum OfficerType { GENERAL, BRAVE, ADVISOR, POLITICIAN, INTEL_GENERAL, EMPEROR, ALL_ROUNDER, NORMAL_ADVISOR, CHEAP, NORMAL_GENERAL };
 
+        private static int generatePersonType(GameScenario scen)
+        {
+           
+            int[] weights = new int[10];
+
+            foreach (PersonGeneratorType type in scen.GameCommonData.AllPersonGeneratorTypes)
+            {
+                weights[type.ID] = type.generationChance;
+            }
+
+            int total = 0;
+            foreach (int i in weights)
+            {
+                total += i;
+            }
+
+            int officerType = 9;
+            int typeInt = GameObject.Random(total);
+            int typeSum = 0;
+            for (int i = 0; i < weights.Length; ++i)
+            {
+                typeSum += weights[i];
+                if (typeInt < typeSum)
+                {
+                    officerType = i;
+                    break;
+                }
+            }
+
+            return officerType;
+        }
+
         public static Person createPerson(GameScenario scen, Architecture foundLocation, Person finder, bool inGame)
         {
+            return createPerson(scen, foundLocation, finder, inGame, generatePersonType(scen));
+        }
+
+        public static Person createPerson(PersonGenerateParam param)
+        {
+            return createPerson(param.scen, param.foundLocation, param.finder, param.inGame, param.preferredType);
+        }
+
+        private static Person createPerson(GameScenario scen, Architecture foundLocation, Person finder, bool inGame, int preferredType)
+        {
+            
             Person r = new Person();
 
             //look for empty id
@@ -7485,10 +7528,7 @@
                 if (p.ID == id)
                 {
                     id++;
-                    /*if (id >= 25000 && id < 10000)
-                    {
-                        id = 10000;
-                    }*/
+                    
                 }
                 else if (p.ID > id)
                 {
@@ -7526,36 +7566,9 @@
             }
             r.CalledName = "";
 
-
-            int[] weights = foundLocation.preferredOfficialTypes;
-           /* if (weights == null)
-            {
-                weights = new int[10];
-            }*/
-            //int[] weights = new int[10];
-            foreach (PersonGeneratorType type in scen.GameCommonData.AllPersonGeneratorTypes)
-            {
-                weights[type.ID] = type.generationChance;
-            }
-
-            int total = 0;
-            foreach (int i in weights)
-            {
-                total += i;
-            }
-
-            int officerType = 9;
-            int typeInt = GameObject.Random(total);
-            int typeSum = 0;
-            for (int i = 0; i < weights.Length; ++i)
-            {
-                typeSum += weights[i];
-                if (typeInt < typeSum)
-                {
-                    officerType = i;
-                    break;
-                }
-            }
+           
+            int officerType = preferredType ;
+            
 
             int titleChance = 0;
 
@@ -7717,6 +7730,8 @@
 
             return r;
         }
+
+        
 
         public static Person createChildren(Person father, Person mother)
         {
