@@ -7508,7 +7508,7 @@
 
         public static Person createPerson(PersonGenerateParam param)
         {
-            return createPerson(param.scen, param.foundLocation, param.finder, param.inGame, param.preferredType);
+            return createPerson(param.Scenario, param.FoundLocation, param.Finder, param.InGame, param.PreferredType);
         }
 
         private static Person createPerson(GameScenario scen, Architecture foundLocation, Person finder, bool inGame, int preferredType)
@@ -7612,6 +7612,26 @@
             r.ValuationOnGovernment = (PersonValuationOnGovernment)GameObject.Random(Enum.GetNames(typeof(PersonValuationOnGovernment)).Length);
             r.StrategyTendency = (PersonStrategyTendency)GameObject.Random(Enum.GetNames(typeof(PersonStrategyTendency)).Length);
             r.IdealTendency = scen.GameCommonData.AllIdealTendencyKinds.GetRandomList()[0] as IdealTendencyKind;
+
+            if (!scen.IsPlayer(foundLocation.BelongedFaction))
+            {
+
+            GameObjectList ideals = scen.GameCommonData.AllIdealTendencyKinds;
+            IdealTendencyKind minIdeal = null;
+            foreach (IdealTendencyKind itk in ideals)
+            {
+                if (minIdeal == null || itk.Offset < minIdeal.Offset)
+                {
+                    minIdeal = itk;
+                }
+            }
+
+            r.IdealTendency = minIdeal;
+            r.Ideal = (foundLocation.BelongedFaction.Leader.Ideal + GameObject.Random(minIdeal.Offset * 2 + 1) - minIdeal.Offset) % 150;
+
+            }
+            
+
             r.BornRegion = (PersonBornRegion)GameObject.Random(Enum.GetNames(typeof(PersonBornRegion)).Length);
 
             {

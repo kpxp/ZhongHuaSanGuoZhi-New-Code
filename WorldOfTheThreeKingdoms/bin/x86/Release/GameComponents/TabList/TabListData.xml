@@ -4549,5 +4549,34 @@
         </Tab>
       </Tabs>
     </ListKind>
+        <ListKind ID="32" Name="PersonGeneratorType" DisplayName="武将类型" ShowPortrait ="false">
+      <Columns>
+        <Column ID="0" Name="ID" IsNumber="true" DisplayName="序号" MinWidth="50" DetailLevel="1"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Right">
+        </Column>
+        <Column ID="1" Name="Name" IsNumber="false" DisplayName="类型" MinWidth="80" DetailLevel="2"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4278255360"
+                Align="Middle">
+        </Column>
+        <Column ID="2" Name="cost" IsNumber="true" DisplayName="费用" MinWidth="80" DetailLevel="2"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Right">
+        </Column>
+      </Columns>
+      <Tabs Margin="5">
+        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="0 1 2">
+        </Tab>
+      </Tabs>
+    </ListKind>
   </TabList>
 </Root>

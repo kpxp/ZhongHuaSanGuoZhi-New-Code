@@ -8,6 +8,7 @@ namespace GameObjects.PersonDetail
 {
     public class PersonGeneratorType : GameObject
     {
+
         public int commandLo, commandHi;
         public int strengthLo, strengthHi;
         public int intelligenceLo, intelligenceHi;
@@ -20,5 +21,6 @@ namespace GameObjects.PersonDetail
         public int generationChance;
         public bool affectedByRateParameter;
         public int titleChance;
+        public int cost;
     }
 }

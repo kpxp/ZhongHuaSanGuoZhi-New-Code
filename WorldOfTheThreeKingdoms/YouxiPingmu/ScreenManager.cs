@@ -410,6 +410,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        private void FrameFunction_Architecture_AfterGetOfficerType()
+        {
+            
+            this.CurrentGameObjects = this.gameScenario.GameCommonData.AllPersonGeneratorTypes.GetSelectedList();
+            if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
+            {
+                
+                    this.CurrentGameObject = this.gameScenario.GameCommonData.AllPersonGeneratorTypes.GetSelectedList()[0] as PersonGeneratorType;
+                   // param.preferredType = this.CurrentOfficerType.ID;
+                    this.CurrentArchitecture.GenerateOfficer(this.CurrentGameObject.ID);
+                
+            }
+        }
+
         private void FrameFunction_Architecture_AfterGetInformationKind()
         {
             this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetInformationPerson, false, true, true, false, this.CurrentArchitecture.MovablePersons, null, "情报", "情报");
@@ -1153,6 +1167,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case FrameFunction.GetInformationKind:
                     this.FrameFunction_Architecture_AfterGetInformationKind();
+                    break;
+
+                case FrameFunction.GetOfficerType:
+                    this.FrameFunction_Architecture_AfterGetOfficerType();
                     break;
 
                 case FrameFunction.GetInformationToStop:

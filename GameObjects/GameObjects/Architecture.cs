@@ -4069,6 +4069,45 @@
             return false;
         }
 
+        private static bool IsChanceOfGeneratingOfficer(int factionPersonCount, bool isAI)
+        {
+            if (factionPersonCount < 5)
+            {
+                return true ;
+            }
+
+            float coef = isAI ? Parameters.AIExtraPerson - 1 : 1;
+            if (coef <= 0)
+            {
+                return false ;
+            }
+
+            float result = GameObject.Random((int)(10000 * Math.Pow(factionPersonCount, Parameters.SearchPersonArchitectureCountPower)));
+            float target = GlobalVariables.CreateRandomOfficerChance * 100 * coef ;
+            return result < target;
+        }
+
+        public void GenerateOfficer(int preferredType)
+        {
+            this.BelongedFaction.CreatePersonTimes ++;
+
+            bool isAI = !base.Scenario.IsPlayer(this.BelongedFaction);
+
+            if (!IsChanceOfGeneratingOfficer(this.BelongedFaction.PersonCount,isAI))
+            {
+                return ;
+            }
+
+            PersonGenerateParam param = new PersonGenerateParam(Scenario,this,this.BelongedFaction.Leader ,true,preferredType ,isAI);
+            Person r = Person.createPerson(param);
+            this.ZhaoXian(r);
+            this.BelongedFaction.YearOfficialLimit++;    
+
+
+            //this.DecreaseFund(CreatePersonCost);
+
+        }
+
         public void AutoCreatePerson()
         {
             this.BelongedFaction.CreatePersonTimes ++;

@@ -678,6 +678,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Monarch_ZhaoXianBang_AutoCreatePerson: //招贤榜
                     this.CurrentArchitecture.AutoCreatePerson();
                     break;
+
+                case ContextMenuResult.Monarch_ZhaoXianBang_GenerateOfficer:
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.PersonGeneratorType, FrameFunction.GetOfficerType, false, true, true, false, base.Scenario.GameCommonData.AllPersonGeneratorTypes, null, "武将类型", "");
+                    break;
                     /*
                 case ContextMenuResult.Monarch_ZhaoXianBang_DengYong: //登用
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.DengYong, false, true, true, false, this.CurrentArchitecture.NoFactionOfficers, null, "登用", "");

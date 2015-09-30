@@ -34,7 +34,8 @@
         Treasure,
         YearTable,
         Information,
-        Guanjue
+        Guanjue,
+        PersonGeneratorType
     }
 }
 

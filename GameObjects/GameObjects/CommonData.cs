@@ -1615,6 +1615,12 @@
                 type.ambitionHi = (int)reader["AmbitionHi"];
                 type.titleChance = (int)reader["TitleChance"];
                 type.affectedByRateParameter = (bool)reader["AffectedByRateParameter"];
+
+                try 
+                {
+                    type.cost = (int)reader["Cost"];
+                }
+                catch {}
                 this.AllPersonGeneratorTypes.Add(type);
             }
             connection.Close();
@@ -2967,6 +2973,7 @@
                     row["AmbitionHi"] = i.ambitionHi;
                     row["TitleChance"] = i.titleChance;
                     row["AffectedByRateParameter"] = i.affectedByRateParameter;
+                    row["Cost"] = i.cost;
                     row.EndEdit();
                     dataSet.Tables["PersonGeneratorType"].Rows.Add(row);
                 }

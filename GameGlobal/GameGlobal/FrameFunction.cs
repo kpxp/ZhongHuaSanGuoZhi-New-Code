@@ -84,7 +84,8 @@
         PersonManualHire,
         SelectPrince,
         AutoCreatePerson,//自动生成野武将
-        DengYong,
+        GetOfficerType,
+       // DengYong,
         AppointMayor, //任命太守
         DismissOfficer, //遣散
         AppointOfficer,//任命官员
