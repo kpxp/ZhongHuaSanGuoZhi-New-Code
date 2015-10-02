@@ -38,7 +38,7 @@
             }
         }
 
-        public int[] preferredOfficialTypes = {100, 100, 100, 100, 60, 100, 1, 250, 250, 39 };
+       // public int[] preferredOfficialTypes = {100, 100, 100, 100, 60, 100, 1, 250, 250, 39 };
         
         private Person mayor = null;
         private int mayorID = -1;
@@ -786,7 +786,7 @@
 
         public void AI()
         {
-            this.PlayAIZhaoXian();
+            //this.PlayAIZhaoXian();
             this.PrepareAI();
             this.AIExecute();
             this.ClearFieldAI();
@@ -2369,7 +2369,7 @@
                 }
             }
         }
-
+        /*
         private void AIAutoZhaoXian()
         {
             if (base.Scenario.IsPlayer(this.BelongedFaction))
@@ -2382,7 +2382,7 @@
                     }
                 
             }
-        }
+        }*/
 
         public void AICampaign()
         {
@@ -3462,6 +3462,7 @@
             return ((this.BelongedSection.AIDetail == null) || !this.BelongedSection.AIDetail.AutoRun);
         }
 
+        /*
         public bool AutoZhaoXianAvail()
         {
             if (base.Scenario.IsPlayer(this.BelongedFaction) && !this.BelongedSection.AIDetail.AutoRun)
@@ -3470,7 +3471,7 @@
             }
             return false;
         }
-
+        */
         public bool AutoWorkingAvail()
         {
             return ((this.BelongedSection.AIDetail == null) || !this.BelongedSection.AIDetail.AutoRun);
@@ -4055,12 +4056,12 @@
                 && GlobalVariables.CreateRandomOfficerChance > 0 
                 /*&& (base.Scenario.Date.Month == 3 || base.Scenario.Date.Month == 6 || base.Scenario.Date.Month == 9*/)
             {
-                if (base.Scenario.IsPlayer(this.BelongedFaction ) && this.BelongedFaction.CreatePersonTimes < 5 && this.BelongedFaction.YearOfficialLimit < 10)
+                if (base.Scenario.IsPlayer(this.BelongedFaction) && this.AvailGeneratorTypeList().Count > 0 && this.BelongedFaction.CreatePersonTimes < 10 && this.BelongedFaction.YearOfficialLimit < 10)
                 {
                     return true;
                 }
 
-                if (!base.Scenario.IsPlayer(this.BelongedFaction ))
+                if (!base.Scenario.IsPlayer(this.BelongedFaction) && this.BelongedFaction.AIAvailPersonGeneratorTypeList().Count > 0)
                 {
                     return true;
                 }
@@ -4069,6 +4070,23 @@
             return false;
         }
 
+        public PersonGeneratorTypeList AvailGeneratorTypeList()
+        {
+            
+            
+                PersonGeneratorTypeList list = new PersonGeneratorTypeList();
+                foreach (PersonGeneratorType type in base.Scenario.GameCommonData.PlayerGeneratorTypes)
+                {
+                    if (this.Fund >= type.CostFund && this.BelongedFaction.GetGeneratorPersonCount(type) < type.FactionLimit)
+                    {
+                        list.Add(type);
+                    }
+                }
+                return list;
+            
+        }
+
+        
         private static bool IsChanceOfGeneratingOfficer(int factionPersonCount, bool isAI)
         {
             if (factionPersonCount < 5)
@@ -4076,7 +4094,7 @@
                 return true ;
             }
 
-            float coef = isAI ? Parameters.AIExtraPerson - 1 : 1;
+            float coef = isAI ? Parameters.AIExtraPerson + 1 : 1;
             if (coef <= 0)
             {
                 return false ;
@@ -4087,7 +4105,7 @@
             return result < target;
         }
 
-        public void GenerateOfficer(int preferredType)
+        public void GenerateOfficer(PersonGeneratorType preferredType)
         {
             this.BelongedFaction.CreatePersonTimes ++;
 
@@ -4098,16 +4116,21 @@
                 return ;
             }
 
+           // PersonGeneratorType type = new PersonGeneratorType();
+            //type.ID = preferredType; 
             PersonGenerateParam param = new PersonGenerateParam(Scenario,this,this.BelongedFaction.Leader ,true,preferredType ,isAI);
             Person r = Person.createPerson(param);
             this.ZhaoXian(r);
-            this.BelongedFaction.YearOfficialLimit++;    
+            this.BelongedFaction.YearOfficialLimit++;
+            preferredType.TypeCount++;
+            this.BelongedFaction.GetGeneratorPersonCount(preferredType);
+            this.BelongedFaction.IncrementGeneratorCount(preferredType);
 
-
-            //this.DecreaseFund(CreatePersonCost);
+            this.DecreaseFund(preferredType.CostFund);
 
         }
 
+        /*
         public void AutoCreatePerson()
         {
             this.BelongedFaction.CreatePersonTimes ++;
@@ -4162,6 +4185,7 @@
                 //this.DecreaseFund(CreatePersonCost);
                 
         }
+        */
 
         public event Zhaoxian OnZhaoxian; //招贤
         public delegate void Zhaoxian(Person p, Person q);
@@ -9977,13 +10001,7 @@
             }
         }
 
-        public void PlayAIZhaoXian()
-        {
-            if (this.AutoZhaoXian)
-            {
-                this.AIAutoZhaoXian();
-            }
-        }
+        
 
         public void PlayerAutoAI()
         {

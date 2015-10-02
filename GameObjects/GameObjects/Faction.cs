@@ -2725,29 +2725,84 @@
                 }
             }
         }
-     
-                            
-                            
-                    
+
+
+
+        private readonly List<int> aiGeneratorTypeIds = new List<int>() { 0, 1, 2, 3, 4, 5, 6 };
+
+        public PersonGeneratorTypeList CreateAIPersonGeneratorTypeList()
+        {
+            PersonGeneratorTypeList list = new PersonGeneratorTypeList();
+            foreach (PersonGeneratorType type in base.Scenario.GameCommonData.AllPersonGeneratorTypes)
+            {
+                if (aiGeneratorTypeIds.Contains(type.ID))
+                {
+                    list.Add(type);
+                }
+
+                if (list.Count == aiGeneratorTypeIds.Count)
+                {
+                    break;
+                }
+
+            }
+            return list;
+        }
+
+        private Dictionary<PersonGeneratorType, int> count = new Dictionary<PersonGeneratorType, int>();
+
+        public void IncrementGeneratorCount(PersonGeneratorType type)
+        {
+            if (count.ContainsKey(type))
+            {
+                count[type]++;
+            }
+            else
+            {
+                count.Add(type, 1);
+            }
+        }
+
+        public int GetGeneratorPersonCount(PersonGeneratorType type)
+        {
+            return count.ContainsKey(type) ? count[type] : 0;
+        }
+
+        public PersonGeneratorTypeList AIAvailPersonGeneratorTypeList()
+        {
+            PersonGeneratorTypeList list = new PersonGeneratorTypeList();
+            foreach (PersonGeneratorType type in this.CreateAIPersonGeneratorTypeList())
+            {
+                foreach (Architecture a in this.Architectures)
+                {
+
+                    if (a.Fund >= type.CostFund && this.GetGeneratorPersonCount(type) < type.FactionLimit)
+                    {
+                        list.Add(type);
+                    }
+                }
+            }
+            return list;
+
+        }
 
         private void AIZhaoXian()
         {
-            if (!base.Scenario.IsPlayer(this))
+            if (base.Scenario.IsPlayer(this)) return;
+
+            if (GameObject.Random(10) != 0) return;
+
+            PersonGeneratorType type = this.AIAvailPersonGeneratorTypeList()[0] as PersonGeneratorType;
+
+            foreach (Architecture a in this.Architectures)
             {
-                if (GameObject.Random(10) == 0 && (this.Capital != null))
+                if (a.AutoCreatePersonAvail() && !a.HasEnoughPeople)
                 {
-                    foreach (Architecture a in this.Architectures)
-                    {
-                        if (GameObject.Random(this.PersonCount) == 0 && a.AutoCreatePersonAvail() && !a.HasEnoughPeople)
-                        {
-                            a.AutoCreatePerson();
-                           
-                        }
-                    }
-                   
-                    
+                    a.GenerateOfficer(type);
+
                 }
-            }
+            }     
+            
         }
 
         private void AIchaotingshijian()

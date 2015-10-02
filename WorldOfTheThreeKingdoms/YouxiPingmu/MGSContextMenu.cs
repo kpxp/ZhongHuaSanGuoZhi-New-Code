@@ -674,13 +674,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Monarch_KillRelease_KillCaptive:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Captive, FrameFunction.KillCaptive, false, true, true, false, this.CurrentArchitecture.BelongedFaction.Captives, null, "处斩俘虏", "");
                     break;
-
+                    /*
                 case ContextMenuResult.Monarch_ZhaoXianBang_AutoCreatePerson: //招贤榜
                     this.CurrentArchitecture.AutoCreatePerson();
                     break;
-
+                    */
                 case ContextMenuResult.Monarch_ZhaoXianBang_GenerateOfficer:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.PersonGeneratorType, FrameFunction.GetOfficerType, false, true, true, false, base.Scenario.GameCommonData.AllPersonGeneratorTypes, null, "武将类型", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.PersonGeneratorType, FrameFunction.GetOfficerType, false, true, true, false, this.CurrentArchitecture.AvailGeneratorTypeList(), null, "武将类型", "");
                     break;
                     /*
                 case ContextMenuResult.Monarch_ZhaoXianBang_DengYong: //登用
@@ -778,7 +778,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.CurrentArchitecture.PlayerAISearch();
                     }
                     break;
-
+                    /*
                 case ContextMenuResult .Monarch_ZhaoXianBang_AutoZhaoXian:
                     this.CurrentArchitecture.AutoZhaoXian = !this.CurrentArchitecture.AutoZhaoXian;
                     if (this.CurrentArchitecture.AutoZhaoXian)
@@ -786,7 +786,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.CurrentArchitecture.PlayAIZhaoXian();
                     }
                     break;
-
+                    */
                 case ContextMenuResult.AllEnter:
                     this.CurrentArchitecture.AllEnter();
                     //this.Plugins.AirViewPlugin.ReloadTroopView();

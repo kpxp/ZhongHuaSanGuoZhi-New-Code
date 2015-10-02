@@ -68,6 +68,23 @@
         public PersonGeneratorSetting PersonGeneratorSetting = new PersonGeneratorSetting();
         public PersonGeneratorTypeList AllPersonGeneratorTypes = new PersonGeneratorTypeList();
 
+        private PersonGeneratorTypeList playerGeneratorTypes = null;
+        public PersonGeneratorTypeList PlayerGeneratorTypes
+        {
+            get
+            {
+
+                if (playerGeneratorTypes == null)
+                {
+                    playerGeneratorTypes = Person.CreatePlayerPersonGeneratorTypeList(AllPersonGeneratorTypes);
+                }
+                
+                return playerGeneratorTypes;
+            }
+        }
+    
+    
+
         public void Clear()
         {
             this.AllArchitectureKinds.Clear();
@@ -1616,11 +1633,56 @@
                 type.titleChance = (int)reader["TitleChance"];
                 type.affectedByRateParameter = (bool)reader["AffectedByRateParameter"];
 
-                try 
+                try
                 {
-                    type.cost = (int)reader["Cost"];
+                    type.CostFund = (int)reader["CostFund"];
+                    
+                }
+                catch
+                {
+                    switch (type.ID)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                            type.CostFund = 20000;
+                            break;
+
+                        case 5:
+                            type.CostFund = 30000;
+                            break;
+
+                        case 6:
+                            type.CostFund = 200000;
+                            break;
+
+                        case 7:
+                            type.CostFund = 5000;
+                            break;
+
+                        case 8:
+                        case 9:
+                            type.CostFund = 10000;
+                            break;
+                    }
+                }
+                try
+                {
+                    type.TypeCount = (int)reader["TypeCount"];
+                    
                 }
                 catch {}
+
+                try
+                {
+                    type.FactionLimit = (int)reader["FactionLimit"];
+                }
+                catch 
+                {
+                    type.FactionLimit = type.ID == 6 ? 1 : 9;
+                }
                 this.AllPersonGeneratorTypes.Add(type);
             }
             connection.Close();
@@ -2973,7 +3035,9 @@
                     row["AmbitionHi"] = i.ambitionHi;
                     row["TitleChance"] = i.titleChance;
                     row["AffectedByRateParameter"] = i.affectedByRateParameter;
-                    row["Cost"] = i.cost;
+                    row["CostFund"] = i.CostFund;
+                    row["TypeCount"] = i.TypeCount;
+                    row["FactionLimit"] = i.FactionLimit;
                     row.EndEdit();
                     dataSet.Tables["PersonGeneratorType"].Rows.Add(row);
                 }

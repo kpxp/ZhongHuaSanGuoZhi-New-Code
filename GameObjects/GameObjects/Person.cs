@@ -7468,10 +7468,10 @@
         }
 
         //private enum OfficerType { GENERAL, BRAVE, ADVISOR, POLITICIAN, INTEL_GENERAL, EMPEROR, ALL_ROUNDER, NORMAL_ADVISOR, CHEAP, NORMAL_GENERAL };
-
-        private static int generatePersonType(GameScenario scen)
+        /*
+        private static PersonGeneratorType generatePersonType(GameScenario scen)
         {
-           
+            PersonGeneratorType gernrateType = new PersonGeneratorType();
             int[] weights = new int[10];
 
             foreach (PersonGeneratorType type in scen.GameCommonData.AllPersonGeneratorTypes)
@@ -7497,21 +7497,43 @@
                     break;
                 }
             }
+            gernrateType = weights[officerType] ;
 
-            return officerType;
+            return gernrateType;
         }
-
+        
         public static Person createPerson(GameScenario scen, Architecture foundLocation, Person finder, bool inGame)
         {
             return createPerson(scen, foundLocation, finder, inGame, generatePersonType(scen));
         }
-
+        */
         public static Person createPerson(PersonGenerateParam param)
         {
             return createPerson(param.Scenario, param.FoundLocation, param.Finder, param.InGame, param.PreferredType);
         }
 
-        private static Person createPerson(GameScenario scen, Architecture foundLocation, Person finder, bool inGame, int preferredType)
+        private static readonly List<int> playerGeneratorTypeIds = new List<int>() {0,1,2,3,4,5,6,7, 8, 9 };
+
+        public static PersonGeneratorTypeList CreatePlayerPersonGeneratorTypeList(PersonGeneratorTypeList allTypes)
+        {
+            PersonGeneratorTypeList list = new PersonGeneratorTypeList();
+            foreach (PersonGeneratorType type in allTypes)
+            {
+                if (playerGeneratorTypeIds.Contains(type.ID))
+                {
+                    list.Add(type);
+                }
+
+                if (list.Count == playerGeneratorTypeIds.Count)
+                {
+                    break;
+                }
+                
+            }
+            return list;
+        }
+
+        private static Person createPerson(GameScenario scen, Architecture foundLocation, Person finder, bool inGame, PersonGeneratorType preferredType)
         {
             
             Person r = new Person();
@@ -7567,7 +7589,7 @@
             r.CalledName = "";
 
            
-            int officerType = preferredType ;
+            int officerType = preferredType.ID ;
             
 
             int titleChance = 0;
@@ -7600,7 +7622,7 @@
 
             setNewOfficerFace(r);
 
-            r.Ideal = GameObject.Random(150);
+           
 
             r.YearBorn = scen.Date.Year + GameObject.Random(options.bornLo, options.bornHi);
             r.YearAvailable = scen.Date.Year + (inGame ? 0 : GameObject.Random(options.debutLo, options.debutHi));
@@ -7615,20 +7637,24 @@
 
             if (!scen.IsPlayer(foundLocation.BelongedFaction))
             {
-
-            GameObjectList ideals = scen.GameCommonData.AllIdealTendencyKinds;
-            IdealTendencyKind minIdeal = null;
-            foreach (IdealTendencyKind itk in ideals)
-            {
-                if (minIdeal == null || itk.Offset < minIdeal.Offset)
+                GameObjectList ideals = scen.GameCommonData.AllIdealTendencyKinds;
+                IdealTendencyKind minIdeal = null;
+                foreach (IdealTendencyKind itk in ideals)
                 {
-                    minIdeal = itk;
+                    if (minIdeal == null || itk.Offset < minIdeal.Offset)
+                    {
+                        minIdeal = itk;
+                    }
                 }
+
+                r.IdealTendency = minIdeal;
+                r.Ideal = (foundLocation.BelongedFaction.Leader.Ideal + GameObject.Random(minIdeal.Offset * 2 + 1) - minIdeal.Offset) % 150;
+            
+
             }
-
-            r.IdealTendency = minIdeal;
-            r.Ideal = (foundLocation.BelongedFaction.Leader.Ideal + GameObject.Random(minIdeal.Offset * 2 + 1) - minIdeal.Offset) % 150;
-
+            else
+            {
+                r.Ideal = GameObject.Random(150);
             }
             
 

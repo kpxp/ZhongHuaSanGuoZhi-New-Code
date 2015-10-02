@@ -21,6 +21,8 @@ namespace GameObjects.PersonDetail
         public int generationChance;
         public bool affectedByRateParameter;
         public int titleChance;
-        public int cost;
+        public int CostFund { get; set; }
+        public int TypeCount { get; set; }
+        public int FactionLimit { get; set; }
     }
 }

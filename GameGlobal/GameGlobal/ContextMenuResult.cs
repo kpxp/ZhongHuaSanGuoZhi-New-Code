@@ -106,8 +106,8 @@
         Monarch_officePosition_BecomeEmperorLegally,
         Monarch_ChangeCapital,
         Monarch_SelectPrince,
-        Monarch_ZhaoXianBang_AutoCreatePerson, //招贤榜
-        Monarch_ZhaoXianBang_AutoZhaoXian,
+      //  Monarch_ZhaoXianBang_AutoCreatePerson, //招贤榜
+       // Monarch_ZhaoXianBang_AutoZhaoXian,
         Monarch_ZhaoXianBang_GenerateOfficer,
       //  Monarch_ZhaoXianBang_DengYong,  //登用
         Monarch_ZhaoXianBang_DismissOfficer, //遣散

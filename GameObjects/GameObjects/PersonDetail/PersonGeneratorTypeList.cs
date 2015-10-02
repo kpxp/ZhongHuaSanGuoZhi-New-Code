@@ -7,5 +7,6 @@ namespace GameObjects.PersonDetail
 {
     public class PersonGeneratorTypeList : GameObjectList
     {
+     
     }
 }

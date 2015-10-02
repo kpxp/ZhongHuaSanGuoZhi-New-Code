@@ -412,15 +412,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_AfterGetOfficerType()
         {
-            
-            this.CurrentGameObjects = this.gameScenario.GameCommonData.AllPersonGeneratorTypes.GetSelectedList();
+
+            this.CurrentGameObjects = this.CurrentArchitecture.AvailGeneratorTypeList().GetSelectedList();
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
-                
-                    this.CurrentGameObject = this.gameScenario.GameCommonData.AllPersonGeneratorTypes.GetSelectedList()[0] as PersonGeneratorType;
-                   // param.preferredType = this.CurrentOfficerType.ID;
-                    this.CurrentArchitecture.GenerateOfficer(this.CurrentGameObject.ID);
-                
+
+                //this.CurrentGameObject = this.gameScenario.GameCommonData.PlayerGeneratorTypes.GetSelectedList()[0] as PersonGeneratorType;
+                PersonGeneratorType preferredType = this.CurrentArchitecture.AvailGeneratorTypeList().GetSelectedList()[0] as PersonGeneratorType;
+                this.CurrentArchitecture.GenerateOfficer(preferredType);
+                //this.CurrentArchitecture.DecreaseFund(preferredType.CostFund);
             }
         }
 

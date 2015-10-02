@@ -9,7 +9,7 @@ namespace GameObjects.PersonDetail
 {
 	public  class PersonGenerateParam
 	{
-        public PersonGenerateParam(GameScenario scenario, Architecture foundLocation, Person finder, bool inGame, int preferredType,bool isAI)
+        public PersonGenerateParam(GameScenario scenario, Architecture foundLocation, Person finder, bool inGame, PersonGeneratorType preferredType, bool isAI)
         {
             this.scenario = scenario;
             this.foundLocation = foundLocation;
@@ -27,7 +27,7 @@ namespace GameObjects.PersonDetail
 
         public bool InGame { get { return inGame; } }
 
-        public int PreferredType { get { return preferredType; } }
+        public PersonGeneratorType PreferredType { get { return preferredType; } }
 
         public bool IsAI { get { return isAI; } }
 
@@ -35,7 +35,7 @@ namespace GameObjects.PersonDetail
         private readonly Architecture foundLocation;
         private readonly Person finder;
         private readonly bool inGame;
-        private readonly int preferredType;
+        private readonly PersonGeneratorType preferredType;
         private readonly bool isAI;
 	}
 }
