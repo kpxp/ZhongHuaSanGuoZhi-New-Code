@@ -2845,12 +2845,11 @@
 
             if (GameObject.Random(10) != 0) return;
 
-            PersonGeneratorType type = this.AIAvailPersonGeneratorTypeList()[0] as PersonGeneratorType;
-
             foreach (Architecture a in this.Architectures)
             {
                 if (a.CanZhaoXian() && !a.HasEnoughPeople)
                 {
+                    PersonGeneratorType type = this.AIAvailPersonGeneratorTypeList()[0] as PersonGeneratorType;
                     a.GenerateOfficer(type);
 
                 }
