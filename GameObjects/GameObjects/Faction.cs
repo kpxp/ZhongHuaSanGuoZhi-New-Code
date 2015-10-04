@@ -16,10 +16,13 @@
     using System.Threading;
     using System.Linq;
     using GameObjects.Influences;
+    using System.Text;
+
 
     public class Faction : GameObject
     {
        // public int PrinceID = -1;
+        //public int AllRoundOfficerCount;
         private int militarycount;
         private int transferingmilitarycount;
         public int CreatePersonTimes = 0;
@@ -2748,7 +2751,7 @@
             }
             return list;
         }
-
+        
         private Dictionary<PersonGeneratorType, int> count = new Dictionary<PersonGeneratorType, int>();
 
         public void IncrementGeneratorCount(PersonGeneratorType type)
@@ -2768,6 +2771,56 @@
             return count.ContainsKey(type) ? count[type] : 0;
         }
 
+         
+
+       // private List<PersonGeneratorType> allTypes = new List<PersonGeneratorType>();
+      //  private Dictionary<PersonGeneratorType, int> types = new Dictionary<PersonGeneratorType, int>();
+
+        public string SaveGeneratorPersonCountFromString()
+        {
+            
+            StringBuilder sb = new StringBuilder();
+            foreach (PersonGeneratorType type in base.Scenario.GameCommonData.AllPersonGeneratorTypes)
+            {
+                sb.AppendFormat("{0}:{1},", type.ID, count.ContainsKey(type) ? count[type] : 0);
+            }
+            return sb.Length > 0 ? sb.ToString(0, sb.Length - 1) : "";
+        }
+
+        public  void LoadGeneratorPersonCountToString(String s)
+        {
+            count.Clear();
+            string[] sArray = s.Split(',');
+            foreach (string ss in sArray)
+            {
+                string[] arr = ss.Split(':');
+                int typeID = int.Parse(arr[0]);
+                int typeCount = int.Parse(arr[1]);
+                PersonGeneratorType type = FindPersonGeneratorType(typeID);
+                if (type == null || typeCount < 0)
+                {
+                    throw new Exception("Invaild Person Generator Count");
+                }
+                count.Add(type, typeCount);
+
+            }
+                
+        }
+
+        public PersonGeneratorType FindPersonGeneratorType(int id)
+        {
+            foreach (PersonGeneratorType type in base.Scenario.GameCommonData.AllPersonGeneratorTypes)
+            {
+                if (type.ID == id)
+                {
+                    return type;
+                }
+            }
+            return null;
+        }
+
+        
+        
         public PersonGeneratorTypeList AIAvailPersonGeneratorTypeList()
         {
             PersonGeneratorTypeList list = new PersonGeneratorTypeList();
@@ -2776,7 +2829,7 @@
                 foreach (Architecture a in this.Architectures)
                 {
 
-                    if (a.Fund >= type.CostFund && this.GetGeneratorPersonCount(type) < type.FactionLimit)
+                    if (a.Fund >= type.CostFund && GetGeneratorPersonCount(type) < type.FactionLimit)
                     {
                         list.Add(type);
                     }
@@ -2796,7 +2849,7 @@
 
             foreach (Architecture a in this.Architectures)
             {
-                if (a.AutoCreatePersonAvail() && !a.HasEnoughPeople)
+                if (a.CanZhaoXian() && !a.HasEnoughPeople)
                 {
                     a.GenerateOfficer(type);
 

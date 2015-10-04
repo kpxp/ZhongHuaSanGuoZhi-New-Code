@@ -4050,7 +4050,7 @@
 
        
 
-        public bool AutoCreatePersonAvail()
+        public bool CanZhaoXian()
         {
             if (this.BelongedFaction != null && base.Scenario.OfficerCount < base.Scenario.OfficerLimit
                 && GlobalVariables.CreateRandomOfficerChance > 0 
@@ -4125,6 +4125,7 @@
             preferredType.TypeCount++;
             this.BelongedFaction.GetGeneratorPersonCount(preferredType);
             this.BelongedFaction.IncrementGeneratorCount(preferredType);
+            //this.BelongedFaction.ZongShu[preferredType.ID]++; 
 
             this.DecreaseFund(preferredType.CostFund);
 

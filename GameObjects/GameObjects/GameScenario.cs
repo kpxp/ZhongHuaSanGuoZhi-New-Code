@@ -4305,6 +4305,7 @@
                 StaticMethods.LoadFromString(faction.PreferredTechniqueKinds, reader["PreferredTechniqueKinds"].ToString());
                 faction.PlanTechnique = this.GameCommonData.AllTechniques.GetTechnique((short)reader["PlanTechnique"]);
                 faction.AutoRefuse = (bool)reader["AutoRefuse"];
+                
                 try
                 {
                     faction.chaotinggongxiandu = (int)reader["chaotinggongxiandu"];
@@ -4314,6 +4315,13 @@
                     faction.chaotinggongxiandu = 0;
 
                 }
+                try
+                {
+                    faction.LoadGeneratorPersonCountToString(reader["GetGeneratorPersonCount"].ToString());
+                    
+                }
+                catch { }
+                ;
                 try
                 {
                     faction.MilitaryCount = (int)reader["MilitaryCount"];
@@ -4344,6 +4352,33 @@
                 {
                     faction.YearOfficialLimit = 0;
                 }
+                /*
+                try
+                {
+                    faction.ZongShu[0] = (int)reader["General"];
+                    faction.ZongShu[1] = (int)reader["Brave"];
+                    faction.ZongShu[2] = (int)reader["Advisor"];
+                    faction.ZongShu[3] = (int)reader["Politician"];
+                    faction.ZongShu[4] = (int)reader["IntelGeneral"];
+                    faction.ZongShu[5] = (int)reader["Emperor"];
+                    faction.ZongShu[6] = (int)reader["AllRounder"];
+                    faction.ZongShu[7] = (int)reader["Normal"];
+                    faction.ZongShu[8] = (int)reader["Cheap"];
+                    faction.ZongShu[9] = (int)reader["Normal2"];
+                }
+                catch
+                {
+                    faction.ZongShu[0] = 0;
+                    faction.ZongShu[1] = 0;
+                    faction.ZongShu[2] = 0;
+                    faction.ZongShu[3] = 0;
+                    faction.ZongShu[4] = 0;
+                    faction.ZongShu[5] = 0;
+                    faction.ZongShu[6] = 0;
+                    faction.ZongShu[7] = 0;
+                    faction.ZongShu[8] = 0;
+                    faction.ZongShu[9] = 0;
+                }*/
                 try
                 {
                     faction.PrinceID = (short)reader["PrinceID"];
@@ -5304,6 +5339,18 @@
                     row["YearOfficialLimit"] = faction.YearOfficialLimit;
                     row["MilitaryCount"] = faction.MilitaryCount;
                     row["TransferingMilitaryCount"] = faction.TransferingMilitaryCount;
+                    row["GetGeneratorPersonCount"] = faction.SaveGeneratorPersonCountFromString();
+
+                   /* row["General"] = faction.ZongShu[0];
+                    row["Brave"] = faction.ZongShu[1];
+                    row["Advisor"] = faction.ZongShu[2];
+                    row["Politician"] = faction.ZongShu[3];
+                    row["IntelGeneral"] = faction.ZongShu[4];
+                    row["Emperor"] = faction.ZongShu[5];
+                    row["AllRounder"] = faction.ZongShu[6];
+                    row["Normal"] = faction.ZongShu[7];
+                    row["Cheap"] = faction.ZongShu[8];
+                    row["Normal2"] = faction.ZongShu[9];*/
                     row.EndEdit();
                     dataSet.Tables["Faction"].Rows.Add(row);
                 }
