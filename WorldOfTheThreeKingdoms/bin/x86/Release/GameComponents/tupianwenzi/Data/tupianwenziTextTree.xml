@@ -741,6 +741,10 @@ Color="4294967295"></Leaf>
     <Leaf Text="成功登庸了" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
    </Branch>
-
+ <Branch Name="ZhaoXianFailed">
+     <Leaf Text="此次在" Color="4294967295"></Leaf> 
+     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
+     <Leaf Text="的招贤又失败了，真是贤者难求啊" Color="4294967295"></Leaf>
+     </Branch>
 </Root>
 

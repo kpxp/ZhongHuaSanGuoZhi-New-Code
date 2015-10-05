@@ -4114,6 +4114,10 @@
 
             if (!IsChanceOfGeneratingOfficer(this.BelongedFaction.PersonCount,isAI))
             {
+                if (!isAI)
+                {
+                    base.Scenario.GameScreen.xianshishijiantupian(this.BelongedFaction.Leader, this.Name, "ZhaoXianFailed", "ZhaoXianFailed.jpg", "ZhaoXianFailed.wav", true);
+                }
                 return ;
             }
 
