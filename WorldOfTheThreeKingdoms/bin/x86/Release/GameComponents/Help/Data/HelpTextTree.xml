@@ -1056,7 +1056,7 @@ Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="有一定几率登庸生成野武将。当游戏内野武将数量低于系统预设上限时，招贤有效。"
+        <Leaf Text="花费一定资金广纳贤才，当游戏内野武将数量低于系统预设上限时，招贤有效。"
 Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
@@ -1068,7 +1068,7 @@ Color="4294967295" />
 Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="玩家每月有五次机会招贤。每年最多招10个野武将"
+        <Leaf Text="招贤仅在每年3月和9月举行，且每季最多有五次机会招贤。每年最多招10个野武将。"
 Color="4294967295" />
     </Branch>
     <Branch Name="Monarch_ZhaoXianBang_DismissOfficer">
