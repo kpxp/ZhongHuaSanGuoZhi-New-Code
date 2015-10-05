@@ -2776,7 +2776,7 @@
        // private List<PersonGeneratorType> allTypes = new List<PersonGeneratorType>();
       //  private Dictionary<PersonGeneratorType, int> types = new Dictionary<PersonGeneratorType, int>();
 
-        public string SaveGeneratorPersonCountFromString()
+        public string SaveGeneratorPersonCountToString()
         {
             
             StringBuilder sb = new StringBuilder();
@@ -2787,7 +2787,7 @@
             return sb.Length > 0 ? sb.ToString(0, sb.Length - 1) : "";
         }
 
-        public  void LoadGeneratorPersonCountToString(String s)
+        public  void LoadGeneratorPersonCountFromString(String s)
         {
             count.Clear();
             string[] sArray = s.Split(',');
@@ -2849,7 +2849,7 @@
             {
                 if (a.CanZhaoXian() && !a.HasEnoughPeople)
                 {
-                    PersonGeneratorType type = this.AIAvailPersonGeneratorTypeList()[0] as PersonGeneratorType;
+                    PersonGeneratorType type = this.AIAvailPersonGeneratorTypeList()[GameObject.Random(this.AIAvailPersonGeneratorTypeList().Count)] as PersonGeneratorType;
                     a.GenerateOfficer(type);
 
                 }

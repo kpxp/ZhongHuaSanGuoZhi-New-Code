@@ -4317,7 +4317,7 @@
                 }
                 try
                 {
-                    faction.LoadGeneratorPersonCountToString(reader["GetGeneratorPersonCount"].ToString());
+                    faction.LoadGeneratorPersonCountFromString(reader["GetGeneratorPersonCount"].ToString());
                     
                 }
                 catch { }
@@ -5339,7 +5339,7 @@
                     row["YearOfficialLimit"] = faction.YearOfficialLimit;
                     row["MilitaryCount"] = faction.MilitaryCount;
                     row["TransferingMilitaryCount"] = faction.TransferingMilitaryCount;
-                    row["GetGeneratorPersonCount"] = faction.SaveGeneratorPersonCountFromString();
+                    row["GetGeneratorPersonCount"] = faction.SaveGeneratorPersonCountToString();
 
                    /* row["General"] = faction.ZongShu[0];
                     row["Brave"] = faction.ZongShu[1];
