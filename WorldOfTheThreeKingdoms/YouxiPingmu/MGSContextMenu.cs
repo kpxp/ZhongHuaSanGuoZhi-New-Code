@@ -214,7 +214,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Faction_TransferingMilitaries:
                     if (this.CurrentArchitecture.BelongedFaction != null)
                     {
-                        this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.Browse, false, true, false, false, this.CurrentArchitecture.BelongedFaction.TransferingMilitary.GetList(), null, "", "");
+                        this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.Browse, false, true, false, false, this.CurrentArchitecture.BelongedFaction.TransferingMilitaries.GetList(), null, "", "");
                     }
                     break;
 

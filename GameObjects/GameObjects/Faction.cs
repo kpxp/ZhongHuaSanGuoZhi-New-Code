@@ -2578,7 +2578,7 @@
             this.visibleTroopsCache = null;
         }
 
-        public MilitaryList TransferingMilitary
+        public MilitaryList TransferingMilitaries
         {
             get
             {
@@ -2601,7 +2601,9 @@
 
         private void MilitaryDayEvent()
         {
-            foreach (Military m in this.TransferingMilitary)
+            if (this.TransferingMilitaryCount == 0) return;
+
+            foreach (Military m in this.TransferingMilitaries)
             {
                 m.ArrivingDays--;
 
@@ -5766,7 +5768,7 @@
 
                 }
 
-                foreach (Military military in this.TransferingMilitary)
+                foreach (Military military in this.TransferingMilitaries)
                 {
                     Militaries.Add(military);
                 }
@@ -5808,7 +5810,7 @@
         {
             get
             {
-                return this.TransferingMilitary.Count;
+                return this.TransferingMilitaries.Count;
             }
             set
             {
