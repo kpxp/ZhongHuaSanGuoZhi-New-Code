@@ -3721,11 +3721,6 @@
         {
             this.DiplomaticRelationAI();
             powerCache = null;
-            if(base.Scenario.IsPlayer(this))
-            {
-            
-                this.CreatePersonTimes = 0;
-            }
             
         }
 
@@ -4403,9 +4398,17 @@
 
         public void SeasonEvent()
         {
+            this.RefrehCreatePersonTimes();
             this.shizheshengguan();
         }
 
+        private void RefrehCreatePersonTimes()
+        {
+            if ((base.Scenario.Date.Month == 3 || base.Scenario.Date.Month == 9) && base.Scenario.Date.Day == 1)
+            {
+                this.CreatePersonTimes = 0;
+            }
+        }
 
         internal bool BecomeEmperorLegallyAvail()  //可以禅位
         {

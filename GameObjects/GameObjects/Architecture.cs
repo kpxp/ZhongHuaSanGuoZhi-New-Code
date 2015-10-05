@@ -4052,11 +4052,12 @@
 
         public bool CanZhaoXian()
         {
-            if (this.BelongedFaction != null && base.Scenario.OfficerCount < base.Scenario.OfficerLimit
-                && GlobalVariables.CreateRandomOfficerChance > 0 
-                /*&& (base.Scenario.Date.Month == 3 || base.Scenario.Date.Month == 6 || base.Scenario.Date.Month == 9*/)
+            if (this.BelongedFaction != null && GlobalVariables.CreateRandomOfficerChance > 0 && (base.Scenario.Date.Month == 3 || base.Scenario.Date.Month == 9)
+
+              && this.BelongedFaction.CreatePersonTimes < 5 && this.BelongedFaction.YearOfficialLimit < 10 && base.Scenario.OfficerCount < base.Scenario.OfficerLimit)
+                
             {
-                if (base.Scenario.IsPlayer(this.BelongedFaction) && this.AvailGeneratorTypeList().Count > 0 && this.BelongedFaction.CreatePersonTimes < 10 && this.BelongedFaction.YearOfficialLimit < 10)
+                if (base.Scenario.IsPlayer(this.BelongedFaction) && this.AvailGeneratorTypeList().Count > 0 )
                 {
                     return true;
                 }

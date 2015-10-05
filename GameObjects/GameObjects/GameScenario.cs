@@ -6408,13 +6408,10 @@
 
             foreach (Faction faction in this.Factions)
             {
-                if(this.IsPlayer(faction))
-                {
 
-                    faction.YearOfficialLimit = 0;
-                
-
-                }
+               //faction.CreatePersonTimes = 0;
+               faction.YearOfficialLimit = 0;
+                 
                 
             }
         }
