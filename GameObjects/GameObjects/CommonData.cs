@@ -1673,7 +1673,10 @@
                     type.TypeCount = (int)reader["TypeCount"];
                     
                 }
-                catch {}
+                catch
+                {
+                    type.TypeCount = 0;
+                }
 
                 try
                 {
