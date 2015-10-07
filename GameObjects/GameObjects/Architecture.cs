@@ -294,12 +294,6 @@
                     if (c.CaptiveFaction == c.BelongedFaction)
                     {
                         c.CaptivePerson.SetBelongedCaptive(null, GameObjects.PersonDetail.PersonStatus.Normal);
-                        if (c.LocationArchitecture != c.CaptivePerson.BelongedFaction.Capital)
-                        {
-                            c.CaptivePerson.MoveToArchitecture(c.CaptivePerson.BelongedFaction.Capital);
-                        }
-
-
                     }
                 }
                 return p;

@@ -4793,7 +4793,7 @@
                             }
                             this.TargetArchitecture = null;
                         }
-                        else if (this.TargetArchitecture.BelongedFaction != this.BelongedFaction) //转移俘虏
+                        else if (this.TargetArchitecture.BelongedFaction != this.BelongedFaction && this.Status == PersonStatus.Captive) //转移俘虏
                         {
                             this.TargetArchitecture.TodayPersonArriveNote = true;
                             this.TargetArchitecture = null;
