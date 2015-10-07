@@ -1646,25 +1646,25 @@
                         case 1:
                         case 2:
                         case 3:
+                            type.CostFund = 80000;
+                            break;
+
                         case 4:
-                            type.CostFund = 20000;
+                            type.CostFund = 120000;
                             break;
 
                         case 5:
-                            type.CostFund = 30000;
+                            type.CostFund = 150000;
                             break;
 
                         case 6:
-                            type.CostFund = 200000;
+                            type.CostFund = 250000;
                             break;
 
                         case 7:
-                            type.CostFund = 5000;
-                            break;
-
                         case 8:
                         case 9:
-                            type.CostFund = 10000;
+                            type.CostFund = 15000;
                             break;
                     }
                 }
@@ -1675,6 +1675,7 @@
                 }
                 catch
                 {
+
                     type.TypeCount = 0;
                 }
 
@@ -1684,7 +1685,30 @@
                 }
                 catch 
                 {
-                    type.FactionLimit = type.ID == 6 ? 1 : 9;
+                    switch (type.ID)
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                            type.FactionLimit = 5;
+                            break;
+
+                        case 5:
+                        case 6:
+                            type.FactionLimit = 1;
+                            break;
+
+                        case 7:
+                        case 8:
+                        case 9:
+                            type.FactionLimit = 9;
+                            break;
+
+
+
+                    }
                 }
                 this.AllPersonGeneratorTypes.Add(type);
             }

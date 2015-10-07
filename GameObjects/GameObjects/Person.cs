@@ -7512,7 +7512,7 @@
             return createPerson(param.Scenario, param.FoundLocation, param.Finder, param.InGame, param.PreferredType);
         }
 
-        private static readonly List<int> playerGeneratorTypeIds = new List<int>() {0,1,2,3,4,5,6,7, 8, 9 };
+        private static readonly List<int> playerGeneratorTypeIds = new List<int>() {0,1,2,3,4,5,7, 8, 9 };
 
         public static PersonGeneratorTypeList CreatePlayerPersonGeneratorTypeList(PersonGeneratorTypeList allTypes)
         {
