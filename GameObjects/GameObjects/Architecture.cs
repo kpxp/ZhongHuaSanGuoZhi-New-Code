@@ -4095,6 +4095,11 @@
                 return true ;
             }
 
+            if (Random(factionPersonCount) != 0)
+            {
+                return false;
+            }
+
             float coef = isAI ? Parameters.AIExtraPerson + 1 : 1;
             if (coef <= 0)
             {
