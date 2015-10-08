@@ -3066,7 +3066,7 @@
             }
         }
 
-        private void DiplomaticRelationAI()
+        private void FactionDiplomaticRelation()
         {
             this.ResetFriendlyDiplomaticRelations();
         }
@@ -3727,7 +3727,7 @@
 
         public void MonthEvent()
         {
-            this.DiplomaticRelationAI();
+            this.FactionDiplomaticRelation();
             powerCache = null;
             
         }
