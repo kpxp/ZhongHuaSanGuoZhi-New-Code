@@ -210,6 +210,7 @@
                     foreach (Person p in t.Persons)
                         result.Add(p);
                 }
+
                 return result;
             }
         }
@@ -5848,6 +5849,8 @@
                 {
                     result += t.PersonCount;
                 }
+                
+                
                 return result;
             }
         }

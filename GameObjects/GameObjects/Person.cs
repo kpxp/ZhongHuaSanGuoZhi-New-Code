@@ -4468,7 +4468,7 @@
 
                 this.LocationArchitecture = this.TargetArchitecture;
 
-                if (this.Status != PersonStatus.Princess && this.Status != PersonStatus.Captive)
+                if (this.Status != PersonStatus.Princess   && this.Status != PersonStatus.Captive)
                 {
                     this.WorkKind = ArchitectureWorkKind.无;
                     if (this.BelongedFaction != null)
@@ -4482,6 +4482,7 @@
                 }
                 else
                 {
+                   // throw new Exception("try to disappear");
                     this.Scenario.ClearPersonStatusCache();
                 }
 
@@ -4793,8 +4794,9 @@
                             }
                             this.TargetArchitecture = null;
                         }
-                        else if (this.TargetArchitecture.BelongedFaction != this.BelongedFaction && this.Status == PersonStatus.Captive) //转移俘虏
+                        else if (this.TargetArchitecture.BelongedFaction != this.BelongedFaction && this.Status == PersonStatus .Captive) //转移俘虏
                         {
+                            
                             this.TargetArchitecture.TodayPersonArriveNote = true;
                             this.TargetArchitecture = null;
                         }
@@ -4811,6 +4813,7 @@
                     }
                     else if (this.BelongedFaction == null && this.Status == PersonStatus.Captive) //转移俘虏
                     {
+                        
                         this.TargetArchitecture.TodayPersonArriveNote = true;
                         this.TargetArchitecture = null;
                     }
