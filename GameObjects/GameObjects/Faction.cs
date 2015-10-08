@@ -2511,7 +2511,10 @@
 
         public void CheckLeaderDeath(Person leader)
         {
-            if ((((((leader.LocationArchitecture != null) && (leader.LocationArchitecture.BelongedFaction == this.Leader.BelongedFaction)) || ((leader.LocationTroop != null) && (leader.LocationTroop.BelongedFaction == this.Leader.BelongedFaction))) && (GameObject.Random(leader.CaptiveAbility) < GameObject.Random(this.Leader.CaptiveAbility))) && base.Scenario.IsPlayer(this)) && (this.OnAfterCatchLeader != null))
+            if ((((((leader.LocationArchitecture != null) && (leader.LocationArchitecture.BelongedFaction == this.Leader.BelongedFaction)) 
+                || ((leader.LocationTroop != null) && (leader.LocationTroop.BelongedFaction == this.Leader.BelongedFaction))) 
+                && (GameObject.Random(leader.CaptiveAbility) < GameObject.Random(this.Leader.CaptiveAbility))) 
+                && base.Scenario.IsPlayer(this)) && (this.OnAfterCatchLeader != null))
             {
                 this.OnAfterCatchLeader(leader, this);
             }
