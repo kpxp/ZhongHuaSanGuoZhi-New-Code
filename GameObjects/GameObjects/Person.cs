@@ -2590,23 +2590,38 @@
         {
             /*
           劝降
-      a、判定成功条件：劝降势力声望>被劝降势力声望；劝降势力军队规模> 0且是被劝降势力军队规模的十倍；GameObjects.Chance(100-被劝降势力君主义理*25）；与被劝降势力接壤
-             
+      a、判定成功条件：劝降势力声望>被劝降势力声望；劝降势力兵力大于0且为被劝降势力兵力的五倍；GameObjects.Chance(100-被劝降势力君主义理*25）；与被劝降势力接壤
+      GameObjects.Chance(100-被劝降势力君主义理*25），如果被劝降势力君主义理为0，则概率为百分百 ，如此类推。   
+
       b、判定
-      如果执行武将为目标势力君主的厌恶武将，则必失败
-      如果执行武将亲近目标势力君主，
-             (执行武将名声*2+执行武将马力*2)/4 + (执行武将智谋+政治)*2 > 目标势力君主与执行武将相性差*1000+(目标势力君主智谋+政治)* 冷静度，则成功
-      如果执行武将不亲近目标势力君主，
-             (执行武将智谋+政治)*冷静度 > 目标势力君主与执行武将相性差*20 + (目标势力君主政治+智谋)*2 ，则成功
-      
+      如果执行武将为目标势力君主的厌恶武将，则必失败；
+
+                    int c = 10;
+                    if (targetFaction.Leader.IsCloseTo(this))
+                    {
+                        c = 50;
+                    }
+                    if (targetFaction.Leader.Hates(this))
+                    {
+                        c = -500;
+                    }
+     如果执行武将亲近被劝降势力君主，c = 50;
+     如果执行武将厌恶被劝降势力君主，c = -500;
+     否则c = 10
+
+    int g = (c * 10 + this.ConvinceAbility + (this.Politics + this.Intelligence) * this.Calmness - ((GetIdealOffset(this, targetFaction.Leader) * 20) + (targetFaction.Leader.Intelligence + targetFaction.Leader.Politics) * 2));
+
+      变量g = (c * 10 + 执行武将说服能力 + （执行武将政治+智谋）* 冷静度 - (执行武将与被劝降势力君主相性差 * 20 + （被劝降势力君主智谋+政治）*2));
+      g > 0，则劝降成功
+
       c、结果
       1、成功
-      
-      执行武将功绩+500，政治经验+50
-      
+
+      执行武将名声+500，政治经验+50
+
       2、失败
       势力间友好度-100
-      执行武将功绩+50，政治经验+10
+      执行武将名声+50，政治经验+10
        */
             this.OutsideTask = OutsideTaskKind.无;
             this.TargetArchitecture = base.Scenario.GetArchitectureByPosition(this.OutsideDestination.Value);
@@ -4494,7 +4509,9 @@
             if (a == null) return;
 
             Faction targetFaction = this.BelongedFaction.GetFactionByName(a.FactionName);
-            if (!this.Scenario.IsPlayer(this.BelongedFaction) && this.Scenario.IsPlayer(targetFaction)) return;
+            bool isAI = !base.Scenario.IsPlayer(this.BelongedFaction);
+            bool isPlayer = base.Scenario.IsPlayer (targetFaction);
+            if (isAI && isPlayer ) return;
             //Architecture targetArchitecture = targetFaction.Leader.BelongedArchitecture;
             Architecture targetArchitecture = targetFaction.Capital;
 
