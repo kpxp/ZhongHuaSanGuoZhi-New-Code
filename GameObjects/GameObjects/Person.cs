@@ -2596,22 +2596,7 @@
       b、判定
       如果执行武将为目标势力君主的厌恶武将，则必失败；
 
-                    int c = 10;
-                    if (targetFaction.Leader.IsCloseTo(this))
-                    {
-                        c = 50;
-                    }
-                    if (targetFaction.Leader.Hates(this))
-                    {
-                        c = -500;
-                    }
-     如果执行武将亲近被劝降势力君主，c = 50;
-     如果执行武将厌恶被劝降势力君主，c = -500;
-     否则c = 10
-
-    int g = (c * 10 + this.ConvinceAbility + (this.Politics + this.Intelligence) * this.Calmness - ((GetIdealOffset(this, targetFaction.Leader) * 20) + (targetFaction.Leader.Intelligence + targetFaction.Leader.Politics) * 2));
-
-      变量g = (c * 10 + 执行武将说服能力 + （执行武将政治+智谋）* 冷静度 - (执行武将与被劝降势力君主相性差 * 20 + （被劝降势力君主智谋+政治）*2));
+      g = (c * 10 + 执行武将说服能力 + （执行武将政治+智谋）* 冷静度 - (执行武将与被劝降势力君主相性差 * 20 + （被劝降势力君主智谋+政治）*2));
       g > 0，则劝降成功
 
       c、结果
@@ -2625,14 +2610,26 @@
        */
             this.OutsideTask = OutsideTaskKind.无;
             this.TargetArchitecture = base.Scenario.GetArchitectureByPosition(this.OutsideDestination.Value);
-             Faction targetFaction = this.TargetArchitecture.BelongedFaction;
+            Faction targetFaction = this.TargetArchitecture.BelongedFaction;
             this.OutsideDestination = null;
+
+            if (QuanXiangChance(this.BelongedFaction, targetFaction, this))
+            {
+                QuanXiangSuccess(this.BelongedFaction, targetFaction, this);
+            }
+            else
+            {
+               QuanXiangFailed(this.BelongedFaction, targetFaction, this);
+               return;
+            }
+            
+            /*
             if ((this.BelongedFaction != null) && (targetFaction != null))
             {
                
                 //int idealOffset = Person.GetIdealOffset(this, TargetArchitecture.BelongedFaction.Leader);
                 if (this.BelongedFaction.Army != 0 && this.BelongedFaction.Reputation > targetFaction.Reputation && this.BelongedFaction.Army >= targetFaction.Army * 5
-                            && GameObject.Chance(100 - targetFaction.Leader.PersonalLoyalty * 25) && this.BelongedFaction.adjacentTo(targetFaction))
+                    && GameObject.Chance(100 - targetFaction.Leader.PersonalLoyalty * 25) && this.BelongedFaction.adjacentTo(targetFaction))
                 {
 
                     int c = 10;
@@ -2671,8 +2668,8 @@
                     else
                     {
                         base.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID, -100);
-                        this.BelongedArchitecture.Fund += 30000;
-                        this.TargetArchitecture.Fund += 20000;
+                        //this.BelongedArchitecture.Fund += 20000;
+                        this.TargetArchitecture.Fund += 50000;
                         base.Scenario.GameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.QuanXiangFailed, "QuanXiangDiplomaticRelationFailed", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation.wav", targetFaction.Name, true);
                         this.TargetArchitecture = this.LocationArchitecture;
                         this.AddPoliticsExperience(10);
@@ -2684,8 +2681,8 @@
                 else
                 {
                     base.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID, -100);
-                    this.BelongedArchitecture.Fund += 30000;
-                    this.TargetArchitecture.Fund += 20000;
+                   // this.BelongedArchitecture.Fund += 20000;
+                    this.TargetArchitecture.Fund += 50000;
                     base.Scenario.GameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.QuanXiangFailed, "QuanXiangDiplomaticRelationFailed", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation.wav", targetFaction.Name, true);
                     this.TargetArchitecture = this.LocationArchitecture;
                     this.AddPoliticsExperience(10);
@@ -2696,12 +2693,64 @@
                 }
                 
 
-            }
+            }*/
 
-        }     
-              
-  
-            
+        }
+
+        private static bool QuanXiangChance(Faction sourceFaction, Faction targetFaction, Person shizhe)
+        {
+            if (sourceFaction == null || targetFaction == null) return false;
+
+            if (targetFaction == sourceFaction) return false;
+
+            if (sourceFaction.Army == 0) return false;
+
+            if (sourceFaction.Reputation <= targetFaction.Reputation) return false;
+
+            if (sourceFaction.Army < targetFaction.Army * 5) return false;
+
+            if (!sourceFaction.adjacentTo(targetFaction)) return false;
+
+            if (targetFaction.Leader.Hates(shizhe)) return false;
+
+            if (!GameObject.Chance(100 - targetFaction.Leader.PersonalLoyalty * 25)) return false;
+
+            int c = targetFaction.Leader.IsCloseTo(shizhe) ? 50 : 10 ;
+
+            int g = (c * 10 + shizhe.ConvinceAbility + (shizhe.Politics + shizhe.Intelligence) * shizhe.Calmness - ((GetIdealOffset(shizhe, targetFaction.Leader) * 20) + (targetFaction.Leader.Intelligence + targetFaction.Leader.Politics) * 2));
+
+            return g > 0;
+        }
+
+        private static void QuanXiangSuccess(Faction sourceFaction, Faction targetFaction, Person shizhe)
+        {
+            //势力合并
+            shizhe.Scenario.GameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.QuanXiang, "QuanXiangDiplomaticRelation", "QuanXiangDiplomaticRelation.jpg", "QuanXiangDiplomaticRelation.wav", targetFaction.Name, true);
+
+            shizhe.Scenario.YearTable.addChangeFactionEntry(shizhe.Scenario.Date, targetFaction, sourceFaction);
+            targetFaction.ChangeFaction(sourceFaction);
+
+            foreach (Treasure treasure in targetFaction.Leader.Treasures.GetList())
+            {
+                targetFaction.Leader.LoseTreasure(treasure);
+                sourceFaction.Leader.ReceiveTreasure(treasure);
+
+            }
+            shizhe.TargetArchitecture = shizhe.LocationArchitecture;
+            shizhe.AddPoliticsExperience(50);
+            shizhe.IncreaseReputation(500);
+        }
+
+        private static void QuanXiangFailed(Faction sourceFaction, Faction targetFaction, Person shizhe)
+        {
+            shizhe.Scenario.ChangeDiplomaticRelation(sourceFaction.ID, targetFaction.ID, -100);
+            shizhe.BelongedArchitecture.Fund += 20000;
+            shizhe.TargetArchitecture.Fund += 30000;
+            shizhe.Scenario.GameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.QuanXiangFailed, "QuanXiangDiplomaticRelationFailed", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation.wav", targetFaction.Name, true);
+            shizhe.TargetArchitecture = shizhe.LocationArchitecture;
+            shizhe.AddPoliticsExperience(10);
+            shizhe.IncreaseReputation(50);
+        }
         
       
 
