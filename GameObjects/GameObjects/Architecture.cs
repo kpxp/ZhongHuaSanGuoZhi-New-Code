@@ -13987,7 +13987,7 @@
 
                 if (this.mayor != null && (this.mayor == this.BelongedFaction .Leader || !this.mayor.Alive || !this.mayor.Available 
                     || this.mayor.BelongedFaction != this.BelongedFaction
-                    || this.mayor.BelongedFaction == null /*|| (this.mayor.LocationArchitecture != this && this.Mayor.BelongedTroop == null )*/))
+                    || this.mayor.BelongedFaction == null || (this.mayor.LocationArchitecture != this && this.mayor.BelongedTroop == null )))
                 {
                     this.Mayor = null;
                 }
