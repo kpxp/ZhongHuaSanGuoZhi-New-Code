@@ -2844,7 +2844,7 @@
 
         private void AIZhaoXian()
         {
-            if (base.Scenario.Date.Month != 3 || base.Scenario.Date.Month != 9) return;
+            if (base.Scenario.Date.Month != 3 && base.Scenario.Date.Month != 9) return;
 
             if (base.Scenario.IsPlayer(this)) return;
 
