@@ -2590,24 +2590,24 @@
         {
             /*
           劝降
-      a、判定成功条件：劝降势力声望>被劝降势力声望；劝降势力兵力大于0且为被劝降势力兵力的五倍；GameObjects.Chance(100-被劝降势力君主义理*25）；与被劝降势力接壤
-      GameObjects.Chance(100-被劝降势力君主义理*25），如果被劝降势力君主义理为0，则概率为百分百 ，如此类推。   
+          a、判定成功条件：劝降势力声望>被劝降势力声望；劝降势力兵力大于0且为被劝降势力兵力的五倍；GameObjects.Chance(100-被劝降势力君主义理*25）；与被劝降势力接壤
+          GameObjects.Chance(100-被劝降势力君主义理*25），如果被劝降势力君主义理为0，则概率为百分百 ，如此类推。   
 
-      b、判定
-      如果执行武将为目标势力君主的厌恶武将，则必失败；
+          b、判定
+          如果执行武将为目标势力君主的厌恶武将，则必失败；
 
-      g = (c * 10 + 执行武将说服能力 + （执行武将政治+智谋）* 冷静度 - (执行武将与被劝降势力君主相性差 * 20 + （被劝降势力君主智谋+政治）*2));
-      g > 0，则劝降成功
+          g = (c * 10 + 执行武将说服能力 + （执行武将政治+智谋）* 冷静度 - (执行武将与被劝降势力君主相性差 * 20 + （被劝降势力君主智谋+政治）*2));
+          g > 0，则劝降成功
 
-      c、结果
-      1、成功
+          c、结果
+          1、成功
 
-      执行武将名声+500，政治经验+50
+          执行武将名声+500，政治经验+50
 
-      2、失败
-      势力间友好度-100
-      执行武将名声+50，政治经验+10
-       */
+         2、失败
+         势力间友好度-100
+         执行武将名声+50，政治经验+10
+          */
             this.OutsideTask = OutsideTaskKind.无;
             this.TargetArchitecture = base.Scenario.GetArchitectureByPosition(this.OutsideDestination.Value);
             Faction targetFaction = this.TargetArchitecture.BelongedFaction;
@@ -2624,78 +2624,6 @@
                return;
             }
             
-            /*
-            if ((this.BelongedFaction != null) && (targetFaction != null))
-            {
-               
-                //int idealOffset = Person.GetIdealOffset(this, TargetArchitecture.BelongedFaction.Leader);
-                if (this.BelongedFaction.Army != 0 && this.BelongedFaction.Reputation > targetFaction.Reputation && this.BelongedFaction.Army >= targetFaction.Army * 5
-                    && GameObject.Chance(100 - targetFaction.Leader.PersonalLoyalty * 25) && this.BelongedFaction.adjacentTo(targetFaction))
-                {
-
-                    int c = 10;
-                    if (targetFaction.Leader.IsCloseTo(this))
-                    {
-                        c = 50;
-                    }
-                    if (targetFaction.Leader.Hates(this))
-                    {
-                        c = -500;
-                    }
-                    int g = (c * 10 + this.ConvinceAbility + (this.Politics + this.Intelligence) * this.Calmness - ((GetIdealOffset(this, targetFaction.Leader) * 20) + (targetFaction.Leader.Intelligence + targetFaction.Leader.Politics) * 2));
-
-
-                    if (g > 0)
-                    {
-
-
-
-                        //势力合并
-                        base.Scenario.GameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.QuanXiang, "QuanXiangDiplomaticRelation", "QuanXiangDiplomaticRelation.jpg", "QuanXiangDiplomaticRelation.wav", targetFaction.Name, true);
-                     
-                        base.Scenario.YearTable.addChangeFactionEntry(base.Scenario.Date, targetFaction, this.BelongedFaction);
-                        targetFaction.ChangeFaction(this.BelongedFaction);
-
-                        foreach (Treasure treasure in targetFaction.Leader.Treasures.GetList())
-                        {
-                            targetFaction.Leader.LoseTreasure(treasure);
-                            this.BelongedFaction.Leader.ReceiveTreasure(treasure);
-
-                        }
-                        this.TargetArchitecture = this.LocationArchitecture;
-                        this.AddPoliticsExperience(50);
-                        this.IncreaseReputation(500);
-                    }
-                    else
-                    {
-                        base.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID, -100);
-                        //this.BelongedArchitecture.Fund += 20000;
-                        this.TargetArchitecture.Fund += 50000;
-                        base.Scenario.GameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.QuanXiangFailed, "QuanXiangDiplomaticRelationFailed", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation.wav", targetFaction.Name, true);
-                        this.TargetArchitecture = this.LocationArchitecture;
-                        this.AddPoliticsExperience(10);
-                        this.IncreaseReputation(50);
-
-                    }
-                }
-
-                else
-                {
-                    base.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID, -100);
-                   // this.BelongedArchitecture.Fund += 20000;
-                    this.TargetArchitecture.Fund += 50000;
-                    base.Scenario.GameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.QuanXiangFailed, "QuanXiangDiplomaticRelationFailed", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation.wav", targetFaction.Name, true);
-                    this.TargetArchitecture = this.LocationArchitecture;
-                    this.AddPoliticsExperience(10);
-                    this.IncreaseReputation(50);
-
-
-
-                }
-                
-
-            }*/
-
         }
 
         private static bool QuanXiangChance(Faction sourceFaction, Faction targetFaction, Person shizhe)
@@ -2726,7 +2654,7 @@
         private static void QuanXiangSuccess(Faction sourceFaction, Faction targetFaction, Person shizhe)
         {
             //势力合并
-            shizhe.Scenario.GameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.QuanXiang, "QuanXiangDiplomaticRelation", "QuanXiangDiplomaticRelation.jpg", "QuanXiangDiplomaticRelation.wav", targetFaction.Name, true);
+            shizhe.Scenario.GameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.QuanXiang, "QuanXiangDiplomaticRelation", "QuanXiangDiplomaticRelation.jpg", "shilimiewang.wma", targetFaction.Name, true);
 
             shizhe.Scenario.YearTable.addChangeFactionEntry(shizhe.Scenario.Date, targetFaction, sourceFaction);
             targetFaction.ChangeFaction(sourceFaction);
