@@ -2642,13 +2642,13 @@
 
             if (targetFaction.Leader.Hates(shizhe)) return false;
 
-            if (GameObject.Random(targetFaction.Leader.Merit) >= GameObject.Random(sourceFaction.Leader.Merit)) return false;
+            if (GameObject.Random(targetFaction.Leader.Intelligence + shizhe.Intelligence) >= 15) return false;
 
             if (targetFaction.Leader.PersonalLoyalty > 3) return false;
 
             int c = targetFaction.Leader.IsCloseTo(shizhe) ? 50 : 10 ;
 
-            int g = (c * 10 + shizhe.ConvinceAbility + (shizhe.Politics + shizhe.Intelligence) * shizhe.Calmness - ((GetIdealOffset(shizhe, targetFaction.Leader) * 20) + (targetFaction.Leader.Intelligence + targetFaction.Leader.Politics) * 2));
+            int g = (c * 10 + shizhe.ConvinceAbility + (shizhe.Politics + shizhe.Intelligence) * shizhe.Calmness - ((GetIdealOffset(shizhe, targetFaction.Leader) * 20) + (targetFaction.Leader.Intelligence + targetFaction.Leader.Politics) * targetFaction.Leader.Calmness));
 
             return g > 0;
         }
