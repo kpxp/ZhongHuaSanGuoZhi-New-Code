@@ -5077,7 +5077,7 @@
                 }
                 if (faction != null && Person.GetIdealOffset(faction.Leader, person3) <= 10 && !person3.Hates(faction.Leader)) return;
                 if (faction != null && location == faction.Capital) return;
-                if (GameObject.Random(15) != 0) return;
+                //if (GameObject.Random(15) != 0) return;
                 if (GameObject.Random(location.Population + location.ArmyScale * 5000 +
                         location.Domination * 200 + location.Morale * 10) >
                     GameObject.Random(person3.Reputation *
