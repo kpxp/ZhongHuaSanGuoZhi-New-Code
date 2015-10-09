@@ -885,7 +885,7 @@
 
         private void CreateNewFaction(Person leader)
         {
-            if (leader.Status != PersonStatus.Normal || leader.Status != PersonStatus.NoFaction) return;
+            if (leader.Status != PersonStatus.Normal && leader.Status != PersonStatus.NoFaction) return;
 
             Faction newFaction = new Faction();
             newFaction.Scenario = this;
