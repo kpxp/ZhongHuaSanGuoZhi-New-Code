@@ -2616,6 +2616,7 @@
             if (QuanXiangChance(this.BelongedFaction, targetFaction, this))
             {
                 QuanXiangSuccess(this.BelongedFaction, targetFaction, this);
+
             }
             else
             {
@@ -2729,7 +2730,8 @@
 
             shizhe.Scenario.YearTable.addChangeFactionEntry(shizhe.Scenario.Date, targetFaction, sourceFaction);
             targetFaction.ChangeFaction(sourceFaction);
-
+            targetFaction.AfterChangeLeader(targetFaction.Leader, sourceFaction.Leader);
+                
             foreach (Treasure treasure in targetFaction.Leader.Treasures.GetList())
             {
                 targetFaction.Leader.LoseTreasure(treasure);
