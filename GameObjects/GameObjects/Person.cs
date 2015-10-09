@@ -2642,7 +2642,9 @@
 
             if (targetFaction.Leader.Hates(shizhe)) return false;
 
-            if (!GameObject.Chance(100 - targetFaction.Leader.PersonalLoyalty * 25)) return false;
+            if (GameObject.Random(targetFaction.Leader.Merit) >= GameObject.Random(sourceFaction.Leader.Merit)) return false;
+
+            if (targetFaction.Leader.PersonalLoyalty > 3) return false;
 
             int c = targetFaction.Leader.IsCloseTo(shizhe) ? 50 : 10 ;
 
