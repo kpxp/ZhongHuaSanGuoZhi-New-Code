@@ -3537,7 +3537,7 @@
         public bool YoukenengChuangjianXinShili()
         {
             if (this.IsCaptive || this.LocationArchitecture == null ||
-                (this.Status != PersonStatus.Normal || this.Status != PersonStatus.NoFaction))
+                (this.Status != PersonStatus.Normal && this.Status != PersonStatus.NoFaction))
             {
                 return false;
             }

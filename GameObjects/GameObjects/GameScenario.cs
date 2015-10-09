@@ -5042,7 +5042,8 @@
 
         internal void NewFaction()
         {
-            if (GameObject.Random(15) == 0) {
+            if (GameObject.Random(15) == 0) 
+            {
                 this.NewFaction(this.AvailablePersons);
             }
         }
