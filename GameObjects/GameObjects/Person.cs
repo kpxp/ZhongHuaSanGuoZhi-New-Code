@@ -2676,8 +2676,8 @@
         private static void QuanXiangFailed(Faction sourceFaction, Faction targetFaction, Person shizhe)
         {
             shizhe.Scenario.ChangeDiplomaticRelation(sourceFaction.ID, targetFaction.ID, -100);
-            //shizhe.BelongedArchitecture.Fund += 20000;
-            shizhe.TargetArchitecture.Fund += 50000;
+            shizhe.BelongedArchitecture.Fund += 20000;
+            shizhe.TargetArchitecture.Fund += 30000;
             shizhe.Scenario.GameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.QuanXiangFailed, "QuanXiangDiplomaticRelationFailed", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation.wav", targetFaction.Name, true);
             shizhe.TargetArchitecture = shizhe.LocationArchitecture;
             shizhe.AddPoliticsExperience(10);
