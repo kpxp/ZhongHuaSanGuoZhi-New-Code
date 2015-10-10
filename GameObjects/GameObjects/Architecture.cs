@@ -4081,15 +4081,15 @@
             
         }
 
-        
-        private static bool IsChanceOfGeneratingOfficer(int factionPersonCount, bool isAI)
+
+        private bool IsChanceOfGeneratingOfficer(int factionPersonCount, bool isAI, PersonGeneratorType preferredType)
         {
             if (factionPersonCount < 5)
             {
                 return true ;
             }
 
-            if (Random(factionPersonCount) != 0)
+            if (!GameObject.Chance(preferredType.generationChance))
             {
                 return false;
             }
@@ -4111,7 +4111,7 @@
 
             bool isAI = !base.Scenario.IsPlayer(this.BelongedFaction);
 
-            if (!IsChanceOfGeneratingOfficer(this.BelongedFaction.PersonCount,isAI))
+            if (!IsChanceOfGeneratingOfficer(this.BelongedFaction.PersonCount,isAI,preferredType))
             {
                 if (!isAI)
                 {
