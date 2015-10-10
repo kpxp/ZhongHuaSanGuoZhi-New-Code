@@ -2849,9 +2849,11 @@
 
         private void AIZhaoXian()
         {
-            if (base.Scenario.Date.Month != 3 && base.Scenario.Date.Month != 9) return;
+            if (GlobalVariables.CreateRandomOfficerChance <= 0) return;
 
             if (base.Scenario.IsPlayer(this)) return;
+
+            if (base.Scenario.Date.Month != 3 && base.Scenario.Date.Month != 9) return;
 
             if (GameObject.Random(10) != 0) return;
 
