@@ -2655,7 +2655,7 @@
 
             if (targetFaction.Leader.Hates(shizhe)) return false;
 
-            if (GameObject.Random(targetFaction.Leader.Merit )>= GameObject.Random( shizhe.Merit)) return false;
+            if (GameObject.Random(targetFaction.Leader.Intelligence) + GameObject.Random( shizhe.Intelligence) >= 42) return false;
 
             if (targetFaction.Leader.PersonalLoyalty > 3) return false;
 
