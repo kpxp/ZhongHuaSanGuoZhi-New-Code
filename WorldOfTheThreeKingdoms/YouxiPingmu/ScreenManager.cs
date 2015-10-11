@@ -251,7 +251,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (selectedList != null && (selectedList.Count == 1))
             {
                 this.CurrentDiplomaticRelationDisplay = selectedList[0] as DiplomaticRelationDisplay;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetQuanXiangDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.MovablePersons, null, "外交人员", "Ability");
+                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetQuanXiangDiplomaticRelationPerson, false, true, true, false, this.CurrentArchitecture.MovablePersons, null, "外交人员", "Ability");
             }
         }
 
@@ -259,16 +259,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             GameObjectList selectedList = this.CurrentArchitecture.DiplomaticWorkingPersons.GetSelectedList();
 
-            if (selectedList != null)
+            if (selectedList != null && (selectedList.Count == 1))
             {
-                foreach (Person diplomaticperson in selectedList)
+
+                Person diplomaticperson = selectedList[0] as Person;
+                if (this.CurrentArchitecture.Fund >= 50000)
                 {
-                    if (this.CurrentArchitecture.Fund >= 50000)
-                    {
-                        this.CurrentArchitecture.Fund -= 50000;
-                        diplomaticperson.GoToQuanXiangDiplomatic(this.CurrentDiplomaticRelationDisplay);
-                    }
-                }
+                    this.CurrentArchitecture.Fund -= 50000;
+                    diplomaticperson.GoToQuanXiangDiplomatic(this.CurrentDiplomaticRelationDisplay);
+                }    
+                
             }
         }
 
