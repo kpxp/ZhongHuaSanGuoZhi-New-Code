@@ -809,8 +809,10 @@
 
         private void AIHouGong()
         {
+            if (GlobalVariables.hougongGetChildrenRate <= 0) return;
+
             if (base.Scenario.IsPlayer(this)) return;
-           
+
             int uncruelty = this.Leader.Uncruelty;
             int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
 
@@ -847,7 +849,7 @@
                 }
             }
 
-            if (GlobalVariables.hougongGetChildrenRate <= 0) return;
+            
             // if (this.Leader.LocationArchitecture == null || this.Leader.LocationArchitecture.HasHostileTroopsInView()) return;
 
             if (this.Leader.NumberOfChildren >= GlobalVariables.OfficerChildrenLimit) return;
