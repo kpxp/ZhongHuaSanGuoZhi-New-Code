@@ -1257,7 +1257,16 @@
             else
             {
                 deathLocation = 3;
-                throw new Exception("try to kill person onway");
+                locationArchitecture = null;
+                if(this.ArrivingDays > 0) this.ArrivingDays = 0;
+
+                if (this.TaskDays > 0) this.TaskDays = 0;
+
+                if (this.WorkKind != ArchitectureWorkKind.无) this.WorkKind = ArchitectureWorkKind.无;
+
+                this.RecruitmentMilitary.ID = -1;
+
+               // throw new Exception("try to kill person onway");
             }
 
             this.Alive = false;  //死亡
@@ -1271,6 +1280,10 @@
             else if (this.OnDeath != null && locationTroop != null && deathLocation == 2)
             {
                 this.OnDeath(this, killerInBattle, null, locationTroop);
+            }
+            else if (this.OnDeath != null && locationArchitecture == null && deathLocation == 3)
+            {
+                this.OnDeath(this, killerInBattle, null, null);
             }
 
             if (belongedFaction != null && this == belongedFaction.Leader)
