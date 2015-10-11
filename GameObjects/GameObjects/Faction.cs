@@ -3621,7 +3621,7 @@
                     if (architecture != null)
                     {
                         this.AddArchitecture(architecture);
-                        //this.AddArchitectureMilitaries(architecture);
+                        this.AddArchitectureMilitaries(architecture);
                     }
                     else
                     {
@@ -3682,7 +3682,7 @@
                     if (gameObject != null)
                     {
                         this.AddTroop(gameObject);
-                       // this.AddTroopMilitary(gameObject);
+                        this.AddTroopMilitary(gameObject);
                     }
                     else
                     {
@@ -5769,6 +5769,7 @@
             get
             {
                 MilitaryList Militaries = new MilitaryList();
+                
                 foreach (Military military in base.Scenario.Militaries)
                 {
                     if (military.BelongedArchitecture != null && military.BelongedArchitecture.BelongedFaction == this)
@@ -5777,7 +5778,7 @@
                     }
 
                 }
-
+                
                 foreach (Military military in this.TransferingMilitaries)
                 {
                     Militaries.Add(military);

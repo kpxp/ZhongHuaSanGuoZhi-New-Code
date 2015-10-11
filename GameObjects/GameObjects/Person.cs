@@ -6662,6 +6662,7 @@
 
         public void RecruitMilitary(Military m)
         {
+            
             if (this.recruitmentMilitary != null)
             {
                 this.recruitmentMilitary.StopRecruitment();
