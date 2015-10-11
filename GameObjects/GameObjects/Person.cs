@@ -2639,7 +2639,7 @@
             
         }
 
-        private static bool QuanXiangChance(Faction sourceFaction, Faction targetFaction, Person shizhe)
+        private  bool QuanXiangChance(Faction sourceFaction, Faction targetFaction, Person shizhe)
         {
             if (sourceFaction == null || targetFaction == null) return false;
 
@@ -2655,7 +2655,7 @@
 
             if (targetFaction.Leader.Hates(shizhe)) return false;
 
-            if (GameObject.Random(targetFaction.Leader.Intelligence + shizhe.Intelligence) >= 15) return false;
+            if (GameObject.Random(targetFaction.Leader.Merit )>= GameObject.Random( shizhe.Merit)) return false;
 
             if (targetFaction.Leader.PersonalLoyalty > 3) return false;
 
