@@ -4089,10 +4089,18 @@
                 return true ;
             }
 
-            if (!GameObject.Chance(preferredType.generationChance))
+            if (factionPersonCount >= 100 && GameObject.Random(factionPersonCount) != 0)
             {
                 return false;
             }
+
+            
+            int chance = (factionPersonCount >= 50 && factionPersonCount < 100) ? 10 : 60;
+            if (!GameObject .Chance(chance))
+            {
+                return false ;
+            }
+            
 
             float coef = isAI ? Parameters.AIExtraPerson + 1 : 1;
             if (coef <= 0)
