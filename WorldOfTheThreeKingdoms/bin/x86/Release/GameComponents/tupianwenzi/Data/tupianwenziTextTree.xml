@@ -546,7 +546,7 @@
   </Branch>
   <Branch Name="AppointMayor">
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="爱民如子，今任命为太守，望汝再接再厉，替孤扫平天下！"
+    <Leaf Text="爱民如子，今任命为县令，望汝再接再厉，替孤扫平天下！"
 Color="4294967295"></Leaf>
    </Branch>
 

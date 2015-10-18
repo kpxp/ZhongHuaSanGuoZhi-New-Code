@@ -493,11 +493,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.CurrentArchitecture.AutoHiring = !this.CurrentArchitecture.AutoHiring;
                     break;
 
-                case ContextMenuResult.Person_Appointment_AppointMayor: //任命太守
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.AppointMayor, false, true, true, false, this.CurrentArchitecture.MayorCandicate, null, "任命太守", "");
+                case ContextMenuResult.Person_Appointment_AppointMayor: //任命县令
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.AppointMayor, false, true, true, false, this.CurrentArchitecture.MayorCandicate, null, "任命县令", "");
                     break;
 
-                case ContextMenuResult.Person_Appointment_RecallMayor: //罢免太守
+                case ContextMenuResult.Person_Appointment_RecallMayor: //罢免县令
                     this.CurrentArchitecture.RecallMayor();
                     break;
 

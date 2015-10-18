@@ -1172,30 +1172,30 @@ Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="任命太守" Color="4278232306" />
+        <Leaf Text="任命县令" Color="4278232306" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="太守可提高本建筑的内政效率，太守的政治和智谋越高，内政效率提高的幅度越大。" Color="4294967295" />
-       <Leaf Text="任命太守后 " Color="4294967295" />
-       <Leaf Text="太守的" Color="4294967295" />
+        <Leaf Text="县令可提高本建筑的内政效率，县令的政治和智谋越高，内政效率提高的幅度越大。" Color="4294967295" />
+       <Leaf Text="任命县令后 " Color="4294967295" />
+       <Leaf Text="县令的" Color="4294967295" />
        <Leaf Text="忠诚" Color="4278232306" />
        <Leaf Text="将会提高(10,20)。" Color="4294967295" />
        <Leaf Text="\n" Color="4294967295" />
        <Leaf Text="\n" Color="4294967295" />
-       <Leaf Text="另外，太守出战，部队可获得攻防加成。加成只在部队处于出发建筑视野范围内有效。" Color="4294967295" />
-       <Leaf Text="太守" Color="4294967295" />
+       <Leaf Text="另外，县令出战，部队可获得攻防加成。加成只在部队处于出发建筑视野范围内有效。" Color="4294967295" />
+       <Leaf Text="县令" Color="4294967295" />
        <Leaf Text="武勇" Color="4278232306" />
        <Leaf Text="和" Color="4294967295" />
        <Leaf Text="勇猛度" Color="4278232306" />
        <Leaf Text="越高，部队攻击力加成越多。" Color="4294967295" />
-       <Leaf Text="太守" Color="4294967295" />
+       <Leaf Text="县令" Color="4294967295" />
        <Leaf Text="统帅" Color="4278232306" />
        <Leaf Text="和" Color="4294967295" />
        <Leaf Text="冷静度" Color="4278232306" />
        <Leaf Text="越高，部队防御力加成越多。" Color="4294967295" />
        <Leaf Text="\n" Color="4294967295" />
        <Leaf Text="\n" Color="4294967295" />
-       <Leaf Text="玩家不可调走太守。注意：玩家如果通过部队出征让太守离开所属城池，将无法调回所属城池，除非罢免太守。" Color="4294967295" />
+       <Leaf Text="玩家不可调走县令。注意：玩家如果通过部队出征让县令离开所属城池，将无法调回所属城池，除非罢免县令。" Color="4294967295" />
     </Branch>
     <Branch Name="Person_Appointment_RecallMayor">
     <Leaf Text="人物" Color="4294967295" />
@@ -1203,10 +1203,10 @@ Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="罢免太守" Color="4278232306" />
+        <Leaf Text="罢免县令" Color="4278232306" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
-        <Leaf Text="罢免当前建筑太守，武将忠诚下降(5,10)。" Color="4294967295" />
+        <Leaf Text="罢免当前建筑县令，武将忠诚下降(5,10)。" Color="4294967295" />
     </Branch>
     <Branch Name="Person_AutoReward">
         <Leaf Text="人物" Color="4294967295" />

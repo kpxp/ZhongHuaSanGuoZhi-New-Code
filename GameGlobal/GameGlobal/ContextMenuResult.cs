@@ -65,10 +65,10 @@
         Transport_Food,
         Person_Transfer,
         Person_Convene,
-        Person_Appointment_AppointMayor, //任命太守
-        Person_Appointment_RecallMayor,  //罢免太守
-        Person_Appointment_AppointOfficer,//任命官员
-        Person_Appointment_RecallOfficer,//罢免官员
+        Person_Appointment_AppointMayor, //任命县令
+        Person_Appointment_RecallMayor,  //罢免县令
+        //Person_Appointment_AppointOfficer,//任命官员
+       // Person_Appointment_RecallOfficer,//罢免官员
         Person_Hire,
         Person_Convince,
         Person_AutoHire,

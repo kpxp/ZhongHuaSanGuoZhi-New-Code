@@ -3891,7 +3891,7 @@
             return ((((this.BelongedFaction != null) && (this.BelongedFaction.ArchitectureCount > 1)) && this.IsCapital) && (this.Fund >= this.ChangeCapitalCost));
         }
 
-        public bool AppointMayorAvail() //任命太守
+        public bool AppointMayorAvail() //任命县令
         {
             if (this.BelongedFaction != null && this.BelongedFaction.Leader.BelongedCaptive == null && this.MayorID == -1  && this.Kind.ID != 4)
             {
@@ -3908,7 +3908,7 @@
             return false;
         }
 
-        public bool RecallMayorAvail() //罢免太守
+        public bool RecallMayorAvail() //罢免县令
         {
             if (this.BelongedFaction != null && this.Mayor != null)
             {
@@ -3989,7 +3989,7 @@
         }
 
 
-        public event Appointmayor OnAppointmayor; //太守年表
+        public event Appointmayor OnAppointmayor; //县令年表
         public delegate void Appointmayor(Person p, Person q);
         public void AppointMayor(Person Person)
         {
@@ -12040,7 +12040,7 @@
         {
             get
             {
-                //太守内政加成系数
+                //县令内政加成系数
                 if (this.Mayor != null && this.Mayor.BelongedCaptive == null)
                 {
                     return (this.RateOfInternal + this.DayRateIncrementOfInternal + ((float)this.Mayor.Politics / 100 + (float)this.Mayor.Intelligence / 100) / 2);

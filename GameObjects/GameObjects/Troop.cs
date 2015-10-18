@@ -11303,7 +11303,7 @@
 
         public int Defence
         {
-            get           //太守防御力加成公式
+            get           //县令防御力加成公式
             {
                 if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture .MayorID && this.StartingArchitecture.ViewArea.HasPoint(this.Position))
                 {
@@ -11951,7 +11951,7 @@
         public int Offence
         {
             get
-            {      //太守加成公式
+            {      //县令加成公式
                 if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture.MayorID && this.StartingArchitecture.ViewArea.HasPoint(this.Position))
                 {
                     return (int)(this.offence * this.TirednessFactor + (this.Leader.Strength * (this.BelongedFaction != null && this.Scenario.IsPlayer(this.BelongedFaction) ? 3 : 6 ) + this.Leader.Braveness * 10));
