@@ -564,6 +564,26 @@
             }
         }
 
+        public Faction BelongedFactionWithPrincess
+        {
+            get
+            {
+                if ((this.Status == PersonStatus.Normal || this.Status == PersonStatus.Moving || this.Status == PersonStatus.Princess) && this.LocationArchitecture != null)
+                {
+                    return this.LocationArchitecture.BelongedFaction;
+                }
+                else if (this.Status == PersonStatus.Normal && this.LocationTroop != null)
+                {
+                    return this.LocationTroop.BelongedFaction;
+                }
+                else if (this.Status == PersonStatus.Captive)
+                {
+                    return this.BelongedCaptive.CaptiveFaction;
+                }
+                return null;
+            }
+        }
+
         public Person WaitForFeiZi
         {
             get
