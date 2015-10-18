@@ -1672,7 +1672,7 @@
             FontColor="4294967295"
             Align="Right">
         </Column>
-              <Column ID="104" Name="MayorName" IsNumber="false" DisplayName="太守" MinWidth="100" DetailLevel="5"
+              <Column ID="104" Name="MayorName" IsNumber="false" DisplayName="县令" MinWidth="100" DetailLevel="5"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
@@ -4565,7 +4565,7 @@
                 FontColor="4278255360"
                 Align="Middle">
         </Column>
-        <Column ID="2" Name="cost" IsNumber="true" DisplayName="费用" MinWidth="80" DetailLevel="2"
+        <Column ID="2" Name="CostFund" IsNumber="true" DisplayName="资金" MinWidth="80" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -4574,7 +4574,7 @@
         </Column>
       </Columns>
       <Tabs Margin="5">
-        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="0 1 2">
+        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2">
         </Tab>
       </Tabs>
     </ListKind>
