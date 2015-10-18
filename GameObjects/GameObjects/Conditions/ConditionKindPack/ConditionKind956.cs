@@ -8,7 +8,7 @@
     {
         public override bool CheckConditionKind(Person person)
         {
-            return person.BelongedFaction != null && person.BelongedFaction.Leader.Hates(person);
+            return person.BelongedFactionWithPrincess != null && person.BelongedFactionWithPrincess.Leader.Hates(person);
         }
     }
 }

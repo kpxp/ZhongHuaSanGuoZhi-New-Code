@@ -8,7 +8,7 @@
     {
         public override bool CheckConditionKind(Person person)
         {
-            return person.BelongedFaction != null && !person.Brothers.GameObjects.Contains(person.BelongedFaction.Leader);
+            return person.BelongedFactionWithPrincess != null && !person.Brothers.GameObjects.Contains(person.BelongedFactionWithPrincess.Leader);
         }
     }
 }

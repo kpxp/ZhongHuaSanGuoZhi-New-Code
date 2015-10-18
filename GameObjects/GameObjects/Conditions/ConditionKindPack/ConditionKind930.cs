@@ -10,7 +10,7 @@
 
         public override bool CheckConditionKind(Person person)
         {
-            return person.BelongedFaction != null && Person.GetIdealOffset(person, person.BelongedFaction.Leader) < number;
+            return person.BelongedFactionWithPrincess != null && Person.GetIdealOffset(person, person.BelongedFactionWithPrincess.Leader) < number;
         }
 
         public override void InitializeParameter(string parameter)

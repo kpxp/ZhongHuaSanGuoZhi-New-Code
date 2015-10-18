@@ -10,7 +10,7 @@
 
         public override bool CheckConditionKind(Person person)
         {
-            return person.BelongedFaction != null && person.BelongedFaction.LeaderID == this.number;
+            return person.BelongedFactionWithPrincess != null && person.BelongedFactionWithPrincess.LeaderID == this.number;
         }
 
         public override void InitializeParameter(string parameter)

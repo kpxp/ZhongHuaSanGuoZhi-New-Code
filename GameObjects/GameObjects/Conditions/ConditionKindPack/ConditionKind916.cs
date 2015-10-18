@@ -8,7 +8,7 @@
     {
         public override bool CheckConditionKind(Person person)
         {
-            return person.BelongedFaction != null && (person.BelongedFaction.Leader.Father == person || person.BelongedFaction.Leader.Mother == person);
+            return person.BelongedFactionWithPrincess != null && (person.BelongedFactionWithPrincess.Leader.Father == person || person.BelongedFactionWithPrincess.Leader.Mother == person);
         }
     }
 }
