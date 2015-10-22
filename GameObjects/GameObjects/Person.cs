@@ -7506,16 +7506,17 @@
         }
 
         //private enum OfficerType { GENERAL, BRAVE, ADVISOR, POLITICIAN, INTEL_GENERAL, EMPEROR, ALL_ROUNDER, NORMAL_ADVISOR, CHEAP, NORMAL_GENERAL };
-        /*
+
         private static PersonGeneratorType generatePersonType(GameScenario scen)
         {
             PersonGeneratorType gernrateType = new PersonGeneratorType();
-            int[] weights = new int[10];
-
-            foreach (PersonGeneratorType type in scen.GameCommonData.AllPersonGeneratorTypes)
+            
+            //int[] weights = new int[10];
+            int[] weights = { 100, 100, 100, 100, 60, 100, 1, 250, 250, 39 }; 
+            /*foreach (PersonGeneratorType type in scen.GameCommonData.AllPersonGeneratorTypes)
             {
                 weights[type.ID] = type.generationChance;
-            }
+            }*/
 
             int total = 0;
             foreach (int i in weights)
@@ -7535,7 +7536,7 @@
                     break;
                 }
             }
-            gernrateType = weights[officerType] ;
+            gernrateType.ID = officerType  ;
 
             return gernrateType;
         }
@@ -7544,7 +7545,7 @@
         {
             return createPerson(scen, foundLocation, finder, inGame, generatePersonType(scen));
         }
-        */
+        
         public static Person createPerson(PersonGenerateParam param)
         {
             return createPerson(param.Scenario, param.FoundLocation, param.Finder, param.InGame, param.PreferredType);
