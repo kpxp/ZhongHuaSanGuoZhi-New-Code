@@ -4046,6 +4046,21 @@
             return false;
         }
 
+        public FactionList AdjecentFactionList
+        {
+            get
+            {
+               /* FactionList list = new FactionList();
+                foreach (Faction f in this.GetAdjecentFactions())
+                {
+                    list.Add(f);
+                }
+                return list;
+                */
+                return this.GetAdjecentFactions();
+            }
+        }
+
         public FactionList GetAdjecentFactions()
         {
             FactionList result = new FactionList();

@@ -789,12 +789,13 @@
             this.AITrade();
             this.AIMilitary();
             this.AIFacility();
-            this.DiplomaticRelationAI();
+           // this.DiplomaticRelationAI();
             this.AICampaign();
             this.OutsideTacticsAI();
             this.AIWork(false);
             this.InsideTacticsAI();
             this.AIExpand();
+            this.AIDiplomaticTactics();
             
             ExtensionInterface.call("AIArchitecture", new Object[] { this.Scenario, this });
         }
@@ -6106,12 +6107,59 @@
         {
         }
 
+        private void AIDiplomaticTactics()
+        {
+           // this.AIQuanXiang();
+
+        }
+
+        
+        /*
+        private void AIQuanXiang()
+        {
+            if (base.Scenario.IsPlayer(this.BelongedFaction)) return;
+
+            if (!GlobalVariables.PermitQuanXiang) return;
+
+            if (!GameObject.Chance(50)) return ;
+
+            if (this.QuanXiangDiplomaticRelationAvail())
+            {
+                PersonList pl = new PersonList();
+                DiplomaticRelationDisplay display = this.GetAIQuanXiangDiplomaticRelationList()[GameObject.Random(this.GetAIQuanXiangDiplomaticRelationList().Count)] as DiplomaticRelationDisplay;
+                foreach (Person person in this.MovablePersons)
+                {
+                    if (person.Loyalty >= 100 && person.WorkKind == ArchitectureWorkKind.无 
+                        && person.Intelligence >= 60 && person.Politics >= 60)
+                    {
+                        pl.Add(person);
+                    }
+                }
+
+                if (pl.Count > 1)
+                {
+                    foreach (Person p in pl)
+                    {
+                        if (this.Fund >= 50000)
+                        {
+                            this.Fund -= 50000;
+
+                            p.GoToQuanXiangDiplomatic(display);
+                        }
+                        //throw new Exception("劝降目标势力" + display.FactionName + "劝降武将" + p.Name + p.ID );
+                    }
+                }
+                
+            }
+        }*/
+
+        /*
         private void DiplomaticRelationAI()
         {
             if (((this.PlanArchitecture == null) || GameObject.Chance(10)) && (this.BelongedFaction != null))
             {
             }
-        }
+        }*/
 
         public bool DisbandAvail()
         {
@@ -7689,11 +7737,12 @@
         public GameObjectList GetQuanXiangDiplomaticRelationList() //劝降
         {
             this.QuanXiangDiplomaticRelationList.Clear();
-            if (this.BelongedFaction != null)
+            if (this.BelongedFaction != null && base.Scenario.IsPlayer(this.BelongedFaction))
             {
                 foreach (DiplomaticRelationDisplay display in base.Scenario.DiplomaticRelations.GetDiplomaticRelationDisplayListByFactionID(this.BelongedFaction.ID))
                 {
-                    if (display.Relation < GlobalVariables.FriendlyDiplomacyThreshold && (display.LinkedFaction1 != null) && (display.LinkedFaction2 != null))
+                    if (display.Relation < GlobalVariables.FriendlyDiplomacyThreshold && (display.LinkedFaction1 != null) && (display.LinkedFaction2 != null)
+                          && (this.BelongedFaction.AdjecentFactionList.GameObjects.Contains(display.LinkedFaction2) || this.BelongedFaction.AdjecentFactionList.GameObjects.Contains(display.LinkedFaction1)))
                     {
                         this.QuanXiangDiplomaticRelationList.Add(display);
                     }
@@ -7701,9 +7750,33 @@
             }
             return this.QuanXiangDiplomaticRelationList;
         }
-        
+        /*
+        private GameObjectList AIQuanXiangDiplomaticRelationList = new GameObjectList ();
+        public GameObjectList GetAIQuanXiangDiplomaticRelationList()
+        {
+            this.AIQuanXiangDiplomaticRelationList.Clear();
+            if (this.BelongedFaction != null && !base.Scenario.IsPlayer(this.BelongedFaction))
+            {
+                foreach (DiplomaticRelationDisplay display in base.Scenario.DiplomaticRelations.GetDiplomaticRelationDisplayListByFactionID(this.BelongedFaction.ID))
+                {
+                    if (display.Relation < GlobalVariables.FriendlyDiplomacyThreshold && (display.LinkedFaction1 != null) && (display.LinkedFaction2 != null)
+                          && (this.BelongedFaction.AdjecentFactionList.GameObjects.Contains(display.LinkedFaction2) || this.BelongedFaction.AdjecentFactionList.GameObjects.Contains(display.LinkedFaction1)))
+                    {
 
-
+                        //foreach (Faction f in this.BelongedFaction.AdjecentFactionList)
+                        {
+                            //if (this.BelongedFaction.Reputation > f.Reputation  && this.BelongedFaction.Army != 0 && this.BelongedFaction.Army >= f.Army * 5)
+                            {
+                                this.AIQuanXiangDiplomaticRelationList.Add(display);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            return this.AIQuanXiangDiplomaticRelationList;
+        }
+        */
 
         public GameObjectList GetDenounceDiplomaticRelationList()
         {
@@ -10747,23 +10820,33 @@
 
         public bool QuanXiangDiplomaticRelationAvail() //劝降
         {
-            if (!GlobalVariables.PermitQuanXiang) return false;
+       
+                if (!GlobalVariables.PermitQuanXiang) return false;
 
-            if (this.BelongedFaction == null)
-            {
-                return false;
-            }
-
-            foreach (DiplomaticRelationDisplay display in base.Scenario.DiplomaticRelations.GetDiplomaticRelationDisplayListByFactionID(this.BelongedFaction.ID))
-            {
-                if ((display.Relation < GlobalVariables.FriendlyDiplomacyThreshold) && this.Fund > 50000 && (this.MovablePersons.Count > 0))
+                if (this.BelongedFaction == null)
                 {
-                    return true;
+                    return false;
                 }
-            }
+
+                foreach (DiplomaticRelationDisplay display in base.Scenario.DiplomaticRelations.GetDiplomaticRelationDisplayListByFactionID(this.BelongedFaction.ID))
+                {
+                    if ((display.Relation < GlobalVariables.FriendlyDiplomacyThreshold) && this.Fund > 50000 && (this.MovablePersons.Count > 0))
+                    {
+                        if (base.Scenario.IsPlayer(this.BelongedFaction) && this.GetQuanXiangDiplomaticRelationList().Count > 0)
+                        {
+                            return true;
+                        }
+
+                       /* if (!base.Scenario.IsPlayer(this.BelongedFaction) && this.GetAIQuanXiangDiplomaticRelationList().Count > 0)
+                        {
+                            return true;
+                        }*/
+                    }
+                }
 
 
-            return false ;
+                return false;
+            
         }
 
         public bool TruceDiplomaticRelationAvail()
