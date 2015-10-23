@@ -177,6 +177,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void Draw(GameTime gameTime)
         {
+            
             base.Draw(gameTime);
             base.spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.BackToFront, SaveStateMode.None);
             this.Drawing(gameTime);
@@ -252,6 +253,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.GameFramePlugin.Draw(base.spriteBatch);
             }
         }
+        
 
         private void Drawing(GameTime gameTime)            //绘制游戏屏幕
         {
@@ -259,7 +261,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.architectureLayer.Draw(base.spriteBatch, base.viewportSize, gameTime);
             this.routewayLayer.Draw(base.spriteBatch, base.viewportSize);
             this.tileAnimationLayer.Draw(base.spriteBatch, base.viewportSize);
+            
             this.troopLayer.Draw(base.spriteBatch, base.viewportSize, gameTime);
+            
             this.mapVeilLayer.Draw(base.spriteBatch, base.viewportSize);
 
 

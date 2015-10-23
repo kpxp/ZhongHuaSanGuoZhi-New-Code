@@ -25,9 +25,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
             if (GlobalVariables.DrawTroopAnimation)
             {
                 bool hold = false;
+                
             //Label_097B:
                 foreach (Troop troop in this.screen.Scenario.Troops.GetList())
                 {
+                    
                     if (troop.Destroyed)
                     {
                         continue;

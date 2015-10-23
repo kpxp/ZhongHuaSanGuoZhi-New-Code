@@ -7478,6 +7478,8 @@
 
         public void Move()
         {
+           // Stopwatch sp = new Stopwatch();
+           // sp.Start();
             bool flag = false;
             if (this.Position != this.Destination)
             {
@@ -7512,6 +7514,29 @@
                 }
 
             }
+           // sp.Stop();
+           /* try
+            {
+
+                GameDate gd = base.Scenario.Date;
+                String dateSuffix = "_" + gd.Year + "_" + gd.Month + "_" + gd.Day;
+                String logPath = "DataMesureLog" + ".log";
+                StreamWriter sw = new StreamWriter(logPath, true);
+
+                sw.WriteLine("==================== Message ====================");
+                sw.WriteLine(dateSuffix + "部队ID" + this.ID + "运行时间为");
+                sw.WriteLine(sp.Elapsed);
+
+
+                sw.Close();
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("文件操作异常");
+                Console.WriteLine(ex.ToString());
+            }
+           // Console.WriteLine(sp.Elapsed);
+            */
         }
 
         public bool MoveAvail()
