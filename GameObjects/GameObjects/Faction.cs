@@ -2591,20 +2591,45 @@
             get
             {
                 MilitaryList list = new MilitaryList();
-                foreach (Military m in this.Scenario.Militaries)
+                foreach (Military m in base.Scenario.Militaries)
                 {
 
                     if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0  && m.StartingArchitecture.BelongedFaction != null && m.StartingArchitecture.BelongedFaction == this && m.BelongedArchitecture == null)
                     {
                         list.Add(m);
                     }   
-                    
-            
-                    
                 }
         
                 return list;
             }
+        }
+
+        public List<string> LoadTransferingMilitariesFromString(MilitaryList militaries, string dataString)
+        {
+            List<string> errorMsg = new List<string>();
+            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
+            string[] strArray = dataString.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            this.TransferingMilitaries.Clear();
+            try
+            {
+                foreach (string str in strArray)
+                {
+                    Military gameObject = militaries.GetGameObject(int.Parse(str)) as Military;
+                    if (gameObject != null)
+                    {
+                        this.TransferingMilitaries.AddMilitary(gameObject);
+                    }
+                    else
+                    {
+                        errorMsg.Add("编队ID" + str + "不存在");
+                    }
+                }
+            }
+            catch
+            {
+                errorMsg.Add("编队列表一栏应为半型空格分隔的编队ID");
+            }
+            return errorMsg;
         }
 
         private void MilitaryDayEvent()
@@ -2631,6 +2656,8 @@
                     }
                     m.StartingArchitecture = null;
                     m.TargetArchitecture = null;
+                    this.TransferingMilitaries.Remove(m);
+                    this.TransferingMilitaryCount--;
                     
                 }
                 else 
@@ -2646,6 +2673,8 @@
                             m.ArrivingDays = 0;
                             m.StartingArchitecture = null ;
                             m.TargetArchitecture = null;
+                            this.TransferingMilitaries.Remove(m);
+                            this.TransferingMilitaryCount--;
 
                         
                     }
@@ -2659,6 +2688,8 @@
                         m.ArrivingDays = 0;
                         m.StartingArchitecture = null;
                         m.TargetArchitecture = null;
+                        this.TransferingMilitaries.Remove(m);
+                        this.TransferingMilitaryCount--;
                     }
 
 
@@ -2667,39 +2698,14 @@
                         m.ArrivingDays = 0;
                         m.StartingArchitecture = null;
                         m.TargetArchitecture = null;
+                        this.TransferingMilitaries.Remove(m);
+                        this.TransferingMilitaryCount--;
 
                     }
                 }
 
-                
-
             }
-            /*
-            foreach (Military military in this.Scenario.Militaries)
-            {
-                if (military.ArrivingDays > 0 && (military.BelongedArchitecture != null || military.BelongedTroop != null))
-                {
-                    if (military.StartingArchitecture != null && military.TargetArchitecture != null)
-                    {
-                        military.ArrivingDays = 0;
-                        military.StartingArchitecture = null;
-                        military.TargetArchitecture = null;
-
-                    }
-
-                    else if (military.StartingArchitecture != null)
-                    {
-                        military.ArrivingDays = 0;
-                        military.StartingArchitecture = null;
-                    }
-                    else if (military.TargetArchitecture != null)
-                    {
-                        military.ArrivingDays = 0;
-                        military.TargetArchitecture = null;
-                    }
-                }
-            }
-            */
+           
         }
 
         private void AISelectPrince()
@@ -5785,8 +5791,8 @@
         {
             get
             {
-                MilitaryList Militaries = new MilitaryList();
-                
+                MilitaryList list = new MilitaryList();
+                /*
                 foreach (Military military in base.Scenario.Militaries)
                 {
                     if (military.BelongedArchitecture != null && military.BelongedArchitecture.BelongedFaction == this)
@@ -5794,11 +5800,18 @@
                         Militaries.Add(military);
                     }
 
+                }*/
+                foreach (Architecture a in this.Architectures)
+                {
+                    foreach (Military military in a.Militaries)
+                    {
+                        list.Add(military);
+                    }
                 }
-                
+
                 foreach (Military military in this.TransferingMilitaries)
                 {
-                    Militaries.Add(military);
+                    list.Add(military);
                 }
 
                 foreach (Troop troop in this.Troops)
@@ -5807,16 +5820,16 @@
                     {
                         if (troop.Army.ShelledMilitary == null)
                         {
-                            Militaries.Add(troop.Army);
+                            list.Add(troop.Army);
                         }
                         else
                         {
-                            Militaries.Add(troop.Army.ShelledMilitary);
+                            list.Add(troop.Army.ShelledMilitary);
                         }
                     }
                 }
 
-                return Militaries;
+                return list;
 
             }
         }

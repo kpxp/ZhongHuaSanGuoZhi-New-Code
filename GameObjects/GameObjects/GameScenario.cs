@@ -4317,6 +4317,13 @@
                 }
                 try
                 {
+                    e.AddRange(faction.LoadTransferingMilitariesFromString(this.Militaries, reader["TransferingMilitaries"].ToString()));
+                }
+                catch
+                {
+                }
+                try
+                {
                     faction.LoadGeneratorPersonCountFromString(reader["GetGeneratorPersonCount"].ToString());
                     
                 }
@@ -5341,17 +5348,8 @@
                     row["MilitaryCount"] = faction.MilitaryCount;
                     row["TransferingMilitaryCount"] = faction.TransferingMilitaryCount;
                     row["GetGeneratorPersonCount"] = faction.SaveGeneratorPersonCountToString();
-
-                   /* row["General"] = faction.ZongShu[0];
-                    row["Brave"] = faction.ZongShu[1];
-                    row["Advisor"] = faction.ZongShu[2];
-                    row["Politician"] = faction.ZongShu[3];
-                    row["IntelGeneral"] = faction.ZongShu[4];
-                    row["Emperor"] = faction.ZongShu[5];
-                    row["AllRounder"] = faction.ZongShu[6];
-                    row["Normal"] = faction.ZongShu[7];
-                    row["Cheap"] = faction.ZongShu[8];
-                    row["Normal2"] = faction.ZongShu[9];*/
+                    row["TransferingMilitaries"] = faction.TransferingMilitaries.SaveToString();
+                   
                     row.EndEdit();
                     dataSet.Tables["Faction"].Rows.Add(row);
                 }

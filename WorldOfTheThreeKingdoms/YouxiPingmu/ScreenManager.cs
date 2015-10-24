@@ -575,6 +575,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     military.TargetArchitecture = architecture;
                     military.ArrivingDays = (int)Math.Ceiling((double)gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea, architecture.ArchitectureArea) / 2.5);
                     this.CurrentArchitecture.RemoveMilitary(military);
+                    this.CurrentArchitecture.BelongedFaction.TransferingMilitaries.Add(military);
+                    this.CurrentArchitecture.BelongedFaction.TransferingMilitaryCount++;
                 
                 }
                 this.mainGameScreen.PlayNormalSound("GameSound/Tactics/Outside.wav");
