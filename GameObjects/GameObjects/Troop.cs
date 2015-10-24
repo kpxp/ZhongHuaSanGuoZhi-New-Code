@@ -11330,7 +11330,7 @@
         {
             get           //县令防御力加成公式
             {
-                if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture .MayorID && this.StartingArchitecture.ViewArea.HasPoint(this.Position))
+                if (BuffAvail())
                 {
                     return (int)(this.defence * this.TirednessFactor + (this.Leader.Command * (this.BelongedFaction != null && this.Scenario.IsPlayer(this.BelongedFaction) ? 20 : 50 ) + this.Leader.Calmness * 50));
                 }
@@ -11973,11 +11973,30 @@
             }
         }
 
+        private bool BuffAvail()
+        {
+            if (this.StartingArchitecture == null)
+            {
+                return false;
+            }
+
+            if (this.Leader.ID != this.StartingArchitecture.MayorID)
+            {
+                return false;
+            }
+
+            if (!this.StartingArchitecture.ViewArea.HasPoint(this.Position))
+            {
+                return false;
+            }
+            return true;
+        }
+
         public int Offence
         {
             get
             {      //县令加成公式
-                if (this.StartingArchitecture != null && this.StartingArchitecture.Mayor != null && this.Leader.ID == this.StartingArchitecture.MayorID && this.StartingArchitecture.ViewArea.HasPoint(this.Position))
+                if (BuffAvail())
                 {
                     return (int)(this.offence * this.TirednessFactor + (this.Leader.Strength * (this.BelongedFaction != null && this.Scenario.IsPlayer(this.BelongedFaction) ? 3 : 6 ) + this.Leader.Braveness * 10));
                 }
