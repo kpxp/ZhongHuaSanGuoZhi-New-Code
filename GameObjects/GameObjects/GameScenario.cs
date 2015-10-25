@@ -4318,6 +4318,7 @@
                 try
                 {
                     e.AddRange(faction.LoadTransferingMilitariesFromString(this.Militaries, reader["TransferingMilitaries"].ToString()));
+                    e.AddRange(faction.LoadMilitariesFromString(this.Militaries, reader["Militaries"].ToString()));
                 }
                 catch
                 {
@@ -4328,7 +4329,7 @@
                     
                 }
                 catch { }
-                ;
+                
                 try
                 {
                     faction.MilitaryCount = (int)reader["MilitaryCount"];
@@ -5349,7 +5350,7 @@
                     row["TransferingMilitaryCount"] = faction.TransferingMilitaryCount;
                     row["GetGeneratorPersonCount"] = faction.SaveGeneratorPersonCountToString();
                     row["TransferingMilitaries"] = faction.TransferingMilitaries.SaveToString();
-                   
+                    row["Militaries"] = faction.Militaries.SaveToString();
                     row.EndEdit();
                     dataSet.Tables["Faction"].Rows.Add(row);
                 }

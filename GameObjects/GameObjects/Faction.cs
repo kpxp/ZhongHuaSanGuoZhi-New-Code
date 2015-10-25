@@ -2591,7 +2591,7 @@
             get
             {
                 MilitaryList list = new MilitaryList();
-                foreach (Military m in base.Scenario.Militaries)
+                foreach (Military m in this.Scenario.Militaries )
                 {
 
                     if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0  && m.StartingArchitecture.BelongedFaction != null && m.StartingArchitecture.BelongedFaction == this && m.BelongedArchitecture == null)
@@ -2618,6 +2618,35 @@
                     if (gameObject != null)
                     {
                         this.TransferingMilitaries.AddMilitary(gameObject);
+                        this.AddMilitary(gameObject);
+                    }
+                    else
+                    {
+                        errorMsg.Add("编队ID" + str + "不存在");
+                    }
+                }
+            }
+            catch
+            {
+                errorMsg.Add("编队列表一栏应为半型空格分隔的编队ID");
+            }
+            return errorMsg;
+        }
+
+        public List<string> LoadMilitariesFromString(MilitaryList militaries, string dataString)
+        {
+            List<string> errorMsg = new List<string>();
+            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
+            string[] strArray = dataString.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            this.Militaries.Clear();
+            try
+            {
+                foreach (string str in strArray)
+                {
+                    Military gameObject = militaries.GetGameObject(int.Parse(str)) as Military;
+                    if (gameObject != null)
+                    {
+                        this.Militaries.AddMilitary(gameObject);
                     }
                     else
                     {
@@ -3620,7 +3649,7 @@
             List<string> errorMsg = new List<string>();
             char[] separator = new char[] { ' ', '\n', '\r', '\t' };
             string[] strArray = dataString.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            this.Sections.Clear();
+            this.Architectures.Clear();
             try
             {
                 foreach (string str in strArray)
@@ -3630,6 +3659,7 @@
                     {
                         this.AddArchitecture(architecture);
                         this.AddArchitectureMilitaries(architecture);
+                        
                     }
                     else
                     {
