@@ -2518,16 +2518,16 @@
             Military military2 = military;
             if ((military2.FollowedLeader != null) && this.Persons.HasGameObject(military2.FollowedLeader) &&
                     military2.FollowedLeader.WaitForFeiZi == null && military2.FollowedLeader.LocationTroop == null
-                    && !this.BelongedFaction.MayorList.GameObjects.Contains(military2.FollowedLeader)
-                     && !this.HasHostileTroopsInView()) 
+                    && !this.BelongedFaction.MayorList.GameObjects.Contains(military2.FollowedLeader))
+                      
             {
                     pl.Add(military2.FollowedLeader);
             }
                  
              if ((((military2.Leader != null) && (military2.LeaderExperience >= 10)) && (((military2.Leader.Strength >= 80) || (military2.Leader.Command >= 80)) || military2.Leader.HasLeaderValidTitle))
                     && this.Persons.HasGameObject(military2.Leader) && military2.Leader.WaitForFeiZi == null && military2.Leader.LocationTroop == null 
-                    && !this.BelongedFaction.MayorList.GameObjects.Contains(military2.Leader)
-                    && !this.HasHostileTroopsInView())
+                    && !this.BelongedFaction.MayorList.GameObjects.Contains(military2.Leader))
+                    
              {
                     
                     pl.Add(military2.Leader);
@@ -2549,17 +2549,15 @@
                          this.BelongedFaction.TransferingMilitaryCount++;
                      }
                  }
+
+                 if (pl.Count > 0)
+                 {
+                     foreach (Person p in pl)
+                     {
+                         p.MoveToArchitecture(destination);
+                     }
+                 }
              }
-
-              if (pl.Count > 0)
-              {
-                  foreach (Person p in pl)
-                  {
-                      p.MoveToArchitecture(destination);
-                  }
-              }
-             
-
           }
 
             

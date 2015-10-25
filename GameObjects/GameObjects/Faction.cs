@@ -2634,7 +2634,7 @@
 
         private void MilitaryDayEvent()
         {
-            if (this.TransferingMilitaryCount == 0) return;
+            //if (this.TransferingMilitaryCount == 0) return;
 
             foreach (Military m in this.TransferingMilitaries)
             {
