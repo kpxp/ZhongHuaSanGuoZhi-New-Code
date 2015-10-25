@@ -60,7 +60,7 @@ namespace WorldOfTheThreeKingdoms
             this.graphics.PreferredBackBufferHeight = this.previousWindowHeight;
             base.Window.AllowUserResizing = true;
             DateTime buildDate = new FileInfo(Assembly.GetExecutingAssembly().Location).LastWriteTime;
-            base.Window.Title = "中华三国志开发版(已命名修改版v.28 更新补丁2.5-beta build-" + buildDate.Year + "-" + buildDate.Month + "-" + buildDate.Day + ")";
+            base.Window.Title = "中华三国志开发版(已命名修改版v.28 准稳定版更新补丁2.6 build-" + buildDate.Year + "-" + buildDate.Month + "-" + buildDate.Day + ")";
 
             //System.Windows.Forms.Control control = System.Windows.Forms.Control.FromHandle(base.Window.Handle);
             this.GameForm = (System.Windows.Forms.Form)System.Windows.Forms.Form.FromHandle(this.Window.Handle);
