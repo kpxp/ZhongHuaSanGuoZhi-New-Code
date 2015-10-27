@@ -577,11 +577,12 @@ namespace WorldOfTheThreeKingdoms.GameForms
             // lblCreateRandomOfficerChance
             // 
             this.lblCreateRandomOfficerChance.AutoSize = true;
-            this.lblCreateRandomOfficerChance.Location = new System.Drawing.Point(286, 284);
+            this.lblCreateRandomOfficerChance.Location = new System.Drawing.Point(310, 284);
             this.lblCreateRandomOfficerChance.Name = "lblCreateRandomOfficerChance";
-            this.lblCreateRandomOfficerChance.Size = new System.Drawing.Size(89, 12);
+            this.lblCreateRandomOfficerChance.Size = new System.Drawing.Size(65, 12);
             this.lblCreateRandomOfficerChance.TabIndex = 138;
             this.lblCreateRandomOfficerChance.Text = "招贤成功率";
+            this.lblCreateRandomOfficerChance.Click += new System.EventHandler(this.lblCreateRandomOfficerChance_Click);
             // 
             // lblOfficerDieInBattleRate
             // 
@@ -3224,6 +3225,11 @@ namespace WorldOfTheThreeKingdoms.GameForms
             {
                 changeDifficultySelection(Difficulty.custom);
             }
+        }
+
+        private void lblCreateRandomOfficerChance_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
