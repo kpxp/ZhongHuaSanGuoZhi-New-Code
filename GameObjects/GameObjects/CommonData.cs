@@ -1706,8 +1706,6 @@
                             type.FactionLimit = 10;
                             break;
 
-
-
                     }
                 }
                 this.AllPersonGeneratorTypes.Add(type);
