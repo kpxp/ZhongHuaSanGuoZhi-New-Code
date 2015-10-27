@@ -581,7 +581,7 @@ namespace WorldOfTheThreeKingdoms.GameForms
             this.lblCreateRandomOfficerChance.Name = "lblCreateRandomOfficerChance";
             this.lblCreateRandomOfficerChance.Size = new System.Drawing.Size(89, 12);
             this.lblCreateRandomOfficerChance.TabIndex = 138;
-            this.lblCreateRandomOfficerChance.Text = "生成野武将机率";
+            this.lblCreateRandomOfficerChance.Text = "招贤成功率";
             // 
             // lblOfficerDieInBattleRate
             // 
