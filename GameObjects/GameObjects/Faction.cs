@@ -2661,6 +2661,18 @@
             return errorMsg;
         }
 
+        private void HandleMilitary(Military military)
+        {
+            if (military.ArrivingDays != 0)
+            {
+                military.ArrivingDays = 0;
+            }
+            military.StartingArchitecture = null;
+            military.TargetArchitecture = null;
+            this.TransferingMilitaries.Remove(military);
+            this.TransferingMilitaryCount--;
+        }
+
         private void MilitaryDayEvent()
         {
             //if (this.TransferingMilitaryCount == 0) return;
@@ -2677,58 +2689,42 @@
                         
                       
                     {
-                       // m.StartingArchitecture.RemoveMilitary(m);
+                       
                         m.TargetArchitecture.AddMilitary(m);
-                       // m.BelongedArchitecture = m.TargetArchitecture;
-                       // m.StartingArchitecture = null;
-                        //m.TargetArchitecture = null;
+                       
                     }
-                    m.StartingArchitecture = null;
-                    m.TargetArchitecture = null;
-                    this.TransferingMilitaries.Remove(m);
-                    this.TransferingMilitaryCount--;
-                    
+                   
+                    this.HandleMilitary(m);
                 }
                 else 
                 {
-                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction != null && m.TargetArchitecture.BelongedFaction != this) //运兵过程中目标建筑被占领，停止运输
+                    if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.TargetArchitecture.BelongedFaction != null && m.TargetArchitecture.BelongedFaction != this) //运兵过程中目标建筑被占领，停止运输，编队返回出发建筑
                     {
                         
                             if (m.StartingArchitecture.BelongedFaction != null && m.BelongedArchitecture == null)
                             {
-                                //m.ArrivingDays = 0;
+                                
                                 m.StartingArchitecture.AddMilitary(m);
                             }
-                            m.ArrivingDays = 0;
-                            m.StartingArchitecture = null ;
-                            m.TargetArchitecture = null;
-                            this.TransferingMilitaries.Remove(m);
-                            this.TransferingMilitaryCount--;
-
+                            
+                            this.HandleMilitary(m);
                         
                     }
                     else if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.StartingArchitecture.BelongedFaction != null
-                        && m.TargetArchitecture.BelongedFaction != null && m.TargetArchitecture.IsSurrounded())   //运兵过程中目标建筑被围城，停止运兵
+                        && m.TargetArchitecture.BelongedFaction != null && m.TargetArchitecture.IsSurrounded())   //运兵过程中目标建筑被围城，停止运兵,编队返回出发建筑
                     {
                         if (m.BelongedArchitecture == null)
                         {
                             m.StartingArchitecture.AddMilitary(m);
                         }
-                        m.ArrivingDays = 0;
-                        m.StartingArchitecture = null;
-                        m.TargetArchitecture = null;
-                        this.TransferingMilitaries.Remove(m);
-                        this.TransferingMilitaryCount--;
+                       
+                        this.HandleMilitary(m);
                     }
 
 
                     else if (m.StartingArchitecture != null && m.StartingArchitecture.BelongedFaction == null) //势力灭亡，停止运兵，编队暂时消失
                     {
-                        m.ArrivingDays = 0;
-                        m.StartingArchitecture = null;
-                        m.TargetArchitecture = null;
-                        this.TransferingMilitaries.Remove(m);
-                        this.TransferingMilitaryCount--;
+                        this.HandleMilitary(m);
 
                     }
                 }
