@@ -6,7 +6,7 @@
 
     public class GuanzhiKindTable
     {
-        /*
+        
         public Dictionary<int, GuanzhiKind> GuanzhiKinds = new Dictionary<int, GuanzhiKind>();
 
         public bool AddGuanzhiKind(GuanzhiKind guanzhi)
@@ -73,20 +73,7 @@
             }
         }
 
-        public int CombatKind
-        {
-            get
-            {
-                foreach (GuanzhiKind gk in this.GuanzhiKinds.Values)
-                {
-                    if (gk.Combat)
-                    {
-                        return gk.ID;
-                    }
-                }
-                return -1;
-            }
-        }*/
+        
     }
 }
 

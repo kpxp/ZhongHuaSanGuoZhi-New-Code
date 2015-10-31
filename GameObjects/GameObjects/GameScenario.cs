@@ -30,7 +30,7 @@
         private Dictionary<int, Architecture> AllArchitectures = new Dictionary<int, Architecture>();
         private Dictionary<int, Person> AllPersons = new Dictionary<int, Person>();
 
-       // private Dictionary<Person, int> AllChildren = new Dictionary<Person, int>();
+        
 
         public OngoingBattleList AllOngoingBattles = new OngoingBattleList();
         public ArchitectureList Architectures = new ArchitectureList();
@@ -2714,7 +2714,7 @@
             OleDbConnection commonConn = new OleDbConnection(commonConnString);
 
             UsingOwnCommonData = true;
-            /*try
+            try
             {
                 errorMsg.AddRange(this.GameCommonData.LoadGuanzhi(DbConnection, this));
             }
@@ -2731,7 +2731,7 @@
             {
                 errorMsg.AddRange(this.GameCommonData.LoadGuanzhiKind(commonConn, this));
                 UsingOwnCommonData = false;
-            }*/
+            }
             try
             {
                 errorMsg.AddRange(this.GameCommonData.LoadPersonGeneratorSetting(DbConnection, this));
@@ -3368,6 +3368,12 @@
                 }
 
                 person.Skills.LoadFromString(this.GameCommonData.AllSkills, reader["Skills"].ToString());
+                try
+                {
+                    
+                    errors.AddRange(person.LoadGuanzhiFromString(reader["Guanzhi"].ToString(), this.GameCommonData.AllGuanzhis));
+                }
+                catch { }
                 /*
                 try
                 {
@@ -5854,6 +5860,7 @@
                     row["InjureRate"] = person.InjureRate;
                     row["Battle"] = person.Battle == null ? -1 : person.Battle.ID;
                     row["BattleSelfDamage"] = person.BattleSelfDamage;
+                    row["Guanzhi"] = person.SaveGuanzhiToString();
                     row.EndEdit();
                     dataSet.Tables["Person"].Rows.Add(row);
                 }

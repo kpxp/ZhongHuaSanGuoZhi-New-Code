@@ -6,15 +6,10 @@
 
     public class GuanzhiKind : GameObject
     {
-        /*
-        public bool Combat { get; set; }
         public int ID { get; set; }
         public string Name { get; set; }
         public int StudyDay { get; set; }
         public int SuccessRate { get; set; }
-
-        */
-        
     }
 }
 

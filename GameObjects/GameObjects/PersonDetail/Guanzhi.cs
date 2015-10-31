@@ -9,7 +9,7 @@
 
     public class Guanzhi : GameObject
     {
-        /*
+        
         private bool combat;
 
         public ConditionTable Conditions = new ConditionTable();
@@ -131,18 +131,7 @@
             return this.Influences.GetInfluenceList();
         }
 
-        public bool Combat
-        {
-            get
-            {
-                return this.combat;
-            }
-            set
-            {
-                this.combat = value;
-            }
-        }
-
+        
         public int ConditionCount
         {
             get
@@ -253,6 +242,6 @@
                 guanzhis[g.Kind].Add(g);
             }
             return guanzhis;
-        }*/
+        }
     }
 }

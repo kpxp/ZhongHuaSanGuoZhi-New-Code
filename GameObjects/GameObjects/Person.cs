@@ -192,7 +192,7 @@
         private Dictionary<Person, int> relations = new Dictionary<Person, int>();
         public List<Title> RealTitles = new List<Title>();
 
-        //public List<Guanzhi> RealGuanzhis = new List<Guanzhi>();
+        public List<Guanzhi> RealGuanzhis = new List<Guanzhi>();
 
         public MilitaryKindTable UniqueMilitaryKinds = new MilitaryKindTable();
         public TitleTable UniqueTitles = new TitleTable();
@@ -374,7 +374,7 @@
                 return result;
             }
         }
-        /*
+        
         public List<Guanzhi> Guanzhis
         {
             get
@@ -386,8 +386,8 @@
                 }
                 return result;
             }
-        }*/
-
+        }
+        
         public int TotalTitleLevel
         {
             get
@@ -400,7 +400,7 @@
                 return result;
             }
         }
-        /*
+        
         public Guanzhi getGuanzhiOfKind(GuanzhiKind kind)
         {
             foreach (Guanzhi g in this.Guanzhis)
@@ -412,7 +412,7 @@
             }
             return null;
         }
-        */
+        
 
         public Title getTitleOfKind(TitleKind kind)
         {
@@ -685,7 +685,9 @@
 
         public event CreateSister OnCreateSister;
 
-        /*
+
+       
+
         public List<string > LoadGuanzhiFromString(String s, GuanzhiTable allGuanzhis)
         {
             List<string> errorMsg = new List<string>();
@@ -722,7 +724,7 @@
             }
             return s;
         }
-        */
+        
 
         public List<string> LoadTitleFromString(String s, TitleTable allTitles)
         {
@@ -3345,7 +3347,7 @@
             this.ManualStudy = false;
         }
 
-        /*
+        
         public bool HasHigherLevelGuazhi(Guanzhi guanzhi)
         {
             List<Guanzhi> oldGuanzhis = new List<Guanzhi> (this.RealGuanzhis);
@@ -3388,7 +3390,7 @@
 
             }
         }
-        */
+        
 
         public bool HasHigherLevelTitle(Title title)
         {
@@ -5868,12 +5870,12 @@
             }
         }
 
-        /*
+        
         public bool HasGuanzhi()
         {
             return this.Guanzhis.Count > 0;
         }
-        */
+        
 
         public bool HasTitle()
         {
@@ -5907,7 +5909,7 @@
             }
             return "";
         }
-        /*
+        
         public String GuanzhiName(int kind)
         {
             foreach (Guanzhi g in this.Guanzhis)
@@ -5918,7 +5920,7 @@
                 }
             }
             return "";
-        }*/
+        }
 
 
         public String StuntList
