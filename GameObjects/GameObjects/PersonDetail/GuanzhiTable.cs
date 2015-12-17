@@ -3,7 +3,7 @@
     using GameObjects;
     using System;
     using System.Collections.Generic;
-
+    /*
     public class GuanzhiTable
     {
         
@@ -87,5 +87,5 @@
                 return this.Guanzhis.Count;
             }
         }
-    }
+    }*/
 }

@@ -2714,6 +2714,15 @@
             OleDbConnection commonConn = new OleDbConnection(commonConnString);
 
             UsingOwnCommonData = true;
+           /* try
+            {
+                errorMsg.AddRange(this.GameCommonData.LoadGuanzhiKind(DbConnection, this));
+            }
+            catch
+            {
+                errorMsg.AddRange(this.GameCommonData.LoadGuanzhiKind(commonConn, this));
+                UsingOwnCommonData = false;
+            }
             try
             {
                 errorMsg.AddRange(this.GameCommonData.LoadGuanzhi(DbConnection, this));
@@ -2723,15 +2732,7 @@
                 errorMsg.AddRange(this.GameCommonData.LoadGuanzhi(commonConn, this));
                 UsingOwnCommonData = false;
             }
-            try
-            {
-                errorMsg.AddRange(this.GameCommonData.LoadGuanzhiKind(DbConnection, this));
-            }
-            catch
-            {
-                errorMsg.AddRange(this.GameCommonData.LoadGuanzhiKind(commonConn, this));
-                UsingOwnCommonData = false;
-            }
+            */
             try
             {
                 errorMsg.AddRange(this.GameCommonData.LoadPersonGeneratorSetting(DbConnection, this));
@@ -3203,6 +3204,7 @@
                 {
                     errors.AddRange(person.UniqueMilitaryKinds.LoadFromString(this.GameCommonData.AllMilitaryKinds, reader["UniqueMilitaryKinds"].ToString()));
                     errors.AddRange(person.UniqueTitles.LoadFromString(this.GameCommonData.AllTitles, reader["UniqueTitles"].ToString()));
+                    //errors.AddRange(person.Guanzhis.LoadFromString(this.GameCommonData.AllTitles, reader["Guanzhis"].ToString()));
                 }
                 catch 
                 {
@@ -3368,13 +3370,13 @@
                 }
 
                 person.Skills.LoadFromString(this.GameCommonData.AllSkills, reader["Skills"].ToString());
-                try
+               /* try
                 {
-                    
-                    errors.AddRange(person.LoadGuanzhiFromString(reader["Guanzhi"].ToString(), this.GameCommonData.AllGuanzhis));
+
+                    errors.AddRange(person.LoadGuanzhiFromString(reader["Guanzhi"].ToString(), this.GameCommonData.AllTitles));
                 }
                 catch { }
-                /*
+                
                 try
                 {
                     errors.AddRange(person.LoadGuanzhiFromString(reader["Guanzhi"].ToString(), this.GameCommonData.AllGuanzhis));
@@ -5860,7 +5862,7 @@
                     row["InjureRate"] = person.InjureRate;
                     row["Battle"] = person.Battle == null ? -1 : person.Battle.ID;
                     row["BattleSelfDamage"] = person.BattleSelfDamage;
-                    row["Guanzhi"] = person.SaveGuanzhiToString();
+                   // row["Guanzhis"] = person.Guanzhis.SaveToString();
                     row.EndEdit();
                     dataSet.Tables["Person"].Rows.Add(row);
                 }

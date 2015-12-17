@@ -6,7 +6,7 @@
     using GameObjects.TroopDetail;
     using System;
     using System.Collections.Generic;
-
+    /*
     public class Guanzhi : GameObject
     {
         
@@ -72,7 +72,7 @@
 
             return true;
         }
-
+        /*
         public bool CheckLimit(Person person)
         {
              if (person.BelongedFaction != null && person.BelongedFaction.PersonCount > this.FactionLimit)
@@ -120,7 +120,7 @@
            
             return CheckLimit(person);
         }
-
+        
         public GameObjectList GetConditionList()
         {
             return this.Conditions.GetConditionList();
@@ -244,4 +244,5 @@
             return guanzhis;
         }
     }
+    */
 }

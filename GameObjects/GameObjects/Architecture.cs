@@ -4143,63 +4143,7 @@
 
         }
 
-        /*
-        public void AutoCreatePerson()
-        {
-            this.BelongedFaction.CreatePersonTimes ++;
-            Person r = new Person();
-            
-            //if (this.AutoCreatePersonAvail())
-            //{
-                if(this.BelongedFaction.PersonCount < 5)
-                {
-                    r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
-                    this.ZhaoXian(r);
-                    this.BelongedFaction.YearOfficialLimit ++;
-                    
-                }
-                
-                else if(GameObject.Random((int)(10000 * Math.Pow(this.BelongedFaction.PersonCount, Parameters.SearchPersonArchitectureCountPower))) <
-                    GlobalVariables.CreateRandomOfficerChance * 100)
-                {
-                    r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
-                    this.ZhaoXian(r);
-                    this.BelongedFaction.YearOfficialLimit ++;
-                }
-
-                else if (!base.Scenario.IsPlayer(this.BelongedFaction) &&
-                    GameObject.Random((int)(10000 * Math.Pow(this.BelongedFaction.PersonCount, Parameters.SearchPersonArchitectureCountPower))) <
-                    GlobalVariables.CreateRandomOfficerChance * 100 * (Parameters.AIExtraPerson - 1))
-                {
-                    r = Person.createPerson(base.Scenario, this, this.BelongedFaction.Leader, true);
-                    this.ZhaoXian(r);
-                    this.BelongedFaction.YearOfficialLimit ++;
-
-                    GameObjectList ideals = base.Scenario.GameCommonData.AllIdealTendencyKinds;
-                    IdealTendencyKind minIdeal = null;
-                    foreach (IdealTendencyKind itk in ideals)
-                    {
-                        if (minIdeal == null || itk.Offset < minIdeal.Offset)
-                        {
-                            minIdeal = itk;
-                        }
-                    }
-
-                    r.IdealTendency = minIdeal;
-                    r.Ideal = (this.BelongedFaction.Leader.Ideal + GameObject.Random(minIdeal.Offset * 2 + 1) - minIdeal.Offset) % 150;
-
-
-                }
-
-            
-            
-                
-            
-                //this.DecreaseFund(CreatePersonCost);
-                
-        }
-        */
-
+        
         public event Zhaoxian OnZhaoxian; //招贤
         public delegate void Zhaoxian(Person p, Person q);
         public void ZhaoXian(Person person)
@@ -4298,47 +4242,33 @@
                 return (this.NoFactionOfficers.Count);
             }
         }
-        /*
-        
 
-        public int TotalOfficerUntiredMerit
-        {
-            get 
-            {
-                int num = 0;
-                foreach (Person p in this.NoFactionOfficers)
-                {
-                    num += p.UntiredMerit;
-                }
-                return num ;
-            }
-        }
-
-
-        
-         
-          
-        /*
+      
         public PersonList Kerenmingdeguanyuan
         {
             get
             {
                 PersonList list = new PersonList();
-                List <Guanzhi> allGuanzhis = 
+               
                 foreach (Person p in this.Persons)
                 {
-                    foreach (Guanzhi g in base.Scenario.GameCommonData.AllGuanzhis)
+                    if (p != this.BelongedFaction.Leader && p.GetAppointableTitleList().Count > 0)
                     {
-                        if (p != this.BelongedFaction.Leader && p.AwardableGuanzhis.Count > 0 && p.Guanzhis.Count <= base.Scenario.GameCommonData.AllGuanzhiKinds.Count)
-                        {
-                            list.Add(p);
-                        }
+                        list.Add(p);
                     }
-
                 }
                 return list;
             }
-        }*/
+        }
+
+        public bool CanAppoint()
+        {
+            if (this.BelongedFaction != null && this.Kerenmingdeguanyuan.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public bool SelfBecomeEmperorAvail()
         {

@@ -845,6 +845,31 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        private void FrameFunction_Architecture_AfterGetAppointableTitle() // 任命官职
+        {
+            this.CurrentGameObjects = this.CurrentPerson.AppointableTitleList.GetSelectedList();
+            if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
+            {
+                this.CurrentPerson.AwardTitle(this.CurrentGameObjects[0] as Title);
+                
+               // this.mainGameScreen.PlayNormalSound("GameSound/Tactics/Outside.wav");
+            }
+        }
+
+        private void FrameFunction_Architecture_AfterGetAppointPerson() // 任命官职
+        {
+            this.CurrentGameObjects = this.CurrentArchitecture.Kerenmingdeguanyuan.GetSelectedList();
+            if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
+            {
+                Person person = this.CurrentGameObjects[0] as Person;
+                if (person != null)
+                {
+                    this.CurrentPerson = person;
+                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetAppointableTitle, false, true, true, false, person.GetAppointableTitleList(), null, "任命官职", "");
+                }
+            }
+        }
+
         private void FrameFunction_Architecture_AfterGetTrainingMilitary()  //修改后未用
         {
             GameObjectList selectedList = this.CurrentArchitecture.TrainingMilitaryList.GetSelectedList();
@@ -1057,6 +1082,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case FrameFunction.GetStudyTitle:
                     this.FrameFunction_Architecture_AfterGetStudyTitle();
+                    break;
+
+                case FrameFunction.GetAppointPerson://封官
+                    this.FrameFunction_Architecture_AfterGetAppointPerson();
+                    break;
+
+                case FrameFunction.GetAppointableTitle: //封官
+                    this.FrameFunction_Architecture_AfterGetAppointableTitle();
                     break;
 
                 case FrameFunction.GetStudyStuntPerson:

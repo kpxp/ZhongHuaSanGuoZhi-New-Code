@@ -24,6 +24,12 @@
         public ConditionTable ArchitectureConditions = new ConditionTable();
         public ConditionTable FactionConditions = new ConditionTable();
 
+        public bool ManualAward
+        {
+            get;
+            set;
+        }
+
         public int AutoLearn
         {
             get;

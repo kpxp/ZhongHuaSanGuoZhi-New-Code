@@ -766,11 +766,11 @@
         public virtual void AutoLearnTitle(Person p, Person courier, Title title)
         {
         }
-
+        /*
         public virtual void AutoAwardGuanzhi(Person p, Person courier, Guanzhi guanzhi)
         {
         }
-
+        */
         public virtual void ApplyEvent(Event e, Architecture a)
         {
         }

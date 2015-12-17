@@ -178,6 +178,9 @@
         public GameObjectList StudySkillList = new GameObjectList();
         public GameObjectList StudyStuntList = new GameObjectList();
         public GameObjectList StudyTitleList = new GameObjectList();
+
+        public GameObjectList AppointableTitleList = new GameObjectList();//封官列表
+
         public StuntTable Stunts = new StuntTable();
         private string surName;
         private float tacticsExperience;
@@ -192,7 +195,8 @@
         private Dictionary<Person, int> relations = new Dictionary<Person, int>();
         public List<Title> RealTitles = new List<Title>();
 
-        public List<Guanzhi> RealGuanzhis = new List<Guanzhi>();
+        //public List<Title> RealGuanzhis = new List<Title>();
+       // public TitleTable Guanzhis = new TitleTable();
 
         public MilitaryKindTable UniqueMilitaryKinds = new MilitaryKindTable();
         public TitleTable UniqueTitles = new TitleTable();
@@ -374,7 +378,7 @@
                 return result;
             }
         }
-        
+        /*
         public List<Guanzhi> Guanzhis
         {
             get
@@ -387,7 +391,8 @@
                 return result;
             }
         }
-        
+        */
+         
         public int TotalTitleLevel
         {
             get
@@ -400,7 +405,7 @@
                 return result;
             }
         }
-        
+        /*
         public Guanzhi getGuanzhiOfKind(GuanzhiKind kind)
         {
             foreach (Guanzhi g in this.Guanzhis)
@@ -412,7 +417,7 @@
             }
             return null;
         }
-        
+        */
 
         public Title getTitleOfKind(TitleKind kind)
         {
@@ -686,19 +691,19 @@
         public event CreateSister OnCreateSister;
 
 
-       
 
-        public List<string > LoadGuanzhiFromString(String s, GuanzhiTable allGuanzhis)
+        /*
+        public List<string> LoadGuanzhiFromString(String s, TitleTable allTitles)
         {
             List<string> errorMsg = new List<string>();
             char[] separator = new char[] { ' ', '\n', '\r', '\t' };
             string[] strArray = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            Guanzhi guanzhi = null ;
+            Title guanzhi = null ;
             try
             {
                 for (int i = 0; i < strArray.Length; i++)
                 {
-                    if (allGuanzhis.Guanzhis.TryGetValue(int.Parse(strArray[i]), out guanzhi))
+                    if (allTitles.Titles.TryGetValue(int.Parse(strArray[i]), out title))
                     {
                         this.RealGuanzhis.Add(guanzhi);
                     }
@@ -714,7 +719,7 @@
             }
             return errorMsg;
         }
-
+        
         public String SaveGuanzhiToString()
         {
             String s = "";
@@ -724,7 +729,7 @@
             }
             return s;
         }
-        
+        */
 
         public List<string> LoadTitleFromString(String s, TitleTable allTitles)
         {
@@ -3347,7 +3352,7 @@
             this.ManualStudy = false;
         }
 
-        
+        /*
         public bool HasHigherLevelGuazhi(Guanzhi guanzhi)
         {
             List<Guanzhi> oldGuanzhis = new List<Guanzhi> (this.RealGuanzhis);
@@ -3390,7 +3395,7 @@
 
             }
         }
-        
+        */
 
         public bool HasHigherLevelTitle(Title title)
         {
@@ -3435,6 +3440,21 @@
             }
         }
 
+        public void AwardTitle(Title title)
+        {
+            List<Title> oldTitles = new List<Title>(this.RealTitles);
+            foreach (Title t in oldTitles)
+            {
+                if (t.Kind == title.Kind)
+                {
+                    t.Influences.PurifyInfluence(this, GameObjects.Influences.Applier.Title, t.ID, false);
+                    this.RealTitles.Remove(t);
+                }
+            }
+            this.RealTitles.Add(title);
+            base.Scenario.GameScreen.xianshishijiantupian(this.BelongedFaction.Leader, this.Name, "AwardTitle", "AwardTitle.jpg", "AwardTitle.wav", title.Name, true);
+            base.Scenario.YearTable.addAwardTitleEntry(base.Scenario.Date, this, title);
+        }
 
         public void DoStudyTitle()
         {
@@ -3584,6 +3604,19 @@
                 }
             }
             return StudyTitleList;
+        }
+
+        public GameObjectList GetAppointableTitleList()
+        {
+            this.AppointableTitleList.Clear();
+            foreach (Title title in base.Scenario.GameCommonData.AllTitles.Titles.Values)
+            {
+                if (!this.RealTitles.Contains(title) && title.ManualAward && title.CanLearn(this))        
+                {
+                    this.AppointableTitleList.Add(title);
+                }
+            }
+            return AppointableTitleList;
         }
 
         public int GetWorkAbility(ArchitectureWorkKind workKind)
@@ -5870,12 +5903,12 @@
             }
         }
 
-        
+        /*
         public bool HasGuanzhi()
         {
             return this.Guanzhis.Count > 0;
         }
-        
+        */
 
         public bool HasTitle()
         {
@@ -5909,7 +5942,7 @@
             }
             return "";
         }
-        
+        /*
         public String GuanzhiName(int kind)
         {
             foreach (Guanzhi g in this.Guanzhis)
@@ -5921,7 +5954,7 @@
             }
             return "";
         }
-
+        */
 
         public String StuntList
         {

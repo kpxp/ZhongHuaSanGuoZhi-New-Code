@@ -501,6 +501,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.CurrentArchitecture.RecallMayor();
                     break;
 
+                case ContextMenuResult.Person_Appointment_AppointOfficer://任命官员
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetAppointPerson, false, true, true, false, this.CurrentArchitecture.Kerenmingdeguanyuan, null, "册封", "");
+                    break;
+
                 case ContextMenuResult.Person_Hire:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.PersonManualHire, false, true, true, false, this.CurrentArchitecture.NoFactionPersons, null, "录用", "");
 

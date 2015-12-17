@@ -53,8 +53,8 @@
         public TitleTable AllTitles = new TitleTable();
         public TitleKindTable AllTitleKinds = new TitleKindTable();
 
-        public GuanzhiTable AllGuanzhis = new GuanzhiTable();
-        public GuanzhiKindTable AllGuanzhiKinds = new GuanzhiKindTable();
+       // public GuanzhiTable AllGuanzhis = new GuanzhiTable();
+        //public GuanzhiKindTable AllGuanzhiKinds = new GuanzhiKindTable();
 
         public AnimationTable AllTroopAnimations = new AnimationTable();
         public EventEffectKindTable AllTroopEventEffectKinds = new EventEffectKindTable();
@@ -116,8 +116,8 @@
             this.AllTileAnimations.Clear();
             this.AllTitles.Clear();
             this.AllTitleKinds.Clear();
-            this.AllGuanzhis.Clear();
-            this.AllGuanzhiKinds.Clear();
+            //this.AllGuanzhis.Clear();
+            //this.AllGuanzhiKinds.Clear();
             this.AllTroopAnimations.Clear();
             this.AllTroopEventEffectKinds.Clear();
             this.AllTroopEventEffects.Clear();
@@ -789,7 +789,7 @@
             return errorMsg;
         }
 
-        
+        /*
         public List<string> LoadGuanzhiKind(OleDbConnection connection, GameScenario scen)
         {
             connection.Open();
@@ -810,6 +810,9 @@
             catch
             {
                 GuanzhiKind gk = new GuanzhiKind();
+                gk.Scenario = scen;
+                gk.ID = 1;
+                gk.StudyDay = 30;
                 this.AllGuanzhiKinds.AddGuanzhiKind(gk);
             }
             connection.Close();
@@ -871,7 +874,7 @@
             connection.Close();
             return errorMsg;
         }
-          
+         */ 
 
         public List<string> LoadTitleKind(OleDbConnection connection, GameScenario scen)
         {
@@ -992,6 +995,14 @@
                 catch
                 {
                     title.GenerationChance[9] = title.GenerationChance[7];
+                }
+                try
+                {
+                    title.ManualAward = (bool)reader["ManualAward"];
+                }
+                catch
+                {
+                    title.ManualAward = (title.Kind.ID == 5 || title.Kind.ID == 10) ? true : false;
                 }
                
                 title.RelatedAbility = (int)reader["Ability"];
@@ -1712,17 +1723,17 @@
             List<string> errorMsg = new List<string>();
 
             OleDbConnection connection = new OleDbConnection(connectionString);
-
+            /*try
+            {
+                errorMsg.AddRange(this.LoadGuanzhiKind(connection, scen));
+            }
+            catch { }
             try
             {
                 errorMsg.AddRange(this.LoadGuanzhi(connection, scen));
             }
             catch { }
-            try
-            {
-                errorMsg.AddRange(this.LoadGuanzhiKind(connection, scen));
-            }
-            catch { }
+            */
             try
             {
                 errorMsg.AddRange(this.LoadPersonGeneratorSetting(connection, scen));
@@ -1871,12 +1882,7 @@
                     new OleDbCommand("drop table PersonGeneratorType", selectConnection).ExecuteNonQuery();
                 }
                 catch { }
-                try
-                {
-                    new OleDbCommand("drop table Guanzhi", selectConnection).ExecuteNonQuery();
-                    new OleDbCommand("drop table GuanzhiKind", selectConnection).ExecuteNonQuery();
-                }
-                catch { }
+                
                 
                 selectConnection.Close();
             }
@@ -2775,6 +2781,7 @@
                     row["MapLimit"] = i.MapLimit;
                     row["FactionLimit"] = i.FactionLimit;
                     row["InheritChance"] = i.InheritChance;
+                    row["ManualAward"] = i.ManualAward;
                     /*try
                     {
                         row["AIPersonValue"] = i.AIPersonValue;
@@ -2814,7 +2821,7 @@
                 adapter.Update(dataSet, "TitleKind");
                 dataSet.Clear();
 
-
+                /*
                 try
                 {
                     new OleDbCommand("Delete from Guanzhi", selectConnection).ExecuteNonQuery();
@@ -2889,7 +2896,7 @@
                 {
                     // ignore
                 }
-
+                */
                 new OleDbCommand("Delete from TroopAnimation", selectConnection).ExecuteNonQuery();
                 adapter = new OleDbDataAdapter("Select * from TroopAnimation", selectConnection);
                 builder = new OleDbCommandBuilder(adapter);

@@ -3,7 +3,7 @@
     using GameObjects;
     using System;
     using System.Collections.Generic;
-
+    /*
     public class GuanzhiKindTable
     {
         
@@ -74,6 +74,6 @@
         }
 
         
-    }
+    }*/
 }
 
