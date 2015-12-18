@@ -164,7 +164,7 @@
             {
                 foreach (Person p in i.Value)
                 {
-                    if (p != null && p.ID >= 7000 && p.ID < 8000)
+                    if (p != null /*&& p.ID >= 7000 && p.ID < 8000*/)
                     {
                         bool ok = true;
                         if (this.personCond.ContainsKey(i.Key))
