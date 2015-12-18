@@ -101,6 +101,7 @@
                 <MenuItem ID="10" Name="Appointment" DisplayName="任免">
                     <MenuItem ID="1" Name="AppointMayor" DisplayName="任命县令" DisplayIfTrue="AppointMayorAvail" />
                     <MenuItem ID="2" Name="RecallMayor" DisplayName="罢免县令" DisplayIfTrue="RecallMayorAvail" />
+                    <MenuItem ID="3" Name="AppointOfficer" DisplayName="授予官职" DisplayIfTrue="CanAppoint" /> 
                </MenuItem> 
             </MenuItem>
             <MenuItem ID="6" Name="Tactics" DisplayName="策略">

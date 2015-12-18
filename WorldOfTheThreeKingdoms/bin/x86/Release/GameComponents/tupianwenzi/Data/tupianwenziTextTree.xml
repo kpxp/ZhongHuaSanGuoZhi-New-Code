@@ -748,9 +748,8 @@ Color="4294967295"></Leaf>
      </Branch>
  <Branch Name="AwardTitle"> 
      <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-     <Leaf Text="被授予" Color="4294967295"></Leaf> 
+     <Leaf Text="被封为" Color="4294967295"></Leaf> 
      <Leaf Property="TextDestinationString" Color="4286644223"></Leaf>
-     <Leaf Text="称号。" Color="4294967295"></Leaf>
   </Branch>
 </Root>
 
