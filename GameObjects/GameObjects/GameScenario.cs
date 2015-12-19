@@ -883,7 +883,7 @@
             this.GeneratorOfTileAnimation.RemoveTileAnimation(TileAnimationKind.火焰, position, true);
         }
 
-        private void CreateNewFaction(Person leader)
+        public void CreateNewFaction(Person leader)
         {
             if (leader.Status != PersonStatus.Normal && leader.Status != PersonStatus.NoFaction) return;
 
