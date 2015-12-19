@@ -2739,7 +2739,7 @@
             {
                 if (GameObject.Random(10) == 0 && (this.Capital != null) && this.Capital.SelectPrinceAvail())
                 {
-                    Person person = this.Leader.ChildrenCanBeSelectedAsPrince()[0] as Person;
+                    Person person = this.Leader.PrinceCandicate()[0] as Person;
                     this.PrinceID = person.ID;
                     this.Capital.DecreaseFund(Parameters.SelectPrinceCost);
                     this.Capital.SelectPrince(person); //AI立储年表和报告

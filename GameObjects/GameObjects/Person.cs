@@ -7235,22 +7235,22 @@
             }
         }
 
-        public PersonList ChildrenCanBeSelectedAsPrince()
+        public PersonList PrinceCandicate()
         {
-            PersonList haiziliebiao = new PersonList();
+            PersonList candicate = new PersonList();
             foreach (Person person in this.Scenario.Persons)
             {
-                if (person.Alive && person.Available && person.Father == this && person.BelongedCaptive == null && person.sex == false 
+                if (person.Alive && person.Available && person.BelongedCaptive == null && person.sex == false 
                     && person.BelongedFaction == this.BelongedFaction && person.BelongedFaction != null)
                 {
-                    haiziliebiao.Add(person);
+                    candicate.Add(person);
                 }
             }
-            haiziliebiao.PropertyName = "YearBorn";
-            haiziliebiao.IsNumber = true;
-            haiziliebiao.SmallToBig = true;
-            haiziliebiao.ReSort();
-            return haiziliebiao;
+            candicate.PropertyName = "YearBorn";
+            candicate.IsNumber = true;
+            candicate.SmallToBig = true;
+            candicate.ReSort();
+            return candicate;
 
         }
 
