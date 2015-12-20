@@ -573,7 +573,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                    // military.BelongedArchitecture = architecture;
                     military.StartingArchitecture = this.CurrentArchitecture;
                     military.TargetArchitecture = architecture;
-                    military.ArrivingDays = Math.Max (1,(int)Math.Ceiling((double)gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea, architecture.ArchitectureArea) / 2.5));
+                    military.ArrivingDays = Math.Max (1,(int)Math.Ceiling((double)gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea, architecture.ArchitectureArea) / 5));
                     this.CurrentArchitecture.RemoveMilitary(military);
                     this.CurrentArchitecture.BelongedFaction.TransferingMilitaries.Add(military);
                     this.CurrentArchitecture.BelongedFaction.TransferingMilitaryCount++;
