@@ -3452,7 +3452,10 @@
                 }
             }
             this.RealTitles.Add(title);
-            base.Scenario.GameScreen.xianshishijiantupian(this.BelongedFaction.Leader, this.Name, "AwardTitle", "AwardTitle.jpg", "AwardTitle.wav", title.Name, true);
+            if (base.Scenario.IsPlayer(this.BelongedFaction))
+            {
+                base.Scenario.GameScreen.xianshishijiantupian(this.BelongedFaction.Leader, this.Name, "AwardTitle", "AwardTitle.jpg", "AwardTitle.wav", title.Name, true);
+            }
             base.Scenario.YearTable.addAwardTitleEntry(base.Scenario.Date, this, title);
         }
 

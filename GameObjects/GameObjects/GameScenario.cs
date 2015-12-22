@@ -1132,7 +1132,7 @@
 
             this.militaryKindEvent();
             this.titleDayEvent();
-            //this.guanzhiDayEvent();
+            this.guanzhiDayEvent();
 
 
             //this.GameProgressCaution.Text = "运行人物";
@@ -1190,17 +1190,26 @@
                 }
             }
         }
-        /*
+        
         private void guanzhiDayEvent()
         {
-            foreach (Guanzhi g in this.GameCommonData.AllGuanzhis.Guanzhis.Values)
+
+            List<Title> ManualAwardTitles = new List<Title>();
+            foreach (Title t in this.GameCommonData.AllTitles.Titles.Values)
             {
-                if (GameObject.Random (10) == 0)
+                if (t.ManualAward)
+                {
+                    ManualAwardTitles.Add(t);
+                }
+            }
+            foreach (Title t in ManualAwardTitles)
+            {
+                if (t.AutoLearn > 0 && GameObject.Random(t.AutoLearn) == 0)
                 {
                     PersonList candidates = new PersonList();
-                    if (g.Persons.Count > 0)
+                    if (t.Persons.Count > 0)
                     {
-                        foreach (Person p in g.Persons)
+                        foreach (Person p in t.Persons)
                         {
                             if (p.Available && p.Alive)
                             {
@@ -1214,20 +1223,15 @@
                     }
                     foreach (Person p in candidates)
                     {
-                        if (!p.HasHigherLevelGuazhi(g) && g.CanAward(p) && g.AutoAward)
+                        if (!this.IsPlayer(p.BelongedFaction ) && !p.HasHigherLevelTitle(t) && t.CanLearn(p, true))
                         {
-                            p.AwardGuanzhi(g);
-                            this.GameScreen.AutoAwardGuanzhi(p, courier, g);
-                        }
-                        else if (p.HasGuanzhi() && g.WillLose(p))
-                        {
-                            p.LoseGuanzhi();
+                            p.AwardTitle(t);
                         }
                     }
                 }
             }
         }
-        */
+        
 
         private static Person courier = null;
         private void titleDayEvent()
@@ -1257,7 +1261,7 @@
                     }
                     foreach (Person p in candidates)
                     {
-                        if (!p.HasHigherLevelTitle(t) && t.CanLearn(p, true))
+                        if (!p.HasHigherLevelTitle(t) && t.CanLearn(p, true) && !t.ManualAward)
                         {
                             p.LearnTitle(t);
                             this.GameScreen.AutoLearnTitle(p, courier, t);
