@@ -1002,7 +1002,7 @@
                 }
                 catch
                 {
-                    title.ManualAward = (title.Kind.ID == 5 || title.Kind.ID == 10) ? true : false;
+                    title.ManualAward = ((title.Kind.ID == 5 || title.Kind.ID == 10 ) && title.Level >= 7) ? true : false;
                 }
                
                 title.RelatedAbility = (int)reader["Ability"];
