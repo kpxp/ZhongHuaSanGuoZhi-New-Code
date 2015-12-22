@@ -147,6 +147,8 @@
 
         public static bool PermitQuanXiang = true;
 
+        public static bool PermitManualAwardTitleAutoLearn = false;
+
         public const string cryptKey = "A3g0c3%2";
 
         public static List<String> getFieldsExcludedFromSave()
@@ -837,6 +839,15 @@
             {
                 exception = exception24;
                 throw new Exception("PermitQuanXiang:\n" + exception.ToString());
+            }
+            try
+            {
+                PermitManualAwardTitleAutoLearn = bool.Parse(nextSibling.Attributes.GetNamedItem("PermitManualAwardTitleAutoLearn").Value);
+            }
+            catch (Exception exception24)
+            {
+                exception = exception24;
+                throw new Exception("PermitManualAwardTitleAutoLearn:\n" + exception.ToString());
             }
             return true;
         }
