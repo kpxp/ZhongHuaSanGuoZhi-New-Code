@@ -7244,7 +7244,7 @@
             foreach (Person person in this.Scenario.Persons)
             {
                 if (person.Alive && person.Available && person.BelongedCaptive == null && person.sex == false 
-                    && person.BelongedFaction == this.BelongedFaction && person.BelongedFaction != null)
+                    && person.BelongedFaction == this.BelongedFaction && person.BelongedFaction != null && person != this.BelongedFaction.Leader)
                 {
                     candicate.Add(person);
                 }
