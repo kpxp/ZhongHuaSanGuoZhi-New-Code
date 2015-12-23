@@ -562,22 +562,27 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
-        internal void FrameFunction_Architecture_AfterGetTransferMilitaryArchitectureBySelecting(Architecture architecture) //运输编队
+        internal void FrameFunction_Architecture_AfterGetTransferMilitaryArchitectureBySelecting() //运输编队
         {
-            if (architecture != null && this.CurrentMilitaries.Count > 0)
+            if (this.CurrentArchitecture  != null && this.CurrentMilitaries.Count > 0)
             {
-                foreach (Military military in this.CurrentMilitaries)
+                this.CurrentGameObjects = this.CurrentArchitecture.BelongedFaction.ArchitecturesExcluding(this.CurrentArchitecture).GetSelectedList();
+                if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
                 {
-                    //military.ArrivingDays = this.screen.Scenario.GetTransferFundDays(this.CurrentArchitecture, architecture);
-                   // this.CurrentArchitecture.RemoveMilitary(military);
-                   // military.BelongedArchitecture = architecture;
-                    military.StartingArchitecture = this.CurrentArchitecture;
-                    military.TargetArchitecture = architecture;
-                    military.ArrivingDays = Math.Max (1,(int)Math.Ceiling((double)gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea, architecture.ArchitectureArea) / 5));
-                    this.CurrentArchitecture.RemoveMilitary(military);
-                    this.CurrentArchitecture.BelongedFaction.TransferingMilitaries.Add(military);
-                    this.CurrentArchitecture.BelongedFaction.TransferingMilitaryCount++;
-                
+                    Architecture targetArchitecture = this.CurrentGameObjects[0] as Architecture;
+                    foreach (Military military in this.CurrentMilitaries)
+                    {
+                        //military.ArrivingDays = this.screen.Scenario.GetTransferFundDays(this.CurrentArchitecture, architecture);
+                        // this.CurrentArchitecture.RemoveMilitary(military);
+                        // military.BelongedArchitecture = architecture;
+                        military.StartingArchitecture = this.CurrentArchitecture;
+                        military.TargetArchitecture = targetArchitecture;
+                        military.ArrivingDays = Math.Max(1, (int)Math.Ceiling((double)gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea, targetArchitecture.ArchitectureArea) / 5));
+                        this.CurrentArchitecture.RemoveMilitary(military);
+                        this.CurrentArchitecture.BelongedFaction.TransferingMilitaries.Add(military);
+                        this.CurrentArchitecture.BelongedFaction.TransferingMilitaryCount++;
+
+                    }
                 }
                 this.mainGameScreen.PlayNormalSound("GameSound/Tactics/Outside.wav");
             }
@@ -622,7 +627,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         }
 
 
-        private void FrameFunction_Architecture_MilitaryTransfer() //运输编队
+        private void FrameFunction_Architecture_AfterGetTransferMilitary() //运输编队
         {
             if (this.CurrentArchitecture != null)
             {
@@ -632,7 +637,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     //this.CurrentArchitecture.RemoveMilitary(m);
                     this.CurrentMilitaries = this.CurrentGameObjects.GetList();
-                    this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.MilitaryTransfer));
+                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.GetTransferArchitecture, false, true, true, false, this.CurrentArchitecture.BelongedFaction .ArchitecturesExcluding(this.CurrentArchitecture), null, "运兵", "运兵");
+                    //this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.MilitaryTransfer));
 
 
 
@@ -1044,8 +1050,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.FrameFunction_Architecture_PersonTransfer();
                     break;
 
-                case FrameFunction.MilitaryTransfer://运输编队
-                    this.FrameFunction_Architecture_MilitaryTransfer();
+                case FrameFunction.GetTransferMilitary://运输编队
+                    this.FrameFunction_Architecture_AfterGetTransferMilitary();
+                    break;
+
+                case FrameFunction.GetTransferArchitecture:
+                    this.FrameFunction_Architecture_AfterGetTransferMilitaryArchitectureBySelecting();
                     break;
 
                 case FrameFunction.PersonConvene:

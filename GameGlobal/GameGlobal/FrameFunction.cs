@@ -92,8 +92,9 @@
         RecallOfficer,//罢免官员
         GetAppointableTitle,
         GetAppointPerson,
-        MilitaryTransfer, //运输编队
+       // MilitaryTransfer, //运输编队
         GetTransferMilitary,//读取运输编队
+        GetTransferArchitecture,
         GetInformationToStop,
         SelectLandLink,
         SelectWaterLink,

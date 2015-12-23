@@ -6766,7 +6766,7 @@
                 return movableMilitaries;
             }
         }
-
+        /*
         public GameArea GetMilitaryTransferArchitectureArea()
         {
             GameArea area = new GameArea();
@@ -6789,7 +6789,7 @@
             }
             return area;
         }
-
+        */
         public GameArea GetPersonTransferArchitectureArea()
         {
 

@@ -716,7 +716,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.selectingLayer.FromArea = this.CurrentArchitecture.ArchitectureArea;
                     }
                     break;
-
+                    /*
                 case SelectingUndoneWorkKind.MilitaryTransfer: //运输编队
                     if (this.CurrentArchitecture != null)
                     {
@@ -727,7 +727,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.selectingLayer.FromArea = this.CurrentArchitecture.ArchitectureArea;
                     }
                     break;
-
+                    */
                 
 
                 case SelectingUndoneWorkKind.InformationPosition:
@@ -973,7 +973,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                     }
                     return;
-
+                    /*
                 case SelectingUndoneWorkKind.MilitaryTransfer: //运输编队
                     if (!this.selectingLayer.Canceled && (this.CurrentMilitaries != null))
                     {
@@ -987,10 +987,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             {
                                 architectureByPosition.AddMilitary(military);
                                 this.CurrentArchitecture.RemoveMilitary(military);
-                            }*/
+                            }
                         }
                     }
                     return;
+                     */
 
 
                 case SelectingUndoneWorkKind.InformationPosition:
