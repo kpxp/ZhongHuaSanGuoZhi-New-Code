@@ -876,6 +876,35 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        private void FrameFunction_Architecture_AfterGetRecallablePerson() // 免除职位
+        {
+            this.CurrentGameObjects = this.CurrentArchitecture.RecallableOfficer.GetSelectedList();
+            if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
+            {
+                Person person = this.CurrentGameObjects[0] as Person;
+                if (person != null)
+                {
+                    this.CurrentPerson = person;
+                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetRecallableTitle, false, true, true, false, person.RecallableTitleList(), null, "免除职位", "");
+                }
+            }
+        }
+
+        private void FrameFunction_Architecture_AfterGetRecallableTitle() // 免除职位
+        {
+            this.CurrentGameObjects = this.CurrentPerson.RecallableTitleList().GetSelectedList();
+            if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count > 0))
+            {
+                foreach (Title t in this.CurrentGameObjects)
+                {
+                    this.CurrentPerson.RemoveTitle(t);
+                }
+
+
+                // this.mainGameScreen.PlayNormalSound("GameSound/Tactics/Outside.wav");
+            }
+        }
+
         private void FrameFunction_Architecture_AfterGetTrainingMilitary()  //修改后未用
         {
             GameObjectList selectedList = this.CurrentArchitecture.TrainingMilitaryList.GetSelectedList();
@@ -1100,6 +1129,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case FrameFunction.GetAppointableTitle: //封官
                     this.FrameFunction_Architecture_AfterGetAppointableTitle();
+                    break;
+
+                case FrameFunction.GetRecallablePerson://免官
+                    this.FrameFunction_Architecture_AfterGetRecallablePerson();
+                    break;
+
+                case FrameFunction.GetRecallableTitle: //免官
+                    this.FrameFunction_Architecture_AfterGetRecallableTitle();
                     break;
 
                 case FrameFunction.GetStudyStuntPerson:

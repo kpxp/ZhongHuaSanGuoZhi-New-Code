@@ -89,7 +89,8 @@
         AppointMayor, //任命太守
         DismissOfficer, //遣散
         //AppointOfficer,//任命官员
-        RecallOfficer,//罢免官员
+        GetRecallablePerson,//罢免官员
+        GetRecallableTitle,
         GetAppointableTitle,
         GetAppointPerson,
        // MilitaryTransfer, //运输编队

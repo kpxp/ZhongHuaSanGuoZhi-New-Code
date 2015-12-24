@@ -3459,6 +3459,11 @@
             base.Scenario.YearTable.addAwardTitleEntry(base.Scenario.Date, this, title);
         }
 
+        public void RemoveTitle(Title title)
+        {
+            this.RealTitles.Remove(title);
+        }
+
         public void DoStudyTitle()
         {
             this.OutsideTask = OutsideTaskKind.无;
@@ -3620,6 +3625,19 @@
                 }
             }
             return AppointableTitleList;
+        }
+
+        public GameObjectList RecallableTitleList()
+        {
+            GameObjectList list = new GameObjectList();
+            foreach (Title title in this.RealTitles)
+            {
+                if ((title.Kind.ID == 5 || title.Kind.ID == 10 || title.Kind.ID == 20 || title.Kind.ID == 21) && title.AutoLearn > 0)
+                {
+                    list.Add(title);
+                }
+            }
+            return list;
         }
 
         public int GetWorkAbility(ArchitectureWorkKind workKind)

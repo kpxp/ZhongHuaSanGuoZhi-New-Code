@@ -4262,9 +4262,37 @@
             }
         }
 
+       
+
         public bool CanAppoint()
         {
             if (this.BelongedFaction != null && this.Kerenmingdeguanyuan.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public PersonList RecallableOfficer
+        {
+            get 
+            {
+                PersonList list = new PersonList();
+
+                foreach (Person p in this.Persons)
+                {
+                    if (p != this.BelongedFaction.Leader && p.RecallableTitleList().Count > 0)
+                    {
+                        list.Add(p);
+                    }
+                }
+                return list;
+            }
+        }
+
+        public bool RecallOfficerAvail()
+        {
+            if (this.BelongedFaction != null && this.RecallableOfficer.Count > 0)
             {
                 return true;
             }
