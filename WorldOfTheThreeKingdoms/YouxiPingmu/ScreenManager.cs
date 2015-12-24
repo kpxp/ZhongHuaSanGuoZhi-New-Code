@@ -564,7 +564,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         internal void FrameFunction_Architecture_AfterGetTransferMilitaryArchitectureBySelecting() //运输编队
         {
-            if (this.CurrentArchitecture  != null && this.CurrentMilitaries.Count > 0)
+            if (this.CurrentArchitecture != null && this.CurrentMilitaries.Count > 0
+                && this.CurrentArchitecture.Fund >= this.CurrentMilitaries.Count * Parameters.TransferCostPerMilitary && this.CurrentArchitecture.Food >= this.CurrentMilitaries.Count * Parameters.TransferFoodPerMilitary)
             {
                 this.CurrentGameObjects = this.CurrentArchitecture.BelongedFaction.ArchitecturesExcluding(this.CurrentArchitecture).GetSelectedList();
                 if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))

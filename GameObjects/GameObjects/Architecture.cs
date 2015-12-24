@@ -2535,12 +2535,12 @@
 
              if (!this.IsSurrounded() && !destination.IsSurrounded ())
              {
-                 if (list.Count > 0)
+                 if (list.Count > 0 && this.Fund >= list.Count * 2000 && this.Food >= list.Count * 2000)
                  {
                      foreach (Military m in list)
                      {
-                         //this.RemoveMilitary(m);
-                         // m.BelongedArchitecture = destination;
+                         this.DecreaseFund(2000);
+                         this.DecreaseFood(2000);
                          m.StartingArchitecture = this;
                          m.TargetArchitecture = destination;
                          m.ArrivingDays = Math.Max(1,(int)Math.Ceiling((double)this.Scenario.GetDistance(this.ArchitectureArea, destination.ArchitectureArea) / 5));
@@ -2548,6 +2548,7 @@
                          this.BelongedFaction.TransferingMilitaries.Add(m);
                          this.BelongedFaction.TransferingMilitaryCount++;
                      }
+                     
                  }
 
                  if (pl.Count > 0)
