@@ -885,7 +885,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (person != null)
                 {
                     this.CurrentPerson = person;
-                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetRecallableTitle, false, true, true, false, person.RecallableTitleList(), null, "免除职位", "");
+                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetRecallableTitle, false, true, true, true, person.RecallableTitleList(), null, "免除职位", "");
                 }
             }
         }
