@@ -1428,5 +1428,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        public override void TransferMilitaryArrivesAtArchitecture(Military m, Architecture a)
+        {
+            if (base.Scenario.IsCurrentPlayer(a.BelongedFaction) && m.ArrivingDays == 0)
+            {
+                m.TextDestinationString = a.Name;
+                this.Plugins.GameRecordPlugin.AddBranch(m, "TransferMilitaryArrivesAtArchitecture", a.Position);
+            }
+        }
     }
 }

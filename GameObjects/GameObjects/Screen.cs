@@ -935,6 +935,10 @@
         {
         }
 
+        public virtual void TransferMilitaryArrivesAtArchitecture(Military m, Architecture a)
+        {
+        }
+
         public virtual void ReloadScreenData()
         {
         }

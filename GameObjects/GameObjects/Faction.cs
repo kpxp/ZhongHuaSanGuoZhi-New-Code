@@ -2691,6 +2691,7 @@
                     {
                        
                         m.TargetArchitecture.AddMilitary(m);
+                        this.Scenario.GameScreen.TransferMilitaryArrivesAtArchitecture(m, m.TargetArchitecture);
                        
                     }
                    
