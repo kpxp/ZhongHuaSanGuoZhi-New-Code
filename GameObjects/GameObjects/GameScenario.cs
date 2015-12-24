@@ -1223,7 +1223,7 @@
                     }
                     foreach (Person p in candidates)
                     {
-                        if (!this.IsPlayer(p.BelongedFaction ) && !p.HasHigherLevelTitle(t) && t.CanLearn(p, true))
+                        if ((!this.IsPlayer(p.BelongedFaction ) || GlobalVariables.PermitManualAwardTitleAutoLearn) && !p.HasHigherLevelTitle(t) && t.CanLearn(p, true))
                         {
                             p.AwardTitle(t);
                         }
