@@ -573,9 +573,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Architecture targetArchitecture = this.CurrentGameObjects[0] as Architecture;
                     foreach (Military military in this.CurrentMilitaries)
                     {
-                        //military.ArrivingDays = this.screen.Scenario.GetTransferFundDays(this.CurrentArchitecture, architecture);
-                        // this.CurrentArchitecture.RemoveMilitary(military);
-                        // military.BelongedArchitecture = architecture;
+                        this.CurrentArchitecture.DecreaseFund(Parameters.TransferCostPerMilitary);
+                        this.CurrentArchitecture.DecreaseFood(Parameters.TransferFoodPerMilitary);
                         military.StartingArchitecture = this.CurrentArchitecture;
                         military.TargetArchitecture = targetArchitecture;
                         military.ArrivingDays = Math.Max(1, (int)Math.Ceiling((double)gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea, targetArchitecture.ArchitectureArea) / 5));
