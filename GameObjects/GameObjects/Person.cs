@@ -7256,13 +7256,13 @@
             }
         }
 
-        public PersonList PrinceCandicate()
+        public PersonList ChildrenCanBeSelectedAsPrince()
         {
             PersonList candicate = new PersonList();
             foreach (Person person in this.Scenario.Persons)
             {
                 if (person.Alive && person.Available && person.BelongedCaptive == null && person.sex == false 
-                    && person.BelongedFaction == this.BelongedFaction && person.BelongedFaction != null && person != this.BelongedFaction.Leader)
+                    && person.BelongedFaction == this.BelongedFaction && person.BelongedFaction != null && this == person.Father)
                 {
                     candicate.Add(person);
                 }

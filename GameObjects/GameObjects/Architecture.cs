@@ -4016,7 +4016,7 @@
         {
 
 
-            if (this.BelongedFaction != null && this.BelongedFaction.Leader.BelongedCaptive == null && this.BelongedFaction.PrinceID == -1 && this.Fund >= Parameters.SelectPrinceCost && this.BelongedFaction.Leader.PrinceCandicate().Count > 0)
+            if (this.BelongedFaction != null && this.BelongedFaction.Leader.BelongedCaptive == null && this.BelongedFaction.PrinceID == -1 && this.Fund >= Parameters.SelectPrinceCost && this.BelongedFaction.Leader.ChildrenCanBeSelectedAsPrince().Count > 0)
             {
                 return true;
             }
