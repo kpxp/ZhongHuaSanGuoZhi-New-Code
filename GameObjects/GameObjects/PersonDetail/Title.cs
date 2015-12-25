@@ -398,10 +398,12 @@
                 {
                     str = str + "•" + condition.Name;
                 }
+                /*
                 foreach (Condition condition in this.LoseConditions.Conditions.Values)
                 {
                     str = str + "•" + condition.Name;
                 }
+                */
               
                 return str;
             }
