@@ -3619,7 +3619,7 @@
             this.AppointableTitleList.Clear();
             foreach (Title title in base.Scenario.GameCommonData.AllTitles.Titles.Values)
             {
-                if (!this.RealTitles.Contains(title) && !this.HasHigherLevelTitle(title) && title.ManualAward && title.CanLearn(this))        
+                if (!this.RealTitles.Contains(title) && !this.HasHigherLevelTitle(title) && title.ManualAward && title.CanLearn(this,true))        
                 {
                     this.AppointableTitleList.Add(title);
                 }
