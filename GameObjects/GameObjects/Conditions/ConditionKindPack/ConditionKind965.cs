@@ -8,7 +8,7 @@
     {
         public override bool CheckConditionKind(Person person)
         {
-            return person.BelongedFaction != null && person.Sex && !person.huaiyun;
+            return person.Sex && !person.huaiyun;
         }
     }
 }
