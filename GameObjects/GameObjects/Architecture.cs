@@ -9555,7 +9555,7 @@
         private int getArmyScaleRequiredForAttack(LinkNode wayToTarget)
         {
             Person leader = this.BelongedFaction.Leader;
-            return (int)((wayToTarget.A.ArmyScale +
+            return (int)((wayToTarget.A.ArmyScale + wayToTarget.A.Endurance / 15 +
                             (wayToTarget.A.DefensiveLegion == null || base.Scenario.IsPlayer(wayToTarget.A.BelongedFaction) ? 0 : wayToTarget.A.DefensiveLegion.ArmyScale * Parameters.AIOffendDefendingTroopRate)) *
                             (Parameters.AIOffendDefendTroopAdd + (leader.Calmness - leader.Braveness + (3 - (int)leader.Ambition) * 2) * Parameters.AIOffendDefendTroopMultiply));
         }
