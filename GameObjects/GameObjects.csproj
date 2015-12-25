@@ -1274,6 +1274,8 @@
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect280.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect290.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind450.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind520.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind530.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind680.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind808.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind809.cs" />
