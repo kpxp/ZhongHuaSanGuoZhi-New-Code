@@ -276,10 +276,4 @@
             FontStyle="Regular"
             FontColor="4294967295">
   </Biography>
-  <Guanzhi X="450" Y="120" Width="220" Height="360" RowMargin="1"
-            FontName="Microsoft YaHei UI"
-            FontSize="12"
-            FontStyle="Bold"
-            FontColor="4286643968">
-  </Guanzhi>
 </Root>

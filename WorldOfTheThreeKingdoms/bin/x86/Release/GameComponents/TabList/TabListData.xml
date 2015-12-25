@@ -2855,16 +2855,16 @@
                 FontColor="4294967295"
                 Align="Middle">
         </Column>
-        <Column ID="3" Name="Description" IsNumber="false" DisplayName="描述" MinWidth="600" DetailLevel="1"
+        <Column ID="3" Name="Description" IsNumber="false" DisplayName="描述" MinWidth="600" DetailLevel="6"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4294967295"
                 Align="Left">
         </Column>
-        <Column ID="4" Name="Prerequisite" IsNumber="false" DisplayName="学习条件" MinWidth="660" DetailLevel="7"
+        <Column ID="4" Name="Prerequisite" IsNumber="false" DisplayName="学习条件" MinWidth="700" DetailLevel="7"
                 FontName="方正隶变_GBK"
-                FontSize="9"
+                FontSize="14"
                 FontStyle="Regular"
                 FontColor="4294967295"
                 Align="Left">
