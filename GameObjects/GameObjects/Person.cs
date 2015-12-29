@@ -217,7 +217,7 @@
         public int GlamourExperienceIncrease { get; set; }
         public int ReputationDayIncrease { get; set; }
 
-        public OngoingBattle Battle { get; set; }
+        //public OngoingBattle Battle { get; set; }
         public int BattleSelfDamage { get; set; }
 
         private Captive belongedCaptive;

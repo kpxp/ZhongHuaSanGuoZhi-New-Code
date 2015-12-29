@@ -1470,7 +1470,7 @@
                 }
             }
         }
-
+        /*
         private void SetOngoingBattle(Troop other, int selfDamage)
         {
             OngoingBattle ob;
@@ -1608,19 +1608,19 @@
             ob.Skirmish = false;
             ob.CalmDay = 0;
         }
-
+        */
         private void ApplyDamageList()
         {
             foreach (TroopDamage damage in this.TroopDamageList)
             {
-                damage.SourceTroop.SetOngoingBattle(damage.DestinationTroop, damage.CounterDamage);
-                damage.DestinationTroop.SetOngoingBattle(damage.SourceTroop, damage.Damage);
+                //damage.SourceTroop.SetOngoingBattle(damage.DestinationTroop, damage.CounterDamage);
+               // damage.DestinationTroop.SetOngoingBattle(damage.SourceTroop, damage.Damage);
                 this.HandleTroopDamage(damage);
             }
             this.TroopDamageList.Clear();
             foreach (ArchitectureDamage damage2 in this.ArchitectureDamageList)
             {
-                damage2.SourceTroop.SetOngoingBattle(damage2.DestinationArchitecture, damage2.CounterDamage);
+                //damage2.SourceTroop.SetOngoingBattle(damage2.DestinationArchitecture, damage2.CounterDamage);
                 this.HandleArchitectureDamage(damage2);
             }
             this.ArchitectureDamageList.Clear();

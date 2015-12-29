@@ -240,7 +240,7 @@
         public int GlamourExperienceIncrease { get; set; }
         public int ReputationIncrease { get; set; }
 
-        public OngoingBattle Battle { get; set; }
+       // public OngoingBattle Battle { get; set; }
 
         private String oldFactionName = "";
         public String OldFactionName

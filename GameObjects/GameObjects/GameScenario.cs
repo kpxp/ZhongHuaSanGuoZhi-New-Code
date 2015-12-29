@@ -32,7 +32,7 @@
 
         
 
-        public OngoingBattleList AllOngoingBattles = new OngoingBattleList();
+       // public OngoingBattleList AllOngoingBattles = new OngoingBattleList();
         public ArchitectureList Architectures = new ArchitectureList();
         public Faction CurrentFaction;
         public Faction CurrentPlayer;
@@ -1016,7 +1016,7 @@
                 return r;
             }
         }
-
+        /*
         private void OngoingBattleDayEvent()
         {
             List<OngoingBattle> toRemove = new List<OngoingBattle>();
@@ -1066,7 +1066,7 @@
                 this.AllOngoingBattles.Remove(i);
             }
         }
-
+        */
         public void DayPassedEvent()
         {
             ExtensionInterface.call("DayEvent", new Object[] { this });
@@ -1096,7 +1096,7 @@
                 }
             }
             //this.GameProgressCaution.Text = "运行势力";
-            this.OngoingBattleDayEvent();
+            //this.OngoingBattleDayEvent();
 
             foreach (Faction faction in this.Factions.GetRandomList())
             {
@@ -3131,6 +3131,7 @@
                 this.Regions.Add(region);
             }
             DbConnection.Close();
+            /*
             DbConnection.Open();
             try
             {
@@ -3153,6 +3154,7 @@
                 //ignore
             }
             DbConnection.Close();
+             */
             DbConnection.Open();
             reader = new OleDbCommand("Select * From Person", DbConnection).ExecuteReader();
             Dictionary<int, int> fatherIds = new Dictionary<int, int>();
@@ -3509,7 +3511,7 @@
                 }
                 try
                 {
-                    person.Battle = (OngoingBattle)this.AllOngoingBattles.GetGameObject((int)reader["Battle"]);
+                   // person.Battle = (OngoingBattle)this.AllOngoingBattles.GetGameObject((int)reader["Battle"]);
                     person.BattleSelfDamage = (int)reader["BattleSelfDamage"];
                 }
                 catch
@@ -4045,13 +4047,13 @@
                     architecture.SuspendTroopTransfer = (int)reader["SuspendTroopTransfer"];
                 }
                 catch { };
-
+                /*
                 try
                 {
                     architecture.Battle = (OngoingBattle) this.AllOngoingBattles.GetGameObject((int)reader["Battle"]);
                 }
                 catch { }
-
+                */
                 try
                 {
                     architecture.OldFactionName = reader["OldFactionName"].ToString();
@@ -5468,7 +5470,7 @@
                     row["MilitaryPopulation"] = architecture.MilitaryPopulation;
                     row["Informations"] = architecture.Informations.SaveToString();
                     row["SuspendTroopTransfer"] = architecture.SuspendTroopTransfer;
-                    row["Battle"] = architecture.Battle == null ? -1 : architecture.Battle.ID;
+                    //row["Battle"] = architecture.Battle == null ? -1 : architecture.Battle.ID;
                     row["OldFactionName"] = architecture.OldFactionName;
                     row.EndEdit();
                     dataSet.Tables["Architecture"].Rows.Add(row);
@@ -5864,7 +5866,7 @@
                     row["Tiredness"] = person.Tiredness;
                     row["OfficerKillCount"] = person.OfficerKillCount;
                     row["InjureRate"] = person.InjureRate;
-                    row["Battle"] = person.Battle == null ? -1 : person.Battle.ID;
+                   // row["Battle"] = person.Battle == null ? -1 : person.Battle.ID;
                     row["BattleSelfDamage"] = person.BattleSelfDamage;
                    // row["Guanzhis"] = person.Guanzhis.SaveToString();
                     row.EndEdit();
@@ -5899,6 +5901,7 @@
                 {
                     //ignore
                 }
+                /*
                 try
                 {
                     new OleDbCommand("Delete from OngoingBattle", selectConnection).ExecuteNonQuery();
@@ -5926,6 +5929,7 @@
                 {
                     // ignore
                 }
+                */
                 if (saveMap)
                 {
                     new OleDbCommand("Delete from Region", selectConnection).ExecuteNonQuery();

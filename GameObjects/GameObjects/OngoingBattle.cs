@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace GameObjects
 {
+    /*
 	public class OngoingBattle : GameObject
 	{
         public int StartYear { get; set; }
@@ -44,4 +45,5 @@ namespace GameObjects
         }
 
 	}
+    */
 }
