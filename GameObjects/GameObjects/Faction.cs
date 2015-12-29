@@ -2223,6 +2223,7 @@
                 this.RemoveSection(section);
                 base.Scenario.Sections.Remove(section);
             }
+            
             this.Destroy();
             foreach (Architecture architecture in base.Scenario.Architectures)
             {

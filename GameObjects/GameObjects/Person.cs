@@ -2700,6 +2700,10 @@
 
             shizhe.Scenario.YearTable.addChangeFactionEntry(shizhe.Scenario.Date, targetFaction, sourceFaction);
             targetFaction.ChangeFaction(sourceFaction);
+            foreach (Person p in targetFaction.Persons.GetList())
+            {
+                p.InitialLoyalty();
+            }
             targetFaction.AfterChangeLeader(targetFaction.Leader, sourceFaction.Leader);
                 
             foreach (Treasure treasure in targetFaction.Leader.Treasures.GetList())
