@@ -1530,6 +1530,7 @@
                 this.huaiyunshijian();
                 this.updateDayCounters();
                 this.createRelations();
+                this.AutoLearnEvent();
 
                 List<int> toRemove = new List<int>();
                 foreach (KeyValuePair<int, int> i in new Dictionary<int, int>(this.ProhibitedFactionID))
@@ -1561,6 +1562,41 @@
             enduranceAbility = 0;
             trainingAbility = 0;
             higherLevelLearnableTitle = null;
+        }
+
+        private void AutoLearnEvent()
+        {
+            if (this.BelongedFaction != null)
+            {
+                this.AutoLearnSkill();
+                this.AutoLearnStunt();
+            }
+        }
+
+        private void AutoLearnSkill()
+        {
+            string skillString = "";
+            foreach (Skill skill in base.Scenario.GameCommonData.AllSkills.Skills.Values)
+            {
+                if (((this.Skills.GetSkill(skill.ID) == null) && skill.CanLearn(this)) && (GameObject.Chance(Parameters.LearnSkillSuccessRate)))
+                {
+                    this.Skills.AddSkill(skill);
+                    skill.Influences.ApplyInfluence(this, GameObjects.Influences.Applier.Skill, skill.ID, false);
+                    skillString = skillString + "•" + skill.Name;
+                }
+            }
+        }
+
+        private void AutoLearnStunt()
+        {
+            foreach (Stunt stunt in base.Scenario.GameCommonData.AllStunts.Stunts.Values)
+            {
+                if ((this.Stunts.GetStunt(stunt.ID) == null) && stunt.IsLearnable(this) && (GameObject.Chance(Parameters.LearnStuntSuccessRate)))
+                {
+                    this.Stunts.AddStunt(stunt);
+                    stunt.Influences.ApplyInfluence(this, GameObjects.Influences.Applier.Stunt, stunt.ID, false);
+                }
+            }
         }
 
         public PersonList MakeMarryable()

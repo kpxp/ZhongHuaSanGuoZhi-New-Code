@@ -5020,18 +5020,7 @@
             ExpectedFundCache = -1;
             this.SuspendTroopTransfer--;
         }
-        /*
-        private void CheckMayor()
-        {
-            if (this.Mayor != null && this.Mayor.BelongedCaptive != null)
-            {
-                if (this.Domination > this.DominationCeiling / 2)
-                {
-                    this.DecreaseDomination(this.DominationCeiling / 5);
-                }
-            }
-        }
-        */
+
         private void RestEvent()
         {
             foreach (Military m in this.Militaries)
