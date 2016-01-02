@@ -342,6 +342,11 @@
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="势力灭亡运输的编队将会从势力编队列表消失" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="运兵需要" Color="4294967295" />
+        <Leaf Text="消耗钱粮" Color="4278255360" />
+        <Leaf Text="，当建筑资金粮草不足时，无法运兵。" Color="4294967295" />
     </Branch>
     <Branch Name="Military_Merge">
         <Leaf Text="军事" Color="4294967295" />
@@ -1207,6 +1212,22 @@ Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="\n" Color="4294967295" />
         <Leaf Text="罢免当前建筑县令，武将忠诚下降(5,10)。" Color="4294967295" />
+    </Branch>
+    <Branch Name="Person_Appointment_AppointOfficer">
+        <Leaf Text="人物" Color="4294967295" />
+        <Leaf Text="授予官职" Color="4278232306" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="授予武将官职。" Color="4294967295" /> 
+    </Branch>
+<Branch Name="Person_Appointment_RecallOfficer">
+        <Leaf Text="人物" Color="4294967295" />
+        <Leaf Text="免除官职" Color="4278232306" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="\n" Color="4294967295" />
+        <Leaf Text="免除武将官职。" Color="4294967295" /> 
     </Branch>
     <Branch Name="Person_AutoReward">
         <Leaf Text="人物" Color="4294967295" />
