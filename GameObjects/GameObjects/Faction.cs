@@ -3828,8 +3828,17 @@
             this.PlayerTechniqueAI();
             this.PlayerAIArchitectures();
             this.PlayerAILegions();
+            this.PlayerAIRewardTroopPerson();
             this.AIFinished = true;
             base.Scenario.Threading = false;
+        }
+
+        private void PlayerAIRewardTroopPerson()
+        {
+            if (base.Scenario.IsPlayer(this) && this.RewardTroopPersonAvail())
+            {
+                this.RewardTroopPerson();
+            }
         }
 
         private void PlayerAIArchitectures()
