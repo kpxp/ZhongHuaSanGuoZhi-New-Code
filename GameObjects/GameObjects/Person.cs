@@ -2672,6 +2672,8 @@
 
             if (targetFaction == sourceFaction) return false;
 
+           // if (base.Scenario.IsPlayer(sourceFaction)) return true;
+
             if (sourceFaction.Army == 0) return false;
 
             if (sourceFaction.Reputation <= targetFaction.Reputation) return false;
@@ -2699,11 +2701,12 @@
             shizhe.Scenario.GameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.QuanXiang, "QuanXiangDiplomaticRelation", "QuanXiangDiplomaticRelation.jpg", "shilimiewang.wma", targetFaction.Name, true);
 
             shizhe.Scenario.YearTable.addChangeFactionEntry(shizhe.Scenario.Date, targetFaction, sourceFaction);
-            targetFaction.ChangeFaction(sourceFaction);
             foreach (Person p in targetFaction.Persons.GetList())
             {
                 p.InitialLoyalty();
             }
+            targetFaction.ChangeFaction(sourceFaction);
+            
             targetFaction.AfterChangeLeader(targetFaction.Leader, sourceFaction.Leader);
                 
             foreach (Treasure treasure in targetFaction.Leader.Treasures.GetList())
