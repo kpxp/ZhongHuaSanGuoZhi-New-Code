@@ -1200,6 +1200,7 @@
             this.AITransfer();
             this.AIArchitectures();
             this.AILegions();
+            this.AIReward();
             this.AIFinished = true;
             base.Scenario.Threading = false;
         }
@@ -2902,6 +2903,52 @@
                 }
             }     
             
+        }
+
+        private void AIReward()
+        {
+            if (!base.Scenario.IsPlayer(this) && this.RewardTroopPersonAvail())
+            {
+                this.RewardTroopPerson();
+            }
+        }
+
+        public bool RewardTroopPersonAvail()
+        {
+            return this.RewardableTroopPersons().Count > 0 && this.Capital.Fund > this.Capital .RewardPersonFund;
+        }
+
+        public PersonList RewardableTroopPersons()
+        {
+            PersonList list = new PersonList();
+            foreach (Troop troop in this.Troops)
+            {
+                foreach (Person person in troop.Persons)
+                {
+                    if ((!person.RewardFinished && (person.Loyalty < 100)) && (person != this.Leader))
+                    {
+                        list.Add(person);
+                    }
+                }
+            }
+            return list;
+        }
+             
+
+        public void RewardTroopPerson()
+        {
+            if (this.TroopCount == 0) return;
+
+            if (this.Capital.Fund < this.Capital.RewardPersonFund) return;
+
+            foreach (Person person in this.RewardableTroopPersons())
+            {
+                person.RewardFinished = true;
+                this.Capital.DecreaseFund(this.Capital.RewardPersonFund);
+                int idealOffset = Person.GetIdealOffset(person, this.Leader);
+                person.IncreaseLoyalty((15 - (idealOffset / 5)) + 4 - (int)person.PersonalLoyalty);
+            }
+
         }
 
         private void AIchaotingshijian()
