@@ -10359,7 +10359,7 @@
                 {
                     return false;
                 }
-                if (this.BelongedFaction != null && this.BelongedFaction.Army > (int)(this.BelongedFaction.Population * GlobalVariables.ArmyPopulationCap)) //势力兵力超过上限时，不能补充
+                if (this.BelongedFaction != null && this.BelongedFaction.Army > (long)(this.BelongedFaction.Population * GlobalVariables.ArmyPopulationCap)) //势力兵力超过上限时，不能补充
                 {
                     return false;
                 }
