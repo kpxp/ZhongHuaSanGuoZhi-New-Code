@@ -5442,11 +5442,11 @@
             }
         }
 
-        public int Army
+        public long Army
         {
             get
             {
-                int num = 0;
+                long num = 0;
                 foreach (Architecture architecture in this.Architectures)
                 {
                     num += architecture.ArmyQuantity;
