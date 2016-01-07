@@ -1851,6 +1851,11 @@
                     }
                     if ((captive.BelongedFaction.Capital != null) && (captive.RansomArriveDays <= 0))
                     {
+                        if (captive.CaptivePerson == this.Leader && this.Capital.Fund >= captive.Ransom)
+                        {
+                            captive.SendRansom(captive.BelongedFaction.Capital, this.Capital);
+                            continue;
+                        }
                         int diplomaticRelation = base.Scenario.GetDiplomaticRelation(captive.BelongedFaction.ID, base.ID);
                         if ((diplomaticRelation >= 0) || (GameObject.Random(Math.Abs(diplomaticRelation) + 50) < 50))
                         {
