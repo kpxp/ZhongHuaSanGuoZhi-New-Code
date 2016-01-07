@@ -110,7 +110,7 @@
                                 //if (((diplomaticRelation >= 0) || (GameObject.Random(this.RansomFund) > GameObject.Random(this.RansomFund + this.BelongedFaction.Capital.Fund))) || (GameObject.Random(Math.Abs(diplomaticRelation) + 100) < GameObject.Random(100)))
                                 if (diplomaticRelation >= 0 || ((!this.CaptivePerson.RecruitableBy(this.BelongedFaction, 0) || (this.CaptivePerson.Loyalty >= 100 && GameObject.Chance(80 - this.CaptivePerson.PersonalLoyalty * 20))) 
                                     && (!this.BelongedFaction.Capital.IsFundEnough || GameObject.Random(this.RansomFund) > GameObject.Random(this.RansomFund + this.BelongedFaction.Capital.Fund)))
-                                    && (!GameGlobal.GlobalVariables.AIAutoTakePlayerCaptives || base.Scenario.IsPlayer(this.CaptiveFaction)))
+                                    && (!GameGlobal.GlobalVariables.AIAutoTakePlayerCaptives))
                                 {
                                     this.ReleaseCaptive();
                                 }
