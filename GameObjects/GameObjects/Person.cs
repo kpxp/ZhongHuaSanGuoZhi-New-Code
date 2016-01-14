@@ -3568,7 +3568,7 @@
             int num = Math.Abs((int)(p1.Ideal - p2.Ideal));
             if (num > 75)
             {
-                num = 150 - num;
+                num = Math.Abs(150 - num);
             }
             return num;
         }
