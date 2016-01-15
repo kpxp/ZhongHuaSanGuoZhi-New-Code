@@ -8825,7 +8825,7 @@
             int val;
             if (factor > 0)
             {
-                val = (int)((75 - Person.GetIdealOffset(this, p)) * 30 * factor / 75 + adjust);
+                val = (int)(Math.Max(0, 75 - Person.GetIdealOffset(this, p)) * 30 * factor / 75 + adjust);
             }
             else
             {
