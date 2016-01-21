@@ -6575,7 +6575,7 @@
             bool ran = false;
             foreach (Event e in this.AllEvents)
             {
-                if ((e.IsStart(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch))
+                if ((e.IsStart(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch) || (e.faction != null && e.faction.GameObjects.Contains(triggerArch.BelongedFaction) && e.checkConditions(triggerArch)))
                 {
                     if (!this.EventsToApply.ContainsKey(e))
                     {
@@ -6593,7 +6593,7 @@
             bool ran = false;
             foreach (Event e in this.AllEvents)
             {
-                if ((e.IsEnd(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch))
+                if ((e.IsEnd(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch) || (e.faction != null && e.faction.GameObjects.Contains(triggerArch.BelongedFaction) && e.checkConditions(triggerArch)))
                 {
                     if (!this.EventsToApply.ContainsKey(e))
                     {
