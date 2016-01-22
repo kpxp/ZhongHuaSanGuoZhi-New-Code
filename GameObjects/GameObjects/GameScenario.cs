@@ -4539,7 +4539,11 @@
                     te.CheckArea = (EventCheckAreaKind)((short)reader["CheckAreaKind"]);
                     te.LoadTargetPersonFromString(this.AllPersons, reader["TargetPersons"].ToString());
                     te.LoadDialogFromString(this.AllPersons, reader["Dialogs"].ToString());
-                    te.LoadScenBiographyFromString(this.AllPersons, reader["ScenBiography"].ToString());
+                    try {
+                        te.LoadScenBiographyFromString(this.AllPersons, reader["ScenBiography"].ToString());
+                    } catch {
+                        
+                    }
                     te.LoadSelfEffectFromString(this.GameCommonData.AllTroopEventEffects, reader["EffectSelf"].ToString());
                     te.LoadEffectPersonFromString(this.AllPersons, this.GameCommonData.AllTroopEventEffects, reader["EffectPersons"].ToString());
                     te.LoadEffectAreaFromString(this.GameCommonData.AllTroopEventEffects, reader["EffectAreas"].ToString());
