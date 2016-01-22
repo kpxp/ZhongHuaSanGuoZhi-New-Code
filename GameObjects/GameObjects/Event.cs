@@ -8,7 +8,7 @@
 
     public class PersonIdDialog
     {
-        public int id; public string dialog;
+        public int id; public string dialog; public string scenBiography;
     }
 
     public class Event : GameObject
@@ -31,8 +31,8 @@
         public Dictionary<Person, List<EventEffect>> matchedEffect;
         public List<EventEffect> architectureEffect;
         public List<EventEffect> factionEffect;
-        public List<PersonIdDialog> scenBiography = new List<>();
-        public List<PersonDialog> matchedScenBiography = new List<>();
+        public List<PersonIdDialog> scenBiography = new List<PersonIdDialog>() ;
+        public List<PersonDialog> matchedScenBiography = new List<PersonDialog> () ;
         public String Image = "";
         public String Sound = "";
         public bool GloballyDisplayed = false;
@@ -50,7 +50,8 @@
             {
                 this.OnApplyEvent(this, a);
             }
-            for (PersonDialog i : matchedScenBiography) {
+            foreach (PersonDialog i in matchedScenBiography) 
+            {
                 this.Scenario.YearTable.addPersonInGameBiography(i.SpeakingPerson, this.Scenario.Date, i.Text);
             }
             if (nextScenario.Length > 0)
