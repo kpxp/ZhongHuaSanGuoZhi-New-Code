@@ -31,6 +31,8 @@
         public Dictionary<Person, List<EventEffect>> matchedEffect;
         public List<EventEffect> architectureEffect;
         public List<EventEffect> factionEffect;
+        public List<PersonIdDialog> scenBiography = new List<>();
+        public List<PersonDialog> matchedScenBiography = new List<>();
         public String Image = "";
         public String Sound = "";
         public bool GloballyDisplayed = false;
@@ -47,6 +49,9 @@
             if (this.OnApplyEvent != null)
             {
                 this.OnApplyEvent(this, a);
+            }
+            for (PersonDialog i : matchedScenBiography) {
+                this.Scenario.YearTable.addPersonInGameBiography(i.SpeakingPerson, this.Scenario.Date, i.Text);
             }
             if (nextScenario.Length > 0)
             {
@@ -219,6 +224,21 @@
                     pd.Text = pd.Text.Replace("%" + j, matchedPersons[j].Name);
                 }
                 matchedDialog.Add(pd);
+            }
+            
+            matchedScenBiography = new List<PersonDialog>();
+            foreach (PersonIdDialog i in this.scenBiography)
+            {
+                if (!matchedPersons.ContainsKey(i.id)) return false;
+
+                PersonDialog pd = new PersonDialog();
+                pd.SpeakingPerson = matchedPersons[i.id];
+                pd.Text = i.dialog;
+                for (int j = 0; j < matchedPersons.Count; ++j)
+                {
+                    pd.Text = pd.Text.Replace("%" + j, matchedPersons[j].Name);
+                }
+                matchedScenBiography.Add(pd);
             }
 
             matchedEffect = new Dictionary<Person, List<EventEffect>>();
@@ -445,6 +465,21 @@
                 this.dialog.Add(d);
             }
         }
+        
+        public void LoadScenBiographyFromString(string data)
+        {
+            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
+            string[] strArray = data.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+
+            this.scenBiography = new List<PersonIdDialog>();
+            for (int i = 0; i < strArray.Length; i += 2)
+            {
+                PersonIdDialog d = new PersonIdDialog();
+                d.id = int.Parse(strArray[i]);
+                d.dialog = strArray[i + 1];
+                this.scenBiography.Add(d);
+            }
+        }
 
         public string SaveDialogToString()
         {
@@ -452,6 +487,16 @@
             foreach (PersonIdDialog i in this.dialog)
             {
                 result += i.id + " " + i.dialog + " ";
+            }
+            return result;
+        }
+        
+        public string SaveScenBiographyToString()
+        {
+            string result = "";
+            foreach (PersonIdDialog i in this.scenBiography)
+            {
+                result += i.id + " " + i.scenBiography + " ";
             }
             return result;
         }
