@@ -6575,14 +6575,23 @@
             bool ran = false;
             foreach (Event e in this.AllEvents)
             {
-                if ((e.IsStart(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch) || (e.faction != null && e.faction.GameObjects.Contains(triggerArch.BelongedFaction) && e.checkConditions(triggerArch)))
+                if ((e.IsStart(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch))
                 {
                     if (!this.EventsToApply.ContainsKey(e))
                     {
                         this.EventsToApply.Add(e, triggerArch);
                         e.ApplyEventDialogs(triggerArch);
                         ran = true;
+
+                        if (e.faction != null && e.faction.GameObjects.Contains(triggerArch.BelongedFaction))
+                        {
+                            this.EventsToApply.Add(e, triggerArch);
+                            e.ApplyEventDialogs(triggerArch);
+                            ran = true;
+                        }
                     }
+
+                    
                 }
             }
             return ran;
@@ -6593,14 +6602,21 @@
             bool ran = false;
             foreach (Event e in this.AllEvents)
             {
-                if ((e.IsEnd(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch) || (e.faction != null && e.faction.GameObjects.Contains(triggerArch.BelongedFaction) && e.checkConditions(triggerArch)))
+                if ((e.IsEnd(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch))
                 {
                     if (!this.EventsToApply.ContainsKey(e))
                     {
                         this.EventsToApply.Add(e, triggerArch);
                         e.ApplyEventDialogs(triggerArch);
                         ran = true;
+                        if (e.faction != null && e.faction.GameObjects.Contains(triggerArch.BelongedFaction))
+                        {
+                            this.EventsToApply.Add(e, triggerArch);
+                            e.ApplyEventDialogs(triggerArch);
+                            ran = true;
+                        }
                     }
+
                 }
             }
             return ran;

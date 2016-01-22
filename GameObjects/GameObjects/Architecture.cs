@@ -4967,12 +4967,17 @@
         {
             foreach (Event e in base.Scenario.AllEvents.GetList())
             {
-                if (e.checkConditions(this) || (e.faction != null && e.faction.GameObjects.Contains(this.BelongedFaction) && e.checkConditions(this)))
+                if (e.checkConditions(this))
                 {
                     if (!base.Scenario.EventsToApply.ContainsKey(e))
                     {
                         base.Scenario.EventsToApply.Add(e, this);
                         e.ApplyEventDialogs(this);
+                        if (e.faction != null && e.faction.GameObjects.Contains(this.BelongedFaction))
+                        {
+                            base.Scenario.EventsToApply.Add(e, this);
+                            e.ApplyEventDialogs(this);
+                        }
                     }
                 }
             }
