@@ -3169,14 +3169,14 @@
 
                 Person person = new Person();
                 person.Scenario = this;
-                person.ID = (int)reader["ID"];
+                person.ID = (short)reader["ID"];
                 person.Available = (bool)reader["Available"];
                 person.Alive = (bool)reader["Alive"];
                 person.SurName = reader["SurName"].ToString();
                 person.GivenName = reader["GivenName"].ToString();
                 person.CalledName = reader["CalledName"].ToString();
                 person.Sex = (bool)reader["Sex"];
-                person.PictureIndex = (int)reader["Pic"];
+                person.PictureIndex = (short)reader["Pic"];
                 person.Ideal = (short)reader["Ideal"];
                 person.IdealTendency = this.GameCommonData.AllIdealTendencyKinds.GetGameObject((short)reader["IdealTendency"]) as IdealTendencyKind;
                 if (person.IdealTendency == null)
