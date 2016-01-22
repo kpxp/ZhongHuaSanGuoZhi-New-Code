@@ -31,8 +31,8 @@
         public Dictionary<Person, List<EventEffect>> matchedEffect;
         public List<EventEffect> architectureEffect;
         public List<EventEffect> factionEffect;
-        public List<PersonIdDialog> scenBiography;
-        public List<PersonDialog> matchedScenBiography;
+        public List<PersonIdDialog> scenBiography = new List<>();
+        public List<PersonDialog> matchedScenBiography = new List<>();
         public String Image = "";
         public String Sound = "";
         public bool GloballyDisplayed = false;
