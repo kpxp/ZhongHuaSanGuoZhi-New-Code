@@ -579,7 +579,8 @@
             }
             return result;
         }
-
+        
+       /*
         public bool CheckFactionEvent(Architecture a)
         {
            if (this.faction != null && this.faction.GameObjects.Contains(a.BelongedFaction) && checkConditions(a))
@@ -588,7 +589,7 @@
             }
             return false ;
         }
-
+        */
         public delegate void ApplyEvent(Event te, Architecture a);
 
     }

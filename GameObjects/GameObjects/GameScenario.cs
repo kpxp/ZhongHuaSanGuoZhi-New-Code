@@ -6589,16 +6589,20 @@
                 {
                     if (!this.EventsToApply.ContainsKey(e))
                     {
-                        this.EventsToApply.Add(e, triggerArch);
-                        e.ApplyEventDialogs(triggerArch);
-                        ran = true;
-
                         if (e.faction != null && e.faction.GameObjects.Contains(triggerArch.BelongedFaction))
                         {
                             this.EventsToApply.Add(e, triggerArch);
                             e.ApplyEventDialogs(triggerArch);
                             ran = true;
                         }
+                        else
+                        {
+                            this.EventsToApply.Add(e, triggerArch);
+                            e.ApplyEventDialogs(triggerArch);
+                            ran = true;
+                        }
+
+                        
                     }
 
                     
@@ -6616,10 +6620,13 @@
                 {
                     if (!this.EventsToApply.ContainsKey(e))
                     {
-                        this.EventsToApply.Add(e, triggerArch);
-                        e.ApplyEventDialogs(triggerArch);
-                        ran = true;
                         if (e.faction != null && e.faction.GameObjects.Contains(triggerArch.BelongedFaction))
+                        {
+                            this.EventsToApply.Add(e, triggerArch);
+                            e.ApplyEventDialogs(triggerArch);
+                            ran = true;
+                        }
+                        else
                         {
                             this.EventsToApply.Add(e, triggerArch);
                             e.ApplyEventDialogs(triggerArch);
