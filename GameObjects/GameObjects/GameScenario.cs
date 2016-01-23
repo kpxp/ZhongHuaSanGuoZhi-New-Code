@@ -4625,7 +4625,7 @@
                         }
                         catch (FormatException)
                         {
-                            errorMsg.Add("部队事件ID" + e.ID + "：读取字串转化成数字出错，请检查所有字串格式，对话里数字与字串以半型空格分隔");
+                            errorMsg.Add("事件ID" + e.ID + "：读取字串转化成数字出错，请检查所有字串格式，对话里数字与字串以半型空格分隔");
                         }
                     }
                     catch
