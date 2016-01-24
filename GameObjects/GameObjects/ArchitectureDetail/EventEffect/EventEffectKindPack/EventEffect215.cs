@@ -9,10 +9,10 @@
         {
             person.huaiyun = true;
             person.huaiyuntianshu = 0;
-            if (person.BelongedFaction != null)
+            if (person.BelongedFactionWithPrincess != null)
             {
-                person.suoshurenwu = person.BelongedFaction.LeaderID;
-                person.BelongedFaction.Leader.suoshurenwu = person.ID;
+                person.suoshurenwu = person.BelongedFactionWithPrincess.LeaderID;
+                person.BelongedFactionWithPrincess.Leader.suoshurenwu = person.ID;
             }
             else
             {
