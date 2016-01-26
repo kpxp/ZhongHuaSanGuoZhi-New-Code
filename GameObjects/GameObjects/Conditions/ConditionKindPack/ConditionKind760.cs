@@ -10,7 +10,7 @@ namespace GameObjects.Conditions.ConditionKindPack
 
         public override bool CheckConditionKind(Person person)
         {
-            return !person.Tags.Contains(tag);
+            return !person.Tags.Contains(tag + ",");
         }
 
         public override void InitializeParameter(string parameter)
