@@ -3524,6 +3524,12 @@
                 catch
                 {
                 }
+                try {
+                    person.Tags = reader["Tags"].ToString();
+                }
+                catch
+                {
+                }
 
                 if (errors.Count > 0)
                 {
@@ -5877,6 +5883,7 @@
                     row["InjureRate"] = person.InjureRate;
                    // row["Battle"] = person.Battle == null ? -1 : person.Battle.ID;
                     row["BattleSelfDamage"] = person.BattleSelfDamage;
+                    row["Tags"] = person.Tags;
                    // row["Guanzhis"] = person.Guanzhis.SaveToString();
                     row.EndEdit();
                     dataSet.Tables["Person"].Rows.Add(row);
