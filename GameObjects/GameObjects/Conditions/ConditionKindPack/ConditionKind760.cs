@@ -4,7 +4,7 @@ namespace GameObjects.Conditions.ConditionKindPack
     using GameObjects.Conditions;
     using System;
 
-    internal class ConditionKind750 : ConditionKind
+    internal class ConditionKind760 : ConditionKind
     {
         private String tag;
 
