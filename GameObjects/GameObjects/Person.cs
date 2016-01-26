@@ -219,6 +219,8 @@
 
         //public OngoingBattle Battle { get; set; }
         public int BattleSelfDamage { get; set; }
+        
+        public int Tags {get; set;}
 
         private Captive belongedCaptive;
         public Captive BelongedCaptive
