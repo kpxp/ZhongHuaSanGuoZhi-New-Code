@@ -3,7 +3,7 @@ namespace GameObjects.ArchitectureDetail.EventEffect
     using GameObjects;
     using System;
 
-    internal class EventEffect0 : EventEffectKind
+    internal class EventEffect600 : EventEffectKind
     {
         private String tag;
 
