@@ -138,4 +138,5 @@ ExpandConditions="2261 2100 2110 2120 2130 2140 2150"
 SearchPersonArchitectureCountPower="0.0"
 AIEncircleRank="15" 
 AIEncircleVar="15">
+SelectPrinceCost="50000">
 </GameParameters>

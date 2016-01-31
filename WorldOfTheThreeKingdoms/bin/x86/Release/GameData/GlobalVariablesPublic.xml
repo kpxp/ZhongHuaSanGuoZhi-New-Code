@@ -74,4 +74,4 @@ FullScreen="False"
 FriendlyDiplomacyThreshold="300" 
 SurroundFactor="5"
 >
-</GlobalVariables>
+ArmyPopulationCap="1.0" PermitQuanXiang="True" PermitManualAwardTitleAutoLearn ="false"></GlobalVariables>
