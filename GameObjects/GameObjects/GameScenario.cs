@@ -3524,7 +3524,8 @@
                 catch
                 {
                 }
-                try {
+                try 
+                {
                     person.Tags = reader["Tags"].ToString();
                 }
                 catch
