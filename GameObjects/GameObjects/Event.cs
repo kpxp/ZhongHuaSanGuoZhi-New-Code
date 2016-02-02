@@ -89,12 +89,18 @@
 
             foreach (EventEffect i in architectureEffect)
             {
-                i.ApplyEffect(a, this);
+                if (a != null)
+                {
+                    i.ApplyEffect(a, this);
+                }
             }
 
             foreach (EventEffect i in factionEffect)
             {
-                i.ApplyEffect(a.BelongedFaction, this);
+                if (a.BelongedFaction != null)
+                {
+                    i.ApplyEffect(a.BelongedFaction, this);
+                }
             }
         }
 
