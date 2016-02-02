@@ -301,6 +301,19 @@
                 }
             }
 
+            if (architecture != null && !architecture.GameObjects .Contains (a) )
+            {
+                return false;
+            }
+
+            if (faction != null && a.BelongedFaction != null && !faction.GameObjects.Contains(a.BelongedFaction))
+            {
+                return false;
+                   
+            }
+
+                
+
             return this.matchEventPersons(a);
         }
 

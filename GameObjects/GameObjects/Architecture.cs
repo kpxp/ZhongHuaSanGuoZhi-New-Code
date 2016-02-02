@@ -4971,17 +4971,8 @@
                 {
                     if (!base.Scenario.EventsToApply.ContainsKey(e))
                     {
-                        if (e.faction != null && e.faction.GameObjects.Contains(this.BelongedFaction))
-                        {
-                            base.Scenario.EventsToApply.Add(e, this);
-                            e.ApplyEventDialogs(this);
-                        }
-                        else
-                        {
-                            base.Scenario.EventsToApply.Add(e, this);
-                            e.ApplyEventDialogs(this);
-                        }
-                        
+                       base.Scenario.EventsToApply.Add(e, this);
+                       e.ApplyEventDialogs(this); 
                     }
                 }
             }
