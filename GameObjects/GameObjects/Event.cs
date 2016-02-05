@@ -320,9 +320,12 @@
                 {
                     foreach (Faction f in faction)
                     {
-                        if (f.ID == a.BelongedFaction.ID)
+                        if (a.BelongedFaction != null)
                         {
-                            contains = true;
+                            if (f.ID == a.BelongedFaction.ID)
+                            {
+                                contains = true;
+                            }
                         }
                     }
 
