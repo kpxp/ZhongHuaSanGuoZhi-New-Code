@@ -4643,6 +4643,7 @@
             }
             catch
             {
+                
                 //ignore, let there be empty event list
             }
             finally

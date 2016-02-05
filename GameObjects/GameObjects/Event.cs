@@ -79,25 +79,26 @@
 
         public void DoApplyEvent(Architecture a)
         {
-            foreach (KeyValuePair<Person, List<EventEffect>> i in matchedEffect)
+            if (matchedEffect != null)
             {
-                foreach (EventEffect j in i.Value)
+                foreach (KeyValuePair<Person, List<EventEffect>> i in matchedEffect)
                 {
-                    j.ApplyEffect(i.Key, this);
+                    foreach (EventEffect j in i.Value)
+                    {
+                        j.ApplyEffect(i.Key, this);
+                    }
                 }
             }
-
-            foreach (EventEffect i in architectureEffect)
+            if (architectureEffect != null)
             {
-                if (a != null)
+                foreach (EventEffect i in architectureEffect)
                 {
                     i.ApplyEffect(a, this);
                 }
             }
-
-            foreach (EventEffect i in factionEffect)
+            if (factionEffect != null)
             {
-                if (a.BelongedFaction != null)
+                foreach (EventEffect i in factionEffect)
                 {
                     i.ApplyEffect(a.BelongedFaction, this);
                 }
@@ -301,19 +302,42 @@
                 }
             }
 
-            if (architecture != null && !architecture.GameObjects .Contains (a) )
+            if (architecture != null || faction != null)
             {
-                return false;
+                bool contains = false;
+                if (architecture != null)
+                {
+                    foreach (Architecture archi in this.architecture)
+                    {
+                        if (archi.ID == a.ID)
+                        {
+                            contains = true;
+                        }
+                    }
+                }
+
+                if (faction != null)
+                {
+                    foreach (Faction f in faction)
+                    {
+                        if (f.ID == a.BelongedFaction.ID)
+                        {
+                            contains = true;
+                        }
+                    }
+
+                }
+                if (contains)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            if (faction != null && a.BelongedFaction != null && !faction.GameObjects.Contains(a.BelongedFaction))
-            {
-                return false;
-                   
-            }
-
-                
-
+            
+           
             return this.matchEventPersons(a);
         }
 
