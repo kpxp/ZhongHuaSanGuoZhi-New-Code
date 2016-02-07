@@ -4096,7 +4096,7 @@
             }
 
             
-            int chance = (factionPersonCount >= 50 && factionPersonCount < 100) ? 10 : 60;
+            int chance = (factionPersonCount >= 50 && factionPersonCount < 100) ? 25 : 80;
             if (!GameObject .Chance(chance))
             {
                 return false ;
