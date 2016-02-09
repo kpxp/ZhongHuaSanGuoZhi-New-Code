@@ -150,6 +150,9 @@
         public static int LearnStuntSuccessRate = 75;
         public static int LearnTitleSuccessRate = 0;
 
+        public static int AutoLearnSkillSuccessRate = 0;
+        public static int AutoLearnStuntSuccessRate = 0;
+
         public static float MilitaryPopulationCap = 0.1f;
         public static float MilitaryPopulationReloadQuantity = 1.0f;
 
@@ -323,6 +326,9 @@
             LearnSkillSuccessRate = int.Parse(nextSibling.Attributes.GetNamedItem("LearnSkillSuccessRate").Value);
             LearnStuntSuccessRate = int.Parse(nextSibling.Attributes.GetNamedItem("LearnStuntSuccessRate").Value);
             LearnTitleSuccessRate = int.Parse(nextSibling.Attributes.GetNamedItem("LearnTitleSuccessRate").Value);
+
+            AutoLearnSkillSuccessRate = int.Parse(nextSibling.Attributes.GetNamedItem("AutoLearnSkillSuccessRate").Value);
+            AutoLearnStuntSuccessRate = int.Parse(nextSibling.Attributes.GetNamedItem("AutoLearnStuntSuccessRate").Value);
 
             MilitaryPopulationCap = float.Parse(nextSibling.Attributes.GetNamedItem("MilitaryPopulationCap").Value);
             MilitaryPopulationReloadQuantity = float.Parse(nextSibling.Attributes.GetNamedItem("MilitaryPopulationReloadQuantity").Value);

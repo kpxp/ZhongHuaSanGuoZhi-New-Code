@@ -1580,7 +1580,7 @@
             string skillString = "";
             foreach (Skill skill in base.Scenario.GameCommonData.AllSkills.Skills.Values)
             {
-                if (((this.Skills.GetSkill(skill.ID) == null) && skill.CanLearn(this)) && (GameObject.Chance(Parameters.LearnSkillSuccessRate)))
+                if (((this.Skills.GetSkill(skill.ID) == null) && skill.CanLearn(this)) && (GameObject.Chance(Parameters.AutoLearnSkillSuccessRate)))
                 {
                     this.Skills.AddSkill(skill);
                     skill.Influences.ApplyInfluence(this, GameObjects.Influences.Applier.Skill, skill.ID, false);
@@ -1593,7 +1593,7 @@
         {
             foreach (Stunt stunt in base.Scenario.GameCommonData.AllStunts.Stunts.Values)
             {
-                if ((this.Stunts.GetStunt(stunt.ID) == null) && stunt.IsLearnable(this) && (GameObject.Chance(Parameters.LearnStuntSuccessRate)))
+                if ((this.Stunts.GetStunt(stunt.ID) == null) && stunt.IsLearnable(this) && (GameObject.Chance(Parameters.AutoLearnStuntSuccessRate)))
                 {
                     this.Stunts.AddStunt(stunt);
                     stunt.Influences.ApplyInfluence(this, GameObjects.Influences.Applier.Stunt, stunt.ID, false);
