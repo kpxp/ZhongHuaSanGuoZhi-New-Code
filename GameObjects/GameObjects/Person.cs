@@ -6528,6 +6528,16 @@
             }
         }
 
+        //[Breamask]单挑用的武力数值，不含有义兄弟加成RelationAbilityFactor
+        public int ChallengeStrength
+        {
+            get
+            {
+                return (int)(Math.Min((int)((this.StrengthIncludingExperience + this.InfluenceIncrementOfStrength) * this.InfluenceRateOfStrength), GlobalVariables.MaxAbility) * this.TirednessFactor * this.AbilityAgeFactor * this.huaiyunAbilityFactor * this.InjureRate);
+            }
+        }
+
+
         public int UntiredStrength
         {
             get

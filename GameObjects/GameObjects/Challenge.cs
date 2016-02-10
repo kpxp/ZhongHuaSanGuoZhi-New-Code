@@ -95,8 +95,8 @@
 
             string para;
             para = person.ID.ToString() + "," + person.SurName + "," + person.GivenName + "," + (person.CalledName == "" ? "无" : person.CalledName) + "," + (person.Sex ? "0" : "1") + "," + person.PictureIndex.ToString() + ","+person.Identity().ToString()+",";
-            para += person.Strength.ToString() + "," + person.Strength.ToString() + "," + person.Strength.ToString() + "," + person.Strength.ToString() + ",";
-            para += person.Strength.ToString() + "," + person.Command.ToString() + "," + person.Intelligence.ToString() + "," + person.Politics.ToString() + "," + person.Glamour.ToString() + ",";
+            para += person.ChallengeStrength.ToString() + "," + person.ChallengeStrength.ToString() + "," + person.ChallengeStrength.ToString() + "," + person.ChallengeStrength.ToString() + ",";
+            para += person.ChallengeStrength.ToString() + "," + person.Command.ToString() + "," + person.Intelligence.ToString() + "," + person.Politics.ToString() + "," + person.Glamour.ToString() + ",";
             para += person.Ideal.ToString() + "," + person.Braveness.ToString() + "," + person.Calmness.ToString() + "," + person.PersonalLoyalty.ToString() + "," + person.Ambition.ToString() + "," + person.Reputation.ToString() + ",";
             ///////////////////////////////判断有没有宝物马
             if (person.HasHorse() == -1)  //游戏中用-1表示没有马，而单挑程序中用1表示没有马
