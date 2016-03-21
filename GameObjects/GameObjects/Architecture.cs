@@ -13798,11 +13798,8 @@
             bool result = false;
             foreach (Person p in this.Feiziliebiao)
             {
-                 if (this.BelongedFaction == null || 
-                        ((this.BelongedFaction.IsAlien ||
-                        p.Spouse == null || 
-                        this.BelongedFaction.Leader.Uncruelty <= Parameters.RetainFeiziPersonalLoyalty)
-                     && this.BelongedFaction.Leader.isLegalFeiZi(p)))
+                 if (this.BelongedFaction != null &&
+                     this.BelongedFaction.IsAlien && this.BelongedFaction.Leader.isLegalFeiZi(p)))
                  {
                     if (byOccupy)
                     {
