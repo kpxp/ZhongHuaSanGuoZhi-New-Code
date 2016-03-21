@@ -13799,7 +13799,7 @@
             foreach (Person p in this.Feiziliebiao)
             {
                  if (this.BelongedFaction != null &&
-                     this.BelongedFaction.IsAlien && this.BelongedFaction.Leader.isLegalFeiZi(p)))
+                     this.BelongedFaction.IsAlien && this.BelongedFaction.Leader.isLegalFeiZi(p))
                  {
                     if (byOccupy)
                     {
