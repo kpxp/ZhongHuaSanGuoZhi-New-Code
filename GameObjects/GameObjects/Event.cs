@@ -50,6 +50,7 @@
             {
                 this.OnApplyEvent(this, a);
             }
+            
             foreach (PersonDialog i in matchedScenBiography) 
             {
                 this.Scenario.YearTable.addPersonInGameBiography(i.SpeakingPerson, this.Scenario.Date, i.Text);
@@ -301,49 +302,55 @@
                     return false;
                 }
             }
-
-            if (architecture != null || faction != null)
+            if (((this.architecture != null || this.faction != null) && !this.CheckEventID(a)))
             {
-                bool contains = false;
-                if (architecture != null)
+                return false;
+            }
+            return this.matchEventPersons(a);
+            
+        }
+        
+        public bool CheckEventID(Architecture check)
+        {
+            bool contains = false;
+            if (this.architecture != null || this.faction != null)
+            {
+                
+                if (this.architecture != null)
                 {
                     foreach (Architecture archi in this.architecture)
                     {
-                        if (archi.ID == a.ID)
+                        if (archi.ID == check.ID)
                         {
                             contains = true;
                         }
                     }
                 }
 
-                if (faction != null)
+                if (this.faction != null)
                 {
-                    foreach (Faction f in faction)
+                    foreach (Faction f in this.faction)
                     {
-                        if (a.BelongedFaction != null)
+                        if (check.BelongedFaction != null)
                         {
-                            if (f.ID == a.BelongedFaction.ID)
+                            if (f.ID == check.BelongedFaction.ID)
                             {
                                 contains = true;
                             }
                         }
                     }
+                }
 
-                }
-                if (contains)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                
             }
-            
-           
-            return this.matchEventPersons(a);
-        }
 
+            if (contains)
+            {
+               return true;
+            }
+               return false;   
+        }
+        
         public bool IsStart(GameScenario scenario)
         {
             Condition cstart = scenario.GameCommonData.AllConditions.GetCondition(9998);
