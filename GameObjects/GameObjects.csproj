@@ -1279,6 +1279,8 @@
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind520.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind530.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind680.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind750.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind760.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind808.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind809.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind818.cs" />
