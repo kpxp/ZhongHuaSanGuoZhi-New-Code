@@ -261,6 +261,11 @@
 
         public bool checkConditions(Architecture a)
         {
+            if (a.ID == 139)
+            {
+               int zz = 0;
+                 zz++;
+            }
             if (this.happened && !this.repeatable) return false;
             if (GameObject.Random(this.happenChance) != 0)
             {
@@ -302,20 +307,51 @@
                     return false;
                 }
             }
-            if (((this.architecture != null || this.faction != null) && !this.CheckEventID(a)))
+
+            if ((architecture.Count > 0 || faction.Count > 0))
             {
-                return false;
+                bool contains = false;
+                if (this.architecture != null)
+                {
+                    foreach (Architecture archi in this.architecture)
+                    {
+                        if (archi.ID == a.ID)
+                        {
+                            contains = true;
+                        }
+                    }
+                }
+
+                if (this.faction != null)
+                {
+                    foreach (Faction f in this.faction)
+                    {
+                        if (a.BelongedFaction != null)
+                        {
+                            if (f.ID == a.BelongedFaction.ID)
+                            {
+                                contains = true;
+                            }
+                        }
+                    }
+                }
+
+                if (!contains)
+                {
+                    return false;
+                }
             }
+            
             return this.matchEventPersons(a);
             
         }
-        
+        /*
         public bool CheckEventID(Architecture check)
         {
-            bool contains = false;
-            if (this.architecture != null || this.faction != null)
+
+            if ((this.architecture.Count > 0 || this.faction.Count > 0))
             {
-                
+                bool contains = false;
                 if (this.architecture != null)
                 {
                     foreach (Architecture archi in this.architecture)
@@ -341,15 +377,16 @@
                     }
                 }
 
-                
-            }
 
-            if (contains)
-            {
-               return true;
+
+
+                if (contains)
+                {
+                    return true;
+                }
             }
                return false;   
-        }
+        }*/
         
         public bool IsStart(GameScenario scenario)
         {
