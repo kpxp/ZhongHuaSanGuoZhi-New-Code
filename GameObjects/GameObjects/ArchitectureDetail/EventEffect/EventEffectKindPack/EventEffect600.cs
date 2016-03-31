@@ -1,4 +1,4 @@
-namespace GameObjects.ArchitectureDetail.EventEffect
+﻿namespace GameObjects.ArchitectureDetail.EventEffect
 {
     using GameObjects;
     using System;
@@ -24,3 +24,6 @@ namespace GameObjects.ArchitectureDetail.EventEffect
         }
     }
 }
+
+
+ 
