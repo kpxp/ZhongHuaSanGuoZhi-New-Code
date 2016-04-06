@@ -2220,21 +2220,22 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.Plugins.tupianwenziPlugin.SetGameObjectBranch(a.BelongedFaction.Leader, null, dialog.Text, e.Image, e.Sound);
                     }
                 }
+                if ((e.yesEffect != null || e.noEffect != null) && !this.Plugins.tupianwenziPlugin.IsShowing)
+                {
+                    this.Plugins.ConfirmationDialogPlugin.SetSimpleTextDialog(this.Plugins.SimpleTextDialogPlugin);
+                    this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
+                    this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
+                    this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
+                    this.Plugins.ConfirmationDialogPlugin.AddNoFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
+                    this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
+                }
                 if (GameGlobal.GlobalVariables.DialogShowTime > 0)
                 {
-                    if ((e.yesEffect != null || e.noEffect != null) && !this.Plugins.tupianwenziPlugin.IsShowing)
-                    {
-                        this.Plugins.ConfirmationDialogPlugin.SetSimpleTextDialog(this.Plugins.SimpleTextDialogPlugin);
-                        this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
-                        this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
-                        this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
-                        this.Plugins.ConfirmationDialogPlugin.AddNoFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
-                        this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
-                    }
+                    
                     this.Plugins.tupianwenziPlugin.SetCloseFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
                     this.Plugins.tupianwenziPlugin.IsShowing = true;
                 }
-               
+                
 
                 else
                 {
