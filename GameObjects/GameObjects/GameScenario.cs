@@ -758,6 +758,26 @@
             this.EventsToApply.Clear();
         }
 
+        public void ApplyYesEvents()
+        {
+            foreach (KeyValuePair<Event, Architecture> i in this.EventsToApply)
+            {
+                i.Key.DoYesApplyEvent(i.Value);
+                i.Key.happened = true;
+            }
+            this.EventsToApply.Clear();
+        }
+
+        public void ApplyNoEvents()
+        {
+            foreach (KeyValuePair<Event, Architecture> i in this.EventsToApply)
+            {
+                i.Key.DoNoApplyEvent(i.Value);
+                i.Key.happened = true;
+            }
+            this.EventsToApply.Clear();
+        }
+
         public void ChangeDiplomaticRelation(int faction1, int faction2, int offset)
         {
             if (faction1 != faction2)

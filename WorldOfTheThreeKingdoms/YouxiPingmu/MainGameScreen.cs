@@ -2209,6 +2209,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 && (e.matchedDialog != null && e.matchedDialog.Count > 0))
             {
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
+                
                 foreach (PersonDialog dialog in e.matchedDialog)
                 {
                     if (dialog.SpeakingPerson != null)
@@ -2220,13 +2221,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.Plugins.tupianwenziPlugin.SetGameObjectBranch(a.BelongedFaction.Leader, null, dialog.Text, e.Image, e.Sound);
                     }
                 }
-                if ((e.yesEffect != null || e.noEffect != null) && !this.Plugins.tupianwenziPlugin.IsShowing)
+                if ((e.yesEffect != null && e.noEffect != null) && !this.Plugins.tupianwenziPlugin.IsShowing)
                 {
-                    this.Plugins.ConfirmationDialogPlugin.SetSimpleTextDialog(this.Plugins.SimpleTextDialogPlugin);
+                    // this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(base.Scenario.ApplyYesEvents), new GameDelegates.VoidFunction(base.Scenario.ApplyNoEvents));
                     this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
-                    this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
+                    this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyYesEvents));
                     this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
-                    this.Plugins.ConfirmationDialogPlugin.AddNoFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
+                    this.Plugins.ConfirmationDialogPlugin.AddNoFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyNoEvents));
                     this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
                 }
                 if (GameGlobal.GlobalVariables.DialogShowTime > 0)
@@ -2244,6 +2245,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
             else
             {
+               
                 base.Scenario.ApplyEvents();
             }
         }

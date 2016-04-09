@@ -82,22 +82,30 @@
             }
         }
 
-        public void DoApplyEvent(Architecture a)
+        public void DoYesApplyEvent(Architecture a)
         {
-            if (yesEffect != null || noEffect != null  )
+            if (yesEffect != null )
             {
-                foreach (EventEffect i in yesEffect )
+                foreach (EventEffect i in yesEffect)
                 {
                     i.ApplyEffect(a, this);
                 }
+            }
+        }
 
+        public void DoNoApplyEvent(Architecture a)
+        {
+            if (noEffect != null)
+            {
                 foreach (EventEffect i in noEffect)
                 {
                     i.ApplyEffect(a, this);
                 }
             }
+        }
 
-            
+        public void DoApplyEvent(Architecture a)
+        {
             if (matchedEffect != null)
             {
                 foreach (KeyValuePair<Person, List<EventEffect>> i in matchedEffect)
