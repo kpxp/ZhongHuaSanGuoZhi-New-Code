@@ -81,7 +81,7 @@
                 base.Scenario.EnableLoadAndSave = true;
             }
         }
-
+        
         public void DoYesApplyEvent(Architecture a)
         {
             if (yesEffect != null )
@@ -103,7 +103,7 @@
                 }
             }
         }
-
+        
         public void DoApplyEvent(Architecture a)
         {
             if (matchedEffect != null)

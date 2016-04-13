@@ -4144,6 +4144,13 @@
 
         }
 
+        public void GenerateOfficer(PersonGeneratorType preferredType, bool success) //事件专用
+        {
+            PersonGenerateParam param = new PersonGenerateParam(Scenario, this, this.BelongedFaction.Leader, true, preferredType, false);
+            Person r = Person.createPerson(param);
+            //this.ZhaoXian(r);
+            this.DecreaseFund(preferredType.CostFund);
+        }
         
         public event Zhaoxian OnZhaoxian; //招贤
         public delegate void Zhaoxian(Person p, Person q);

@@ -757,7 +757,7 @@
             }
             this.EventsToApply.Clear();
         }
-
+        
         public void ApplyYesEvents()
         {
             foreach (KeyValuePair<Event, Architecture> i in this.EventsToApply)
@@ -777,7 +777,7 @@
             }
             this.EventsToApply.Clear();
         }
-
+        
         public void ChangeDiplomaticRelation(int faction1, int faction2, int offset)
         {
             if (faction1 != faction2)
