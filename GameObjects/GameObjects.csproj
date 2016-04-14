@@ -1280,6 +1280,8 @@
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind450.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind520.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind530.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind540.cs">
+    </Compile>
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind680.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind750.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind760.cs" />
