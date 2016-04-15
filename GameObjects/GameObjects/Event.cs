@@ -32,8 +32,8 @@
         public List<EventEffect> architectureEffect;
         public List<EventEffect> factionEffect;
 
-        public List<EventEffect> yesEffect;
-        public List<EventEffect> noEffect;
+        public Dictionary<int, List<EventEffect>> yesEffect;
+        public Dictionary<int, List<EventEffect>> noEffect;
 
         public List<PersonIdDialog> scenBiography = new List<PersonIdDialog>() ;
         public List<PersonDialog> matchedScenBiography = new List<PersonDialog> () ;
@@ -81,14 +81,15 @@
                 base.Scenario.EnableLoadAndSave = true;
             }
         }
-        
+
+        Dictionary<int, Person> matchedEventPersons = new Dictionary<int, Person>();
         public void DoYesApplyEvent(Architecture a)
         {
             if (yesEffect != null )
             {
-                foreach (EventEffect i in yesEffect)
+                foreach (KeyValuePair<int, List<EventEffect>> i in this.yesEffect)
                 {
-                    i.ApplyEffect(a, this);
+                    matchedEffect.Add(matchedEventPersons[i.Key], i.Value);
                 }
             }
         }
@@ -97,10 +98,11 @@
         {
             if (noEffect != null)
             {
-                foreach (EventEffect i in noEffect)
+                foreach (KeyValuePair<int, List<EventEffect>> i in this.noEffect)
                 {
-                    i.ApplyEffect(a, this);
+                    matchedEffect.Add(matchedEventPersons[i.Key], i.Value);
                 }
+                   
             }
         }
         
@@ -281,6 +283,7 @@
             {
                 matchedEffect.Add(matchedPersons[i.Key], i.Value);
             }
+
 
             return true;
         }
@@ -655,20 +658,29 @@
             char[] separator = new char[] { ' ', '\n', '\r', '\t' };
             string[] strArray = data.Split(separator, StringSplitOptions.RemoveEmptyEntries);
 
-            this.yesEffect = new List<EventEffect>();
-            foreach (string i in strArray)
+            this.yesEffect = new Dictionary<int, List<EventEffect>>();
+            for (int i = 0; i < strArray.Length; i += 2)
             {
-                 if (!allEffect.EventEffects.ContainsKey(int.Parse(i))) continue;
-                 this.yesEffect.Add(allEffect.EventEffects[int.Parse(i)]);
+                int n = int.Parse(strArray[i]);
+                int id = int.Parse(strArray[i + 1]);
+                if (!allEffect.EventEffects.ContainsKey(id)) continue;
+                if (!this.yesEffect.ContainsKey(n))
+                {
+                    this.yesEffect[n] = new List<EventEffect>();
+                }
+                this.yesEffect[n].Add(allEffect.EventEffects[id]);
             }
         }
 
         public string SaveYesEffectToString()
         {
             string result = "";
-            foreach (EventEffect i in this.yesEffect)
+            foreach (KeyValuePair<int, List<EventEffect>> i in this.yesEffect)
             {
-                result += i.ID + " ";
+                foreach (EventEffect j in i.Value)
+                {
+                    result += i.Key + " " + j.ID + " ";
+                }
             }
             return result;
         }
@@ -678,20 +690,29 @@
             char[] separator = new char[] { ' ', '\n', '\r', '\t' };
             string[] strArray = data.Split(separator, StringSplitOptions.RemoveEmptyEntries);
 
-            this.noEffect = new List<EventEffect>();
-            foreach (string i in strArray)
+            this.noEffect = new Dictionary<int, List<EventEffect>>();
+            for (int i = 0; i < strArray.Length; i += 2)
             {
-                if (!allEffect.EventEffects.ContainsKey(int.Parse(i))) continue;
-                this.noEffect.Add(allEffect.EventEffects[int.Parse(i)]);
+                int n = int.Parse(strArray[i]);
+                int id = int.Parse(strArray[i + 1]);
+                if (!allEffect.EventEffects.ContainsKey(id)) continue;
+                if (!this.noEffect.ContainsKey(n))
+                {
+                    this.noEffect[n] = new List<EventEffect>();
+                }
+                this.noEffect[n].Add(allEffect.EventEffects[id]);
             }
         }
 
         public string SaveNoEffectToString()
         {
             string result = "";
-            foreach (EventEffect i in this.noEffect)
+            foreach (KeyValuePair<int, List<EventEffect>> i in this.noEffect)
             {
-                result += i.ID + " ";
+                foreach (EventEffect j in i.Value)
+                {
+                    result += i.Key + " " + j.ID + " ";
+                }
             }
             return result;
         }
