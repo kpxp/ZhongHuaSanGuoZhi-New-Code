@@ -1284,6 +1284,7 @@
     </Compile>
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind560.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind680.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind690.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind750.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind760.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind808.cs" />
