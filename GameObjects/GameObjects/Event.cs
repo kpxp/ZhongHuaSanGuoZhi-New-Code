@@ -85,7 +85,7 @@
         Dictionary<int, Person> matchedEventPersons = new Dictionary<int, Person>();
         public void DoYesApplyEvent(Architecture a)
         {
-            if (yesEffect != null )
+            if (this.yesEffect != null )
             {
                 foreach (KeyValuePair<int, List<EventEffect>> i in this.yesEffect)
                 {
@@ -96,7 +96,7 @@
 
         public void DoNoApplyEvent(Architecture a)
         {
-            if (noEffect != null)
+            if (this.noEffect != null)
             {
                 foreach (KeyValuePair<int, List<EventEffect>> i in this.noEffect)
                 {
