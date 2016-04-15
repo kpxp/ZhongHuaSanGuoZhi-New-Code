@@ -35,6 +35,8 @@
         public Dictionary<int, List<EventEffect>> yesEffect;
         public Dictionary<int, List<EventEffect>> noEffect;
 
+        public Dictionary<int, Person> matchedPersons = new Dictionary<int, Person>();
+
         public List<PersonIdDialog> scenBiography = new List<PersonIdDialog>() ;
         public List<PersonDialog> matchedScenBiography = new List<PersonDialog> () ;
         public String Image = "";
@@ -82,16 +84,16 @@
             }
         }
 
-        Dictionary<int, Person> matchedEventPersons = new Dictionary<int, Person>();
+        
         public void DoYesApplyEvent(Architecture a)
         {
-            if (this.yesEffect != null )
+            if (this.yesEffect != null)
             {
                 foreach (KeyValuePair<int, List<EventEffect>> i in this.yesEffect)
                 {
-                    matchedEffect.Add(matchedEventPersons[i.Key], i.Value);
+                    matchedEffect.Add(matchedPersons[i.Key], i.Value);
                 }
-            }
+            } 
         }
 
         public void DoNoApplyEvent(Architecture a)
@@ -100,7 +102,7 @@
             {
                 foreach (KeyValuePair<int, List<EventEffect>> i in this.noEffect)
                 {
-                    matchedEffect.Add(matchedEventPersons[i.Key], i.Value);
+                    matchedEffect.Add(matchedPersons[i.Key], i.Value);
                 }
                    
             }
@@ -236,7 +238,7 @@
                 if (i.Count == 0) return false;
             }
 
-            Dictionary<int, Person> matchedPersons = new Dictionary<int, Person>();
+            //Dictionary<int, Person> matchedPersons = new Dictionary<int, Person>();
             foreach (KeyValuePair<int, List<Person>> i in candidates)
             {
                 if (i.Value.Count <= 0) return false;
