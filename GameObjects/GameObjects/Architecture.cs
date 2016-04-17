@@ -4085,6 +4085,7 @@
 
         private bool IsChanceOfGeneratingOfficer(int factionPersonCount, bool isAI, PersonGeneratorType preferredType)
         {
+            //if (base.Scenario.IsPlayer(this.BelongedFaction )) return true ; // 测试专用
 
             if (factionPersonCount < 5)
             {

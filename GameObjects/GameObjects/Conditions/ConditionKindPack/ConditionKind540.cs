@@ -17,6 +17,7 @@
             }
 
 
+            if (person.LocationArchitecture != null)
             {
                 Person p1 = person.BelongedArchitecture.Persons[GameObject.Random(person.BelongedArchitecture.Persons.Count)] as Person;
 
