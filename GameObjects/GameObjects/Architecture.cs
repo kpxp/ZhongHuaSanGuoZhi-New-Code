@@ -4461,6 +4461,37 @@
             this.BelongedFaction.RoutewayPathBuilder.ConsumptionMax = 0.7f;
         }
 
+        private void RefreshNeutralBuilding()
+        {
+            if (this.Kind.ID == 250)
+            {
+                this.Endurance += 50;
+                this.Domination += 5;
+                this.Morale += 10;
+                this.BelongedFaction = null;
+                foreach (Troop troop in base.Scenario.Troops)
+                {
+                    if (troop.BelongedFaction != null && this.ViewArea.HasPoint(troop.Position))
+                    {
+                        if (troop.Army.Tiredness > 0)
+                        {
+                            troop.Army.Tiredness = 0;
+                        }
+
+                        if (troop.Morale < 100)
+                        {
+                            troop.Morale += 10;
+                        }
+
+                        if (troop.Combativity < 120)
+                        {
+                            troop.Combativity += 10;
+                        }
+                    }
+                }
+            }
+        }
+
         private void CheckRobberTroop()
         {
             if (this.RobberTroop != null && this.RobberTroop.BelongedFaction != null)
@@ -5002,7 +5033,7 @@
 
         public void DayEvent()
         {
-            //this.CheckMayor();
+            this.RefreshNeutralBuilding(); //  加buff中立建筑
             this.FundPacksDayEvent();
             this.FoodPacksDayEvent();
             this.PopulationPacksDayEvent();
@@ -5029,6 +5060,8 @@
             ExpectedFundCache = -1;
             this.SuspendTroopTransfer--;
         }
+
+
 
         private void RestEvent()
         {

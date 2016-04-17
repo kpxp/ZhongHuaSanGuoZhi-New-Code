@@ -433,6 +433,9 @@
         private int forceTroopTargetId;
 
         private Troop forceTroopTarget;
+
+        private int tiredness;
+
         public Troop ForceTroopTarget
         {
             get
@@ -11962,6 +11965,10 @@
             get
             {
                 return this.Army.Tiredness;
+            }
+            set
+            {
+                this.tiredness = value;
             }
         }
 
