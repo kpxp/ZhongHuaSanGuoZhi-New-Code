@@ -7896,7 +7896,8 @@
                     }
                 }
             }
-
+            
+            
             String biography = "";
             if (foundLocation != null && finder != null)
             {
@@ -7911,8 +7912,9 @@
             bio.FactionColor = 52;
             bio.MilitaryKinds.AddBasicMilitaryKinds(scen);
             scen.AllBiographies.AddBiography(bio);
-            r.PersonBiography = bio;
 
+            r.PersonBiography = bio;
+            
             r.Alive = true;
             r.Available = true;
             r.LocationArchitecture = foundLocation;
@@ -7928,7 +7930,6 @@
         }
 
         
-
         public static Person createChildren(Person father, Person mother)
         {
             Person r = new Person();

@@ -4085,6 +4085,7 @@
 
         private bool IsChanceOfGeneratingOfficer(int factionPersonCount, bool isAI, PersonGeneratorType preferredType)
         {
+
             if (factionPersonCount < 5)
             {
                 return true ;
