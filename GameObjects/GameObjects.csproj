@@ -1272,6 +1272,7 @@
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect235.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect250.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect270.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect275.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect280.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect290.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect4000.cs" />
