@@ -3386,7 +3386,7 @@
             {
                 this.Army.Tiredness += 1;
             }
-            if (GameObject.Chance(this.TirednessDecreaseChanceByViewArea))
+            if (GameObject.Chance(this.TirednessDecreaseChanceByViewArea) && this.Army.Tiredness > 0)
             {
                 this.Army.Tiredness -= 1;
             }
@@ -11969,6 +11969,7 @@
             set
             {
                 this.tiredness = value;
+                
             }
         }
 
