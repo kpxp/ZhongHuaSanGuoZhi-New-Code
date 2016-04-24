@@ -2221,17 +2221,29 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.Plugins.tupianwenziPlugin.SetGameObjectBranch(a.BelongedFaction.Leader, null, dialog.Text, e.Image, e.Sound);
                     }
                 }
-                /*
-                if ((e.yesEffect != null && e.noEffect != null) && !this.Plugins.tupianwenziPlugin.IsShowing)
+
+                foreach (Event ev in base.Scenario.AllEvents)
                 {
-                    //this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(base.Scenario.ApplyEvents(true), new GameDelegates.VoidFunction(base.Scenario.ApplyEvents(false)));
-                    this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
-                    this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
-                    this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
-                    this.Plugins.ConfirmationDialogPlugin.AddNoFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
-                    this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
+
+                    if (ev.yesEffect != null && ev.noEffect != null)
+                    {
+                        //throw new Exception("yesEffect != null " + ev.yesEffect);
+
+                        if (!this.Plugins.ConfirmationDialogPlugin.IsShowing)
+                        {
+                            //this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(base.Scenario.ApplyEvents(true), new GameDelegates.VoidFunction(base.Scenario.ApplyEvents(false)));
+                            this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
+                            this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
+                            this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
+                            this.Plugins.ConfirmationDialogPlugin.AddNoFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
+
+
+
+                            this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
+                        }
+                    }
                 }
-                 */
+                 
                 if (GameGlobal.GlobalVariables.DialogShowTime > 0)
                 {
                     
