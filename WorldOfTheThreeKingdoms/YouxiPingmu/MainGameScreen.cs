@@ -2221,7 +2221,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.Plugins.tupianwenziPlugin.SetGameObjectBranch(a.BelongedFaction.Leader, null, dialog.Text, e.Image, e.Sound);
                     }
                 }
-
+                /*
                 foreach (Event ev in base.Scenario.AllEvents)
                 {
 
@@ -2242,7 +2242,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
                         }
                     }
-                }
+                }*/
                  
                 if (GameGlobal.GlobalVariables.DialogShowTime > 0)
                 {
