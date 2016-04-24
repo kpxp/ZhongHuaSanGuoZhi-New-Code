@@ -10,12 +10,12 @@
 
         public override void ApplyInfluenceKind(Troop t)
         {
-            t.TirednessDecreaseChanceByViewArea += this.increment;
+            t.TirednessDecreaseChanceInViewArea += this.increment;
         }
 
         public override void PurifyInfluenceKind(Troop t)
         {
-            t.TirednessDecreaseChanceByViewArea -= this.increment;
+            t.TirednessDecreaseChanceInViewArea -= this.increment;
         }
 
         public override void InitializeParameter(string parameter)
