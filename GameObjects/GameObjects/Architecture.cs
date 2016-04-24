@@ -4475,7 +4475,7 @@
                     {
                         if (troop.Army.Tiredness > 0)
                         {
-                            troop.Army.Tiredness = 0;
+                            troop.Army.Tiredness -= 1;
                         }
 
                         if (troop.Morale < 100)
