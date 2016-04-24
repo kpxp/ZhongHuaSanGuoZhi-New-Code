@@ -4475,7 +4475,7 @@
                     {
                         if (troop.Army.Tiredness > 0)
                         {
-                            troop.Army.Tiredness -= 1;
+                            troop.Army.Tiredness -= GlobalVariables.TroopTirednessDecrease;
                         }
 
                         if (troop.Morale < 100)
@@ -4487,6 +4487,10 @@
                         {
                             troop.Combativity += 10;
                         }
+                    }
+                    if (troop.Army.Tiredness < 0)
+                    {
+                        troop.Army.Tiredness = 0;
                     }
                 }
             }

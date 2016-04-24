@@ -73,4 +73,6 @@ ChildrenAvailableAge="12"
 FullScreen="False"
 FriendlyDiplomacyThreshold="300" 
 SurroundFactor="5"
-ArmyPopulationCap="1.0" PermitQuanXiang="True" PermitManualAwardTitleAutoLearn ="false"></GlobalVariables>
+ArmyPopulationCap="1.0" PermitQuanXiang="True" PermitManualAwardTitleAutoLearn ="false"
+FactionMilitaryLimt="5" 
+TroopTirednessDecrease="10"></GlobalVariables>

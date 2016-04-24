@@ -135,6 +135,8 @@
 
         public static int FactionMilitaryLimt = 5;
 
+        public static int TroopTirednessDecrease = 10;
+
         public static float CreateRandomOfficerChance = 5;
         
         public static int ChildrenAvailableAge = 12;
@@ -859,6 +861,15 @@
             {
                 exception = exception24;
                 throw new Exception("FactionMilitaryLimt:\n" + exception.ToString());
+            }
+            try
+            {
+                TroopTirednessDecrease = int.Parse(nextSibling.Attributes.GetNamedItem("TroopTirednessDecrease").Value);
+            }
+            catch (Exception exception24)
+            {
+                exception = exception24;
+                throw new Exception("TroopTirednessDecrease:\n" + exception.ToString());
             }
             return true;
         }
