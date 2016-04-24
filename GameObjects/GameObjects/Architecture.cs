@@ -4483,7 +4483,7 @@
                             troop.Morale += 10;
                         }
 
-                        if (troop.Combativity < 120)
+                        if (troop.Combativity < 100)
                         {
                             troop.Combativity += 10;
                         }
