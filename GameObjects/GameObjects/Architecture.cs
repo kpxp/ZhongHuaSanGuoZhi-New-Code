@@ -5638,6 +5638,25 @@
                     }
                 }
             }
+            else if (!this.HasPerson() && this.HasCampaignableMilitary())
+            {
+                int totalHostilePersonCount = 0;
+                foreach (Troop troop in this.GetHostileTroopsInView())
+                {
+                    totalHostilePersonCount += troop.PersonCount;
+                }
+                int send = totalHostilePersonCount / 2;
+                foreach (Architecture a in this.BelongedFaction.Architectures)
+                {
+                    if (a == this) continue;
+                    if (a.HasHostileTroopsInView()) continue;
+
+                    if (a.PersonCount <= send) continue;
+
+                    this.CallPeople(a, send);
+
+                }
+            }
 
             //not enough defensive troop, call for reinforcements!!
             float rate = (float)Math.Max(1, (200 - this.Endurance) * 0.005 + 1);
