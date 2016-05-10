@@ -752,22 +752,28 @@
             }
         }
 
-        public void ApplyEvents()
+        public void ApplyYesEvents()
         {
-
             foreach (KeyValuePair<Event, Architecture> i in this.YesEventsToApply)
             {
                 i.Key.DoYesApplyEvent(i.Value);
                 i.Key.happened = true;
             }
             this.YesEventsToApply.Clear();
+        }
 
+        public void ApplyNoEvents()
+        {
             foreach (KeyValuePair<Event, Architecture> i in this.NoEventsToApply)
             {
                 i.Key.DoNoApplyEvent(i.Value);
                 i.Key.happened = true;
             }
             this.NoEventsToApply.Clear();
+        }
+
+        public void ApplyEvents()
+        {
 
             foreach (KeyValuePair<Event, Architecture> i in this.EventsToApply)
             {

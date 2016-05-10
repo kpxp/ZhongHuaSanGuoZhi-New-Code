@@ -2222,10 +2222,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                 }
                 
-                foreach (Event ev in base.Scenario.AllEvents)
-                {
+                
 
-                    if (ev.yesEffect != null && ev.noEffect != null)
+                    if (e.yesEffect.Count > 0 && e.noEffect.Count > 0)
                     {
                         //throw new Exception("yesEffect != null " + ev.yesEffect);
 
@@ -2233,20 +2232,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         {
                             //this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(base.Scenario.ApplyEvents(true), new GameDelegates.VoidFunction(base.Scenario.ApplyEvents(false)));
                             this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
-                            this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
+                            this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyYesEvents));
                             this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
-                            this.Plugins.ConfirmationDialogPlugin.AddNoFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyEvents));
+                            this.Plugins.ConfirmationDialogPlugin.AddNoFunction(new GameDelegates.VoidFunction(base.Scenario.ApplyNoEvents));
 
 
 
                             this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
                         }
                     }
-                    else
-                    {
-                        base.Scenario.ApplyEvents();
-                    }
-                }
+                    
+                
                  
                 if (GameGlobal.GlobalVariables.DialogShowTime > 0)
                 {
