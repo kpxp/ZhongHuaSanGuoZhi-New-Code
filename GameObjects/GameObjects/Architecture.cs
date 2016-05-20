@@ -5015,8 +5015,18 @@
                 {
                     if (!base.Scenario.EventsToApply.ContainsKey(e))
                     {
-                       base.Scenario.EventsToApply.Add(e, this);
-                       e.ApplyEventDialogs(this); 
+                        base.Scenario.EventsToApply.Add(e, this);
+                        e.ApplyEventDialogs(this);
+                    }
+                    if (!base.Scenario.YesEventsToApply.ContainsKey(e))
+                    {
+                        base.Scenario.YesEventsToApply.Add(e, this);
+                         e.ApplyEventDialogs(this);
+                    }
+                    if(!base.Scenario.NoEventsToApply.ContainsKey(e))
+                    {
+                        base.Scenario.NoEventsToApply.Add(e, this);
+                        e.ApplyEventDialogs(this);
                     }
                 }
             }

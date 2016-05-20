@@ -6642,9 +6642,15 @@
                         ran = true;
                             
                     }
-                    else if (!this.YesEventsToApply.ContainsKey(e)|| !this.NoEventsToApply.ContainsKey(e))
+                    if (!this.YesEventsToApply.ContainsKey(e))
                     {
                         this.YesEventsToApply.Add(e, triggerArch);
+
+                        e.ApplyEventDialogs(triggerArch);
+                        ran = true;
+                    }
+                    if (!this.NoEventsToApply.ContainsKey(e))
+                    {
                         this.NoEventsToApply.Add(e, triggerArch);
                         e.ApplyEventDialogs(triggerArch);
                         ran = true;
@@ -6668,9 +6674,15 @@
                         ran = true;
 
                     }
-                    else if (!this.YesEventsToApply.ContainsKey(e) || !this.NoEventsToApply.ContainsKey(e))
+                    if (!this.YesEventsToApply.ContainsKey(e)) 
                     {
                         this.YesEventsToApply.Add(e, triggerArch);
+                        
+                        e.ApplyEventDialogs(triggerArch);
+                        ran = true;
+                    }
+                    if (!this.NoEventsToApply.ContainsKey(e))
+                    {
                         this.NoEventsToApply.Add(e, triggerArch);
                         e.ApplyEventDialogs(triggerArch);
                         ran = true;

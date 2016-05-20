@@ -29,6 +29,10 @@
         public Dictionary<int, List<EventEffect>> effect;
         public List<PersonDialog> matchedDialog;
         public Dictionary<Person, List<EventEffect>> matchedEffect;
+
+        public Dictionary<Person, List<EventEffect>> matchedYesEffect;//
+        public Dictionary<Person, List<EventEffect>> matchedNoEffect;
+
         public List<EventEffect> architectureEffect;
         public List<EventEffect> factionEffect;
 
@@ -89,9 +93,13 @@
         {
             if (this.yesEffect != null)
             {
-                foreach (KeyValuePair<int, List<EventEffect>> i in this.yesEffect)
+
+                foreach (KeyValuePair<Person, List<EventEffect>> i in matchedYesEffect)
                 {
-                    matchedEffect.Add(matchedPersons[i.Key], i.Value);
+                    foreach (EventEffect j in i.Value)
+                    {
+                        j.ApplyEffect(i.Key, this);
+                    }
                 }
             } 
         }
@@ -100,12 +108,14 @@
         {
             if (this.noEffect != null)
             {
-                foreach (KeyValuePair<int, List<EventEffect>> i in this.noEffect)
+                foreach (KeyValuePair<Person, List<EventEffect>> i in matchedNoEffect)
                 {
-                    matchedEffect.Add(matchedPersons[i.Key], i.Value);
+                    foreach (EventEffect j in i.Value)
+                    {
+                        j.ApplyEffect(i.Key, this);
+                    }
                 }
-                   
-            }
+            } 
         }
         
         public void DoApplyEvent(Architecture a)
@@ -285,7 +295,16 @@
             {
                 matchedEffect.Add(matchedPersons[i.Key], i.Value);
             }
-
+            matchedYesEffect = new Dictionary<Person, List<EventEffect>>();
+            foreach (KeyValuePair<int, List<EventEffect>> i in this.yesEffect)
+            {
+                matchedYesEffect.Add(matchedPersons[i.Key], i.Value);
+            }
+            matchedNoEffect = new Dictionary<Person, List<EventEffect>>();
+            foreach (KeyValuePair<int, List<EventEffect>> i in this.noEffect)
+            {
+                matchedNoEffect.Add(matchedPersons[i.Key], i.Value);
+            }
 
             return true;
         }
